@@ -146,5 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7656b6890dcaa1940b2737be860818d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canFreezeControl: 1
+  canFreezeControl: 0
   controller: {fileID: 0}
