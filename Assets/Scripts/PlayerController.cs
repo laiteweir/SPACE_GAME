@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float collisionOffset = 0.05f;
     public ContactFilter2D movementFilter;
     public Interact interact;
+    public Inventory maybag;
 
     enum Condition
     {
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        maybag.itemList.Clear();
     }
 
     void FixedUpdate() 
