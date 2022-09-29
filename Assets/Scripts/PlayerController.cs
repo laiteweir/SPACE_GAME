@@ -8,11 +8,7 @@ public class PlayerController : MonoBehaviour
     public float collisionOffset = 0.05f;
     public ContactFilter2D movementFilter;
     public Interact interact;
-<<<<<<< Updated upstream
     public Inventory maybag;
-=======
-    public Inventory playerInventory;
->>>>>>> Stashed changes
 
     enum Condition
     {
@@ -33,11 +29,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-<<<<<<< Updated upstream
         maybag.itemList.Clear();
-=======
-        playerInventory.itemList.Clear();
->>>>>>> Stashed changes
     }
 
     void FixedUpdate() 

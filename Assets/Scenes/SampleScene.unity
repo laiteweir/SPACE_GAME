@@ -4978,6 +4978,8 @@ MonoBehaviour:
   slotgrid: {fileID: 1778615650}
   slotprefab: {fileID: 4232587823605868715, guid: 08ea9cb871f084a8f96f83036af97fa7, type: 3}
   description: {fileID: 0}
+  MG: {fileID: 882984120}
+  isopen: 0
 --- !u!114 &48703602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5352,7 +5354,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &882984121
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8615,7 +8617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf50f7e5ecd1b4a41b973aaa8b8f33aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisItem: {fileID: 11400000, guid: 5b5df33e10e5a45919464bc721341f0a, type: 2}
+  thisItem: {fileID: 11400000, guid: 0d130173578874f558f55862df7bc53a, type: 2}
   playerInventory: {fileID: 11400000, guid: 94670a4f4e1ee4a048cab7beac8bd67e, type: 2}
 --- !u!1 &1778615650
 GameObject:
@@ -8863,7 +8865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf50f7e5ecd1b4a41b973aaa8b8f33aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisItem: {fileID: 11400000, guid: 036af7b1cbcb74c79b47902908bcc0c7, type: 2}
+  thisItem: {fileID: 11400000, guid: b371f0550b24a4f92a9115c5c2b67f60, type: 2}
   playerInventory: {fileID: 11400000, guid: 94670a4f4e1ee4a048cab7beac8bd67e, type: 2}
 --- !u!224 &1923424787
 RectTransform:
@@ -8892,6 +8894,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1022115540, guid: ac7369e9b0d3110418955999238f7ffe, type: 3}
+      propertyPath: maybag
+      value: 
+      objectReference: {fileID: 11400000, guid: 94670a4f4e1ee4a048cab7beac8bd67e, type: 2}
     - target: {fileID: 1022115540, guid: ac7369e9b0d3110418955999238f7ffe, type: 3}
       propertyPath: playerInventory
       value: 
