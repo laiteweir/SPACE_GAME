@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MagicCircle
   m_EditorClassIdentifier: 
   itemName: 
-  itemImage: {fileID: 0}
+  itemImage: {fileID: 21300000, guid: 3d39ed94a8a924c6f88fb2421d1ccf7e, type: 3}
   itemHeld: 0
   itemInfo: 
   equip: 0
