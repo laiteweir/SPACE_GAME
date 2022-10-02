@@ -141,7 +141,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1022115538
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  collisionOffset: 0.05
+  collisionOffset: 0
   movementFilter:
     useTriggers: 0
     useLayerMask: 1
@@ -197,6 +197,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   interact: {fileID: 245961660368771892}
+  maybag: {fileID: 11400000, guid: 94670a4f4e1ee4a048cab7beac8bd67e, type: 2}
 --- !u!114 &1022115541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,5 +324,5 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
