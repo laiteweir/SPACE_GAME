@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: key
   m_EditorClassIdentifier: 
   itemName: 
-  itemImage: {fileID: 21300000, guid: 70d292ad8e2d541c2929823be503a5ed, type: 3}
-  itemHeld: 4
+  itemImage: {fileID: 21300000, guid: 9c6f48bd24dc24fab95b8e07f95b9e12, type: 3}
+  itemHeld: 0
   itemInfo: 
   equip: 0
