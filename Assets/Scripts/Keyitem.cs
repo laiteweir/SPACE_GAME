@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Keyitem : MonoBehaviour
 {
-    public bool canFreezeControl = false;
-    public PlayerController controller;
+    public static bool canFreezeControl = false;
+    public static PlayerController controller;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +14,9 @@ public class Keyitem : MonoBehaviour
 
     public void KeyitemEvent()
     {
-        Debug.Log("Something happened!");
+        //Debug.Log("Something happened!");
+        UI.text.SetActive(true);
+        UI.TextIsOn = true;
         if (canFreezeControl)
         {
             controller.enabled = false;
