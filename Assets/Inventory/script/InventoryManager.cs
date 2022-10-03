@@ -21,6 +21,9 @@ public class InventoryManager : MonoBehaviour
         }
         instance = this;
     }
+    void Start(){
+        maybag.itemList.Clear();
+    }
     void Update(){
         Change_item();
         Close_Bag();
@@ -52,7 +55,7 @@ public class InventoryManager : MonoBehaviour
     public void display_item(int number){
         newitem.slotItem = maybag.itemList[number];
         newitem.slotImage.sprite = maybag.itemList[number].itemImage;
-        //newitem.Text = maybag.itemList[number].itemInfo;
+        //newitem.slotInfo = maybag.itemList[number].itemInfo;
     }
     public void Close_Bag(){
         if(Input.GetKeyDown(KeyCode.O)){
