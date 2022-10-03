@@ -270,6 +270,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1022115540, guid: ac7369e9b0d3110418955999238f7ffe, type: 3}
+      propertyPath: moveSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3969625739329750308, guid: ac7369e9b0d3110418955999238f7ffe, type: 3}
       propertyPath: m_Name
       value: Player
@@ -33185,6 +33189,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!4 &972283193 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3969625739329750310, guid: ac7369e9b0d3110418955999238f7ffe, type: 3}
+  m_PrefabInstance: {fileID: 566915285}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1229803103
 GameObject:
   m_ObjectHideFlags: 3
@@ -33310,7 +33319,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 972283193}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 3
@@ -33432,15 +33441,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3480955862406728475, guid: 54ef9405147537e49ad2c7d6fe6d090e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3480955862406728475, guid: 54ef9405147537e49ad2c7d6fe6d090e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3480955862406728475, guid: 54ef9405147537e49ad2c7d6fe6d090e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3480955862406728475, guid: 54ef9405147537e49ad2c7d6fe6d090e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
