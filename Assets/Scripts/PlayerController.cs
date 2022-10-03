@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        maybag.itemList.Clear();
     }
 
     void FixedUpdate() 

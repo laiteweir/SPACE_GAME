@@ -7,5 +7,5 @@ public class Slot : MonoBehaviour
     // Start is called before the first frame update
     public Item slotItem;
     public Image slotImage;
-    public Text slotNum;
+    public Text slotInfo;
 }
