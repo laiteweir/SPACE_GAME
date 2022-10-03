@@ -201,8 +201,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -1992357400, guid: d2aa4c7e66318bf439602349d28e3595, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -1484676721, guid: b7ce64642a398d44b87cf0fb7ac59072, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -226,7 +226,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -20452,7 +20452,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -714539460, guid: 021bb489b5d2b0942a795ad532143ec1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -20477,7 +20477,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &938686625
 GameObject:
@@ -20491,7 +20491,7 @@ GameObject:
   - component: {fileID: 938686629}
   - component: {fileID: 938686628}
   - component: {fileID: 938686627}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CollisionObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
