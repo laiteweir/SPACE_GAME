@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float collisionOffset = 0.05f;
     public ContactFilter2D movementFilter;
     public Interact interact;
+    public Inventory maybag;
 
     enum Condition
     {
@@ -15,12 +16,12 @@ public class PlayerController : MonoBehaviour
         Blocked,
         InputZero
     }
-
+    bool canMove = true;
     Vector2 movementInput;
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
     Animator animator;
-    List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
+    readonly List<RaycastHit2D> castCollisions = new();
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +29,12 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        maybag.itemList.Clear();
     }
 
     void FixedUpdate() 
     {
-        if (movementInput != Vector2.zero)
+        if (canMove && movementInput != Vector2.zero)
         {
             if (movementInput.x < 0f)
             {
@@ -47,12 +49,12 @@ public class PlayerController : MonoBehaviour
             
             if (condition == Condition.Blocked)
             {
-                condition = TryMove(new Vector2(movementInput.x, 0));
+                condition = TryMove(new Vector2(movementInput.x, 0)); 
+            }
 
-                if (condition == Condition.Blocked)
-                {
-                    condition = TryMove(new Vector2(0, movementInput.y));
-                }
+            if (condition == Condition.Blocked)
+            {
+                condition = TryMove(new Vector2(0, movementInput.y));
             }
 
             if (condition == Condition.Success)
@@ -108,10 +110,19 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("keyitemInteract");
     }
 
+    public void LockMovement ()
+    {
+        canMove = false;
+    }
+
+    public void UnlockMovement()
+    {
+        canMove = true;
+    }
+
     public void KeyitemInteract()
     {
-
-
+        LockMovement();
         if (spriteRenderer.flipX)
         {
             interact.InteractLeft();
@@ -124,7 +135,7 @@ public class PlayerController : MonoBehaviour
 
     public void EndKeyitemInteract()
     {
-
+        UnlockMovement();
         interact.StopInteract();
     }
 }

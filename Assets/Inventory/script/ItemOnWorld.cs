@@ -16,6 +16,8 @@ public class ItemOnWorld : MonoBehaviour
     }
     private void AddNewItem(){
         if(!playerInventory.itemList.Contains(thisItem)){
+            if(playerInventory.itemList.Count==0)
+                InventoryManager.CreateNewItem(thisItem);
             playerInventory.itemList.Add(thisItem);
         }
         else{

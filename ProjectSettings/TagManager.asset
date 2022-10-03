@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Keyitem
+  - Room1Door
   layers:
   - Default
   - TransparentFX
