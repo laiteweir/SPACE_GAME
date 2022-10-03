@@ -270,17 +270,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1022115540, guid: ac7369e9b0d3110418955999238f7ffe, type: 3}
-      propertyPath: moveSpeed
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3969625739329750308, guid: ac7369e9b0d3110418955999238f7ffe, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3969625739329750310, guid: ac7369e9b0d3110418955999238f7ffe, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3969625739329750310, guid: ac7369e9b0d3110418955999238f7ffe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -33352,7 +33348,7 @@ Transform:
   m_Children:
   - {fileID: 1229803104}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1364793599
 MonoBehaviour:
@@ -33421,7 +33417,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3480955862406728475, guid: 54ef9405147537e49ad2c7d6fe6d090e, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3480955862406728475, guid: 54ef9405147537e49ad2c7d6fe6d090e, type: 3}
       propertyPath: m_LocalPosition.x
