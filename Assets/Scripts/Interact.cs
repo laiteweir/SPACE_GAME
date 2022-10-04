@@ -26,6 +26,17 @@ public class Interact : MonoBehaviour
                 ki.KeyitemEvent();
             }
         }
+
+        if (other.CompareTag("Room1Door"))
+        {
+            Debug.Log("Touch room1 door");
+            Room1Door door = other.GetComponent<Room1Door>();
+
+            if (door != null)
+            {
+                door.Room1DoorEvent();
+            }
+        }
     }
 
     public void InteractRight()
