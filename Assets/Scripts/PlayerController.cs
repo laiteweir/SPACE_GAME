@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
         InputZero
     }
     bool canMove = true;
+    bool isVertical = false;
+    bool flipy = false;
     Vector2 movementInput;
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
@@ -35,13 +37,25 @@ public class PlayerController : MonoBehaviour
     {
         if (canMove && movementInput != Vector2.zero)
         {
-            if (movementInput.x < 0f)
+            if (movementInput.x > 0f)
             {
+                isVertical = false;
+                spriteRenderer.flipX = false;
+            }
+            else if (movementInput.x < 0f)
+            {
+                isVertical = false;
                 spriteRenderer.flipX = true;
             }
-            else if (movementInput.x > 0f)
+            else if (movementInput.y > 0f)
             {
-                spriteRenderer.flipX = false;
+                isVertical = true;
+                flipy = false;
+            }
+            else if (movementInput.y < 0f)
+            {
+                isVertical = true;
+                flipy = true;
             }
 
             Condition condition = TryMove(movementInput);
@@ -122,13 +136,27 @@ public class PlayerController : MonoBehaviour
     public void KeyitemInteract()
     {
         LockMovement();
-        if (spriteRenderer.flipX)
+        if (isVertical)
         {
-            interact.InteractLeft();
+            if (flipy)
+            {
+                interact.InteractDown();
+            }
+            else
+            {
+                interact.InteractTop();
+            }
         }
         else
         {
-            interact.InteractRight();
+            if (spriteRenderer.flipX)
+            {
+                interact.InteractLeft();
+            }
+            else
+            {
+                interact.InteractRight();
+            }
         }
     }
 
