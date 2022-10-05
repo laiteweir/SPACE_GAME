@@ -9,11 +9,15 @@ public class CodePanel : MonoBehaviour
     [SerializeField]
     Text Codecontext;
     string  codevalue="";
+    bool door_open= false;
     
     // Update is called once per frame
     void Update()
     {
         Codecontext.text = codevalue;
+        if(codevalue=="1234"){
+            door_open = true;
+        }
     }
     public void AddValue(string digit){
         codevalue+=digit;
