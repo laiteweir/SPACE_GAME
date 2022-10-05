@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CodePanel : MonoBehaviour
 {
     // Start is called before the first frame update
+    public string  passward="1234";
     [SerializeField]
     Text Codecontext;
     string  codevalue="";
@@ -15,12 +16,24 @@ public class CodePanel : MonoBehaviour
     void Update()
     {
         Codecontext.text = codevalue;
-        if(codevalue=="1234"){
-            door_open = true;
-        }
+        if(codevalue.Length>=5)
+            Delete();
     }
     public void AddValue(string digit){
-        codevalue+=digit;
+        if(codevalue.Length<=4){
+            codevalue+=digit;
+            Debug.Log(codevalue);
+        }
+    }
+    public void Confirm(){
+        if(codevalue==passward){
+            door_open = true;
+            Debug.Log("the door is open\n");
+        }
+    }
+    public void Delete(){
+        string result = codevalue.Substring(0,codevalue.Length-1);
+        codevalue = result;
         Debug.Log(codevalue);
     }
 }
