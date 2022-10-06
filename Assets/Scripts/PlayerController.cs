@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 1f;
-    public float collisionOffset = 0.05f;
-    public ContactFilter2D movementFilter;
-    public Interact interact;
-    public Inventory maybag;
+    [SerializeField] float moveSpeed = 1f;
+    [SerializeField] float collisionOffset = 0.05f;
+    [SerializeField] ContactFilter2D movementFilter;
+    [SerializeField] Interact interact;
+    [SerializeField] Inventory maybag;
 
     enum Condition
     {

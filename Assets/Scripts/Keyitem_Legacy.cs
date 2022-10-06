@@ -2,18 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Room1Door : MonoBehaviour
+public class Keyitem_Legacy : MonoBehaviour
 {
-    public bool canFreezeControl = false;
-    public PlayerController controller;
+    public static bool canFreezeControl = false;
+    public static PlayerController controller;
     // Start is called before the first frame update
     void Start()
     {
         
     }
-    public void Room1DoorEvent()
+
+    public void KeyitemEvent()
     {
-        Debug.Log("Try to open Room1 door");
+        //Debug.Log("Something happened!");
+        UI.text.SetActive(true);
+        UI.TextIsOn = true;
         if (canFreezeControl)
         {
             controller.enabled = false;
