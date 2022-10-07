@@ -4,22 +4,13 @@ using UnityEngine;
 
 public class Keyitem : MonoBehaviour
 {
-    public static bool canFreezeControl = false;
-    public static PlayerController controller;
-    // Start is called before the first frame update
-    void Start()
+    public virtual void KeyitemEvent()
     {
-        
+        Debug.Log("Something is happening!");
     }
 
-    public void KeyitemEvent()
+    public virtual void EndKeyitemEvent()
     {
-        //Debug.Log("Something happened!");
-        UI.text.SetActive(true);
-        UI.TextIsOn = true;
-        if (canFreezeControl)
-        {
-            controller.enabled = false;
-        }
+        Debug.Log("Something has happened!");
     }
 }
