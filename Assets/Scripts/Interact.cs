@@ -5,12 +5,14 @@ using UnityEngine;
 public class Interact : MonoBehaviour
 {
     Vector2 rightInteractOffset;
+    Vector2 topInteractOffset;
     Collider2D interactCollider;
 
     // Start is called before the first frame update
     void Start()
     {
-        rightInteractOffset = transform.position;
+        rightInteractOffset = new Vector2(transform.position.x, 0f);
+        topInteractOffset = new Vector2(0f, transform.position.y);
         interactCollider = GetComponent<Collider2D>();
         //Debug.Log(interactCollider.name);
     }
@@ -24,17 +26,6 @@ public class Interact : MonoBehaviour
             if (ki != null)
             {
                 ki.KeyitemEvent();
-            }
-        }
-
-        if (other.CompareTag("Room1Door"))
-        {
-            Debug.Log("Touch room1 door");
-            Room1Door door = other.GetComponent<Room1Door>();
-
-            if (door != null)
-            {
-                door.Room1DoorEvent();
             }
         }
     }
@@ -51,6 +42,20 @@ public class Interact : MonoBehaviour
         //Debug.Log("Interact left!");
         interactCollider.enabled = true;
         transform.localPosition = new Vector2(-rightInteractOffset.x, rightInteractOffset.y);
+    }
+
+    public void InteractTop()
+    {
+        //Debug.Log("Interact top!");
+        interactCollider.enabled = true;
+        transform.localPosition = topInteractOffset;
+    }
+
+    public void InteractDown()
+    {
+        //Debug.Log("Interact down!");
+        interactCollider.enabled = true;
+        transform.localPosition = new Vector2(topInteractOffset.x, -topInteractOffset.y);
     }
 
     public void StopInteract()
