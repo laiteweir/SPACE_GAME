@@ -17,9 +17,9 @@ public class Manager : MonoBehaviour
         {
             Debug.Log("esc");
             UI.text.SetActive(false);
-            if (Keyitem.canFreezeControl)
+            if (Keyitem_Legacy.canFreezeControl)
             {
-                Keyitem.controller.enabled = true;
+                Keyitem_Legacy.controller.enabled = true;
             }
         }
     }
