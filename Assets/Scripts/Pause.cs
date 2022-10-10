@@ -5,12 +5,12 @@ using UnityEngine;
 public class Pause : MonoBehaviour
 {
     // Start is called before the first frame update'
-    public static GameObject PMaun;
+    public static GameObject PManu;
     public static bool PMOn = false;
     void Start()
     {
-        PMaun = GameObject.Find("PausePanel");
-        PMaun.SetActive(false);
+        PManu = GameObject.Find("PausePanel");
+        PManu.SetActive(false);
     }
 
 

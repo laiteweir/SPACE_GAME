@@ -16,7 +16,7 @@ public class Manager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("esc");
-            Pause.PMaun.SetActive(true);
+            Pause.PManu.SetActive(true);
         }
     }
 }
