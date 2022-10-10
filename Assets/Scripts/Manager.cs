@@ -13,14 +13,10 @@ public class Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("esc");
-            UI.text.SetActive(false);
-            if (Keyitem_Legacy.canFreezeControl)
-            {
-                Keyitem_Legacy.controller.enabled = true;
-            }
+            Pause.PMaun.SetActive(true);
         }
     }
 }
