@@ -12,8 +12,8 @@ public class ReadText : MonoBehaviour
     public Text nextline;
     void Start()
     {
-        var dialog = Resources.Load<TextAsset>("dialog");
-        str = dialog.text.Split('\n');
+        var TXT = Resources.Load<TextAsset>("dialog");
+        str = TXT.text.Split('\n');
 
         
     }
