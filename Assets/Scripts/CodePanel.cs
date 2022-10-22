@@ -6,13 +6,19 @@ using UnityEngine.UI;
 public class CodePanel : MonoBehaviour
 {
     // Start is called before the first frame update
+
     public string  passward="1234";
     [SerializeField]
     Text Codecontext;
     string  codevalue="";
-    bool door_open= false;
+    public bool door_open= false;
+    public static GameObject panel;
     
     // Update is called once per frame
+    void Start(){
+        panel = GameObject.Find("CodePanel");
+        panel.SetActive(false);
+    }
     void Update()
     {
         Codecontext.text = codevalue;

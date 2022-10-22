@@ -10,10 +10,11 @@ public class ReadText : MonoBehaviour
     public string[] str;
     public Text dialog;
     public Text nextline;
+    public string Objectname;
     void Start()
     {
-        var dialog = Resources.Load<TextAsset>("dialog");
-        str = dialog.text.Split('\n');
+        var TXT = Resources.Load<TextAsset>("dialog");
+        str = TXT.text.Split('\n');
 
         
     }
@@ -40,6 +41,7 @@ public class ReadText : MonoBehaviour
                     UI.TextIsOn = false;
                     count = 0;
                     dialog.text = "";
+                    GameObject.Find(Objectname).GetComponent<CreateGameObject>().CreateObject();
                 }
             }
         }
