@@ -9,6 +9,7 @@ public class Door : Keyitem
 
     new Collider2D collider;
     Animator animator;
+    public GameObject panel;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,10 @@ public class Door : Keyitem
 
     public override void KeyitemEvent()
     {
+        panel.SetActive(true);
+        if(panel.GetComponent<CodePanel>().door_open)
+             return;
+        Debug.Log("door is open");
         collider.enabled = false;
         animator.SetTrigger("doorIsOpened");
         if (switchControl)

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Keyitem_Legacy : MonoBehaviour
 {
-    public static bool canFreezeControl = false;
+    static public bool canFreezeControl = false;
     public static PlayerController controller;
     // Start is called before the first frame update
     void Start()
