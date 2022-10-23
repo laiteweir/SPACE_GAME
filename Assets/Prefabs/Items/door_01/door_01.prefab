@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3480955862406728473}
   - component: {fileID: 5043137649107091305}
   m_Layer: 3
-  m_Name: door_01_0
+  m_Name: door_01
   m_TagString: Keyitem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
