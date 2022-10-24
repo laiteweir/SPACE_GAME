@@ -56,6 +56,7 @@ public class Door : Keyitem
         {
             if (!keepTrying)
             {
+                keepTrying = true;
                 codePanel.SetActive(false);
                 controller.enabled = true;
                 yield break;
