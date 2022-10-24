@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Door : Keyitem
 {
-    [SerializeField] bool switchControl = false;
+    [SerializeField] bool lockedByPassword = false;
     [SerializeField] PlayerController controller;
+    [SerializeField] GameObject codePanel;
 
     new Collider2D collider;
     Animator animator;
-    public GameObject panel;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,23 +20,33 @@ public class Door : Keyitem
 
     public override void KeyitemEvent()
     {
-        panel.SetActive(true);
-        if(panel.GetComponent<CodePanel>().door_open)
-             return;
-        Debug.Log("door is open");
-        collider.enabled = false;
-        animator.SetTrigger("doorIsOpened");
-        if (switchControl)
+        if (lockedByPassword)
         {
-            controller.enabled = false;
+            
+            StartCoroutine(TryUnlock());
+            
+        }
+        else
+        {
+            collider.enabled = false;
+            animator.SetTrigger("doorIsOpened");
         }
     }
 
     public override void EndKeyitemEvent()
     {
         collider.enabled = true;
-        if (switchControl)
+    }
+
+    private IEnumerator TryUnlock()
+    {
+        controller.enabled = false;
+        codePanel.SetActive(true);
+        while (true)
         {
+            
+            yield return new WaitUntil(codePanel.GetComponent<CodePanel>().GetDoorOpen);
+            codePanel.SetActive(false);
             controller.enabled = true;
         }
     }
