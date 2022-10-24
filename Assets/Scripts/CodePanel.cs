@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class CodePanel : MonoBehaviour
 {
-    public string passward = "1234";
+    [SerializeField] string passward = "1234";
     [SerializeField] Text Codecontext;
-    string codevalue = "";
+    private string codevalue = "";
     private bool door_open = false;
 
     // door_open Getter
@@ -34,7 +34,7 @@ public class CodePanel : MonoBehaviour
         if (codevalue.Length <= 4)
         {
             codevalue += digit;
-            Debug.Log(codevalue);
+            //Debug.Log(codevalue);
         }
     }
     public void Confirm()
@@ -42,13 +42,13 @@ public class CodePanel : MonoBehaviour
         if (codevalue == passward)
         {
             SetDoorOpen(true);
-            Debug.Log("The door is opened");
+            //Debug.Log("The door is opened");
         }
     }
     public void Delete()
     {
         string result = codevalue[0..^1];
         codevalue = result;
-        Debug.Log(codevalue);
+        //Debug.Log(codevalue);
     }
 }

@@ -20,25 +20,24 @@ public class Wire : MonoBehaviour
     {
         Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         newPosition.z = 0f;
-
+        // Snap this wire to a connection and check if the colors match when the hitboxes are close enough
         Collider2D[] colliders = Physics2D.OverlapCircleAll(newPosition, 0.2f);
         foreach (Collider2D collider in colliders)
         {
+            // If the collider isn't this wire's own collider
             if (collider.gameObject != gameObject)
             {
                 UpdateWire(collider.transform.position);
-
+                // If the colors of the two wires match
                 if (transform.parent.name.Equals(collider.transform.parent.name))
                 {
                     TaskManager.AddPoints(1);
                     collider.GetComponent<Wire>().Done();
                     Done();
                 }
-
                 return;
             }
         }
-
         UpdateWire(newPosition);
     }
 
@@ -57,7 +56,7 @@ public class Wire : MonoBehaviour
         transform.right = direction * transform.lossyScale.x;
 
         // Update scale
-        float distance = Vector2.Distance(rootPosition, newPosition);
+        float distance = Vector2.Distance(rootPosition, newPosition) + 0.16f;
         wireEnd.size = new Vector2(distance, wireEnd.size.y);
     }
 
