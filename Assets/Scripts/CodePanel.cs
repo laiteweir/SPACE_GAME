@@ -47,8 +47,11 @@ public class CodePanel : MonoBehaviour
     }
     public void Delete()
     {
-        string result = codevalue[0..^1];
-        codevalue = result;
+        if (codevalue.Length > 0)
+        {
+            string result = codevalue[0..^1];
+            codevalue = result;
+        }
         //Debug.Log(codevalue);
     }
 }

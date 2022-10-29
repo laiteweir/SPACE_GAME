@@ -5,11 +5,11 @@ using UnityEngine;
 public class Door : Keyitem
 {
     [SerializeField] bool lockedByPassword = false;
-    [SerializeField] PlayerController controller;
     [SerializeField] GameObject codePanel;
 
     new Collider2D collider;
     Animator animator;
+    private bool isTryingOpen = false;
     private bool keepTrying = true;
 
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class Door : Keyitem
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X) && isTryingOpen)
         {
             //Debug.Log("I give up!");
             keepTrying = false;
@@ -50,7 +50,8 @@ public class Door : Keyitem
 
     private IEnumerator TryUnlock()
     {
-        controller.enabled = false;
+        isTryingOpen = true;
+        Manager.actionMapPlayer.Disable();
         codePanel.SetActive(true);
         while (true)
         {
@@ -58,15 +59,17 @@ public class Door : Keyitem
             {
                 keepTrying = true;
                 codePanel.SetActive(false);
-                controller.enabled = true;
+                Manager.actionMapPlayer.Enable();
+                isTryingOpen = false;
                 yield break;
             }
             else if (codePanel.GetComponent<CodePanel>().GetDoorOpen())
             {
                 codePanel.SetActive(false);
-                controller.enabled = true;
+                Manager.actionMapPlayer.Enable();
                 collider.enabled = false;
                 animator.SetTrigger("doorIsOpened");
+                isTryingOpen = false;
                 yield break;
             }
             else
