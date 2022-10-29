@@ -5,7 +5,6 @@ using UnityEngine;
 public class Door : Keyitem
 {
     [SerializeField] bool lockedByPassword = false;
-    [SerializeField] PlayerController controller;
     [SerializeField] GameObject codePanel;
 
     new Collider2D collider;
@@ -52,7 +51,7 @@ public class Door : Keyitem
     private IEnumerator TryUnlock()
     {
         isTryingOpen = true;
-        controller.enabled = false;
+        Manager.actionMapPlayer.Disable();
         codePanel.SetActive(true);
         while (true)
         {
@@ -60,14 +59,14 @@ public class Door : Keyitem
             {
                 keepTrying = true;
                 codePanel.SetActive(false);
-                controller.enabled = true;
+                Manager.actionMapPlayer.Enable();
                 isTryingOpen = false;
                 yield break;
             }
             else if (codePanel.GetComponent<CodePanel>().GetDoorOpen())
             {
                 codePanel.SetActive(false);
-                controller.enabled = true;
+                Manager.actionMapPlayer.Enable();
                 collider.enabled = false;
                 animator.SetTrigger("doorIsOpened");
                 isTryingOpen = false;
