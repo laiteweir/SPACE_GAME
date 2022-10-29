@@ -10,6 +10,7 @@ public class Door : Keyitem
 
     new Collider2D collider;
     Animator animator;
+    private bool isTryingOpen = false;
     private bool keepTrying = true;
 
     // Start is called before the first frame update
@@ -22,7 +23,7 @@ public class Door : Keyitem
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X) && isTryingOpen)
         {
             //Debug.Log("I give up!");
             keepTrying = false;
@@ -50,6 +51,7 @@ public class Door : Keyitem
 
     private IEnumerator TryUnlock()
     {
+        isTryingOpen = true;
         controller.enabled = false;
         codePanel.SetActive(true);
         while (true)
@@ -59,6 +61,7 @@ public class Door : Keyitem
                 keepTrying = true;
                 codePanel.SetActive(false);
                 controller.enabled = true;
+                isTryingOpen = false;
                 yield break;
             }
             else if (codePanel.GetComponent<CodePanel>().GetDoorOpen())
@@ -67,6 +70,7 @@ public class Door : Keyitem
                 controller.enabled = true;
                 collider.enabled = false;
                 animator.SetTrigger("doorIsOpened");
+                isTryingOpen = false;
                 yield break;
             }
             else
