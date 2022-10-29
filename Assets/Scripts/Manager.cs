@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class Manager : MonoBehaviour
 {
     public static InputActionMap actionMapPlayer;
+    public static Keyitem returnKeyitem;
     void Awake()
     {
         actionMapPlayer = GameObject.Find("Player").GetComponent<PlayerInput>().actions.FindActionMap("Player");
@@ -23,8 +24,9 @@ public class Manager : MonoBehaviour
         }
     }
 
-    public static void OpenScene(string name)
+    public static void OpenScene(string name, Keyitem keyitem)
     {
+        returnKeyitem = keyitem;
         actionMapPlayer.Disable();
         SceneManager.LoadScene(name, LoadSceneMode.Additive);
     }
