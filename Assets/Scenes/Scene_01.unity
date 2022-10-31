@@ -1003,6 +1003,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 558578804, guid: ac7369e9b0d3110418955999238f7ffe, type: 3}
+      propertyPath: m_Intensity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3969625739329750308, guid: ac7369e9b0d3110418955999238f7ffe, type: 3}
       propertyPath: m_Name
       value: Player
@@ -34039,6 +34043,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1052211736}
   - component: {fileID: 1052211735}
+  - component: {fileID: 1052211737}
   m_Layer: 0
   m_Name: Global Light
   m_TagString: Untagged
@@ -34140,6 +34145,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1052211737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052211734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4a2c84b62f8a1d4c8445511f4212c15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1066231342 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6040234726429515553, guid: 09bddfd5623874a9692e7bd7fff2d279, type: 3}
