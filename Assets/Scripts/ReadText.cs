@@ -11,6 +11,7 @@ public class ReadText : MonoBehaviour
     public Text dialog;
     public Text nextline;
     public string Objectname;
+    bool is_trigger = true;
     void Start()
     {
         var TXT = Resources.Load<TextAsset>("dialog");
@@ -41,7 +42,10 @@ public class ReadText : MonoBehaviour
                     UI.TextIsOn = false;
                     count = 0;
                     dialog.text = "";
-                    GameObject.Find(Objectname).GetComponent<CreateGameObject>().CreateObject();
+                    if(is_trigger){
+                        GameObject.Find(Objectname).GetComponent<CreateGameObject>().CreateObject();
+                        is_trigger = false;
+                    }
                 }
             }
         }
