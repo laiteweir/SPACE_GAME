@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
+
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 1f;
@@ -31,6 +33,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        GameObject spotLight = GameObject.Find("Spot Light");
+        spotLight.GetComponent<Light2D>().intensity = 1;
     }
 
     void FixedUpdate() 
