@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TaskManager : MonoBehaviour
+public class WireTaskManager : MonoBehaviour
 {
     private static readonly int winPoints = 4;
     private static int count = 0;
@@ -19,7 +19,7 @@ public class TaskManager : MonoBehaviour
         if (count == winPoints)
         {
             //Debug.Log("You win!");
-            //count = 0;
+            count = 0;
             Manager.returnKeyitem.EndKeyitemEvent();
         }
     }
