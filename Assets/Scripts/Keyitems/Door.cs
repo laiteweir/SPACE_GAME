@@ -26,6 +26,7 @@ public class Door : Keyitem
         {
             //Debug.Log("I give up!");
             keepTrying = false;
+            codePanel.GetComponent<CodePanel>().Clear();
         }
     }
 

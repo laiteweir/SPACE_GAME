@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CodePanel : MonoBehaviour
 {
-    [SerializeField] string passward = "1234";
+    [SerializeField] string passward = "0000";
     [SerializeField] Text Codecontext;
     private string codevalue = "";
     private bool door_open = false;
@@ -49,9 +49,14 @@ public class CodePanel : MonoBehaviour
     {
         if (codevalue.Length > 0)
         {
-            string result = codevalue[0..^1];
+            string result = codevalue[0..^1]; // Delete the last digit
             codevalue = result;
         }
         //Debug.Log(codevalue);
+    }
+    public void Clear()
+    {
+        codevalue = "";
+        //Debug.Log("Clear input!");
     }
 }
