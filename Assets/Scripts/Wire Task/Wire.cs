@@ -18,7 +18,7 @@ public class Wire : MonoBehaviour
     // Update is called once per frame
     private void OnMouseDrag()
     {
-        Vector3 newPosition = TaskManager.wireTaskCamera.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 newPosition = WireTaskManager.wireTaskCamera.ScreenToWorldPoint(Input.mousePosition);
         newPosition.z = 0f;
         // Snap this wire to a connection and check if the colors match when the hitboxes are close enough
         Collider2D[] colliders = Physics2D.OverlapCircleAll(newPosition, 0.2f);
@@ -31,7 +31,7 @@ public class Wire : MonoBehaviour
                 // If the colors of the two wires match
                 if (transform.parent.name.Equals(collider.transform.parent.name))
                 {
-                    TaskManager.AddPoints(1);
+                    WireTaskManager.AddPoints(1);
                     collider.GetComponent<Wire>().Done();
                     Done();
                 }
