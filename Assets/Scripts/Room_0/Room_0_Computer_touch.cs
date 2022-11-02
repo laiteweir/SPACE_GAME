@@ -12,8 +12,8 @@ public class Room_0_Computer_touch : Keyitem
     void Start()
     {
         collider = GetComponent<Collider2D>();
-        computer_light = GameObject.Find("Room_0_Light_4");
-        
+        computer_light = GameObject.Find("Robot_01_Light_1");
+
     }
 
     // Update is called once per frame
@@ -28,6 +28,8 @@ public class Room_0_Computer_touch : Keyitem
     {
         computer_light.GetComponent<Light2D>().color = Color.green;
         Debug.Log("test fire");
+        UI.text.SetActive(true);
+        UI.TextIsOn = true;
     }
     public override void EndKeyitemEvent()
     {
