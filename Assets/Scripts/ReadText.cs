@@ -25,7 +25,7 @@ public class ReadText : MonoBehaviour
     {
         if (UI.TextIsOn == true)
         {
-            
+            Manager.actionMapPlayer.Disable();
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 
