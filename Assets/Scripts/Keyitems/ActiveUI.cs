@@ -6,6 +6,7 @@ public class ActiveUI : Keyitem
 {
     public override void KeyitemEvent()
     {
+        
         UI.text.SetActive(true);
         UI.TextIsOn = true;
     }
