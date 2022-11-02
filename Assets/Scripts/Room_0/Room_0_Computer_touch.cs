@@ -5,15 +5,16 @@ using UnityEngine.Rendering.Universal;
 
 public class Room_0_Computer_touch : Keyitem
 {
-    new Collider2D collider;
-    GameObject computer_light;
+    //new Collider2D collider;
+    [SerializeField] GameObject computer_light;
+    private TextAsset dialog01;
 
     
     // Start is called before the first frame update
     void Start()
     {
-        collider = GetComponent<Collider2D>();
-        computer_light = GameObject.Find("Robot_01_Light_1");
+        //collider = GetComponent<Collider2D>();
+        dialog01 = Resources.Load<TextAsset>("dialog");
 
     }
 
@@ -29,12 +30,9 @@ public class Room_0_Computer_touch : Keyitem
     {
         computer_light.GetComponent<Light2D>().color = Color.green;
         // Debug.Log("touch robot 01 in room 0");
-        UI.text.SetActive(true);
-        UI.TextIsOn = true;
-        while(UI.TextIsOn){
-            new WaitForSeconds(1);
-        }
-        Debug.Log("exit");
+        Manager.Instance.ui.SetActive(true);
+        Manager.Instance.dialogBox.TextIsOn = true;
+        Manager.Instance.ui.GetComponent<ReadText>().StartTalk(dialog01);
     }
     public override void EndKeyitemEvent()
     {
