@@ -9,7 +9,7 @@ public class Manager : MonoBehaviour
     public static Manager Instance;
 
     public GameObject player;
-    public GameObject PauseManu;
+    public GameObject PauseMenu;
     public GameObject ui;
     public GameObject codePanel;
     [HideInInspector] public InputActionMap actionMapPlayer;
@@ -20,7 +20,7 @@ public class Manager : MonoBehaviour
     {
         Instance = this;
         actionMapPlayer = player.GetComponent<PlayerInput>().actions.FindActionMap("Player");
-        pause = PauseManu.GetComponent<Pause>();
+        pause = PauseMenu.GetComponent<Pause>();
         dialogBox = ui.GetComponent<DialogBox>();
     }
 
@@ -29,8 +29,9 @@ public class Manager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("esc");
-            PauseManu.SetActive(true);
+            //Debug.Log("Turn on Pause menu");
+            actionMapPlayer.Disable();
+            PauseMenu.SetActive(true);
             pause.PMOn = true;
         }
     }

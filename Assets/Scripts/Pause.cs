@@ -8,21 +8,18 @@ public class Pause : MonoBehaviour
 
     public void Exit()
     {
-        Debug.Log("quit");
+        //Debug.Log("Exit");
         Application.Quit();
     }
-    public void Close()
+    public void Resume()
     {
-        Debug.Log("Close");
-        Manager.Instance.PauseManu.SetActive(false);
-        Manager.Instance.pause.PMOn = false;
+        //Debug.Log("Resume");
+        gameObject.SetActive(false);
+        PMOn = false;
+        Manager.Instance.actionMapPlayer.Enable();
     }
-    public void Setting()
+    public void Settings()
     {
-        Debug.Log("quit");
-    }
-    public void Save()
-    {
-        Debug.Log("quit");
+        //Debug.Log("Settings");
     }
 }

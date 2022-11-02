@@ -27,7 +27,7 @@ public class ReadText : MonoBehaviour
     
         if (Manager.Instance.dialogBox.TextIsOn == true)
         {
-            Manager.Instance.actionMapPlayer.Disable();
+            //Manager.Instance.actionMapPlayer.Disable();
             if (Input.GetKeyDown(KeyCode.Space))
             {
 
@@ -56,7 +56,7 @@ public class ReadText : MonoBehaviour
             
         }
         else{
-            Manager.Instance.actionMapPlayer.Enable();
+            //Manager.Instance.actionMapPlayer.Enable();
         }
     }
 
