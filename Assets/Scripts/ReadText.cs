@@ -25,9 +25,9 @@ public class ReadText : MonoBehaviour
     void Update()
     {
     
-        if (UI.TextIsOn == true)
+        if (Manager.Instance.dialogBox.TextIsOn == true)
         {
-            Manager.actionMapPlayer.Disable();
+            Manager.Instance.actionMapPlayer.Disable();
             if (Input.GetKeyDown(KeyCode.Space))
             {
 
@@ -42,8 +42,8 @@ public class ReadText : MonoBehaviour
                 }
                 else
                 {
-                    UI.text.SetActive(false);
-                    UI.TextIsOn = false;
+                    Manager.Instance.ui.SetActive(false);
+                    Manager.Instance.dialogBox.TextIsOn = false;
                     count = 0;
                     is_trigger = true;
                     dialog.text = "";
@@ -56,7 +56,7 @@ public class ReadText : MonoBehaviour
             
         }
         else{
-            Manager.actionMapPlayer.Enable();
+            Manager.Instance.actionMapPlayer.Enable();
         }
     }
 

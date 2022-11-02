@@ -4,14 +4,25 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-    // Start is called before the first frame update'
-    public static GameObject PManu;
-    public static bool PMOn = false;
-    void Start()
+    public bool PMOn = false;
+
+    public void Exit()
     {
-        PManu = GameObject.Find("PausePanel");
-        PManu.SetActive(false);
+        Debug.Log("quit");
+        Application.Quit();
     }
-
-
+    public void Close()
+    {
+        Debug.Log("Close");
+        Manager.Instance.PauseManu.SetActive(false);
+        Manager.Instance.pause.PMOn = false;
+    }
+    public void Setting()
+    {
+        Debug.Log("quit");
+    }
+    public void Save()
+    {
+        Debug.Log("quit");
+    }
 }

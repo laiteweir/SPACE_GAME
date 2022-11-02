@@ -29,9 +29,9 @@ public class Room_0_Computer_touch : Keyitem
     {
         computer_light.GetComponent<Light2D>().color = Color.green;
         // Debug.Log("touch robot 01 in room 0");
-        UI.text.SetActive(true);
-        UI.TextIsOn = true;
-        while(UI.TextIsOn){
+        Manager.Instance.ui.SetActive(true);
+        Manager.Instance.dialogBox.TextIsOn = true;
+        while(Manager.Instance.dialogBox.TextIsOn){
             new WaitForSeconds(1);
         }
         Debug.Log("exit");
