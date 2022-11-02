@@ -35977,7 +35977,7 @@ GameObject:
   - component: {fileID: 1738092903}
   - component: {fileID: 1738092904}
   m_Layer: 0
-  m_Name: Room_0_Light_1
+  m_Name: Robot_01_Light_1
   m_TagString: Room0Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
