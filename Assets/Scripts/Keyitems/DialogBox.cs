@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ReadText : MonoBehaviour
+public class DialogBox : MonoBehaviour
 {
     //public string Objectname;
     private bool moveNext = false;
@@ -11,13 +11,14 @@ public class ReadText : MonoBehaviour
     private int count;
     private string[] str;
     public Text dialog;
+    public bool TextIsOn = false;
     //private Text nextline;
     //private string dialog_text = "";
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && Manager.Instance.dialogBox.TextIsOn == true)
+        if (Input.GetKeyDown(KeyCode.Space) && TextIsOn == true)
         {
             // Debug.Log("get dialog length: "+str.GetLength(0).ToString());
             if (count < str.GetLength(0))
@@ -39,29 +40,31 @@ public class ReadText : MonoBehaviour
         return true;
     }*/
 
-    public void StartTalk(TextAsset inputTxt)
+    public void StartTalk(string[] inputTxt)
     {
-        str = inputTxt.text.Split('\n');
+        str = inputTxt;
         StartCoroutine(Talk());
     }
 
     private IEnumerator Talk()
     {
         Manager.Instance.actionMapPlayer.Disable();
+        dialog.text = str[count];
+        ++count;
         while (true)
         {
             if (moveNext)
             {
                 moveNext = false;
                 dialog.text = str[count];
-                count++;
+                ++count;
                 yield return null;
             }
             else if (endDialog)
             {
                 endDialog = false;
-                Manager.Instance.ui.SetActive(false);
-                Manager.Instance.dialogBox.TextIsOn = false;
+                gameObject.SetActive(false);
+                TextIsOn = false;
                 count = 0;
                 dialog.text = "";
                 // if(is_trigger){

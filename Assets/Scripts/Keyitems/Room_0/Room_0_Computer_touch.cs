@@ -8,14 +8,14 @@ public class Room_0_Computer_touch : Keyitem
     //new Collider2D collider;
     [SerializeField] GameObject computer_light;
     private TextAsset dialog01;
+    private string[] dialog;
 
-    
     // Start is called before the first frame update
     void Start()
     {
         //collider = GetComponent<Collider2D>();
         dialog01 = Resources.Load<TextAsset>("dialog");
-
+        dialog = dialog01.text.Split('\n');
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class Room_0_Computer_touch : Keyitem
         // Debug.Log("touch robot 01 in room 0");
         Manager.Instance.ui.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;
-        Manager.Instance.ui.GetComponent<ReadText>().StartTalk(dialog01);
+        Manager.Instance.dialogBox.StartTalk(dialog);
     }
     public override void EndKeyitemEvent()
     {
