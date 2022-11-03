@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Keyitem
   - Room1Door
+  - Room0Light
   layers:
   - Default
   - TransparentFX

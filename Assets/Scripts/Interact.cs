@@ -11,8 +11,8 @@ public class Interact : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rightInteractOffset = new Vector2(transform.position.x, 0f);
-        topInteractOffset = new Vector2(0f, transform.position.y);
+        rightInteractOffset = new Vector2(transform.localPosition.x, 0f);
+        topInteractOffset = new Vector2(0f, transform.localPosition.y);
         interactCollider = GetComponent<Collider2D>();
         //Debug.Log(interactCollider.name);
     }
