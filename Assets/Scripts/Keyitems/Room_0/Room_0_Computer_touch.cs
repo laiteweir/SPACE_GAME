@@ -7,6 +7,7 @@ public class Room_0_Computer_touch : Keyitem
 {
     //new Collider2D collider;
     [SerializeField] GameObject computer_light;
+    [SerializeField] TextAsset textFile;
     private TextAsset dialog01;
     private string[] dialog;
 
@@ -14,8 +15,8 @@ public class Room_0_Computer_touch : Keyitem
     void Start()
     {
         //collider = GetComponent<Collider2D>();
-        dialog01 = Resources.Load<TextAsset>("dialog");
-        dialog = dialog01.text.Split('\n');
+        Debug.Log(textFile);
+        dialog = textFile.text.Split('\n');
     }
 
     // Update is called once per frame
