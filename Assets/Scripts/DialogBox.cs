@@ -14,6 +14,7 @@ public class DialogBox : MonoBehaviour
     public bool TextIsOn = false;
     //private Text nextline;
     //private string dialog_text = "";
+    public bool is_trigger; 
 
     // Update is called once per frame
     void Update()
@@ -67,9 +68,8 @@ public class DialogBox : MonoBehaviour
                 TextIsOn = false;
                 count = 0;
                 dialog.text = "";
-                // if(is_trigger){
-                //     GameObject.Find(Objectname).GetComponent<CreateGameObject>().CreateObject();
-                //     is_trigger = false;
+                
+                is_trigger = true;
                 Manager.Instance.actionMapPlayer.Enable();
                 yield break;
             }
