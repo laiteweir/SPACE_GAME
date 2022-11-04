@@ -14,8 +14,10 @@ public class Room_0_Computer_touch : Keyitem
     void Start()
     {
         //collider = GetComponent<Collider2D>();
-        dialog01 = Resources.Load<TextAsset>("dialog");
-        dialog = dialog01.text.Split('\n');
+        TextAsset textFile = (TextAsset)Resources.Load("Room_0_Computer_touch");
+        Debug.Log(textFile);
+        // dialog01 = Resources.Load<TextAsset>("Room_0_Computer_touch.txt");
+        dialog = textFile.text.Split('\n');
     }
 
     // Update is called once per frame
