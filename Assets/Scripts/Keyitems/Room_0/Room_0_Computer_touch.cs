@@ -7,6 +7,7 @@ public class Room_0_Computer_touch : Keyitem
 {
     //new Collider2D collider;
     [SerializeField] GameObject computer_light;
+    [SerializeField] TextAsset textFile;
     private TextAsset dialog01;
     private string[] dialog;
 
@@ -14,9 +15,7 @@ public class Room_0_Computer_touch : Keyitem
     void Start()
     {
         //collider = GetComponent<Collider2D>();
-        TextAsset textFile = (TextAsset)Resources.Load("Room_0_Computer_touch");
         Debug.Log(textFile);
-        // dialog01 = Resources.Load<TextAsset>("Room_0_Computer_touch.txt");
         dialog = textFile.text.Split('\n');
     }
 
