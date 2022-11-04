@@ -955,6 +955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 316a1579b11dcc64c91f16a5fed55dd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wireTaskCamera: {fileID: 354780628}
 --- !u!4 &1714724082
 Transform:
   m_ObjectHideFlags: 0
