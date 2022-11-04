@@ -5,7 +5,6 @@ using UnityEngine;
 public class Door : Keyitem
 {
     [SerializeField] bool lockedByPassword = false;
-    [SerializeField] GameObject codePanel;
 
     new Collider2D collider;
     Animator animator;
@@ -26,7 +25,7 @@ public class Door : Keyitem
         {
             //Debug.Log("I give up!");
             keepTrying = false;
-            codePanel.GetComponent<CodePanel>().Clear();
+            Manager.Instance.codePanel.GetComponent<CodePanel>().Clear();
         }
     }
 
@@ -52,22 +51,22 @@ public class Door : Keyitem
     private IEnumerator TryUnlock()
     {
         isTryingOpen = true;
-        Manager.actionMapPlayer.Disable();
-        codePanel.SetActive(true);
+        Manager.Instance.actionMapPlayer.Disable();
+        Manager.Instance.codePanel.SetActive(true);
         while (true)
         {
             if (!keepTrying)
             {
                 keepTrying = true;
-                codePanel.SetActive(false);
-                Manager.actionMapPlayer.Enable();
+                Manager.Instance.codePanel.SetActive(false);
+                Manager.Instance.actionMapPlayer.Enable();
                 isTryingOpen = false;
                 yield break;
             }
-            else if (codePanel.GetComponent<CodePanel>().GetDoorOpen())
+            else if (Manager.Instance.codePanel.GetComponent<CodePanel>().GetDoorOpen())
             {
-                codePanel.SetActive(false);
-                Manager.actionMapPlayer.Enable();
+                Manager.Instance.codePanel.SetActive(false);
+                Manager.Instance.actionMapPlayer.Enable();
                 collider.enabled = false;
                 animator.SetTrigger("doorIsOpened");
                 isTryingOpen = false;
