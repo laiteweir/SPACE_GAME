@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class WireTaskManager : MonoBehaviour
 {
-    private static readonly int winPoints = 4;
-    private static int count = 0;
-    public static Camera wireTaskCamera;
+    public static WireTaskManager Instance;
+
+    public Camera wireTaskCamera;
+    private readonly int winPoints = 4;
+    private int count = 0;
 
     private void Awake()
     {
-        wireTaskCamera = GameObject.Find("WireTaskCamera").GetComponent<Camera>();
+        Instance = this;
     }
 
-    public static void AddPoints(int points)
+    public void AddPoints(int points)
     {
         count += points;
         if (count == winPoints)
         {
             //Debug.Log("You win!");
             count = 0;
-            Manager.returnKeyitem.EndKeyitemEvent();
+            Manager.Instance.returnKeyitem.EndKeyitemEvent();
         }
     }
 }

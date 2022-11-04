@@ -6,32 +6,44 @@ using UnityEngine.InputSystem;
 
 public class Manager : MonoBehaviour
 {
-    public static InputActionMap actionMapPlayer;
-    public static Keyitem returnKeyitem;
+    public static Manager Instance;
+
+    public GameObject player;
+    public GameObject PauseMenu;
+    public GameObject ui;
+    public GameObject codePanel;
+    [HideInInspector] public InputActionMap actionMapPlayer;
+    [HideInInspector] public Pause pause;
+    [HideInInspector] public DialogBox dialogBox;
+    [HideInInspector] public Keyitem returnKeyitem;
     void Awake()
     {
-        actionMapPlayer = GameObject.Find("Player").GetComponent<PlayerInput>().actions.FindActionMap("Player");
-
+        Instance = this;
+        actionMapPlayer = player.GetComponent<PlayerInput>().actions.FindActionMap("Player");
+        pause = PauseMenu.GetComponent<Pause>();
+        dialogBox = ui.GetComponent<DialogBox>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("esc");
-            Pause.PManu.SetActive(true);
+            //Debug.Log("Turn on Pause menu");
+            actionMapPlayer.Disable();
+            PauseMenu.SetActive(true);
+            pause.PMOn = true;
         }
     }
 
-    public static void OpenScene(string name, Keyitem keyitem)
+    public void OpenScene(string name, Keyitem keyitem)
     {
         returnKeyitem = keyitem;
         actionMapPlayer.Disable();
         SceneManager.LoadScene(name, LoadSceneMode.Additive);
     }
 
-    public static void CloseScene(string name)
+    public void CloseScene(string name)
     {
         SceneManager.UnloadSceneAsync(name);
         actionMapPlayer.Enable();
