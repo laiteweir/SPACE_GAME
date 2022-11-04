@@ -9,7 +9,8 @@ public class CheckItem : MonoBehaviour
     public bool exist = false;
     [SerializeField] Inventory mybag;
     void Update(){
-        Check();
+        if(!exist)
+            Check();
     }
     void Check(){
         for(int i=0; i<mybag.itemList.Count ;i++){
