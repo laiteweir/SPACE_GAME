@@ -9,7 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 493b20dd832674672a1a3c271cd992a7, type: 3}
-  m_Name: backpack
+  m_Script: {fileID: 11500000, guid: 39037610a6b4342c88ddf947b5e6c1c2, type: 3}
+  m_Name: food
   m_EditorClassIdentifier: 
-  itemList: []
+  itemName: Food
+  itemImage: {fileID: 0}
+  itemHeld: 2
+  itemInfo: 
+  equip: 0
