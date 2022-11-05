@@ -7,6 +7,8 @@ public class Room_0_Computer_touch : Keyitem
 {
     //new Collider2D collider;
     [SerializeField] GameObject computer_light;
+    GameObject this_event;
+    GameObject next_event;
     [SerializeField] TextAsset textFile;
     private TextAsset dialog01;
     private string[] dialog;
@@ -15,8 +17,9 @@ public class Room_0_Computer_touch : Keyitem
     void Start()
     {
         //collider = GetComponent<Collider2D>();
-        Debug.Log(textFile);
         dialog = textFile.text.Split('\n');
+        this_event = GameObject.Find("Robot_01_event_01");
+        next_event = GameObject.Find("Robot_01_event_02");
     }
 
     // Update is called once per frame
@@ -34,6 +37,9 @@ public class Room_0_Computer_touch : Keyitem
         Manager.Instance.ui.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;
         Manager.Instance.dialogBox.StartTalk(dialog);
+        next_event.SetActive(true);
+        this_event.SetActive(false);
+        
     }
     public override void EndKeyitemEvent()
     {
