@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a026f04f1dc99f04aadfb7f5795ec14b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 3
+  walkSpeed: 4
   runSpeed: 5
   collisionOffset: 0
   movementFilter:
@@ -311,7 +311,6 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   interact: {fileID: 245961660368771892}
-  maybag: {fileID: 11400000, guid: 94670a4f4e1ee4a048cab7beac8bd67e, type: 2}
 --- !u!95 &1022115545
 Animator:
   serializedVersion: 4

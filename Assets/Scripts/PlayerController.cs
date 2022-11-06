@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float collisionOffset = 0f;
     [SerializeField] ContactFilter2D movementFilter;
     [SerializeField] Interact interact;
-    [SerializeField] Inventory maybag;
+
     private float moveSpeed;
     private InputAction run;
 
