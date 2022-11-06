@@ -45,6 +45,7 @@ public class DialogBox : MonoBehaviour
     {
         str = inputTxt;
         StartCoroutine(Talk());
+
     }
 
     private IEnumerator Talk()
