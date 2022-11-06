@@ -22492,7 +22492,7 @@ Transform:
   - {fileID: 1369887871}
   - {fileID: 1630375536}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &690914964
 GameObject:
@@ -35958,6 +35958,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot_01_event_03
       objectReference: {fileID: 0}
+    - target: {fileID: 918631247, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 918631248, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -35968,7 +35972,7 @@ PrefabInstance:
       objectReference: {fileID: 4900000, guid: 8d0759c4d09dcc44d892993b79b2e01c, type: 3}
     - target: {fileID: 1738346185067852120, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1738346185067852120, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
       propertyPath: m_LocalPosition.x
