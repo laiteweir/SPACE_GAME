@@ -39686,6 +39686,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1610217337}
   - component: {fileID: 1610217336}
+  - component: {fileID: 1610217338}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -39710,13 +39711,7 @@ MonoBehaviour:
   ui: {fileID: 1138363962}
   codePanel: {fileID: 1618890263}
   myBag: {fileID: 0}
-  Room0_event1: {fileID: 0}
-  Room0_event2: {fileID: 0}
-  Room0_event2_light1: {fileID: 0}
-  Room0_event2_light2: {fileID: 0}
-  Room0_event2_light3: {fileID: 0}
-  Room0_event2_light4: {fileID: 0}
-  Room0_bigLight_1: {fileID: 0}
+  room0: {fileID: 1610217338}
   Room0_lights: 00000000
   actionMapPlayer:
     m_Name: 
@@ -39742,6 +39737,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1610217338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610217335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882d174e901631c49aef34aa5d6bf863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Room0_event1: {fileID: 0}
+  Room0_event2: {fileID: 0}
+  Room0_event2_light1: {fileID: 0}
+  Room0_event2_light2: {fileID: 0}
+  Room0_event2_light3: {fileID: 0}
+  Room0_event2_light4: {fileID: 0}
+  Room0_bigLight_1: {fileID: 0}
+  Room0_lights: 00000000
 --- !u!1 &1618890263 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1716051739172155204, guid: 22352154937b64c5bb692c568911bc42, type: 3}
