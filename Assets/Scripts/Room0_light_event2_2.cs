@@ -9,9 +9,9 @@ public class Room0_light_event2_2 : Keyitem
     public override void KeyitemEvent()
     {
         Debug.Log("Light2_touch");
-        Manager.Instance.Room0_lights[2-1] = true;
-        Manager.Instance.room0_event2_verify_light_sort(2);
-        Manager.Instance.Room0_event2_light2.GetComponent<Light2D>().color = Color.green;
+        Manager.Instance.room0.Room0_lights[2-1] = true;
+        Manager.Instance.room0.room0_event2_verify_light_sort(2);
+        Manager.Instance.room0.Room0_event2_light2.GetComponent<Light2D>().color = Color.green;
     }
     public override void EndKeyitemEvent()
     {

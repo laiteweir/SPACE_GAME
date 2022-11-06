@@ -17,10 +17,10 @@ public class Robot_01_event_02 : Keyitem
     // Update is called once per frame
     void Update()
     {
-        if(TrueForAll(Manager.Instance.Room0_lights)){
-            Manager.Instance.Room0_bigLight_1.GetComponent<Light2D>().enabled = true;
-            Manager.Instance.room0_turn_on_bigLight();
-            Manager.Instance.Room0_event2.SetActive(false);
+        if(TrueForAll(Manager.Instance.room0.Room0_lights)){
+            Manager.Instance.room0.Room0_bigLight_1.GetComponent<Light2D>().enabled = true;
+            Manager.Instance.room0.room0_turn_on_bigLight();
+            Manager.Instance.room0.Room0_event2.SetActive(false);
         }
     }
 
