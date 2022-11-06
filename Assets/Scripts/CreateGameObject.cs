@@ -18,10 +18,10 @@ public class CreateGameObject : MonoBehaviour
          
     }
     void Update(){
-        if(Source.GetComponent<DialogBox>().is_trigger && generate_card){
-            // CreateObject();
-            generate_card = false;
-        }
+        // if(Source.GetComponent<DialogBox>().is_trigger && generate_card){
+        //     // CreateObject();
+        //     generate_card = false;
+        // }
     }
 
     // Update is called once per frame
