@@ -7,6 +7,8 @@ public class CreateGameObject : MonoBehaviour
     // Start is called before the first frame update
     GameObject objToSpawn;
     public GameObject target;
+    bool generate_card = true;
+    public GameObject Source;
     void Start()
     {
         //  objToSpawn.AddComponent<BoxCollider>();
@@ -14,6 +16,12 @@ public class CreateGameObject : MonoBehaviour
         //  objToSpawn.AddComponent<Transform>();
         //  objToSpawn.AddComponent<ScriptableObject>("ItemOnWorld.cs"); 
          
+    }
+    void Update(){
+        if(Source.GetComponent<DialogBox>().is_trigger && generate_card){
+            CreateObject();
+            generate_card = false;
+        }
     }
 
     // Update is called once per frame
