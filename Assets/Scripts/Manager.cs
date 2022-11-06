@@ -12,6 +12,7 @@ public class Manager : MonoBehaviour
     public GameObject PauseMenu;
     public GameObject ui;
     public GameObject codePanel;
+    public Inventory myBag;
     // the following valuables are for the process
     public GameObject Room0_event1;
     public GameObject Room0_event2;
@@ -29,8 +30,8 @@ public class Manager : MonoBehaviour
         dialogBox = ui.GetComponent<DialogBox>();
         // process controller
         // Debug.Log("in");
-        Room0_event1 = GameObject.Find("Robot_01_event_01");
-        Room0_event2 = GameObject.Find("Robot_01_event_02");
+        //Room0_event1 = GameObject.Find("Robot_01_event_01");
+        //Room0_event2 = GameObject.Find("Robot_01_event_02");
         Room0_event2.SetActive(false);
     }
 
