@@ -13,6 +13,7 @@ public class Manager : MonoBehaviour
     public GameObject PauseMenu;
     public GameObject ui;
     public GameObject codePanel;
+    public Inventory myBag;
     // the following valuables are for the process
     public GameObject Room0_event1;
     public GameObject Room0_event2;

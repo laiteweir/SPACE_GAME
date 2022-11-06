@@ -5,6 +5,8 @@ using UnityEngine;
 public class Door : Keyitem
 {
     [SerializeField] bool lockedByPassword = false;
+    [SerializeField] bool lockedByKeycard = false;
+    [SerializeField] string keycardName;
 
     new Collider2D collider;
     Animator animator;
@@ -33,7 +35,11 @@ public class Door : Keyitem
     {
         if (lockedByPassword)
         {
-            StartCoroutine(TryUnlock());
+            StartCoroutine(TryUnlockWithPassword());
+        }
+        else if (lockedByKeycard)
+        {
+            TryUnlockWithKeycard(Manager.Instance.myBag);
         }
         else
         {
@@ -48,7 +54,7 @@ public class Door : Keyitem
         lockedByPassword = false;
     }
 
-    private IEnumerator TryUnlock()
+    private IEnumerator TryUnlockWithPassword()
     {
         isTryingOpen = true;
         Manager.Instance.actionMapPlayer.Disable();
@@ -77,5 +83,20 @@ public class Door : Keyitem
                 yield return null;
             }
         }
+    }
+
+    private void TryUnlockWithKeycard(Inventory bag)
+    {
+        for (int i = 0; i < bag.itemList.Count; ++i)
+        {
+            if (bag.itemList[i].itemName == keycardName)
+            {
+                lockedByKeycard = false;
+                collider.enabled = false;
+                animator.SetTrigger("doorIsOpened");
+                return;
+            }
+        }
+        Debug.Log("You don't have the keycard!");
     }
 }
