@@ -35731,6 +35731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156698bedd6567c4794d6ddbb7a08e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textFile: {fileID: 4900000, guid: 3937430ead353e943a7bc92b94ccfc0b, type: 3}
 --- !u!50 &1482927156
 Rigidbody2D:
   serializedVersion: 4
@@ -36067,6 +36068,8 @@ MonoBehaviour:
   PauseMenu: {fileID: 925898284}
   ui: {fileID: 155666512}
   codePanel: {fileID: 751953629}
+  Room0_event1: {fileID: 0}
+  Room0_event2: {fileID: 0}
   actionMapPlayer:
     m_Name: 
     m_Id: 

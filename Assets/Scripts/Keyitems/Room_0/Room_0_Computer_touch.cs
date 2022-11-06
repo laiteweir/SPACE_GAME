@@ -8,27 +8,28 @@ public class Room_0_Computer_touch : Keyitem
     //new Collider2D collider;
     [SerializeField] GameObject computer_light;
     GameObject this_event;
-    GameObject next_event;
+
     [SerializeField] TextAsset textFile;
     private TextAsset dialog01;
     private string[] dialog;
+    private bool trigger_first = true;
 
     // Start is called before the first frame update
     void Start()
     {
         //collider = GetComponent<Collider2D>();
         dialog = textFile.text.Split('\n');
-        this_event = GameObject.Find("Robot_01_event_01");
-        next_event = GameObject.Find("Robot_01_event_02");
+        // this_event = GameObject.Find("Robot_01_event_01");
     }
 
     // Update is called once per frame
     void Update()
     {
-        // if (Input.GetKeyDown(KeyCode.X))
-        // {
-        //     Debug.Log("x");
-        // }
+        //enable next process
+        if (Manager.Instance.dialogBox.TextIsOn == false && trigger_first == false){
+            Manager.Instance.Room0_event1.SetActive(false);
+            Manager.Instance.Room0_event2.SetActive(true);
+        }
     }
     public override void KeyitemEvent()
     {
@@ -37,8 +38,9 @@ public class Room_0_Computer_touch : Keyitem
         Manager.Instance.ui.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;
         Manager.Instance.dialogBox.StartTalk(dialog);
-        next_event.SetActive(true);
-        this_event.SetActive(false);
+        // make sure is not first trigger
+        trigger_first = false;
+
         
     }
     public override void EndKeyitemEvent()
