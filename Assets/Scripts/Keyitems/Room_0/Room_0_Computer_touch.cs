@@ -27,8 +27,9 @@ public class Room_0_Computer_touch : Keyitem
     {
         //enable next process
         if (Manager.Instance.dialogBox.TextIsOn == false && trigger_first == false){
-            Manager.Instance.Room0_event1.SetActive(false);
-            Manager.Instance.Room0_event2.SetActive(true);
+            Manager.Instance.room0.Room0_event1.SetActive(false);
+            Manager.Instance.room0.Room0_event2.SetActive(true);
+            Manager.Instance.room0.room0_turn_off_lights_with_red_light();
         }
     }
     public override void KeyitemEvent()
