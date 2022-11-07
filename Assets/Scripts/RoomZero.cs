@@ -64,6 +64,10 @@ public class RoomZero : MonoBehaviour
         this.Room0_event2_light2.GetComponent<Light2D>().enabled = false;
         this.Room0_event2_light3.GetComponent<Light2D>().enabled = false;
         this.Room0_event2_light4.GetComponent<Light2D>().enabled = false;
+        this.Room0_event2_light1.SetActive(false);
+        this.Room0_event2_light2.SetActive(false);
+        this.Room0_event2_light3.SetActive(false);
+        this.Room0_event2_light4.SetActive(false);
         this.Room0_bigLight_1.GetComponent<Light2D>().enabled = true;
         return true;
     }
