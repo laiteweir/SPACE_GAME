@@ -35777,6 +35777,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866078314}
   m_CullTransparentMesh: 1
+--- !u!1 &909596038 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 918631247, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
+  m_PrefabInstance: {fileID: 1077348582}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &909596044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909596038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2ecd06b3a6c0aa4fb824110a9fc43f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textFile: {fileID: 4900000, guid: 7fa37d021aa25c744840b0f272955321, type: 3}
 --- !u!1001 &937314737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35960,7 +35978,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 918631247, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 918631248, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
       propertyPath: m_RootOrder
@@ -36018,7 +36036,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot_01
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 918631249, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
 --- !u!1 &1090134225
 GameObject:
@@ -39751,6 +39770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Room0_event1: {fileID: 0}
   Room0_event2: {fileID: 0}
+  Room0_event3: {fileID: 0}
   Room0_event2_light1: {fileID: 0}
   Room0_event2_light2: {fileID: 0}
   Room0_event2_light3: {fileID: 0}
