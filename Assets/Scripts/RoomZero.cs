@@ -14,6 +14,8 @@ public class RoomZero : MonoBehaviour
     [HideInInspector] public GameObject Room0_event2_light4;
     [HideInInspector] public GameObject Room0_bigLight_1;
     [HideInInspector] public bool[] Room0_lights = new bool[4];
+    
+    public bool createKeyCard = false;
 
     // Start is called before the first frame update
     void Start()
@@ -73,6 +75,7 @@ public class RoomZero : MonoBehaviour
         this.Room0_event2_light4.SetActive(false);
         this.Room0_bigLight_1.GetComponent<Light2D>().enabled = true;
         this.Room0_bigLight_1.GetComponent<Light2D>().intensity = 1;
+        this.createKeyCard = true;
         return true;
     }
     public bool room0_event2_verify_light_sort(int sortNum)
