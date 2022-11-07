@@ -18,7 +18,7 @@ public class CreateGameObject : MonoBehaviour
          
     }
     void Update(){
-         if(Source.GetComponent<DialogBox>().is_trigger && generate_card){
+         if(Manager.Instance.room0.createKeyCard && generate_card){
              CreateObject();
              generate_card = false;
          }
