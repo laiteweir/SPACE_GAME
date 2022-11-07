@@ -7,6 +7,7 @@ public class RoomZero : MonoBehaviour
 {    
     [HideInInspector] public GameObject Room0_event1;
     [HideInInspector] public GameObject Room0_event2;
+    [HideInInspector] public GameObject Room0_event3;
     [HideInInspector] public GameObject Room0_event2_light1;
     [HideInInspector] public GameObject Room0_event2_light2;
     [HideInInspector] public GameObject Room0_event2_light3;
@@ -19,7 +20,9 @@ public class RoomZero : MonoBehaviour
     {
         this.Room0_event1 = GameObject.Find("Robot_01_event_01");
         this.Room0_event2 = GameObject.Find("Robot_01_event_02");
+        this.Room0_event3 = GameObject.Find("Robot_01_event_03");
         this.Room0_event2.SetActive(false);
+        this.Room0_event3.SetActive(false);
             // init room0 light
         this.Room0_event2_light1 = GameObject.Find("Room0_light_event2_1");
         this.Room0_event2_light2 = GameObject.Find("Room0_light_event2_2");

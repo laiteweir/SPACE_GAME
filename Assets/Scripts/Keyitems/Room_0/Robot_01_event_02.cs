@@ -21,6 +21,7 @@ public class Robot_01_event_02 : Keyitem
             Manager.Instance.room0.Room0_bigLight_1.GetComponent<Light2D>().enabled = true;
             Manager.Instance.room0.room0_turn_on_bigLight();
             Manager.Instance.room0.Room0_event2.SetActive(false);
+            Manager.Instance.room0.Room0_event3.SetActive(true);
         }
     }
 
