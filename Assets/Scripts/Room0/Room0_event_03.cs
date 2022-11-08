@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Robot_01_event_03 : Keyitem
+public class Room0_event_03 : Keyitem
 {
     // Start is called before the first frame update
     [SerializeField] TextAsset textFile;
@@ -23,7 +23,7 @@ public class Robot_01_event_03 : Keyitem
         Manager.Instance.ui.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;
         Manager.Instance.dialogBox.StartTalk(dialog);
-        Debug.Log(Manager.Instance.dialogBox.TextIsOn);
+        //Debug.Log(Manager.Instance.dialogBox.TextIsOn);
     }
     public override void EndKeyitemEvent()
     {

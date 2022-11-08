@@ -22,8 +22,8 @@ public class Manager : MonoBehaviour
     // [HideInInspector] public GameObject Room0_event2_light3;
     // [HideInInspector] public GameObject Room0_event2_light4;
     // [HideInInspector] public GameObject Room0_bigLight_1;
-    [SerializeField] public RoomZero room0;
-    [HideInInspector] public bool[] Room0_lights = new bool[4];
+    public RoomZero room0;
+    // [HideInInspector] public bool[] Room0_lights = new bool[4];
     // process controller end
     [HideInInspector] public InputActionMap actionMapPlayer;
     [HideInInspector] public Pause pause;

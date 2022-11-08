@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class Room_0_Computer_touch : Keyitem
+public class Room0_event_01 : Keyitem
 {
     //new Collider2D collider;
     [SerializeField] GameObject computer_light;
-    GameObject this_event;
+    //GameObject this_event;
 
     [SerializeField] TextAsset textFile;
-    private TextAsset dialog01;
+    //private TextAsset dialog01;
     private string[] dialog;
     private bool trigger_first = true;
 
@@ -27,9 +27,9 @@ public class Room_0_Computer_touch : Keyitem
     {
         //enable next process
         if (Manager.Instance.dialogBox.TextIsOn == false && trigger_first == false){
-            Manager.Instance.room0.Room0_event1.SetActive(false);
-            Manager.Instance.room0.Room0_event2.SetActive(true);
-            Manager.Instance.room0.room0_turn_off_lights_with_red_light();
+            Manager.Instance.room0.room0_event1.SetActive(false);
+            Manager.Instance.room0.room0_event2.SetActive(true);
+            Manager.Instance.room0.Room0_turn_off_lights_with_red_light();
         }
     }
     public override void KeyitemEvent()
