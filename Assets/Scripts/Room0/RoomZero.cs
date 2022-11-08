@@ -71,7 +71,7 @@ public class RoomZero : MonoBehaviour
         this.Room0_event2_light3.SetActive(false);
         this.Room0_event2_light4.SetActive(false);*/
         room0_bigLight_1.enabled = true;
-        room0_bigLight_1.intensity = 1f;
+        //room0_bigLight_1.intensity = 1f;
         //createKeyCard = true;
         Instantiate(keycard);
         return true;
