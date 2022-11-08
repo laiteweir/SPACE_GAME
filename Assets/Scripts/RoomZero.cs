@@ -5,32 +5,23 @@ using UnityEngine.Rendering.Universal;
 
 public class RoomZero : MonoBehaviour
 {    
-    [HideInInspector] public GameObject Room0_event1;
-    [HideInInspector] public GameObject Room0_event2;
-    [HideInInspector] public GameObject Room0_event3;
-    [HideInInspector] public GameObject Room0_event2_light1;
-    [HideInInspector] public GameObject Room0_event2_light2;
-    [HideInInspector] public GameObject Room0_event2_light3;
-    [HideInInspector] public GameObject Room0_event2_light4;
-    [HideInInspector] public GameObject Room0_bigLight_1;
-    [HideInInspector] public bool[] Room0_lights = new bool[4];
+    [SerializeField] public GameObject Room0_event1;
+    [SerializeField] public GameObject Room0_event2;
+    [SerializeField] public GameObject Room0_event3;
+    [SerializeField] public GameObject Room0_event2_light1;
+    [SerializeField] public GameObject Room0_event2_light2;
+    [SerializeField] public GameObject Room0_event2_light3;
+    [SerializeField] public GameObject Room0_event2_light4;
+    [SerializeField] public GameObject Room0_bigLight_1;
+    [SerializeField] public bool[] Room0_lights = new bool[4];
     
     public bool createKeyCard = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        this.Room0_event1 = GameObject.Find("Robot_01_event_01");
-        this.Room0_event2 = GameObject.Find("Robot_01_event_02");
-        this.Room0_event3 = GameObject.Find("Robot_01_event_03");
         this.Room0_event2.SetActive(false);
         this.Room0_event3.SetActive(false);
-            // init room0 light
-        this.Room0_event2_light1 = GameObject.Find("Room0_light_event2_1");
-        this.Room0_event2_light2 = GameObject.Find("Room0_light_event2_2");
-        this.Room0_event2_light3 = GameObject.Find("Room0_light_event2_3");
-        this.Room0_event2_light4 = GameObject.Find("Room0_light_event2_4");
-        this.Room0_bigLight_1 = GameObject.Find("Room0_bigLight_1");
         this.room0_turn_off_lights_with_no_light();
     }
 

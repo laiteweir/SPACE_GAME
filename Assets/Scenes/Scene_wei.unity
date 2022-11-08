@@ -527,6 +527,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &161211943 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1423710884, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
+  m_PrefabInstance: {fileID: 1077348582}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &335775663
 GameObject:
   m_ObjectHideFlags: 0
@@ -22232,6 +22237,14 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 470768492}
+    - target: {fileID: 5043137649107091305, guid: 54ef9405147537e49ad2c7d6fe6d090e, type: 3}
+      propertyPath: lockedByKeycard
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5043137649107091305, guid: 54ef9405147537e49ad2c7d6fe6d090e, type: 3}
+      propertyPath: lockedByPassword
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54ef9405147537e49ad2c7d6fe6d090e, type: 3}
 --- !u!1 &515315280
@@ -35892,25 +35905,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22352154937b64c5bb692c568911bc42, type: 3}
---- !u!1 &1039238133 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5204603756542191492, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
-  m_PrefabInstance: {fileID: 1077348582}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1039238134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1039238133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c435bb214e74419796a33e33ac885d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 2464152862841542604, guid: dba2c13872f574ab7969a0bbaa12d0b2, type: 3}
-  Source: {fileID: 1138363962}
 --- !u!4 &1039238140 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1738346185067852120, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
@@ -35988,6 +35982,10 @@ PrefabInstance:
       propertyPath: textFile
       value: 
       objectReference: {fileID: 4900000, guid: 8d0759c4d09dcc44d892993b79b2e01c, type: 3}
+    - target: {fileID: 1733206568, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
+      propertyPath: Source
+      value: 
+      objectReference: {fileID: 1138363962}
     - target: {fileID: 1738346185067852120, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -39416,8 +39414,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 470768492}
     - target: {fileID: 1145850418200985492, guid: 7223d31b8a83cbb43b9100fdb5e0b416, type: 3}
-      propertyPath: lockedByPassword
+      propertyPath: keycardName
+      value: Door1Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145850418200985492, guid: 7223d31b8a83cbb43b9100fdb5e0b416, type: 3}
+      propertyPath: lockedByKeycard
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145850418200985492, guid: 7223d31b8a83cbb43b9100fdb5e0b416, type: 3}
+      propertyPath: lockedByPassword
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5460190782760990801, guid: 7223d31b8a83cbb43b9100fdb5e0b416, type: 3}
       propertyPath: m_RootOrder
@@ -39729,7 +39735,7 @@ MonoBehaviour:
   PauseMenu: {fileID: 335775663}
   ui: {fileID: 1138363962}
   codePanel: {fileID: 1618890263}
-  myBag: {fileID: 0}
+  myBag: {fileID: 11400000, guid: 94670a4f4e1ee4a048cab7beac8bd67e, type: 2}
   room0: {fileID: 1610217338}
   Room0_lights: 00000000
   actionMapPlayer:
@@ -39768,15 +39774,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 882d174e901631c49aef34aa5d6bf863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room0_event1: {fileID: 0}
-  Room0_event2: {fileID: 0}
-  Room0_event3: {fileID: 0}
-  Room0_event2_light1: {fileID: 0}
-  Room0_event2_light2: {fileID: 0}
-  Room0_event2_light3: {fileID: 0}
-  Room0_event2_light4: {fileID: 0}
-  Room0_bigLight_1: {fileID: 0}
+  Room0_event1: {fileID: 161211943}
+  Room0_event2: {fileID: 738483363}
+  Room0_event3: {fileID: 909596038}
+  Room0_event2_light1: {fileID: 1369887870}
+  Room0_event2_light2: {fileID: 690914964}
+  Room0_event2_light3: {fileID: 1767984258}
+  Room0_event2_light4: {fileID: 1689450807}
+  Room0_bigLight_1: {fileID: 1630375535}
   Room0_lights: 00000000
+  createKeyCard: 0
 --- !u!1 &1618890263 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1716051739172155204, guid: 22352154937b64c5bb692c568911bc42, type: 3}
