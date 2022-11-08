@@ -26,10 +26,10 @@ public class Robot_01_event_02 : Keyitem
         }
     }
 
-    private bool TrueForAll(bool[] all_lights){
+    private bool TrueForAll(int[] all_lights){
         for (int i = 0; i < all_lights.Length; ++i)
         {
-            if (all_lights[i] == false){
+            if (all_lights[i] != i+1){
                 return false;
             }
         }

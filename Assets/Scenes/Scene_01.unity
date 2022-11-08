@@ -527,6 +527,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &161211943 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1423710884, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
+  m_PrefabInstance: {fileID: 1077348582}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &335775663
 GameObject:
   m_ObjectHideFlags: 0
@@ -39769,15 +39774,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 882d174e901631c49aef34aa5d6bf863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room0_event1: {fileID: 0}
-  Room0_event2: {fileID: 0}
-  Room0_event3: {fileID: 0}
-  Room0_event2_light1: {fileID: 0}
-  Room0_event2_light2: {fileID: 0}
-  Room0_event2_light3: {fileID: 0}
-  Room0_event2_light4: {fileID: 0}
-  Room0_bigLight_1: {fileID: 0}
+  Room0_event1: {fileID: 161211943}
+  Room0_event2: {fileID: 738483363}
+  Room0_event3: {fileID: 909596038}
+  Room0_event2_light1: {fileID: 1369887870}
+  Room0_event2_light2: {fileID: 690914964}
+  Room0_event2_light3: {fileID: 1767984258}
+  Room0_event2_light4: {fileID: 1689450807}
+  Room0_bigLight_1: {fileID: 1630375535}
   Room0_lights: 00000000
+  createKeyCard: 0
 --- !u!1 &1618890263 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1716051739172155204, guid: 22352154937b64c5bb692c568911bc42, type: 3}

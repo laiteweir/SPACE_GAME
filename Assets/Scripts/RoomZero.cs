@@ -13,7 +13,7 @@ public class RoomZero : MonoBehaviour
     [SerializeField] public GameObject Room0_event2_light3;
     [SerializeField] public GameObject Room0_event2_light4;
     [SerializeField] public GameObject Room0_bigLight_1;
-    [SerializeField] public bool[] Room0_lights = new bool[4];
+    public int[] Room0_lights = new int[4];
     
     public bool createKeyCard = false;
 
@@ -51,7 +51,7 @@ public class RoomZero : MonoBehaviour
         this.Room0_event2_light2.GetComponent<Light2D>().color = Color.red;
         this.Room0_event2_light3.GetComponent<Light2D>().color = Color.red;
         this.Room0_event2_light4.GetComponent<Light2D>().color = Color.red;
-        this.Room0_lights = new bool[4] {false,false,false,false};
+        this.Room0_lights = new int[4] {-1,-1,-1,-1};
         return true;
     }
     public bool room0_turn_on_bigLight()
@@ -75,7 +75,7 @@ public class RoomZero : MonoBehaviour
         bool result = false;
         for (int i = 0; i < sortNum; ++i)
         {
-            if(this.Room0_lights[i] == true){
+            if(this.Room0_lights[i] == i+1){
                 result = true;
             }
             else{
@@ -83,13 +83,13 @@ public class RoomZero : MonoBehaviour
                 this.room0_turn_off_lights_with_red_light();
             }
         }
-        // check no light on after sortNum
-        for (int i = this.Room0_lights.Length; i > sortNum; --i){
-            if(this.Room0_lights[i-1] == true){
-                result = false;
-                this.room0_turn_off_lights_with_red_light();
-            }
-        }
+        // // check no light on after sortNum
+        // for (int i = this.Room0_lights.Length; i > sortNum; --i){
+        //     if(this.Room0_lights[i-1] == sortNum){
+        //         result = false;
+        //         this.room0_turn_off_lights_with_red_light();
+        //     }
+        // }
         return result;
     }
     // event2 light end
