@@ -18,7 +18,6 @@ public class Room0_event_02 : Keyitem
     void Update()
     {
         if (TrueForAll(Manager.Instance.room0.room0_lights)){
-            //Manager.Instance.room0.room0_bigLight_1.GetComponent<Light2D>().enabled = true;
             Manager.Instance.room0.Room0_turn_on_bigLight();
             Manager.Instance.room0.room0_event2.SetActive(false);
             Manager.Instance.room0.room0_event3.SetActive(true);
