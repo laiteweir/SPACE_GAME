@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: food
   m_EditorClassIdentifier: 
   itemName: Food
-  itemImage: {fileID: 0}
-  itemHeld: 2
-  itemInfo: 
+  itemImage: {fileID: 1275603502, guid: 4b54ddeff6feacc4091bf964e089e6e6, type: 3}
+  itemHeld: 0
+  itemInfo: the food is yummy
   equip: 0
