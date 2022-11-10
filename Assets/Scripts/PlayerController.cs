@@ -6,11 +6,14 @@ using UnityEngine.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 1f;
-    [SerializeField] float collisionOffset = 0.05f;
+    [SerializeField] float walkSpeed = 3f;
+    [SerializeField] float runSpeed = 5f;
+    [SerializeField] float collisionOffset = 0f;
     [SerializeField] ContactFilter2D movementFilter;
     [SerializeField] Interact interact;
-    [SerializeField] Inventory maybag;
+
+    private float moveSpeed;
+    private InputAction run;
 
     enum Condition
     {
@@ -35,6 +38,10 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         GameObject spotLight = GameObject.Find("Spot Light");
         spotLight.GetComponent<Light2D>().intensity = 1;
+        moveSpeed = walkSpeed;
+        run = Manager.Instance.actionMapPlayer.FindAction("Run");
+        run.started += context => StartRun();
+        run.canceled += context => EndRun();
     }
 
     void FixedUpdate() 
@@ -89,6 +96,16 @@ public class PlayerController : MonoBehaviour
         }
 
         //Debug.Log(animator.GetBool("isWalking"));
+    }
+
+    private void StartRun()
+    {
+        moveSpeed = runSpeed;
+    }
+
+    private void EndRun()
+    {
+        moveSpeed = walkSpeed;
     }
 
     private Condition TryMove(Vector2 direction)

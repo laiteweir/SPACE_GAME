@@ -14,7 +14,7 @@ public class DialogBox : MonoBehaviour
     public bool TextIsOn = false;
     //private Text nextline;
     //private string dialog_text = "";
-    public bool is_trigger; 
+    //public bool is_trigger; 
 
     // Update is called once per frame
     void Update()
@@ -45,6 +45,7 @@ public class DialogBox : MonoBehaviour
     {
         str = inputTxt;
         StartCoroutine(Talk());
+
     }
 
     private IEnumerator Talk()
@@ -69,7 +70,7 @@ public class DialogBox : MonoBehaviour
                 count = 0;
                 dialog.text = "";
                 
-                is_trigger = true;
+                //is_trigger = true;
                 Manager.Instance.actionMapPlayer.Enable();
                 yield break;
             }

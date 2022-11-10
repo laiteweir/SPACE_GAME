@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 
 public class Manager : MonoBehaviour
 {
@@ -12,18 +13,24 @@ public class Manager : MonoBehaviour
     public GameObject PauseMenu;
     public GameObject ui;
     public GameObject codePanel;
+    public Inventory myBag;
+    public RoomZero room0;
     [HideInInspector] public InputActionMap actionMapPlayer;
     [HideInInspector] public Pause pause;
     [HideInInspector] public DialogBox dialogBox;
     [HideInInspector] public Keyitem returnKeyitem;
+
     void Awake()
     {
         Instance = this;
         actionMapPlayer = player.GetComponent<PlayerInput>().actions.FindActionMap("Player");
         pause = PauseMenu.GetComponent<Pause>();
         dialogBox = ui.GetComponent<DialogBox>();
+
+        
     }
 
+    
     // Update is called once per frame
     void Update()
     {
