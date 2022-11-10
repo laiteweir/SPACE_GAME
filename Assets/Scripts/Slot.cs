@@ -8,4 +8,9 @@ public class Slot : MonoBehaviour
     public Item slotItem;
     public Image slotImage;
     public Text slotInfo;
+
+    public void Clean(){
+        Debug.Log("clean this");
+        Destroy(gameObject);
+    }
 }

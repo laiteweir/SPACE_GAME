@@ -21,6 +21,7 @@ public class Seeitem : Keyitem
     public override void KeyitemEvent()
     {
         See = Instantiate(slotprefab, slotgrid.transform.position, Quaternion.identity);
+        // See.transform.localscale = new Vector3(0.5, 0.5,0.5);
         See.gameObject.transform.SetParent(slotgrid.transform); 
         Manager.Instance.actionMapPlayer.Disable();
         See.slotItem = Object;
@@ -31,6 +32,6 @@ public class Seeitem : Keyitem
     public override void EndKeyitemEvent()
     {
         Manager.Instance.actionMapPlayer.Enable();
-        Destroy(See);
+        See.Clean();
     }
 }
