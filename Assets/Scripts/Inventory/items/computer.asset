@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: computer
   m_EditorClassIdentifier: 
   itemName: 
-  itemImage: {fileID: 21300000, guid: 20256f4878ed17b4d85ce6993a877c63, type: 3}
+  itemImage: {fileID: 21300000, guid: 7afc0e61e231f4f0aaded2f98afa678c, type: 3}
   itemHeld: 0
   itemInfo: 
   equip: 0
