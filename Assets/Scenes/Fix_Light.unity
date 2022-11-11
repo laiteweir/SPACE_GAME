@@ -486,6 +486,7 @@ MonoBehaviour:
   - {fileID: 258772650}
   - {fileID: 1246364282}
   answers: 0001000101
+  result: {fileID: 2179273525075744133, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
 --- !u!1001 &1220358354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -674,6 +675,10 @@ PrefabInstance:
     - target: {fileID: 8333728659448690615, guid: b08cfa192fffb44549586c2293fc57df, type: 3}
       propertyPath: m_Name
       value: Switch
+      objectReference: {fileID: 0}
+    - target: {fileID: 8587474313750004990, guid: b08cfa192fffb44549586c2293fc57df, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b08cfa192fffb44549586c2293fc57df, type: 3}
