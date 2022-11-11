@@ -16,6 +16,11 @@ public class LightManager : MonoBehaviour
         {
             Check();
         }
+        if(Input.GetKeyDown(KeyCode.X))
+            backScene();
+    }
+    void backScene(){
+        Manager.Instance.returnKeyitem.EndKeyitemEvent();
     }
     private void Check()
     {
