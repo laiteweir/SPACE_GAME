@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class Robot_01_event_02 : Keyitem
+public class Room0_event_02 : Keyitem
 {
     [SerializeField] TextAsset textFile;
     private string[] dialog;
@@ -17,11 +17,11 @@ public class Robot_01_event_02 : Keyitem
     // Update is called once per frame
     void Update()
     {
-        if(TrueForAll(Manager.Instance.room0.Room0_lights)){
-            Manager.Instance.room0.Room0_bigLight_1.GetComponent<Light2D>().enabled = true;
-            Manager.Instance.room0.room0_turn_on_bigLight();
-            Manager.Instance.room0.Room0_event2.SetActive(false);
-            Manager.Instance.room0.Room0_event3.SetActive(true);
+        if (TrueForAll(Manager.Instance.room0.room0_lights)){
+            Manager.Instance.room0.Room0_turn_on_bigLight();
+            Manager.Instance.room0.room0_event2.SetActive(false);
+            Manager.Instance.room0.room0_event3.SetActive(true);
+
         }
     }
 
@@ -40,7 +40,7 @@ public class Robot_01_event_02 : Keyitem
         Manager.Instance.ui.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;
         Manager.Instance.dialogBox.StartTalk(dialog);
-        Debug.Log(Manager.Instance.dialogBox.TextIsOn);
+        //Debug.Log(Manager.Instance.dialogBox.TextIsOn);
     }
     public override void EndKeyitemEvent()
     {
