@@ -15,6 +15,7 @@ public class Manager : MonoBehaviour
     public GameObject codePanel;
     public Inventory myBag;
     public RoomZero room0;
+    public RoomOne room1;
     [HideInInspector] public InputActionMap actionMapPlayer;
     [HideInInspector] public Pause pause;
     [HideInInspector] public DialogBox dialogBox;
