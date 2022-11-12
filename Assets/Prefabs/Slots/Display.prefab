@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9055581367031844349}
   - component: {fileID: -5314831224932481357}
   m_Layer: 5
-  m_Name: slot
+  m_Name: Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 215, y: 261}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2778103829307784968
 CanvasRenderer:
@@ -91,4 +91,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotItem: {fileID: 0}
   slotImage: {fileID: 9055581367031844349}
-  slotNum: {fileID: 0}
+  slotInfo: {fileID: 0}

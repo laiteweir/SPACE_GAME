@@ -13,6 +13,7 @@ public class ManageFixLight : Keyitem
     public override void EndKeyitemEvent()
     {
         Manager.Instance.CloseScene("Fix_Light");
-        Destroy(this);
+        if(Room_1Data.turn_on_light)
+            Destroy(this);
     }
 }

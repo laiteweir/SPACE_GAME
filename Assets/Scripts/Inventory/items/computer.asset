@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39037610a6b4342c88ddf947b5e6c1c2, type: 3}
-  m_Name: food
+  m_Name: computer
   m_EditorClassIdentifier: 
-  itemName: Food
-  itemImage: {fileID: 1275603502, guid: 4b54ddeff6feacc4091bf964e089e6e6, type: 3}
+  itemName: 
+  itemImage: {fileID: 21300000, guid: 7afc0e61e231f4f0aaded2f98afa678c, type: 3}
   itemHeld: 0
-  itemInfo: the food is yummy
+  itemInfo: 
   equip: 0
