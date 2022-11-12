@@ -7,6 +7,7 @@ public class LightManager : MonoBehaviour
     [SerializeField] List<GameObject> Lights;
     public List<bool> answers;
     bool answer = false;
+    [SerializeField] GameObject result;
 
     // Update is called once per frame
     void Update()
@@ -15,6 +16,11 @@ public class LightManager : MonoBehaviour
         {
             Check();
         }
+        if(Input.GetKeyDown(KeyCode.X))
+            backScene();
+    }
+    void backScene(){
+        Manager.Instance.returnKeyitem.EndKeyitemEvent();
     }
     private void Check()
     {
@@ -30,6 +36,7 @@ public class LightManager : MonoBehaviour
         {
             answer = true;
             // correct = 0;
+            Room_1Data.turn_on_light = true;
             Manager.Instance.returnKeyitem.EndKeyitemEvent();
         }
     }
