@@ -14,17 +14,20 @@ public class Manager : MonoBehaviour
     public GameObject ui;
     public GameObject codePanel;
     public Inventory myBag;
-    // the following valuables are for the process
-    // [HideInInspector] public GameObject Room0_event1;
-    // [HideInInspector] public GameObject Room0_event2;
-    // [HideInInspector] public GameObject Room0_event2_light1;
-    // [HideInInspector] public GameObject Room0_event2_light2;
-    // [HideInInspector] public GameObject Room0_event2_light3;
-    // [HideInInspector] public GameObject Room0_event2_light4;
-    // [HideInInspector] public GameObject Room0_bigLight_1;
-    [SerializeField] public RoomZero room0;
-    [HideInInspector] public bool[] Room0_lights = new bool[4];
-    // process controller end
+    public RoomZero room0;
+    public RoomOne room1;
+    public RoomTwo room2;
+    public RoomThree room3;
+    public RoomFour room4;
+    public RoomFive room5;
+    public RoomSix room6;
+    public RoomSeven room7;
+    public RoomEight room8;
+    public RoomNine room9;
+    public RoomTen room10;
+    public RoomEleven room11;
+    public RoomTwelve room12;
+    public RoomThirteen room13;
     [HideInInspector] public InputActionMap actionMapPlayer;
     [HideInInspector] public Pause pause;
     [HideInInspector] public DialogBox dialogBox;
@@ -36,19 +39,6 @@ public class Manager : MonoBehaviour
         actionMapPlayer = player.GetComponent<PlayerInput>().actions.FindActionMap("Player");
         pause = PauseMenu.GetComponent<Pause>();
         dialogBox = ui.GetComponent<DialogBox>();
-        // process controller
-        // Debug.Log("in");
-        // room0
-        // Room0_event1 = GameObject.Find("Robot_01_event_01");
-        // Room0_event2 = GameObject.Find("Robot_01_event_02");
-        // Room0_event2.SetActive(false);
-        //     // init room0 light
-        // Room0_event2_light1 = GameObject.Find("Room0_light_event2_1");
-        // Room0_event2_light2 = GameObject.Find("Room0_light_event2_2");
-        // Room0_event2_light3 = GameObject.Find("Room0_light_event2_3");
-        // Room0_event2_light4 = GameObject.Find("Room0_light_event2_4");
-        // Room0_bigLight_1 = GameObject.Find("Room0_bigLight_1");
-        // this.room0_turn_off_lights_with_no_light();
 
         
     }
