@@ -2,21 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ManageFixLight : Keyitem
+public class Room5_event_01 : Keyitem
 {
     // Start is called before the first frame update
+    [SerializeField] GameObject room_5_light;
     [SerializeField] GameObject next;
     public override void KeyitemEvent()
     {
-        Manager.Instance.OpenScene("Fix_Light", this);
+       room_5_light.SetActive(true);
+       next.SetActive(true);
     }
 
     public override void EndKeyitemEvent()
     {
-        Manager.Instance.CloseScene("Fix_Light");
-        if(Room_1Data.turn_on_light){
-            next.GetComponent<Door>().enabled = true;
-            Destroy(this);
-        }
+        Destroy(this);
     }
 }
