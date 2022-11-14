@@ -9,20 +9,18 @@ public class GetEnergyTank : Keyitem
     {
         if (!Manager.Instance.myBag.itemList.Contains(energyTank))
         {
-            // if (playerInventory.itemList.Count == 0)
-            //    InventoryManager.CreateNewItem(thisItem);
+            if (Manager.Instance.myBag.itemList.Count == 0)
+            {
+                InventoryManager.CreateNewItem(energyTank);
+            }
             Manager.Instance.myBag.itemList.Add(energyTank);
-            // InventoryManager.itemno++;
         }
-        else
-        {
-            ++energyTank.itemHeld;
-        }
+        ++energyTank.itemHeld;
         EndKeyitemEvent();
     }
 
     public override void EndKeyitemEvent()
     {
-        gameObject.SetActive(false);
+        Destroy(this);
     }
 }
