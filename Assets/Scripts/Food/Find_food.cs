@@ -12,6 +12,7 @@ public class Find_food : Keyitem
         if(is_find)
             return;
         if(!mybag.itemList.Contains(food)){
+            food.itemName = "Food";
             mybag.itemList.Add(food);
         }
         else{
