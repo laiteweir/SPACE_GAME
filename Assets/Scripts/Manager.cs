@@ -9,6 +9,8 @@ public class Manager : MonoBehaviour
 {
     public static Manager Instance;
 
+    public GameObject globalLight;
+
     public GameObject player;
     public GameObject PauseMenu;
     public GameObject ui;
@@ -67,5 +69,19 @@ public class Manager : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync(name);
         actionMapPlayer.Enable();
+    }
+
+    public void SetDebugMode(bool debug, float x, float y)
+    {
+        Vector2 location;
+        location.x = x;
+        location.y = y;
+        if(debug == true){
+            this.globalLight.GetComponent<Light2D>().enabled = true;
+            this.player.GetComponent<Transform>().position = location;
+        }
+        else{
+            this.globalLight.GetComponent<Light2D>().enabled = false;
+        }
     }
 }
