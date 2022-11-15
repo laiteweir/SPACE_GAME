@@ -167,6 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feef9ca4b75121b4fb616bae69ecc2f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  locked: 0
   lockedByPassword: 0
-  controller: {fileID: 0}
-  codePanel: {fileID: 0}
+  lockedByKeycard: 0
+  keycardName: 
+  textFile: {fileID: 4900000, guid: c226e10acad37124ca6794a2590328ce, type: 3}

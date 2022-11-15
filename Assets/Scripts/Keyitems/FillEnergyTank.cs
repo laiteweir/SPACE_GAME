@@ -2,34 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Engine0 : Keyitem
+public class FillEnergyTank : Keyitem
 {
     [SerializeField] TextAsset textFile;
     private string[] dialog;
-    [SerializeField] Item filledEnergyTank;
+    [SerializeField] Item energyTank;
+
     void Start()
     {
         dialog = textFile.text.Split('\n');
     }
     public override void KeyitemEvent()
     {
-        if (Manager.Instance.myBag.itemList.Contains(filledEnergyTank) && filledEnergyTank.itemHeld == 3)
-        {
-            // Debug.Log("You have fixed Engine0!");
-            Manager.Instance.room10.isEngine0Fixed = true;
-            filledEnergyTank.itemHeld = 0;
-            EndKeyitemEvent();
-        }
-        else
+        if (energyTank.itemHeld == 0)
         {
             Manager.Instance.ui.SetActive(true);
             Manager.Instance.dialogBox.TextIsOn = true;
             Manager.Instance.dialogBox.StartTalk(dialog);
         }
+        else
+        {
+            Manager.Instance.OpenScene("Fill_Energy_Tank_Task", this);
+        }
     }
 
     public override void EndKeyitemEvent()
     {
-        Destroy(this);
+        Manager.Instance.CloseScene("Fill_Energy_Tank_Task");
     }
 }

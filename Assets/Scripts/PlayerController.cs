@@ -186,4 +186,9 @@ public class PlayerController : MonoBehaviour
         UnlockMovement();
         interact.StopInteract();
     }
+
+    public void SetPlayerSpeed(float sp){
+        this.moveSpeed = this.moveSpeed * sp;
+        this.runSpeed = this.runSpeed * sp;
+    }
 }
