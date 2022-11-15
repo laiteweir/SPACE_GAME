@@ -38,12 +38,14 @@ public class Room7_event_01 : Keyitem
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(this.first_trigger){
+
+        if(this.first_trigger && col.gameObject.name == "Player"){
             Manager.Instance.ui.SetActive(true);
             Manager.Instance.dialogBox.TextIsOn = true;
             Manager.Instance.dialogBox.StartTalk(dialog);
+            this.first_trigger = false;
         }
-        Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
+        // Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
     }    
     public override void KeyitemEvent()
     {
