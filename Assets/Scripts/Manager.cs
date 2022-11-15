@@ -12,6 +12,7 @@ public class Manager : MonoBehaviour
     public GameObject globalLight;
 
     public GameObject player;
+    public PlayerController playerController;
     public GameObject PauseMenu;
     public GameObject ui;
     public GameObject codePanel;
@@ -41,7 +42,7 @@ public class Manager : MonoBehaviour
         actionMapPlayer = player.GetComponent<PlayerInput>().actions.FindActionMap("Player");
         pause = PauseMenu.GetComponent<Pause>();
         dialogBox = ui.GetComponent<DialogBox>();
-
+        
         
     }
 
