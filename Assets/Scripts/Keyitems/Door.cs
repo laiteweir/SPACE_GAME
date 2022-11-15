@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class Door : Keyitem
 {
+    [SerializeField] bool locked = false;
     [SerializeField] bool lockedByPassword = false;
     [SerializeField] bool lockedByKeycard = false;
     [SerializeField] string keycardName;
+    [SerializeField] TextAsset textFile;
 
     new Collider2D collider;
     Animator animator;
     private bool isTryingOpen = false;
     private bool keepTrying = true;
+    private string[] dialog;
 
     // Start is called before the first frame update
     void Start()
     {
         collider = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
+        dialog = textFile.text.Split('\n');
     }
 
     // Update is called once per frame
@@ -33,7 +37,13 @@ public class Door : Keyitem
 
     public override void KeyitemEvent()
     {
-        if (lockedByPassword)
+        if (locked)
+        {
+            Manager.Instance.ui.SetActive(true);
+            Manager.Instance.dialogBox.TextIsOn = true;
+            Manager.Instance.dialogBox.StartTalk(dialog);
+        }
+        else if (lockedByPassword)
         {
             StartCoroutine(TryUnlockWithPassword());
         }
@@ -52,6 +62,7 @@ public class Door : Keyitem
     {
         collider.enabled = true;
         lockedByPassword = false;
+        lockedByKeycard = false;
     }
 
     private IEnumerator TryUnlockWithPassword()
@@ -91,7 +102,6 @@ public class Door : Keyitem
         {
             if (bag.itemList[i].itemName == keycardName)
             {
-                lockedByKeycard = false;
                 collider.enabled = false;
                 animator.SetTrigger("doorIsOpened");
                 return;
