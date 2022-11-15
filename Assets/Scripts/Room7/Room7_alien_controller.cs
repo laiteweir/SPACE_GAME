@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Text.RegularExpressions;
 
 public class Room7_alien_controller : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Room7_alien_controller : MonoBehaviour
     [SerializeField] ContactFilter2D movementFilter;
     readonly List<RaycastHit2D> castCollisions = new();
     [SerializeField] float collisionOffset = 0f;
+    private bool isTouch = false;
     enum Condition
     {
         Success,
@@ -50,6 +52,15 @@ public class Room7_alien_controller : MonoBehaviour
             ChangeDirection();
         }
     }
+    void OnTriggerEnter2D(Collider2D col)
+    {
+
+        if(  !isTouch && Regex.IsMatch(gameObject.name, "alien", RegexOptions.IgnoreCase)){
+            isTouch = true;
+            Manager.Instance.playerController.SetPlayerSpeed(0.5f);
+        }
+        Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
+    }    
     void ChangeDirection(){
         int direction = Random.Range(0,4);
         switch(direction){
