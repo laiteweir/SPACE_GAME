@@ -9,7 +9,7 @@ public class RoomSeven : MonoBehaviour
     void Start()
     {
         if(goDebug){
-            Manager.Instance.SetDebugMode(goDebug,9,-1);        
+            Manager.Instance.SetDebugMode(goDebug,16.56f,13.56f);        
         }
     }
 
