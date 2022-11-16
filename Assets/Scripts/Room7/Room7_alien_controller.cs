@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 public class Room7_alien_controller : MonoBehaviour
 {
-    private Vector2 directionVector;
+    private Vector2 directionVector = Vector2.up;
     // Start is called before the first frame update
     private Transform myTransform;
     public float speed;
@@ -14,8 +14,7 @@ public class Room7_alien_controller : MonoBehaviour
     readonly List<RaycastHit2D> castCollisions = new();
     [SerializeField] float collisionOffset = 0f;
     private bool isTouch = false;
-
-
+    private int auto_change_direction = 0;
     enum Condition
     {
         Success,
@@ -27,57 +26,76 @@ public class Room7_alien_controller : MonoBehaviour
         speed = 1;
         myTransform = GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
-        ChangeDirection();
     }
 
     private void Move(){
+        
         Condition condition = TryMove(directionVector);
-        if (condition == Condition.Blocked)
+ 
+        if (condition != Condition.Blocked)
         {
-            this.ChangeDirection();
+            
+            auto_change_direction++;
+            if(auto_change_direction > 500){
+                this.ChangeDirection(directionVector);
+                auto_change_direction = 0;
+            }
+            rb.MovePosition((Vector2)myTransform.position + this.speed * Time.fixedDeltaTime * directionVector);
         }
         else{
-            rb.MovePosition((Vector2)myTransform.position + this.speed * Time.fixedDeltaTime * directionVector);
+            this.ChangeDirectionGoback(directionVector);
         }
         
         
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        Debug.Log(other);
-        Vector2 temp = directionVector;
-        ChangeDirection();
-        int loops = 0;
-        while (temp == directionVector && loops < 100)
-        {
-            loops++;
-            ChangeDirection();
-        }
+        // Debug.Log(other);
+        // Vector2 temp = directionVector;
+        // ChangeDirection();
+        // int loops = 0;
+        // while (temp == directionVector && loops < 100)
+        // {
+        //     loops++;
+        //     ChangeDirection();
+        // }
     }
     void OnTriggerEnter2D(Collider2D col)
     {
-
-        // if(  !isTouch && Regex.IsMatch(gameObject.name, "alien", RegexOptions.IgnoreCase)){
+        // if(  !isTouch && Regex.IsMatch(col.gameObject.name, "Player", RegexOptions.IgnoreCase)){
         //     Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
         //     isTouch = true;
         //     // Manager.Instance.playerController.SetPlayerSpeed(0.5f);
         // }
-        // Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
     }    
-    void ChangeDirection(){
+    void ChangeDirectionGoback(Vector2 directionVector){
+        if(directionVector==Vector2.up){
+            this.directionVector = Vector2.down;
+        }
+        else if(directionVector==Vector2.down){
+            this.directionVector = Vector2.up;
+        }
+        else if(directionVector==Vector2.left){
+            this.directionVector = Vector2.right;
+        }
+        else if(directionVector==Vector2.right){
+            this.directionVector = Vector2.left;
+        }
+    }
+    void ChangeDirection(Vector2 directionVector){
         int direction = Random.Range(0,4);
         switch(direction){
             case 0:
-                directionVector = Vector2.right;
+                this.directionVector = Vector2.right;
                 break;
             case 1:
-                directionVector = Vector2.left;
+                this.directionVector = Vector2.left;
                 break;
             case 2:
-                directionVector = Vector2.up;
+                this.directionVector = Vector2.up;
                 break;
             case 3:
-                directionVector = Vector2.down;
+                this.directionVector = Vector2.down;
                 break;
             default:
                 break;
@@ -92,11 +110,13 @@ public class Room7_alien_controller : MonoBehaviour
     {
         if (direction != Vector2.zero)
         {
+            
             int count = rb.Cast(
                     direction,
                     movementFilter,
                     castCollisions,
                     speed * Time.fixedDeltaTime + collisionOffset);
+            
             if (count == 0)
             {
                 return Condition.Success;
