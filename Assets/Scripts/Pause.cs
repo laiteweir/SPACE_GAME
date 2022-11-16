@@ -18,8 +18,8 @@ public class Pause : MonoBehaviour
         PMOn = false;
         Manager.Instance.actionMapPlayer.Enable();
     }
-    public void Settings()
+    public void Tutorial()
     {
-        //Debug.Log("Settings");
+        //Debug.Log("Tutorial");
     }
 }
