@@ -14,6 +14,8 @@ public class Room7_alien_controller : MonoBehaviour
     readonly List<RaycastHit2D> castCollisions = new();
     [SerializeField] float collisionOffset = 0f;
     private bool isTouch = false;
+
+
     enum Condition
     {
         Success,
@@ -55,11 +57,12 @@ public class Room7_alien_controller : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
 
-        if(  !isTouch && Regex.IsMatch(gameObject.name, "alien", RegexOptions.IgnoreCase)){
-            isTouch = true;
-            Manager.Instance.playerController.SetPlayerSpeed(0.5f);
-        }
-        Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
+        // if(  !isTouch && Regex.IsMatch(gameObject.name, "alien", RegexOptions.IgnoreCase)){
+        //     Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
+        //     isTouch = true;
+        //     // Manager.Instance.playerController.SetPlayerSpeed(0.5f);
+        // }
+        // Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
     }    
     void ChangeDirection(){
         int direction = Random.Range(0,4);
