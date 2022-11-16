@@ -23700,6 +23700,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textFile: {fileID: 4900000, guid: 2886641d9a8c24baaa22336dd39ceae0, type: 3}
+  alien1: {fileID: 0}
+  alien2: {fileID: 0}
+  alien3: {fileID: 0}
+  alien4: {fileID: 0}
+  alien5: {fileID: 0}
 --- !u!50 &515731685
 Rigidbody2D:
   serializedVersion: 4
