@@ -12,7 +12,6 @@ public class Room7_event_01 : Keyitem
     [SerializeField] TextAsset textFile;
     //private TextAsset dialog01;
     private string[] dialog;
-    private bool trigger_first = true;
 
     private bool first_trigger = true;
     [SerializeField] GameObject alien1;
