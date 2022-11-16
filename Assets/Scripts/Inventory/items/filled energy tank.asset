@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: filled energy tank
   m_EditorClassIdentifier: 
   itemName: FilledEnergyTank
-  itemImage: {fileID: -693099978, guid: 4b54ddeff6feacc4091bf964e089e6e6, type: 3}
-  itemHeld: 0
+  itemImage: {fileID: 21300000, guid: 217b58dfe79107b409998723ae1696ad, type: 3}
+  itemHeld: 3
   itemInfo: 
   equip: 0

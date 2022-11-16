@@ -15,9 +15,9 @@ public class ProgressBar : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (isPressed)
         {
             energyBar.size = new Vector2(energyBar.size.x, energyBar.size.y + (Time.time - startPressed) / fullRefill);
-            if (energyBar.size.y >= 3.4f)
+            if (energyBar.size.y >= 5.4f)
             {
-                energyBar.size = new Vector2(energyBar.size.x, 0.6f);
+                energyBar.size = new Vector2(energyBar.size.x, 0.2f);
                 FETTManager.Instance.Done();
             }
         }
