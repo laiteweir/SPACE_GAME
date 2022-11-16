@@ -14,12 +14,26 @@ public class Room0_event_01 : Keyitem
     private string[] dialog;
     private bool trigger_first = true;
 
+    [SerializeField] GameObject alien1;
+    [SerializeField] GameObject alien2;
+    [SerializeField] GameObject alien3;
+    [SerializeField] GameObject alien4;
+    [SerializeField] GameObject alien5;
     // Start is called before the first frame update
     void Start()
     {
         //collider = GetComponent<Collider2D>();
         dialog = textFile.text.Split('\n');
         // this_event = GameObject.Find("Robot_01_event_01");
+        alien1.SetActive(false);
+        
+        alien2.SetActive(false);
+        
+        alien3.SetActive(false);
+        
+        alien4.SetActive(false);
+        
+        alien5.SetActive(false);
     }
 
     // Update is called once per frame
