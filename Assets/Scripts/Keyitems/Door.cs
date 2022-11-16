@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Door : Keyitem
 {
-    [SerializeField] bool locked = false;
+    public bool locked = false;
     [SerializeField] bool lockedByPassword = false;
     [SerializeField] bool lockedByKeycard = false;
     [SerializeField] string keycardName;
