@@ -18,7 +18,8 @@ public class RoomSix : MonoBehaviour
     {
 
         if(room6_event1.GetComponent<Room6_event_1>().exist){
-            nextDoor.GetComponent<Door>().enabled = true;
+            nextDoor.GetComponent<Door>().locked = false;
+            Destroy(room6_event1);
         }
     }
 }
