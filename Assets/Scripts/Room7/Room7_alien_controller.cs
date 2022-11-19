@@ -23,7 +23,7 @@ public class Room7_alien_controller : MonoBehaviour
     }
     void Start()
     {
-        speed = 1;
+        speed = 0.5f;
         myTransform = GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
     }
