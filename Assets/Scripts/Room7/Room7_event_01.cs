@@ -48,9 +48,18 @@ public class Room7_event_01 : Keyitem
             Manager.Instance.dialogBox.TextIsOn = true;
             Manager.Instance.dialogBox.StartTalk(dialog);
             this.first_trigger = false;
+            this.trigger_aliens();
         }
         // Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
     }    
+    private void trigger_aliens(){
+        this.alien1.SetActive(true);
+        this.alien2.SetActive(true);
+        this.alien3.SetActive(true);
+        this.alien4.SetActive(true);
+        this.alien5.SetActive(true);
+        
+    }
     public override void KeyitemEvent()
     {
         // computer_light.GetComponent<Light2D>().color = Color.green;

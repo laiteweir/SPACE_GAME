@@ -1350,7 +1350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &380054273
 Transform:
   m_ObjectHideFlags: 0
@@ -23887,11 +23887,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textFile: {fileID: 4900000, guid: 2886641d9a8c24baaa22336dd39ceae0, type: 3}
-  alien1: {fileID: 1187202260}
-  alien2: {fileID: 1872101561}
-  alien3: {fileID: 380054272}
-  alien4: {fileID: 1364315402}
-  alien5: {fileID: 1061182324}
+  alien1: {fileID: 0}
+  alien2: {fileID: 0}
+  alien3: {fileID: 0}
+  alien4: {fileID: 0}
+  alien5: {fileID: 0}
 --- !u!50 &515731685
 Rigidbody2D:
   serializedVersion: 4
@@ -38721,7 +38721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1061182325
 Transform:
   m_ObjectHideFlags: 0
@@ -39539,7 +39539,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1187202261
 Transform:
   m_ObjectHideFlags: 0
@@ -43256,7 +43256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1364315403
 Transform:
   m_ObjectHideFlags: 0
@@ -43600,7 +43600,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f2702e94f1d8f42888ef30a09f5df8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  room7_event_01: {fileID: 515731682}
 --- !u!4 &1389031560
 Transform:
   m_ObjectHideFlags: 0
@@ -46110,7 +46109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1872101562
 Transform:
   m_ObjectHideFlags: 0
