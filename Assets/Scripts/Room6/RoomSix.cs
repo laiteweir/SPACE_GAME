@@ -7,6 +7,7 @@ public class RoomSix : MonoBehaviour
     // Start is called before the first frame update
 
     public GameObject room6_event1;
+    private bool clear = false;
     [SerializeField] GameObject nextDoor;
      void Start()
     {
@@ -17,7 +18,8 @@ public class RoomSix : MonoBehaviour
     void Update()
     {
 
-        if(room6_event1.GetComponent<Room6_event_1>().exist){
+        if(room6_event1.GetComponent<Room6_event_1>().exist && !clear){
+            clear = true;
             nextDoor.GetComponent<Door>().locked = false;
             Destroy(room6_event1);
         }
