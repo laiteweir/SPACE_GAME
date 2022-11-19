@@ -13,6 +13,7 @@ public class RoomOne : MonoBehaviour
     public GameObject room1_event4;
     void Start(){
         Room_1Data.turn_on_light = false;
+        Manager.Instance.SetDebugMode(true,7.00f,0.0f);  
     }
  
     void Update()
