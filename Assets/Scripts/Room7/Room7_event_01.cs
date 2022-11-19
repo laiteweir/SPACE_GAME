@@ -14,17 +14,17 @@ public class Room7_event_01 : Keyitem
     private string[] dialog;
 
     private bool first_trigger = true;
-    [SerializeField] GameObject alien1;
-    [SerializeField] GameObject alien2;
-    [SerializeField] GameObject alien3;
-    [SerializeField] GameObject alien4;
-    [SerializeField] GameObject alien5;
+    [SerializeField] public GameObject alien1;
+    [SerializeField] public GameObject alien2;
+    [SerializeField] public GameObject alien3;
+    [SerializeField] public GameObject alien4;
+    [SerializeField] public GameObject alien5;
 
-    [SerializeField] GameObject alien6;
-    [SerializeField] GameObject alien7;
-    [SerializeField] GameObject alien8;
-    [SerializeField] GameObject alien9;
-    [SerializeField] GameObject alien10;
+    [SerializeField] public GameObject alien6;
+    [SerializeField] public GameObject alien7;
+    [SerializeField] public GameObject alien8;
+    [SerializeField] public GameObject alien9;
+    [SerializeField] public GameObject alien10;
 
     // Start is called before the first frame update
     void Start()
@@ -58,7 +58,7 @@ public class Room7_event_01 : Keyitem
         }
         // Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
     }    
-    private void trigger_aliens(){
+    public void trigger_aliens(){
         this.alien1.SetActive(true);
         this.alien2.SetActive(true);
         this.alien3.SetActive(true);
@@ -69,6 +69,18 @@ public class Room7_event_01 : Keyitem
         this.alien8.SetActive(true);
         this.alien9.SetActive(true);
         this.alien10.SetActive(true);
+    }
+    public void stop_aliens(){
+        this.alien1.SetActive(false);
+        this.alien2.SetActive(false);
+        this.alien3.SetActive(false);
+        this.alien4.SetActive(false);
+        this.alien5.SetActive(false);
+        this.alien6.SetActive(false);
+        this.alien7.SetActive(false);
+        this.alien8.SetActive(false);
+        this.alien9.SetActive(false);
+        this.alien10.SetActive(false);
     }
     public override void KeyitemEvent()
     {
