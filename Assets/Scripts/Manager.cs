@@ -85,4 +85,20 @@ public class Manager : MonoBehaviour
             this.globalLight.GetComponent<Light2D>().enabled = false;
         }
     }
+    public void SetDebugMode(bool debug,bool global_light, float x, float y)
+    {
+        Vector2 location;
+        location.x = x;
+        location.y = y;
+        if(debug == true){
+            this.globalLight.GetComponent<Light2D>().enabled = true;
+            this.player.GetComponent<Transform>().position = location;
+        }
+        else{
+            this.globalLight.GetComponent<Light2D>().enabled = false;
+        }
+        if(global_light == false){
+            this.globalLight.GetComponent<Light2D>().enabled = false;
+        }
+    }
 }
