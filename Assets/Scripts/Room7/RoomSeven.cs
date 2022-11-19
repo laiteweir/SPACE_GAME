@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoomSeven : MonoBehaviour
 {
-    private bool goDebug = true;
+    private bool goDebug = false;
     public GameObject room7_event_01;
     public GameObject room7_event_02;
 
