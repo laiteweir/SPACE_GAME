@@ -20,6 +20,12 @@ public class Room7_event_01 : Keyitem
     [SerializeField] GameObject alien4;
     [SerializeField] GameObject alien5;
 
+    [SerializeField] GameObject alien6;
+    [SerializeField] GameObject alien7;
+    [SerializeField] GameObject alien8;
+    [SerializeField] GameObject alien9;
+    [SerializeField] GameObject alien10;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +64,11 @@ public class Room7_event_01 : Keyitem
         this.alien3.SetActive(true);
         this.alien4.SetActive(true);
         this.alien5.SetActive(true);
-        
+        this.alien6.SetActive(true);
+        this.alien7.SetActive(true);
+        this.alien8.SetActive(true);
+        this.alien9.SetActive(true);
+        this.alien10.SetActive(true);
     }
     public override void KeyitemEvent()
     {
