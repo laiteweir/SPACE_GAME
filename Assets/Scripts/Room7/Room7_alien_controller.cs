@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 public class Room7_alien_controller : MonoBehaviour
 {
-    private Vector2 directionVector = Vector2.up;
+    private Vector2 directionVector = Vector2.down;
     // Start is called before the first frame update
     private Transform myTransform;
     public float speed;
