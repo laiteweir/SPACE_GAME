@@ -5,6 +5,8 @@ using UnityEngine;
 public class RoomSeven : MonoBehaviour
 {
     private bool goDebug = false;
+    public GameObject room7_event_01;
+    public GameObject room7_event_02;
 
     // Start is called before the first frame update
     void Start()
@@ -12,13 +14,14 @@ public class RoomSeven : MonoBehaviour
 
 
         if(goDebug){
-            Manager.Instance.SetDebugMode(goDebug,16.56f,13.56f);        
+            Manager.Instance.SetDebugMode(goDebug,false,16.56f,13.56f);        
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+            
     }
+
 }
