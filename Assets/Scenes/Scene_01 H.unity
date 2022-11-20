@@ -722,6 +722,7 @@ MonoBehaviour:
   room0_event2_3: {fileID: 968161642}
   room0_event2_4: {fileID: 2063099224}
   room0_event2_5: {fileID: 988117251}
+  biglight: {fileID: 1905167148}
 --- !u!1001 &254092299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23245,6 +23246,7 @@ GameObject:
   - component: {fileID: 487680618}
   - component: {fileID: 487680620}
   - component: {fileID: 487680619}
+  - component: {fileID: 487680621}
   m_Layer: 0
   m_Name: Room3_event_01
   m_TagString: Untagged
@@ -23314,6 +23316,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.4885795}
   m_EdgeRadius: 0
+--- !u!114 &487680621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487680617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12dd5c9a33b0c7a409a989d855414e57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  file: {fileID: 4900000, guid: 62a29bb65e1f9664c94d2a559135aa23, type: 3}
 --- !u!1001 &487962057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23574,6 +23589,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textFile: {fileID: 4900000, guid: 2886641d9a8c24baaa22336dd39ceae0, type: 3}
+  alien1: {fileID: 0}
+  alien2: {fileID: 0}
+  alien3: {fileID: 0}
+  alien4: {fileID: 0}
+  alien5: {fileID: 0}
+  alien6: {fileID: 0}
+  alien7: {fileID: 0}
+  alien8: {fileID: 0}
+  alien9: {fileID: 0}
+  alien10: {fileID: 0}
 --- !u!50 &515731685
 Rigidbody2D:
   serializedVersion: 4
@@ -37346,6 +37371,10 @@ MonoBehaviour:
   keyword: Food
   exist: 0
   mybag: {fileID: 11400000, guid: 94670a4f4e1ee4a048cab7beac8bd67e, type: 2}
+  textFile0: {fileID: 0}
+  textFile1: {fileID: 0}
+  textFile2: {fileID: 0}
+  textFile3: {fileID: 0}
 --- !u!1001 &883958207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38073,7 +38102,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room_5_light: {fileID: 1649071124}
+  room_6_light: {fileID: 0}
   next: {fileID: 1421998419}
+  textFile: {fileID: 0}
 --- !u!61 &983749410
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42756,6 +42787,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f2702e94f1d8f42888ef30a09f5df8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  room7_event_01: {fileID: 0}
+  room7_event_02: {fileID: 0}
 --- !u!4 &1389031560
 Transform:
   m_ObjectHideFlags: 0
@@ -42940,6 +42973,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mybag: {fileID: 11400000, guid: 94670a4f4e1ee4a048cab7beac8bd67e, type: 2}
   food: {fileID: 11400000, guid: 8495616993b224173b2420d46183afba, type: 2}
+  textFile: {fileID: 0}
+  other: {fileID: 0}
 --- !u!1 &1435683638 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5460190782760990802, guid: 7223d31b8a83cbb43b9100fdb5e0b416, type: 3}
