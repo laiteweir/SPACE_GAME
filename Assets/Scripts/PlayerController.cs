@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float collisionOffset = 0f;
     [SerializeField] ContactFilter2D movementFilter;
     [SerializeField] Interact interact;
+    [SerializeField] Light2D spotLight;
 
     private float moveSpeed;
     private InputAction run;
@@ -36,8 +37,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        GameObject spotLight = GameObject.Find("Spot Light");
-        spotLight.GetComponent<Light2D>().intensity = 1;
+        spotLight.intensity = 1f;
         moveSpeed = walkSpeed;
         run = Manager.Instance.actionMapPlayer.FindAction("Run");
         run.started += context => StartRun();
@@ -187,8 +187,9 @@ public class PlayerController : MonoBehaviour
         interact.StopInteract();
     }
 
-    public void SetPlayerSpeed(float sp){
-        this.moveSpeed = this.moveSpeed * sp;
-        this.runSpeed = this.runSpeed * sp;
+    public void SetPlayerSpeed(float sp)
+    {
+        walkSpeed *= sp;
+        runSpeed *= sp;
     }
 }

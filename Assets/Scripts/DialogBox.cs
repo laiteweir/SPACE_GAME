@@ -11,10 +11,7 @@ public class DialogBox : MonoBehaviour
     private int count;
     private string[] str;
     public Text dialog;
-    public bool TextIsOn = false;
-    //private Text nextline;
-    //private string dialog_text = "";
-    //public bool is_trigger; 
+    public bool TextIsOn = false; 
 
     // Update is called once per frame
     void Update()
@@ -72,6 +69,44 @@ public class DialogBox : MonoBehaviour
                 
                 //is_trigger = true;
                 Manager.Instance.actionMapPlayer.Enable();
+                yield break;
+            }
+            else
+            {
+                yield return null;
+            }
+        }
+    }
+
+    public void StartTalkAndOpenScene(string[] inputTxt, string sceneName, Keyitem keyitem)
+    {
+        str = inputTxt;
+        StartCoroutine(TalkAndOpenScene(sceneName, keyitem));
+    }
+
+    private IEnumerator TalkAndOpenScene(string sceneName, Keyitem keyitem)
+    {
+        Manager.Instance.actionMapPlayer.Disable();
+        dialog.text = str[count];
+        ++count;
+        while (true)
+        {
+            if (moveNext)
+            {
+                moveNext = false;
+                dialog.text = str[count];
+                ++count;
+                yield return null;
+            }
+            else if (endDialog)
+            {
+                endDialog = false;
+                gameObject.SetActive(false);
+                TextIsOn = false;
+                count = 0;
+                dialog.text = "";
+                Manager.Instance.actionMapPlayer.Enable();
+                Manager.Instance.OpenScene(sceneName, keyitem);
                 yield break;
             }
             else
