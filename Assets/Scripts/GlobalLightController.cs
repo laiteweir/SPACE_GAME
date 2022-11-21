@@ -6,10 +6,10 @@ using UnityEngine.Rendering.Universal;
 public class GlobalLightController : MonoBehaviour
 {
     // Start is called before the first frame update
-    private Light2D globalLight;
-    void Start()
+
+    void Awake()
     {
-        this.GetComponent<Light2D>().enabled = false;
+        gameObject.GetComponent<Light2D>().enabled = false;
 
     }
 
