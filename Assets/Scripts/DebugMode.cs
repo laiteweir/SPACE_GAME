@@ -5,8 +5,8 @@ using UnityEngine;
 public class DebugMode : MonoBehaviour
 {
     // Start is called before the first frame updateaaa
-    private bool goDebug = false;
-    private bool global_light_on = false;
+    private bool goDebug = true;
+    private bool global_light_on = true;
     private float x = 16.56f;
     private float y = 13.56f;
     void Start()
