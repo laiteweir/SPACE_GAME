@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Room7_event_02 : MonoBehaviour
 {
     [SerializeField] TextAsset textFile;
+    [SerializeField] GameObject Room9_door_light_1;
     //private TextAsset dialog01;
     private string[] dialog;
 
@@ -35,6 +37,8 @@ public class Room7_event_02 : MonoBehaviour
             this.first_trigger = false;
             Manager.Instance.room7.room7_event_01.SetActive(false);
             this.stop_aliens();
+            this.Room9_door_light_1.GetComponent<Light2D>().enabled = true;
+            this.Room9_door_light_1.GetComponent<Light2D>().color = Color.yellow;
         }
         // Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
     }  

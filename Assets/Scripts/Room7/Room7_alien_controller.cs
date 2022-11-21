@@ -13,7 +13,7 @@ public class Room7_alien_controller : MonoBehaviour
     [SerializeField] ContactFilter2D movementFilter;
     readonly List<RaycastHit2D> castCollisions = new();
     [SerializeField] float collisionOffset = 0f;
-    private bool isTouch = false;
+    // private bool isTouch = false;
     private int auto_change_direction = 0;
     enum Condition
     {
