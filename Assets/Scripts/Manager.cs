@@ -72,17 +72,20 @@ public class Manager : MonoBehaviour
         actionMapPlayer.Enable();
     }
 
-    public void SetDebugMode(bool debug, float x, float y)
+    public void SetDebugMode(bool debug, bool global_light_on, float x, float y)
     {
-        Vector2 location;
-        location.x = x;
-        location.y = y;
-        if(debug == true){
-            this.globalLight.GetComponent<Light2D>().enabled = true;
-            this.player.GetComponent<Transform>().position = location;
-        }
-        else{
-            this.globalLight.GetComponent<Light2D>().enabled = false;
+        Vector2 location = new(x, y);
+        if (debug)
+        {
+            player.GetComponent<Transform>().position = location;
+            if (global_light_on)
+            {
+                globalLight.GetComponent<Light2D>().enabled = true;
+            }
+            else
+            {
+                globalLight.GetComponent<Light2D>().enabled = false;
+            }
         }
     }
 }

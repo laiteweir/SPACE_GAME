@@ -311,6 +311,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   interact: {fileID: 245961660368771892}
+  spotLight: {fileID: 558578804}
 --- !u!95 &1022115545
 Animator:
   serializedVersion: 4
