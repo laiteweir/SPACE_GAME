@@ -11,14 +11,9 @@ public class DebugMode : MonoBehaviour
     private float y = 13.56f;
     void Start()
     {
-        if(goDebug){
-            Manager.Instance.SetDebugMode(goDebug,global_light_on,x,y);        
+        if (goDebug)
+        {
+            Manager.Instance.SetDebugMode(goDebug, global_light_on, x, y);    
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

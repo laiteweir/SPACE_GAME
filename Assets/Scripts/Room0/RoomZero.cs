@@ -10,7 +10,7 @@ public class RoomZero : MonoBehaviour
     public GameObject room0_event3;
     public List<Light2D> room0_event2_light;
     public Light2D room0_bigLight_1;
-    private bool goDebug = false;
+    // private bool goDebug = false;
     [HideInInspector] public bool[] room0_lights = { false, false, false, false };
     
     //public bool createKeyCard = false;
@@ -19,9 +19,9 @@ public class RoomZero : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(goDebug){
-            Manager.Instance.SetDebugMode(goDebug,0,0);        
-        }
+        // if(goDebug){
+        //     Manager.Instance.SetDebugMode(goDebug,0,0);        
+        // }
         
     }
 

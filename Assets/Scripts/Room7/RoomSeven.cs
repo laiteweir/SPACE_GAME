@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RoomSeven : MonoBehaviour
 {
-    private bool goDebug = false;
     public GameObject room7_event_01;
     public GameObject room7_event_02;
 
@@ -13,9 +12,9 @@ public class RoomSeven : MonoBehaviour
     {
 
 
-        if(goDebug){
-            Manager.Instance.SetDebugMode(goDebug,false,16.56f,13.56f);        
-        }
+        // if(goDebug){
+        //     Manager.Instance.SetDebugMode(goDebug,false,16.56f,13.56f);        
+        // }
     }
 
     // Update is called once per frame

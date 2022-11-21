@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class Engine0 : Keyitem
 {
-    [SerializeField] TextAsset textFile;
-    private string[] dialog;
+    [SerializeField] TextAsset success;
+    [SerializeField] TextAsset fail;
+    private string[] dialogSuccess;
+    private string[] dialogFail;
     [SerializeField] Item filledEnergyTank;
     void Start()
     {
-        dialog = textFile.text.Split('\n');
+        dialogSuccess = success.text.Split('\n');
+        dialogFail = fail.text.Split('\n');
     }
     public override void KeyitemEvent()
     {
-        if (Manager.Instance.myBag.itemList.Contains(filledEnergyTank) && filledEnergyTank.itemHeld == 3)
+        if (Manager.Instance.myBag.itemList.Contains(filledEnergyTank) && filledEnergyTank.itemHeld >= 3)
         {
             // Debug.Log("You have fixed Engine0!");
+            Manager.Instance.ui.SetActive(true);
+            Manager.Instance.dialogBox.TextIsOn = true;
+            Manager.Instance.dialogBox.StartTalk(dialogSuccess);
             Manager.Instance.room10.isEngine0Fixed = true;
             filledEnergyTank.itemHeld = 0;
             EndKeyitemEvent();
@@ -24,7 +30,7 @@ public class Engine0 : Keyitem
         {
             Manager.Instance.ui.SetActive(true);
             Manager.Instance.dialogBox.TextIsOn = true;
-            Manager.Instance.dialogBox.StartTalk(dialog);
+            Manager.Instance.dialogBox.StartTalk(dialogFail);
         }
     }
 
