@@ -4,21 +4,32 @@ using UnityEngine;
 
 public class FillEnergyTank : Keyitem
 {
-    [SerializeField] TextAsset textFile;
-    private string[] dialog;
+    [SerializeField] TextAsset first;
+    [SerializeField] TextAsset fail;
+    private string[] dialogFirst;
+    private string[] dialogFail;
     [SerializeField] Item energyTank;
+    private bool isFirst = true;
 
     void Start()
     {
-        dialog = textFile.text.Split('\n');
+        dialogFirst = first.text.Split('\n');
+        dialogFail = fail.text.Split('\n');
     }
     public override void KeyitemEvent()
     {
-        if (energyTank.itemHeld == 0)
+        if (isFirst)
+        {
+            isFirst = false;
+            Manager.Instance.ui.SetActive(true);
+            Manager.Instance.dialogBox.TextIsOn = true;
+            Manager.Instance.dialogBox.StartTalk(dialogFirst);
+        }
+        else if (energyTank.itemHeld == 0)
         {
             Manager.Instance.ui.SetActive(true);
             Manager.Instance.dialogBox.TextIsOn = true;
-            Manager.Instance.dialogBox.StartTalk(dialog);
+            Manager.Instance.dialogBox.StartTalk(dialogFail);
         }
         else
         {
