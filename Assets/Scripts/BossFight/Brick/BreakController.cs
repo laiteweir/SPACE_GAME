@@ -7,6 +7,8 @@ public class BreakController : MonoBehaviour
     
     private Rigidbody2D _myRD;
     private Vector2 _direction;
+    public int health =5;
+    [SerializeField] float speed =3;
     void Start()
     {
         _myRD = GetComponent<Rigidbody2D>();
@@ -27,6 +29,14 @@ public class BreakController : MonoBehaviour
         }
     }
     void FixedUpdate(){
-        _myRD.velocity = _direction*3;
+        _myRD.velocity = _direction*speed;
+    }
+    void OnCollisionEnter2D(Collision2D target){
+        if(target.gameObject.tag == "slime1"){
+            health--;
+        }
+        else if(target.gameObject.tag == "slime2"){
+            target.gameObject.GetComponent<Slime2>().is_attack = true;
+        }
     }
 }
