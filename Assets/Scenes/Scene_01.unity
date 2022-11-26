@@ -52104,6 +52104,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 261033973, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 261033974, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 261033974, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.28
+      objectReference: {fileID: 0}
     - target: {fileID: 1016336828, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.197
@@ -52120,6 +52132,10 @@ PrefabInstance:
       propertyPath: slotgrid
       value: 
       objectReference: {fileID: 863913844}
+    - target: {fileID: 2179273524924052309, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.17
+      objectReference: {fileID: 0}
     - target: {fileID: 2179273525075744132, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
       propertyPath: m_RootOrder
       value: 11
