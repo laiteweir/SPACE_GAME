@@ -9,12 +9,13 @@ public class Room7_whiteSlime_1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        door_7_1.GetComponent<Door>().locked = false;
     }
+
     void OnTriggerEnter2D(Collider2D col)
     {
-        door_7_1.GetComponent<Door>().locked = true;
-        Debug.Log("try to open door 7_1");
+        // door_7_1.GetComponent<Door>().locked = false;
+        // Debug.Log("try to open door 7_1");
         // Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
     }   
     // Update is called once per frame
