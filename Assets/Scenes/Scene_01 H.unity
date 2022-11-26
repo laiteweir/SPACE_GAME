@@ -1109,7 +1109,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1196685122}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &261033975
 BoxCollider2D:
@@ -39539,7 +39539,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 157f3c74c2a0dba4aadb60fc7268255b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textFile: {fileID: 4900000, guid: c226e10acad37124ca6794a2590328ce, type: 3}
+  first: {fileID: 0}
+  fail: {fileID: 0}
   energyTank: {fileID: 11400000, guid: a60014acc38061142acfff31285b4861, type: 2}
 --- !u!61 &1150724993
 BoxCollider2D:
@@ -39619,7 +39620,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1196685122}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1163589955
 MonoBehaviour:
@@ -42769,6 +42770,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1349487882}
+  - component: {fileID: 1349487883}
   m_Layer: 0
   m_Name: Room4
   m_TagString: Untagged
@@ -42797,6 +42799,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1349487883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349487881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9188e202928678846a8652ec29047173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room4_event1_1: {fileID: 1513655043}
+  room4_event1_2: {fileID: 1980978957}
+  room4_event1_3: {fileID: 1845638434}
+  room4_event1_4: {fileID: 2139797013}
+  safe: {fileID: 1881715791}
+  door: {fileID: 1979563675}
 --- !u!1001 &1349628380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44063,7 +44083,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae63f7105b7e59d4a9500a524353762b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textFile: {fileID: 4900000, guid: c226e10acad37124ca6794a2590328ce, type: 3}
+  success: {fileID: 0}
+  fail: {fileID: 0}
   filledEnergyTank: {fileID: 11400000, guid: 33bc402479bbdb74fa986ee12fe62c31, type: 2}
 --- !u!61 &1537997084
 BoxCollider2D:
@@ -44901,6 +44922,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1060b4644ecbf2478889e87c0146a24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  start: {fileID: 0}
+  success: {fileID: 0}
 --- !u!61 &1717391776
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46816,6 +46839,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1349487882}
     m_Modifications:
     - target: {fileID: 1145850418200985492, guid: 7223d31b8a83cbb43b9100fdb5e0b416, type: 3}
+      propertyPath: locked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145850418200985492, guid: 7223d31b8a83cbb43b9100fdb5e0b416, type: 3}
       propertyPath: textFile
       value: 
       objectReference: {fileID: 4900000, guid: c226e10acad37124ca6794a2590328ce, type: 3}
@@ -46885,13 +46912,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5460190782760990802, guid: 7223d31b8a83cbb43b9100fdb5e0b416, type: 3}
       propertyPath: m_Name
-      value: door_02_0 (1)
+      value: door_04_01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7223d31b8a83cbb43b9100fdb5e0b416, type: 3}
 --- !u!4 &1979563674 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5460190782760990801, guid: 7223d31b8a83cbb43b9100fdb5e0b416, type: 3}
+  m_PrefabInstance: {fileID: 1979563673}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1979563675 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5460190782760990802, guid: 7223d31b8a83cbb43b9100fdb5e0b416, type: 3}
   m_PrefabInstance: {fileID: 1979563673}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1980978957
