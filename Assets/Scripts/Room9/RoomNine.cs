@@ -38,4 +38,18 @@ public class RoomNine : MonoBehaviour
         
         return result;
     }
+    public bool itemsAreDone(){
+        bool result = false;
+        int dirCount = items.Count;
+        int trueCount = 0;
+        foreach(KeyValuePair<string, bool> kvp in items ){
+            if (kvp.Value == true){
+                trueCount = trueCount +1;
+            }
+        }
+        if(trueCount == dirCount){
+            result = true;
+        }
+        return result;
+    }
 }
