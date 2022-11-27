@@ -8,10 +8,13 @@ public class Room3_event_03 : Keyitem
     [SerializeField] TextAsset file2;
     [SerializeField] TextAsset file3;
     [SerializeField] string keycardName;
+    [SerializeField] GameObject safe;
     private string[] dialog1;
     private string[] dialog2;
     private string[] dialog3;
     private bool is_trigger = false;
+    private bool keycardcontroll = false;
+
     
     // Start is called before the first frame update
     void Start()
@@ -43,10 +46,30 @@ public class Room3_event_03 : Keyitem
             Manager.Instance.dialogBox.StartTalk(dialog3);
         }
         else 
-        { 
-            for (int i = 0; i < Manager.Instance.myBag.itemList.Count; ++i)
+        {
+            if (keycardcontroll == true)
             {
-                if (Manager.Instance.myBag.itemList[i].itemName == keycardName)
+                for (int i = 0; i < Manager.Instance.myBag.itemList.Count; ++i)
+                {
+                    if (Manager.Instance.myBag.itemList[i].itemName == keycardName)
+                    {
+                        Manager.Instance.ui.SetActive(true);
+                        Manager.Instance.dialogBox.TextIsOn = true;
+                        Manager.Instance.dialogBox.StartTalk(dialog1);
+                        is_trigger = true;
+                    }
+                    else
+                    {
+                        Manager.Instance.ui.SetActive(true);
+                        Manager.Instance.dialogBox.TextIsOn = true;
+                        Manager.Instance.dialogBox.StartTalk(dialog2);
+                    }
+
+                }
+            }
+            else
+            {
+                if (GameObject.Find("Safe").GetComponent<Safe>().trigger() == true) 
                 {
                     Manager.Instance.ui.SetActive(true);
                     Manager.Instance.dialogBox.TextIsOn = true;
@@ -59,7 +82,6 @@ public class Room3_event_03 : Keyitem
                     Manager.Instance.dialogBox.TextIsOn = true;
                     Manager.Instance.dialogBox.StartTalk(dialog2);
                 }
-           
             }
         }
         

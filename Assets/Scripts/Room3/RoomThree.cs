@@ -12,6 +12,7 @@ public class RoomThree : MonoBehaviour
     public GameObject room3_event2_5;
     public GameObject room3_event3;
     public UnityEngine.Rendering.Universal.Light2D biglight;
+    public UnityEngine.Rendering.Universal.Light2D biglight1;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class RoomThree : MonoBehaviour
     public bool Trun_On_Light()
     {
         biglight.enabled = true;
+        biglight1.enabled = true;
         return true;
     }
 }
