@@ -21,7 +21,8 @@ public class RoomSix : MonoBehaviour
         if(room6_event1.GetComponent<Room6_event_1>().exist && !clear){
             clear = true;
             nextDoor.GetComponent<Door>().locked = false;
-            Destroy(room6_event1);
+            //Destroy(room6_event1);
+            room6_event1.SetActive(false);
         }
     }
 }
