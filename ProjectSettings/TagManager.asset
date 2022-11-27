@@ -8,7 +8,8 @@ TagManager:
   - Room1Door
   - Room0Light
   - Breaker
-  - Ball
+  - slime1
+  - slime2
   layers:
   - Default
   - TransparentFX

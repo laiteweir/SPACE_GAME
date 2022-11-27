@@ -10,9 +10,12 @@ public class CookManager : MonoBehaviour
     public float limit_point ;
     public bool win = false;
     public bool overcooked = false;
+    [SerializeField] GameObject Food;
+    [SerializeField] GameObject FoodCooked;
     void Start()
     {
-        
+        Food.SetActive(true);
+        FoodCooked.SetActive(false);
     }
 
     // Update is called once per frame
@@ -34,6 +37,11 @@ public class CookManager : MonoBehaviour
             CookData.situation =2;
             backScene();
         }
+
+        if( Slide.GetComponent<SlideControl>().points >= limit_point ){
+            Food.SetActive(false);
+            FoodCooked.SetActive(true);
+        } 
     }
 
     void backScene(){
