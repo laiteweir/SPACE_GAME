@@ -9,7 +9,7 @@ public class SlideControl : MonoBehaviour
     public float points = 0;
     public bool is_done = false;
     float time = 0; 
-    int count = 30; 
+    public int count = 30; 
     bool start_timer = true;
       // Start is called before the first frame update
     void Start()
@@ -39,6 +39,8 @@ public class SlideControl : MonoBehaviour
             start_timer = false;
             Debug.Log(count);
             if(count==0){
+                points += slide.value;
+                slide.value =0;
                 is_done = true;
                 Debug.Log(points);
                 Destroy(this);
