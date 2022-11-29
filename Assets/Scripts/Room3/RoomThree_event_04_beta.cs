@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Room3_event_01 : Keyitem
+public class RoomThree_event_04_beta : Keyitem
 {
     [SerializeField] TextAsset file;
-    [SerializeField] GameObject door;
-    // Start is called before the first frame update
     private string[] dialog;
     private bool is_trigger = false;
+    // Start is called before the first frame update
     void Start()
     {
         dialog = file.text.Split("\n");
@@ -19,17 +18,24 @@ public class Room3_event_01 : Keyitem
     {
         if (Manager.Instance.dialogBox.TextIsOn == false && is_trigger == true)
         {
-            Manager.Instance.room3.room3_event3.SetActive(true);
-            Manager.Instance.room3.room3_event1.SetActive(false);
+            
+            Manager.Instance.room3.room3_event2_1.SetActive(true);
+            Manager.Instance.room3.room3_event2_2.SetActive(true);
+            Manager.Instance.room3.room3_event2_3.SetActive(true);
+            Manager.Instance.room3.room3_event2_4.SetActive(true);
+            Manager.Instance.room3.room3_event2_5.SetActive(true);
+            Manager.Instance.room3.room3_event2_5.SetActive(true);
+            Manager.Instance.room3.room3_event4.SetActive(false);
         }
     }
+
     public override void KeyitemEvent()
     {
         Manager.Instance.ui.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;
         Manager.Instance.dialogBox.StartTalk(dialog);
-        door.GetComponent<Door>().locked = false;
         is_trigger = true;
+
 
 
     }
