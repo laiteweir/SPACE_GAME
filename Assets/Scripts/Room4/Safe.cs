@@ -6,7 +6,7 @@ public class Safe : Keyitem
 {
     // Start is called before the first frame update
     private bool keepTrying = false;
-    public bool istriggered = false;
+    private bool Ison = false;
     [SerializeField] TextAsset file;
     private string[] dialog1;
     void Start()
@@ -21,17 +21,21 @@ public class Safe : Keyitem
     }
     public override void KeyitemEvent()
     {
-        istriggered = true;
+        Manager.Instance.ui.SetActive(true);
+        Manager.Instance.dialogBox.TextIsOn = true;
         Manager.Instance.dialogBox.StartTalk(dialog1);
+        Ison = true;
+
     }
 
     public override void EndKeyitemEvent()
     {
-
+        
     }
     public bool trigger()
     {
-        return istriggered;
+        
+        return Ison;
     }
     private IEnumerator TryUnlockWithPassword()
     {
@@ -50,7 +54,6 @@ public class Safe : Keyitem
             {
                 Manager.Instance.codePanel.SetActive(false);
                 Manager.Instance.actionMapPlayer.Enable();
-                istriggered = true;
                 Manager.Instance.dialogBox.StartTalk(dialog1);
                 yield break;
             }
