@@ -6,7 +6,7 @@ public class Room3_event_03_new : Keyitem
 {
     [SerializeField] TextAsset file;
     private string[] dialog;
-    private bool is_trigger = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +24,7 @@ public class Room3_event_03_new : Keyitem
         Manager.Instance.ui.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;
         Manager.Instance.dialogBox.StartTalk(dialog);
-        is_trigger = true;
+
     }
 
     public override void EndKeyitemEvent()
