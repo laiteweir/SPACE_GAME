@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class ManageWireTask : Keyitem
 {
@@ -25,6 +26,7 @@ public class ManageWireTask : Keyitem
     {
         Manager.Instance.CloseScene("Wire_Task");
         // Debug.Log("You have fixed Engine1!");
+        gameObject.GetComponent<Light2D>().color = Color.green;
         Manager.Instance.ui.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;
         Manager.Instance.dialogBox.StartTalk(dialogSuccess);

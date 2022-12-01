@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class interacthint : MonoBehaviour
+public class InteractHint : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] GameObject hint;
     void OnTriggerEnter2D(Collider2D collision){
         Debug.Log("trigger");
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.CompareTag("Player"))
             hint.SetActive(true);
     }
 
