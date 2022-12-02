@@ -14,6 +14,8 @@ public class SlideControl : MonoBehaviour
     public bool flip = false;
     [SerializeField] GameObject fireup;
     [SerializeField] GameObject firedown;
+    private float speed =0;
+    //private readonly Random _random = new Random();  
       // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,7 @@ public class SlideControl : MonoBehaviour
         slide.value = 0;
         fireup.SetActive(flip);
         firedown.SetActive(!flip);
+        speed =  Random.Range(0.1f, 0.3f); 
     }
 
     // Update is called once per frame
@@ -28,15 +31,13 @@ public class SlideControl : MonoBehaviour
     {
         time +=Time.deltaTime;
  
-        if(time > 1){
-            time = 0;
-            slide.value += 1;
-        }
+        // if(time > 1){
+        //     time = 0;
+        //     slide.value += 1;
+        // }
 
         if(Input.GetKeyDown(KeyCode.Space)){
-            if(slide.value > 6)
-                points +=3;
-            points += slide.value;
+            speed =  Random.Range(0.1f, 0.2f); 
             slide.value =0;
             flip = !flip;
             fireup.SetActive(flip);
@@ -60,5 +61,9 @@ public class SlideControl : MonoBehaviour
         yield return new WaitForSeconds(1);
         count--;
         start_timer = true;
+    }
+
+    void FixedUpdate(){
+        slide.value += speed;
     }
 }
