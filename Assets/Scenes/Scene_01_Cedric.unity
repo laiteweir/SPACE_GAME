@@ -39297,6 +39297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd59090327a26734085303b38b7f6d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  room2_bigLight: {fileID: 0}
 --- !u!4 &775016565
 Transform:
   m_ObjectHideFlags: 0
@@ -41862,6 +41863,7 @@ MonoBehaviour:
   first: {fileID: 4900000, guid: 2c498e96769306c4c9ab98c0959db479, type: 3}
   fail: {fileID: 4900000, guid: e9a1e6d24c23a3e41b269b57c2158d3a, type: 3}
   energyTank: {fileID: 11400000, guid: a60014acc38061142acfff31285b4861, type: 2}
+  filledEnergyTank: {fileID: 11400000, guid: 33bc402479bbdb74fa986ee12fe62c31, type: 2}
 --- !u!61 &1150724993
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49610,6 +49612,9 @@ MonoBehaviour:
   room10_event_01: {fileID: 2002824460}
   room10_event_02: {fileID: 255635745}
   room10_bigLight: {fileID: 1748620760}
+  engine0_Light: {fileID: 0}
+  engine1_Light: {fileID: 0}
+  refillStation_Light: {fileID: 0}
   isEngine0Fixed: 0
   isEngine1Fixed: 0
 --- !u!1 &1515070861
@@ -54079,7 +54084,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 558578804, guid: ac7369e9b0d3110418955999238f7ffe, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 2.8496175
+      value: 3.9500299
       objectReference: {fileID: 0}
     - target: {fileID: 558578804, guid: ac7369e9b0d3110418955999238f7ffe, type: 3}
       propertyPath: m_LocalBounds.m_Center.y

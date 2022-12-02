@@ -27,6 +27,7 @@ public class Room1_event_Slime : Keyitem
             Manager.Instance.dialogBox.StartTalk(dialog);
             //this.first_trigger = false;
             Slime.GetComponent<Room1_event_SlimeMove>().is_move = true;
+            Destroy(gameObject);
         }
         // Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
     }    
