@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class FillEnergyTank : Keyitem
 {
@@ -9,12 +10,20 @@ public class FillEnergyTank : Keyitem
     private string[] dialogFirst;
     private string[] dialogFail;
     [SerializeField] Item energyTank;
+    [SerializeField] Item filledEnergyTank;
     private bool isFirst = true;
 
     void Start()
     {
         dialogFirst = first.text.Split('\n');
         dialogFail = fail.text.Split('\n');
+    }
+    private void Update()
+    {
+        if (filledEnergyTank.itemHeld >= 3)
+        {
+            gameObject.GetComponent<Light2D>().enabled = false;
+        }
     }
     public override void KeyitemEvent()
     {

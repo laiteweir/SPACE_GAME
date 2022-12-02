@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Engine0 : Keyitem
 {
@@ -24,6 +25,7 @@ public class Engine0 : Keyitem
             Manager.Instance.dialogBox.StartTalk(dialogSuccess);
             Manager.Instance.room10.isEngine0Fixed = true;
             filledEnergyTank.itemHeld = 0;
+            gameObject.GetComponent<Light2D>().color = Color.green;
             EndKeyitemEvent();
         }
         else

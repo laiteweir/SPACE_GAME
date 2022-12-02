@@ -8,6 +8,9 @@ public class RoomTen : MonoBehaviour
     public GameObject room10_event_01;
     public GameObject room10_event_02;
     public Light2D room10_bigLight;
+    public Light2D engine0_Light;
+    public Light2D engine1_Light;
+    public Light2D refillStation_Light;
     [HideInInspector] public bool isEngine0Fixed = false;
     [HideInInspector] public bool isEngine1Fixed = false;
 
