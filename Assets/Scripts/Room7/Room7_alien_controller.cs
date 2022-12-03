@@ -15,6 +15,8 @@ public class Room7_alien_controller : MonoBehaviour
     [SerializeField] float collisionOffset = 0f;
     // private bool isTouch = false;
     private int auto_change_direction = 0;
+    [SerializeField] TextAsset textFile;
+    private string[] dialog;
     enum Condition
     {
         Success,
@@ -49,24 +51,24 @@ public class Room7_alien_controller : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        // Debug.Log(other);
-        // Vector2 temp = directionVector;
-        // ChangeDirection();
-        // int loops = 0;
-        // while (temp == directionVector && loops < 100)
-        // {
-        //     loops++;
-        //     ChangeDirection();
-        // }
-    }
+    // private void OnCollisionEnter2D(Collision2D other) {
+    //     Debug.Log(other);
+    //     // Vector2 temp = directionVector;
+    //     // ChangeDirection();
+    //     // int loops = 0;
+    //     // while (temp == directionVector && loops < 100)
+    //     // {
+    //     //     loops++;
+    //     //     ChangeDirection();
+    //     // }
+    // }
     void OnTriggerEnter2D(Collider2D col)
     {
-        // if(  !isTouch && Regex.IsMatch(col.gameObject.name, "Player", RegexOptions.IgnoreCase)){
-        //     Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
-        //     isTouch = true;
-        //     // Manager.Instance.playerController.SetPlayerSpeed(0.5f);
-        // }
+        if(  !Manager.Instance.room7.isTouch && col.gameObject.name == "Player"){
+            Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
+            Manager.Instance.room7.isTouch = true;
+            // Manager.Instance.playerController.SetPlayerSpeed(0.1f);
+        }
     }    
     void ChangeDirectionGoback(Vector2 directionVector){
         if(directionVector==Vector2.up){
