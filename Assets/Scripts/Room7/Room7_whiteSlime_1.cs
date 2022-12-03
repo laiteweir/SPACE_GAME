@@ -9,7 +9,7 @@ public class Room7_whiteSlime_1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        door_7_1.GetComponent<Door>().locked = false;
+        door_7_1.GetComponent<Door>().locked = true;
     }
 
     void OnTriggerEnter2D(Collider2D col)
