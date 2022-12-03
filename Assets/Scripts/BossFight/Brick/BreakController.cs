@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 
 public class BreakController : MonoBehaviour
 {
@@ -9,9 +11,24 @@ public class BreakController : MonoBehaviour
     private Vector2 _direction;
     public int health =5;
     [SerializeField] float speed =3;
+    Animator animator;
+    SpriteRenderer spriteRenderer;
+    private InputAction run;
+    bool right = true;
+    enum Condition
+    {
+        Success,
+        Blocked,
+        InputZero
+    }
     void Start()
     {
         _myRD = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        run = Manager.Instance.actionMapPlayer.FindAction("Run");
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        // run.started += context => StartRun();
+        // run.canceled += context => EndRun();
     }
 
     // Update is called once per frame
@@ -19,13 +36,24 @@ public class BreakController : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.LeftArrow)){
             _direction = Vector2.left;
+            animator.SetBool("isWalking", true);
+            if(!right){
+                spriteRenderer.flipX = false;
+                right = !right;
+            }
         }
         else if(Input.GetKey(KeyCode.RightArrow))
         {
             _direction = Vector2.right;
+             animator.SetBool("isWalking", true);
+             if(right){
+                spriteRenderer.flipX = true;
+                right = !right;
+            }
         }
         else{
             _direction = Vector2.zero;
+            animator.SetBool("isWalking", false);
         }
     }
     void FixedUpdate(){

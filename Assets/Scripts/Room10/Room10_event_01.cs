@@ -15,6 +15,9 @@ public class Room10_event_01 : MonoBehaviour
     {
         if (Manager.Instance.player.transform.position.y < -15f)
         {
+            Manager.Instance.room10.engine0_Light.enabled = true;
+            Manager.Instance.room10.engine1_Light.enabled = true;
+            Manager.Instance.room10.refillStation_Light.enabled = true;
             Manager.Instance.ui.SetActive(true);
             Manager.Instance.dialogBox.TextIsOn = true;
             Manager.Instance.dialogBox.StartTalk(dialog);
