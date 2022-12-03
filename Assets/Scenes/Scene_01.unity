@@ -2004,6 +2004,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   collisionOffset: 0
+  textFile: {fileID: 0}
 --- !u!95 &380054277
 Animator:
   serializedVersion: 4
@@ -25098,6 +25099,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   collisionOffset: 0
+  textFile: {fileID: 0}
 --- !u!95 &537987812
 Animator:
   serializedVersion: 4
@@ -39757,6 +39759,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   collisionOffset: 0
+  textFile: {fileID: 0}
 --- !u!95 &824629231
 Animator:
   serializedVersion: 4
@@ -41129,6 +41132,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   collisionOffset: 0
+  textFile: {fileID: 0}
 --- !u!95 &1061182329
 Animator:
   serializedVersion: 4
@@ -41992,6 +41996,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   collisionOffset: 0
+  textFile: {fileID: 0}
 --- !u!95 &1187202265
 Animator:
   serializedVersion: 4
@@ -42421,7 +42426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1751406968923015996, guid: e52da526b92bfcd4a8fec91c7989608d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4165283214884968831, guid: e52da526b92bfcd4a8fec91c7989608d, type: 3}
       propertyPath: m_RootOrder
@@ -47753,6 +47758,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   collisionOffset: 0
+  textFile: {fileID: 0}
 --- !u!95 &1364315407
 Animator:
   serializedVersion: 4
@@ -48119,6 +48125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   room7_event_01: {fileID: 515731682}
   room7_event_02: {fileID: 2089362494}
+  isTouch: 0
 --- !u!4 &1389031560
 Transform:
   m_ObjectHideFlags: 0
@@ -51081,6 +51088,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   collisionOffset: 0
+  textFile: {fileID: 0}
 --- !u!95 &1739441114
 Animator:
   serializedVersion: 4
@@ -52593,6 +52601,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   collisionOffset: 0
+  textFile: {fileID: 0}
 --- !u!95 &1872101566
 Animator:
   serializedVersion: 4
@@ -53057,6 +53066,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   collisionOffset: 0
+  textFile: {fileID: 0}
 --- !u!95 &1938828983
 Animator:
   serializedVersion: 4
@@ -54036,6 +54046,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   collisionOffset: 0
+  textFile: {fileID: 0}
 --- !u!95 &2049632387
 Animator:
   serializedVersion: 4
