@@ -13,11 +13,14 @@ public class BossSmile : MonoBehaviour
     private Vector2 _direction;
     private Rigidbody2D _myRD;
     int number;
+    public Vector2 force;
     public int bossHealth =3;
+    private static float y_dis = -3.5291f;
 
      void Start()
     {
         _myRD = GetComponent<Rigidbody2D>();
+        force.y = y_dis;
     }
 
     void Update(){
@@ -47,9 +50,9 @@ public class BossSmile : MonoBehaviour
             newSmile.transform.parent = gameObject.transform;
             newSmile.transform.position = parent.transform.position;
            // newSmile.Ge
-            Vector2 force = Vector2.zero;
+            //Vector2 force = Vector2.zero;
             force.x = Player.transform.position.x - gameObject.transform.position.x;
-            force.y = Player.transform.position.y - gameObject.transform.position.y;
+            //force.y = y_dis;
             newSmile.GetComponent<Rigidbody2D>().AddForce(force.normalized*speed);
             Debug.Log("generated");
     }
