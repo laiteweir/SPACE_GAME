@@ -9,14 +9,14 @@ public class Slime2 : MonoBehaviour
     public bool is_attack = false;
     
 
-    // private void Awake(){
-    //     _myRD = GetComponent<Rigidbody2D>();
-    // }
+    private void Awake(){
+        _myRD = GetComponent<Rigidbody2D>();
+    }
 
-    // void Start()
-    // {
-    //     Invoke(nameof(SetRandomTrajectory),0.5f);
-    // }
+    void Start()
+    {
+        // Invoke(nameof(SetRandomTrajectory),0.5f);
+    }
     
     
 
