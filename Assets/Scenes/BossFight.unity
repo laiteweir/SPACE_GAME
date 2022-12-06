@@ -237,11 +237,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Smiles:
-  - {fileID: 128500076493823672, guid: 8660a1ccc360b46f8835039d8185ded2, type: 3}
-  - {fileID: 128500076493823672, guid: 62791aa9bd20b4b40bb2b842c5784b01, type: 3}
+  - {fileID: 1751406968923015996, guid: aa093a9ff03ae477d8512862e4247081, type: 3}
+  - {fileID: 1751406968923015996, guid: e52da526b92bfcd4a8fec91c7989608d, type: 3}
   parent: {fileID: 135776831}
   Player: {fileID: 1087013484}
   speed: 2
+  force: {x: 0, y: 0}
   bossHealth: 3
 --- !u!212 &135776834
 SpriteRenderer:
@@ -718,7 +719,7 @@ GameObject:
   - component: {fileID: 1067085371}
   - component: {fileID: 1067085372}
   - component: {fileID: 1067085373}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -832,7 +833,7 @@ GameObject:
   - component: {fileID: 1087013487}
   - component: {fileID: 1087013486}
   - component: {fileID: 1087013490}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Breaker
   m_TagString: Breaker
   m_Icon: {fileID: 0}
@@ -1233,7 +1234,7 @@ GameObject:
   - component: {fileID: 1423580274}
   - component: {fileID: 1423580273}
   - component: {fileID: 1423580272}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1620,7 +1621,8 @@ GameObject:
   - component: {fileID: 1677141312}
   - component: {fileID: 1677141313}
   - component: {fileID: 1677141314}
-  m_Layer: 0
+  - component: {fileID: 1677141315}
+  m_Layer: 3
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1720,6 +1722,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &1677141315
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677141311}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1693900380
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,7 +1755,7 @@ GameObject:
   - component: {fileID: 1693900382}
   - component: {fileID: 1693900383}
   - component: {fileID: 1693900384}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
