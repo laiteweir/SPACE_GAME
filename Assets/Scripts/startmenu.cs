@@ -9,6 +9,7 @@ public class startmenu : MonoBehaviour
     public void Start()
     {
         image.SetActive(false);
+        Manager.Instance.actionMapPlayer.Disable();
     }
 
     // Update is called once per frame
@@ -16,13 +17,15 @@ public class startmenu : MonoBehaviour
     {
         
     }
-    public void Start() 
+    public void Startgame()
     {
-        
+        image.SetActive(false);
+        Manager.Instance.Startmenu.SetActive(false);
+        Manager.Instance.actionMapPlayer.Enable();
     }
     public void Tutorial()
     {
-
+        image.SetActive(true);
     }
     public void Setting()
     {
