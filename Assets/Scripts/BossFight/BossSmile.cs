@@ -16,7 +16,8 @@ public class BossSmile : MonoBehaviour
     public Vector2 force;
     public int bossHealth =3;
     private static float y_dis = -3.5291f;
-
+    private float slimeSpeed = 2f;
+    private bool stage2 = true;
      void Start()
     {
         _myRD = GetComponent<Rigidbody2D>();
@@ -35,7 +36,10 @@ public class BossSmile : MonoBehaviour
         
        // Debug.Log(transform.position.x);
         _direction = (Vector2.left);
-
+        if(bossHealth <= 1 && stage2){
+            speed = 3f;
+            stage2 = !stage2;
+        }
         
 
     }
@@ -53,7 +57,7 @@ public class BossSmile : MonoBehaviour
             //Vector2 force = Vector2.zero;
             force.x = Player.transform.position.x - gameObject.transform.position.x;
             //force.y = y_dis;
-            newSmile.GetComponent<Rigidbody2D>().AddForce(force.normalized*speed);
+            newSmile.GetComponent<Rigidbody2D>().AddForce(force.normalized*slimeSpeed);
             Debug.Log("generated");
     }
     
