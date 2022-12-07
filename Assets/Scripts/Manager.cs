@@ -31,6 +31,7 @@ public class Manager : MonoBehaviour
     public RoomEleven room11;
     public RoomTwelve room12;
     public RoomThirteen room13;
+    public GameObject Startmenu;
     [HideInInspector] public InputActionMap actionMapPlayer;
     [HideInInspector] public Pause pause;
     [HideInInspector] public DialogBox dialogBox;

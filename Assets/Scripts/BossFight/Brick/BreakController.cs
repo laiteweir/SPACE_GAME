@@ -25,7 +25,7 @@ public class BreakController : MonoBehaviour
     {
         _myRD = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        run = Manager.Instance.actionMapPlayer.FindAction("Run");
+        //run = Manager.Instance.actionMapPlayer.FindAction("Run");
         spriteRenderer = GetComponent<SpriteRenderer>();
         // run.started += context => StartRun();
         // run.canceled += context => EndRun();
@@ -37,8 +37,8 @@ public class BreakController : MonoBehaviour
         if(Input.GetKey(KeyCode.LeftArrow)){
             _direction = Vector2.left;
             animator.SetBool("isWalking", true);
-            if(!right){
-                spriteRenderer.flipX = false;
+            if(right){
+                spriteRenderer.flipX = true;
                 right = !right;
             }
         }
@@ -46,8 +46,9 @@ public class BreakController : MonoBehaviour
         {
             _direction = Vector2.right;
              animator.SetBool("isWalking", true);
-             if(right){
-                spriteRenderer.flipX = true;
+        
+             if(!right){
+                spriteRenderer.flipX = false;
                 right = !right;
             }
         }
