@@ -57,6 +57,12 @@ public class BossSmile : MonoBehaviour
             //Vector2 force = Vector2.zero;
             force.x = Player.transform.position.x - gameObject.transform.position.x;
             //force.y = y_dis;
+            if(Player.GetComponent<BreakController>().is_moving){
+                if(Player.GetComponent<BreakController>().right)
+                    force.x += 0.3f;
+                else
+                    force.x -= 0.3f;
+            }
             newSmile.GetComponent<Rigidbody2D>().AddForce(force.normalized*slimeSpeed);
             Debug.Log("generated");
     }
