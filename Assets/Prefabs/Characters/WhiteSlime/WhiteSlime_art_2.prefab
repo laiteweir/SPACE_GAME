@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 6218487563128113292}
   - component: {fileID: 7043706521767366616}
   m_Layer: 0
-  m_Name: WhiteSlime_art_1
-  m_TagString: slime2
+  m_Name: WhiteSlime_art_2
+  m_TagString: slime1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 1943341189, guid: d4f49726df051e7428a017dfd5284ce1, type: 3}
-  m_Color: {r: 0.9811321, g: 0.14346743, b: 0.14346743, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

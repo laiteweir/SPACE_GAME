@@ -238,7 +238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Smiles:
   - {fileID: 1751406968923015996, guid: aa093a9ff03ae477d8512862e4247081, type: 3}
-  - {fileID: 1751406968923015996, guid: e52da526b92bfcd4a8fec91c7989608d, type: 3}
+  - {fileID: 1751406968923015996, guid: df0456000ef874229b8012e21f2a0771, type: 3}
   parent: {fileID: 135776831}
   Player: {fileID: 1087013484}
   speed: 2
