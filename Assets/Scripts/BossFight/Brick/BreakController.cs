@@ -14,7 +14,8 @@ public class BreakController : MonoBehaviour
     Animator animator;
     SpriteRenderer spriteRenderer;
     private InputAction run;
-    bool right = true;
+    public bool right = true;
+    public bool is_moving = true;
     enum Condition
     {
         Success,
@@ -41,6 +42,7 @@ public class BreakController : MonoBehaviour
                 spriteRenderer.flipX = true;
                 right = !right;
             }
+            is_moving = true;
         }
         else if(Input.GetKey(KeyCode.RightArrow))
         {
@@ -51,10 +53,12 @@ public class BreakController : MonoBehaviour
                 spriteRenderer.flipX = false;
                 right = !right;
             }
+            is_moving = true;
         }
         else{
             _direction = Vector2.zero;
             animator.SetBool("isWalking", false);
+            is_moving = false;
         }
     }
     void FixedUpdate(){
