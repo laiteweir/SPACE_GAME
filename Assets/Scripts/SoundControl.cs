@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundControl : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] AudioSource bgm;
+    [SerializeField] Slider slider;
     void Start()
     {
-        bgm.volume = 1;
-
+        bgm.volume = 0.5f;
+        slider.value = bgm.volume;
     }
 
     // Update is called once per frame
@@ -18,9 +20,8 @@ public class SoundControl : MonoBehaviour
         
     }
 
-    public void VoiceChanged(float newvolumn) 
+    public void VoiceChanged()
     {
-        bgm.volume = newvolumn;
-        Debug.Log(newvolumn);
+        bgm.volume = slider.value;
     } 
 }

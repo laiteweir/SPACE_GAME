@@ -717,6 +717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgm: {fileID: 125753529}
+  slider: {fileID: 0}
 --- !u!1 &148765717
 GameObject:
   m_ObjectHideFlags: 0
@@ -40761,7 +40762,6 @@ GameObject:
   - component: {fileID: 760760192}
   - component: {fileID: 760760194}
   - component: {fileID: 760760193}
-  - component: {fileID: 760760195}
   m_Layer: 5
   m_Name: Setting
   m_TagString: Untagged
@@ -40829,19 +40829,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760760191}
   m_CullTransparentMesh: 1
---- !u!114 &760760195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 760760191}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a335da61f65ca75499d051d76efbfd2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bgm: {fileID: 125753529}
 --- !u!1 &766657006
 GameObject:
   m_ObjectHideFlags: 0
@@ -42716,10 +42703,10 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 125753531}
+      - m_Target: {fileID: 1610217338}
         m_TargetAssemblyTypeName: SoundControl, Assembly-CSharp
         m_MethodName: VoiceChanged
-        m_Mode: 4
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -52084,8 +52071,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 335775665}
-        m_TargetAssemblyTypeName: Pause, Assembly-CSharp
+      - m_Target: {fileID: 1685211875}
+        m_TargetAssemblyTypeName: startmenu, Assembly-CSharp
         m_MethodName: Back
         m_Mode: 1
         m_Arguments:
@@ -52219,9 +52206,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1610217335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f6308d269238ea419556d365534d7b6, type: 3}
+  m_Script: {fileID: 11500000, guid: a335da61f65ca75499d051d76efbfd2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bgm: {fileID: 125753529}
+  slider: {fileID: 1048118031}
 --- !u!1 &1616941843
 GameObject:
   m_ObjectHideFlags: 0
@@ -53413,6 +53402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1446050808}
+  setting: {fileID: 760760191}
 --- !u!1 &1689450807
 GameObject:
   m_ObjectHideFlags: 0
@@ -56764,7 +56754,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1967124150}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1685211875}
+        m_TargetAssemblyTypeName: startmenu, Assembly-CSharp
+        m_MethodName: Setting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1967124150
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class Manager : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class Manager : MonoBehaviour
         actionMapPlayer = player.GetComponent<PlayerInput>().actions.FindActionMap("Player");
         pause = PauseMenu.GetComponent<Pause>();
         dialogBox = ui.GetComponent<DialogBox>();
+
         
         
     }
@@ -89,4 +91,5 @@ public class Manager : MonoBehaviour
             }
         }
     }
+
 }
