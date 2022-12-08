@@ -41705,8 +41705,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 335775665}
-        m_TargetAssemblyTypeName: Pause, Assembly-CSharp
+      - m_Target: {fileID: 1685211875}
+        m_TargetAssemblyTypeName: startmenu, Assembly-CSharp
         m_MethodName: Back
         m_Mode: 1
         m_Arguments:
