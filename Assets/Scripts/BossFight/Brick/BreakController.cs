@@ -14,7 +14,8 @@ public class BreakController : MonoBehaviour
     Animator animator;
     SpriteRenderer spriteRenderer;
     private InputAction run;
-    bool right = true;
+    public bool right = true;
+    public bool is_moving = true;
     enum Condition
     {
         Success,
@@ -25,7 +26,7 @@ public class BreakController : MonoBehaviour
     {
         _myRD = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        run = Manager.Instance.actionMapPlayer.FindAction("Run");
+        //run = Manager.Instance.actionMapPlayer.FindAction("Run");
         spriteRenderer = GetComponent<SpriteRenderer>();
         // run.started += context => StartRun();
         // run.canceled += context => EndRun();
@@ -37,23 +38,27 @@ public class BreakController : MonoBehaviour
         if(Input.GetKey(KeyCode.LeftArrow)){
             _direction = Vector2.left;
             animator.SetBool("isWalking", true);
-            if(!right){
-                spriteRenderer.flipX = false;
+            if(right){
+                spriteRenderer.flipX = true;
                 right = !right;
             }
+            is_moving = true;
         }
         else if(Input.GetKey(KeyCode.RightArrow))
         {
             _direction = Vector2.right;
              animator.SetBool("isWalking", true);
-             if(right){
-                spriteRenderer.flipX = true;
+        
+             if(!right){
+                spriteRenderer.flipX = false;
                 right = !right;
             }
+            is_moving = true;
         }
         else{
             _direction = Vector2.zero;
             animator.SetBool("isWalking", false);
+            is_moving = false;
         }
     }
     void FixedUpdate(){
