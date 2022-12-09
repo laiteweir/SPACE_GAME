@@ -19,6 +19,7 @@ public class Room9_event_02_Folder : MonoBehaviour
         Manager.Instance.dialogBox.StartTalk(dialog);
         bool result = Manager.Instance.room9.setItem("Folder");
         Debug.Log(result);
+        this.gameObject.SetActive(false);
     }  
     // Update is called once per frame
     void Update()

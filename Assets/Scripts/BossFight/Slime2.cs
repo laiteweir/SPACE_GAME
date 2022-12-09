@@ -15,16 +15,16 @@ public class Slime2 : MonoBehaviour
 
     void Start()
     {
-        Invoke(nameof(SetRandomTrajectory),0.5f);
+        // Invoke(nameof(SetRandomTrajectory),0.5f);
     }
     
     
 
-    // Update is called once per frame
-    void SetRandomTrajectory(){
-        Vector2 force = Vector2.zero;
-        force.x = Random.Range(-0.5f,0.5f);
-        force.y = -1;
-        _myRD.AddForce(force.normalized*speed);
-    }
+    // // Update is called once per frame
+    // void SetRandomTrajectory(){
+    //     Vector2 force = Vector2.zero;
+    //     force.x = Random.Range(-0.5f,0.5f);
+    //     force.y = -1;
+    //     _myRD.AddForce(force.normalized*speed);
+    // }
 }

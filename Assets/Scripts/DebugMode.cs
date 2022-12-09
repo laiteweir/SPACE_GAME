@@ -7,8 +7,8 @@ public class DebugMode : MonoBehaviour
     // Start is called before the first frame updateaaa
     private bool goDebug = true;
     private bool global_light_on = false;
-    private float x = 0f;
-    private float y = -9f;
+    private float x = 8f;
+    private float y = -7f;
     void Start()
     {
         if (goDebug)
