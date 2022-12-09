@@ -49,5 +49,9 @@ public class FillEnergyTank : Keyitem
     public override void EndKeyitemEvent()
     {
         Manager.Instance.CloseScene("Fill_Energy_Tank_Task");
+        if (energyTank.itemHeld == 0 && filledEnergyTank.itemHeld == 3)
+        {
+            Manager.Instance.myBag.itemList.Remove(energyTank);
+        }
     }
 }

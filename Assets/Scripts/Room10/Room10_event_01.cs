@@ -13,7 +13,7 @@ public class Room10_event_01 : MonoBehaviour
 
     void Update()
     {
-        if (Manager.Instance.player.transform.position.y < -15f)
+        if (Manager.Instance.player.transform.position.y < -14f)
         {
             // Manager.Instance.room10.engine0_Light.enabled = true;
             // Manager.Instance.room10.engine1_Light.enabled = true;
