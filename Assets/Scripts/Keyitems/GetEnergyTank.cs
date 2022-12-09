@@ -44,7 +44,7 @@ public class GetEnergyTank : Keyitem
                 Manager.Instance.dialogBox.StartTalk(dialogThird);
                 break;
         }
-                EndKeyitemEvent();
+        EndKeyitemEvent();
     }
 
     public override void EndKeyitemEvent()

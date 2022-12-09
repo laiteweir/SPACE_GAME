@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossSmile : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class BossSmile : MonoBehaviour
     [SerializeField] GameObject parent;
     [SerializeField] GameObject Player;
     [SerializeField] float speed = 300f;
+    [SerializeField] GameObject slider;
     float timer = 0f;
     private Vector2 _direction;
     private Rigidbody2D _myRD;
@@ -18,13 +20,17 @@ public class BossSmile : MonoBehaviour
     private static float y_dis = -3.5291f;
     private float slimeSpeed = 2f;
     private bool stage2 = true;
+    Slider slide;
      void Start()
     {
         _myRD = GetComponent<Rigidbody2D>();
-        force.y = y_dis;
+        slide = slider.GetComponent<Slider>();
+        slide.maxValue = bossHealth;
+        force.y = Player.transform.position.y - gameObject.transform.position.y;
     }
 
     void Update(){
+        slide.value = bossHealth;
         if(timer > 2){
             timer = 0;
             number = Random.Range(0,10);
