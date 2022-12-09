@@ -239,6 +239,7 @@ MonoBehaviour:
   Smiles:
   - {fileID: 1751406968923015996, guid: aa093a9ff03ae477d8512862e4247081, type: 3}
   - {fileID: 1751406968923015996, guid: df0456000ef874229b8012e21f2a0771, type: 3}
+  - {fileID: 1751406968923015996, guid: df0456000ef874229b8012e21f2a0771, type: 3}
   parent: {fileID: 135776831}
   Player: {fileID: 1087013484}
   speed: 2
@@ -869,6 +870,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   speed: 1
+  right: 1
+  is_moving: 1
 --- !u!50 &1087013487
 Rigidbody2D:
   serializedVersion: 4
