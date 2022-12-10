@@ -6,9 +6,11 @@ public class startmenu : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] GameObject image;
+    [SerializeField] GameObject setting;
     public void Start()
     {
         image.SetActive(false);
+        setting.SetActive(false);
         Manager.Instance.actionMapPlayer.Disable();
     }
 
@@ -29,6 +31,10 @@ public class startmenu : MonoBehaviour
     }
     public void Setting()
     {
-
+        setting.SetActive(true);
+    }
+    public void Back() 
+    {
+        setting.SetActive(false);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class Manager : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class Manager : MonoBehaviour
         actionMapPlayer = player.GetComponent<PlayerInput>().actions.FindActionMap("Player");
         pause = PauseMenu.GetComponent<Pause>();
         dialogBox = ui.GetComponent<DialogBox>();
+
         
         
     }
@@ -73,20 +75,18 @@ public class Manager : MonoBehaviour
         actionMapPlayer.Enable();
     }
 
-    public void SetDebugMode(bool debug, bool global_light_on, float x, float y)
+    public void SetDebugMode(bool global_light_on, float x, float y)
     {
         Vector2 location = new(x, y);
-        if (debug)
+        player.GetComponent<Transform>().position = location;
+        if (global_light_on)
         {
-            player.GetComponent<Transform>().position = location;
-            if (global_light_on)
-            {
-                globalLight.GetComponent<Light2D>().enabled = true;
-            }
-            else
-            {
-                globalLight.GetComponent<Light2D>().enabled = false;
-            }
+            globalLight.GetComponent<Light2D>().enabled = true;
+        }
+        else
+        {
+            globalLight.GetComponent<Light2D>().enabled = false;
         }
     }
+
 }

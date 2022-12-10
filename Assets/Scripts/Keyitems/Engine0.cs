@@ -25,7 +25,8 @@ public class Engine0 : Keyitem
             Manager.Instance.dialogBox.StartTalk(dialogSuccess);
             Manager.Instance.room10.isEngine0Fixed = true;
             filledEnergyTank.itemHeld = 0;
-            gameObject.GetComponent<Light2D>().color = Color.green;
+            Manager.Instance.myBag.itemList.Remove(filledEnergyTank);
+            Manager.Instance.room10.engine0_hint.SetActive(false);
             EndKeyitemEvent();
         }
         else

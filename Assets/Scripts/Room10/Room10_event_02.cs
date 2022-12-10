@@ -5,6 +5,8 @@ using UnityEngine.Rendering.Universal;
 
 public class Room10_event_02 : MonoBehaviour
 {
+    [SerializeField] Item hintMap;
+    [SerializeField] Door nextDoor;
     [SerializeField] TextAsset textFile;
     private string[] dialog;
     // Start is called before the first frame update
@@ -21,6 +23,8 @@ public class Room10_event_02 : MonoBehaviour
             // Debug.Log("You have fixed both engines!");
             Manager.Instance.room10.room10_bigLight.enabled = true;
             Manager.Instance.room2.room2_bigLight.enabled = true;
+            hintMap.itemHeld = 0;
+            nextDoor.locked = false;
             Manager.Instance.ui.SetActive(true);
             Manager.Instance.dialogBox.TextIsOn = true;
             Manager.Instance.dialogBox.StartTalk(dialog);

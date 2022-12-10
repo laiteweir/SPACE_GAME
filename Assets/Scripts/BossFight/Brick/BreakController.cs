@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class BreakController : MonoBehaviour
 {
@@ -11,10 +12,13 @@ public class BreakController : MonoBehaviour
     private Vector2 _direction;
     public int health =5;
     [SerializeField] float speed =3;
+    [SerializeField] GameObject slider;
     Animator animator;
     SpriteRenderer spriteRenderer;
     private InputAction run;
-    bool right = true;
+    public bool right = true;
+    public bool is_moving = true;
+    Slider slide;
     enum Condition
     {
         Success,
@@ -27,6 +31,8 @@ public class BreakController : MonoBehaviour
         animator = GetComponent<Animator>();
         //run = Manager.Instance.actionMapPlayer.FindAction("Run");
         spriteRenderer = GetComponent<SpriteRenderer>();
+        slide = slider.GetComponent<Slider>();
+        slide.maxValue = health;
         // run.started += context => StartRun();
         // run.canceled += context => EndRun();
     }
@@ -34,15 +40,18 @@ public class BreakController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.LeftArrow)){
+        
+        slide.value = health;
+        if(Input.GetKey(KeyCode.A)){
             _direction = Vector2.left;
             animator.SetBool("isWalking", true);
             if(right){
                 spriteRenderer.flipX = true;
                 right = !right;
             }
+            is_moving = true;
         }
-        else if(Input.GetKey(KeyCode.RightArrow))
+        else if(Input.GetKey(KeyCode.D))
         {
             _direction = Vector2.right;
              animator.SetBool("isWalking", true);
@@ -51,10 +60,12 @@ public class BreakController : MonoBehaviour
                 spriteRenderer.flipX = false;
                 right = !right;
             }
+            is_moving = true;
         }
         else{
             _direction = Vector2.zero;
             animator.SetBool("isWalking", false);
+            is_moving = false;
         }
     }
     void FixedUpdate(){

@@ -22,7 +22,7 @@ public class FillEnergyTank : Keyitem
     {
         if (filledEnergyTank.itemHeld >= 3)
         {
-            gameObject.GetComponent<Light2D>().enabled = false;
+            Manager.Instance.room10.refillStation_hint.SetActive(false);
         }
     }
     public override void KeyitemEvent()
@@ -49,5 +49,9 @@ public class FillEnergyTank : Keyitem
     public override void EndKeyitemEvent()
     {
         Manager.Instance.CloseScene("Fill_Energy_Tank_Task");
+        if (energyTank.itemHeld == 0 && filledEnergyTank.itemHeld == 3)
+        {
+            Manager.Instance.myBag.itemList.Remove(energyTank);
+        }
     }
 }
