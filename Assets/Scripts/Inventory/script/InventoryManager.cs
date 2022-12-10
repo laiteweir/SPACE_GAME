@@ -19,6 +19,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject Txt;
     public Text Held;
     public bool isopen = false;
+    bool unlock = false;
     bool is_empty = true;
         void Awake(){
         if(instance!= null){
@@ -51,6 +52,7 @@ public class InventoryManager : MonoBehaviour
             newitem.slotImage.sprite = item.itemImage;
             item.itemHeld++;
             itemno++;
+            // unlock = true;
         }
     }
     private void Change_item(){
@@ -79,7 +81,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void Close_Bag(){
-        if(Input.GetKeyDown(KeyCode.O) && itemno !=0 ){
+        if(Input.GetKeyDown(KeyCode.O) && !is_empty ){
             isopen = !isopen;
             MG.SetActive(isopen);
             Txt.SetActive(isopen);
