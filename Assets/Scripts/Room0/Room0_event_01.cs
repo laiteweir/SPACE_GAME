@@ -34,7 +34,7 @@ public class Room0_event_01 : Keyitem
     }
     public override void KeyitemEvent()
     {
-        computer_light.GetComponent<Light2D>().color = Color.green;
+        computer_light.GetComponent<Light2D>().enabled = false;
         // Debug.Log("touch robot 01 in room 0");
         Manager.Instance.ui.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;
