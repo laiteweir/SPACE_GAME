@@ -11,6 +11,7 @@ public class Room9_event_03 : MonoBehaviour
     [SerializeField] GameObject Room9_event_01;
     [SerializeField] GameObject Room9_event_02;
     [SerializeField] GameObject Room9_event_04;
+    [SerializeField] GameObject Room9_desk_light_1;
     void Start()
     {
         dialog = textFile.text.Split('\n');
