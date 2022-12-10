@@ -45635,6 +45635,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &907900680 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3480955862406728478, guid: 54ef9405147537e49ad2c7d6fe6d090e, type: 3}
+  m_PrefabInstance: {fileID: 1871306020910841048}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &918836120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46469,6 +46474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door_7_1: {fileID: 576138768}
+  door_1_2: {fileID: 907900680}
 --- !u!95 &1027892552
 Animator:
   serializedVersion: 4
@@ -46496,7 +46502,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027892549}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -48374,7 +48380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1751406968923015996, guid: e52da526b92bfcd4a8fec91c7989608d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4165283214884968831, guid: e52da526b92bfcd4a8fec91c7989608d, type: 3}
       propertyPath: m_RootOrder
@@ -48428,7 +48434,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7043706521767366616, guid: e52da526b92bfcd4a8fec91c7989608d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043706521767366616, guid: e52da526b92bfcd4a8fec91c7989608d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9023253507040985103, guid: e52da526b92bfcd4a8fec91c7989608d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e52da526b92bfcd4a8fec91c7989608d, type: 3}
 --- !u!1 &1245539531
 GameObject:
@@ -58627,7 +58642,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610217335}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47458a4bc003e3d47aee9bf324c54ba0, type: 3}
   m_Name: 
