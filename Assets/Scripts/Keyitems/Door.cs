@@ -15,13 +15,16 @@ public class Door : Keyitem
     private bool isTryingOpen = false;
     private bool keepTrying = true;
     private string[] dialog;
-
+    
+    //public AudioClip otherClip;
+    // public AudioClip clip;
     // Start is called before the first frame update
     void Start()
     {
         collider = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
         dialog = textFile.text.Split('\n');
+        //source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -55,6 +58,7 @@ public class Door : Keyitem
         {
             collider.enabled = false;
             animator.SetTrigger("doorIsOpened");
+            StartCoroutine(PlayAudio());
         }
     }
 
@@ -86,6 +90,7 @@ public class Door : Keyitem
                 Manager.Instance.actionMapPlayer.Enable();
                 collider.enabled = false;
                 animator.SetTrigger("doorIsOpened");
+                
                 isTryingOpen = false;
                 yield break;
             }
@@ -104,9 +109,20 @@ public class Door : Keyitem
             {
                 collider.enabled = false;
                 animator.SetTrigger("doorIsOpened");
+                StartCoroutine(PlayAudio());
                 return;
             }
         }
         Debug.Log("You don't have the keycard!");
+    }
+
+    private IEnumerator PlayAudio()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+
+        audio.Play();
+        yield return new WaitForSeconds(audio.clip.length);
+        // audio.clip = otherClip;
+        // audio.Play();
     }
 }

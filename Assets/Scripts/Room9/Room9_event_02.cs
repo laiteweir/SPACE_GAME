@@ -20,8 +20,8 @@ public class Room9_event_02 : MonoBehaviour
             Manager.Instance.ui.SetActive(true);
             Manager.Instance.dialogBox.TextIsOn = true;
             Manager.Instance.dialogBox.StartTalk(dialog);
-            Room9_PC_light_1.GetComponent<Light2D>().color = Color.green;
-            Room9_desk_light_1.GetComponent<Light2D>().enabled = true;
+            Room9_PC_light_1.GetComponent<Light2D>().enabled = false;
+            // Room9_desk_light_1.GetComponent<Light2D>().enabled = true;
         // Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
     }  
     // Update is called once per frame

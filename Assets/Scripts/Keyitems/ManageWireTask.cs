@@ -26,7 +26,7 @@ public class ManageWireTask : Keyitem
     {
         Manager.Instance.CloseScene("Wire_Task");
         // Debug.Log("You have fixed Engine1!");
-        gameObject.GetComponent<Light2D>().color = Color.green;
+        Manager.Instance.room10.engine1_hint.SetActive(false);
         Manager.Instance.ui.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;
         Manager.Instance.dialogBox.StartTalk(dialogSuccess);

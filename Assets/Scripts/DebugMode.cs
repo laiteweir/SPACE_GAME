@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class DebugMode : MonoBehaviour
 {
-    // Start is called before the first frame updateaaa
-    private bool goDebug = true;
     private bool global_light_on = false;
     private float x = 8f;
-    private float y = -7f;
+    private float y = -2f;
     void Start()
     {
-        if (goDebug)
-        {
-            Manager.Instance.SetDebugMode(goDebug, global_light_on, x, y);    
-        }
+        Manager.Instance.SetDebugMode(global_light_on, x, y);
     }
 }
