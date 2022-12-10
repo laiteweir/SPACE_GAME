@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class InventoryManager : MonoBehaviour
 {
     
@@ -12,9 +13,11 @@ public class InventoryManager : MonoBehaviour
     public Slot slotprefab;
     public Text description;
     public static int itemno;
+    public GameObject Slot;
     public static Slot newitem;
     public GameObject MG;
     public GameObject Txt;
+    public Text Held;
     public bool isopen = false;
     bool is_empty = true;
         void Awake(){
@@ -28,6 +31,7 @@ public class InventoryManager : MonoBehaviour
             maybag.itemList[i].itemHeld=0;
         maybag.itemList.Clear();
         itemno=0;
+        newitem = Slot.GetComponent<Slot>();
     }
     void Update(){
         Change_item();
@@ -40,11 +44,12 @@ public class InventoryManager : MonoBehaviour
     }
     public static void CreateNewItem(Item item){
         if(itemno==0){
-            newitem = Instantiate(instance.slotprefab, instance.slotgrid.transform.position, Quaternion.identity);
-            Debug.Log("create item");
-            newitem.gameObject.transform.SetParent(instance.slotgrid.transform); 
+            // newitem = Instantiate(instance.slotprefab, instance.slotgrid.transform.position, Quaternion.identity);
+            // Debug.Log("create item");
+            // newitem.gameObject.transform.SetParent(instance.slotgrid.transform); 
             newitem.slotItem = item;
             newitem.slotImage.sprite = item.itemImage;
+            item.itemHeld++;
             itemno++;
         }
     }
@@ -69,11 +74,12 @@ public class InventoryManager : MonoBehaviour
         newitem.slotItem = maybag.itemList[number];
         newitem.slotImage.sprite = maybag.itemList[number].itemImage;
         description.text = maybag.itemList[number].itemInfo;
+        Held.text = (maybag.itemList[number].itemHeld).ToString();
         Debug.Log("display item");
     }
 
     public void Close_Bag(){
-        if(Input.GetKeyDown(KeyCode.O)){
+        if(Input.GetKeyDown(KeyCode.O) && itemno !=0 ){
             isopen = !isopen;
             MG.SetActive(isopen);
             Txt.SetActive(isopen);
