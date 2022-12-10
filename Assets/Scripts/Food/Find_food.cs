@@ -17,7 +17,7 @@ public class Find_food : Keyitem
         if(!mybag.itemList.Contains(food)){
             food.itemName = "Food";
             mybag.itemList.Add(food);
-        
+            food.itemHeld++;
     
             InventoryManager.CreateNewItem(food);
             Debug.Log("find some food");
