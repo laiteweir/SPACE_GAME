@@ -8,6 +8,13 @@ public class eat : Keyitem
     public string keyword;
     public bool exist = false;
     [SerializeField] Inventory mybag;
+    [SerializeField] TextAsset textFile;
+    //private TextAsset dialog01;
+    private string[] dialog;
+    public Item shield;
+    void Start(){
+        dialog = textFile.text.Split('\n');
+    }
     public override void KeyitemEvent(){
         if(!exist)
             Check();
@@ -19,6 +26,11 @@ public class eat : Keyitem
                 Debug.Log("start eat!");
                 mybag.itemList[i].itemName = keyword;
                 mybag.itemList.Remove(mybag.itemList[i]);
+                Manager.Instance.ui.SetActive(true);
+                Manager.Instance.dialogBox.TextIsOn = true;
+                Manager.Instance.dialogBox.StartTalk(dialog);
+                mybag.itemList.Add(shield);
+                shield.itemHeld = 1;
             }
             if(!exist)
                 if(mybag.itemList[i].itemName == keyword )
