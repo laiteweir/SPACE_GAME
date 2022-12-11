@@ -27,8 +27,21 @@ public class Room1_event_Slime : Keyitem
             Manager.Instance.dialogBox.StartTalk(dialog);
             //this.first_trigger = false;
             Slime.GetComponent<Room1_event_SlimeMove>().is_move = true;
-            Destroy(gameObject);
+            StartCoroutine(PlayAudio());
+            //Destroy(gameObject);
         }
         // Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
     }    
+
+    private IEnumerator PlayAudio()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+
+        audio.Play();
+        Debug.Log("play audio");
+        yield return new WaitForSeconds(audio.clip.length);
+        Destroy(gameObject);
+        // audio.clip = otherClip;
+        // audio.Play();
+    }
 }
