@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39037610a6b4342c88ddf947b5e6c1c2, type: 3}
-  m_Name: key
+  m_Name: Shield
   m_EditorClassIdentifier: 
-  itemName: Door1Key
-  itemImage: {fileID: 21300000, guid: d829dc62c232c254eaeccacbd5e58dfd, type: 3}
-  itemHeld: 1
-  itemInfo: "\u85CD\u8272\u7684\u6676\u7247 \u770B\u8D77\u4F86\u50CF\u662F\u67D0\u7A2E\u9470\u5319 "
+  itemName: shield
+  itemImage: {fileID: 21300000, guid: 57a24a8daf7a14dbfbda5b2d9f4f02df, type: 3}
+  itemHeld: 0
+  itemInfo: "\u5E36\u8457\u4F3C\u4E4E\u53EF\u4EE5\u6E1B\u5C11\u50B7\u5BB3"
   equip: 0

@@ -20,7 +20,7 @@ public class Find_food : Keyitem
             mybag.itemList.Add(food);
             //food.itemHeld=1;
     
-            InventoryManager.CreateNewItem(food);
+            //InventoryManager.CreateNewItem(food);
             Debug.Log("find some food");
             is_find = true;
             dialog = textFile.text.Split('\n');
