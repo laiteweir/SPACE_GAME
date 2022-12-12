@@ -26,10 +26,4 @@ public class RoomThree : MonoBehaviour
     {
         
     }
-    public bool Trun_On_Light()
-    {
-        biglight.enabled = true;
-        biglight1.enabled = true;
-        return true;
-    }
 }
