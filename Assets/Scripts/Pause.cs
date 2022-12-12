@@ -7,6 +7,7 @@ public class Pause : MonoBehaviour
 {
     public bool PMOn = false;
     [SerializeField] GameObject image;
+    [SerializeField] GameObject setting;
     public void Start() 
     {
         image.SetActive(false);
@@ -31,5 +32,9 @@ public class Pause : MonoBehaviour
     public void Back() 
     {
         image.SetActive(false);
+    }
+    public void Setting()
+    {
+        setting.SetActive(true);
     }
 }

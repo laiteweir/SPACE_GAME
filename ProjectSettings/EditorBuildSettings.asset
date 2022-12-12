@@ -14,9 +14,12 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/Scene_01 Backup.unity
-    guid: 2ba576f45c8564edfb2ae783e8fb4242
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/Scenes/Scene_01.unity
+    guid: d648dbca36828444aaae2696109ecbbc
   - enabled: 1
     path: Assets/Scenes/Wire_Task.unity
     guid: cdddfcbecb5333e4291554d2815a66b6
