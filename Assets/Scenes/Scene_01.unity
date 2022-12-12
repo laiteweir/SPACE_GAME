@@ -46103,7 +46103,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884035376}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -47133,7 +47133,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 986393788}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -47200,6 +47200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   file: {fileID: 4900000, guid: b7c17f26092b0834fa9ffad6dc7df6e5, type: 3}
+  door: {fileID: 0}
 --- !u!1 &1035699855 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1751406968923015996, guid: e52da526b92bfcd4a8fec91c7989608d, type: 3}
@@ -57658,7 +57659,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1145850418200985492, guid: 7223d31b8a83cbb43b9100fdb5e0b416, type: 3}
       propertyPath: locked
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1145850418200985492, guid: 7223d31b8a83cbb43b9100fdb5e0b416, type: 3}
       propertyPath: textFile
