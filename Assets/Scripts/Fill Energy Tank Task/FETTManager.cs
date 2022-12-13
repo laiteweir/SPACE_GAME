@@ -24,18 +24,20 @@ public class FETTManager : MonoBehaviour
             {
                 InventoryManager.CreateNewItem(filledEnergyTank);
             }
+            else
+            {
+                ++filledEnergyTank.itemHeld;
+            }
             Manager.Instance.myBag.itemList.Add(filledEnergyTank);
         }
-        ++filledEnergyTank.itemHeld;
+        else
+        {
+            ++filledEnergyTank.itemHeld;
+        }
         if (energyTank.itemHeld == 0)
         {
             Manager.Instance.myBag.itemList.Remove(energyTank);
             Manager.Instance.returnKeyitem.EndKeyitemEvent();
         }
-    }
-
-    public void QuitTask()
-    {
-        Manager.Instance.returnKeyitem.EndKeyitemEvent();
     }
 }
