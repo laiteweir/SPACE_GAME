@@ -5565,6 +5565,7 @@ MonoBehaviour:
   event2: 0
   event3: 0
   event4: 0
+  safeon: 0
 --- !u!4 &427439987
 Transform:
   m_ObjectHideFlags: 0
@@ -65671,7 +65672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &2075392293
 BoxCollider2D:
   m_ObjectHideFlags: 0
