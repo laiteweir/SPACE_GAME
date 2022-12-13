@@ -17,7 +17,7 @@ public class RoomFour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        safe.SetActive(false);
+        
     }
 
     // Update is called once per frame
