@@ -20,6 +20,7 @@ public class Room3_event_01 : Keyitem
         if (Manager.Instance.dialogBox.TextIsOn == false && is_trigger == true)
         {
             Manager.Instance.room3.room3_event3.SetActive(true);
+            Manager.Instance.room4.safe.SetActive(false);
             Manager.Instance.room3.room3_event1.SetActive(false);
         }
     }

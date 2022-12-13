@@ -5,8 +5,12 @@ using UnityEngine;
 public class RoomThree_event_04_beta : Keyitem
 {
     [SerializeField] TextAsset file;
+    [SerializeField] GameObject door;
+    [SerializeField] GameObject room3_light;
+    [SerializeField] GameObject room4_light;
     private string[] dialog;
     private bool is_trigger = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +30,9 @@ public class RoomThree_event_04_beta : Keyitem
             Manager.Instance.room3.room3_event2_5.SetActive(true);
             Manager.Instance.room3.room3_event2_5.SetActive(true);
             Manager.Instance.room3.room3_event4.SetActive(false);
+            room3_light.SetActive(true);
+            room4_light.SetActive(true);
+            door.GetComponent<Door>().locked = false;
         }
     }
 

@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: Food
   itemImage: {fileID: 21300000, guid: 8c5c63c5e2c17ed4dbc7ad970ab1fb09, type: 3}
   itemHeld: 0
-  itemInfo: the food is yummy
+  itemInfo: "\u5F9E\u8349\u5730\u88E1\u6316\u5230\u7684\u98DF\u7269\n\u4F46\u770B\u8D77\u4F86\u9700\u8981\u52A0\u71B1\u624D\u53EF\u4EE5\u5403"
   equip: 0

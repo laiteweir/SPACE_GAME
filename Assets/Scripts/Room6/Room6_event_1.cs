@@ -59,7 +59,7 @@ public class Room6_event_1 : Keyitem
             Manager.Instance.dialogBox.StartTalk(dialog);
         }
         else if(CookData.situation==2){
-            
+            mybag.itemList[n].itemHeld =0;
             mybag.itemList.RemoveAt(n);
             //previous.SetActive(true);
             dialog = textFile2.text.Split('\n');

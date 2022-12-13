@@ -16,10 +16,11 @@ public class Find_food : Keyitem
         
         if(!mybag.itemList.Contains(food)){
             food.itemName = "Food";
+            food.itemHeld=1;
             mybag.itemList.Add(food);
-        
+            //food.itemHeld=1;
     
-            InventoryManager.CreateNewItem(food);
+            //InventoryManager.CreateNewItem(food);
             Debug.Log("find some food");
             is_find = true;
             dialog = textFile.text.Split('\n');
