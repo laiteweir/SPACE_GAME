@@ -40,4 +40,9 @@ public class FETTManager : MonoBehaviour
             Manager.Instance.returnKeyitem.EndKeyitemEvent();
         }
     }
+
+    public void QuitTask()
+    {
+        Manager.Instance.returnKeyitem.EndKeyitemEvent();
+    }
 }
