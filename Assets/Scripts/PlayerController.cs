@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Light2D spotLight;
 
     private float moveSpeed;
+    private InputAction move;
     private InputAction run;
 
     enum Condition
@@ -39,6 +40,9 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         spotLight.intensity = 1f;
         moveSpeed = walkSpeed;
+        move = Manager.Instance.actionMapPlayer.FindAction("Move");
+        move.started += context => PlayWalkingSound();
+        move.canceled += context => StopWalkingSound();
         run = Manager.Instance.actionMapPlayer.FindAction("Run");
         run.started += context => StartRun();
         run.canceled += context => EndRun();
@@ -96,6 +100,18 @@ public class PlayerController : MonoBehaviour
         }
 
         //Debug.Log(animator.GetBool("isWalking"));
+    }
+
+    private void PlayWalkingSound()
+    {
+        Manager.Instance.walkingSound.m_Play = true;
+        Manager.Instance.walkingSound.m_ToggleChange = true;
+    }
+
+    private void StopWalkingSound()
+    {
+        Manager.Instance.walkingSound.m_Play = false;
+        Manager.Instance.walkingSound.m_ToggleChange = true;
     }
 
     private void StartRun()

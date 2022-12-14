@@ -14,6 +14,7 @@ public class RoomFour : MonoBehaviour
     public bool event2 = false;
     public bool event3 = false;
     public bool event4 = false;
+    public bool safeon = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +24,14 @@ public class RoomFour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (event1 == event2 == event3 == event4 == true)
+        if (event1 ==true && event2 == true && event3 == true && event4 == true)
         {
+            safeon = true;
             safe.SetActive(true);
+        }
+        else 
+        {
+            safeon = false;
         }
 
     }
