@@ -15,6 +15,6 @@ public class Room1_event_SlimeMove : MonoBehaviour
             transform.Translate(Vector2.up * Time.deltaTime);//位移方法
         }
         if(cnt>100)
-        Destroy(gameObject);
+            Destroy(gameObject);
     }
 }
