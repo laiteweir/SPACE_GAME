@@ -29,8 +29,6 @@ public class Manager : MonoBehaviour
     public RoomEight room8;
     public RoomNine room9;
     public RoomTen room10;
-    public RoomEleven room11;
-    public RoomTwelve room12;
     public RoomThirteen room13;
     public GameObject Startmenu;
     public WalkingSound walkingSound;
