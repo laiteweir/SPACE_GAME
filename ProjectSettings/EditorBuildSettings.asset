@@ -18,8 +18,11 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
     path: Assets/Scenes/Scene_01.unity
-    guid: d648dbca36828444aaae2696109ecbbc
+    guid: 4a39985a91326402898810f91749957b
   - enabled: 1
     path: Assets/Scenes/Wire_Task.unity
     guid: cdddfcbecb5333e4291554d2815a66b6

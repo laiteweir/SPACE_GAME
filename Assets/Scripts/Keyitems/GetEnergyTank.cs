@@ -28,11 +28,19 @@ public class GetEnergyTank : Keyitem
             {
                 InventoryManager.CreateNewItem(energyTank);
             }
+            else
+            {
+                ++energyTank.itemHeld;
+            }
             Manager.Instance.myBag.itemList.Add(energyTank);
+        }
+        else
+        {
+            ++energyTank.itemHeld;
         }
         Manager.Instance.ui.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;
-        switch (++energyTank.itemHeld)
+        switch (energyTank.itemHeld)
         {
             case 1:
                 Manager.Instance.dialogBox.StartTalk(dialogFirst);

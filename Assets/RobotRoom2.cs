@@ -44,8 +44,11 @@ public class RobotRoom2 : Keyitem
             {
                 InventoryManager.CreateNewItem(hintMap);
             }
+            else
+            {
+                ++hintMap.itemHeld;
+            }
             Manager.Instance.myBag.itemList.Add(hintMap);
-            ++hintMap.itemHeld;
         }
         Manager.Instance.ui.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;

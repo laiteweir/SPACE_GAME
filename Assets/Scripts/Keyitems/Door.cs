@@ -90,7 +90,7 @@ public class Door : Keyitem
                 Manager.Instance.actionMapPlayer.Enable();
                 collider.enabled = false;
                 animator.SetTrigger("doorIsOpened");
-                
+                StartCoroutine(PlayAudio());
                 isTryingOpen = false;
                 yield break;
             }

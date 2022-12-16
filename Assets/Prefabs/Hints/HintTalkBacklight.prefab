@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4686704180156356232}
   - component: {fileID: 4686704180156356239}
   - component: {fileID: 2017145904591118905}
-  - component: {fileID: 4686704180156356238}
+  - component: {fileID: 2519662604163831354}
   m_Layer: 3
   m_Name: HintTalkBacklight
   m_TagString: Untagged
@@ -112,7 +112,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4686704180156356238
+--- !u!114 &2519662604163831354
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,6 +121,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4686704180156356235}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae8d7dd74a8b8474a9745f01ed137a7d, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e1b2cde90fc343428ca2285bf5b15bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
