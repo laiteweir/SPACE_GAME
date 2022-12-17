@@ -47635,7 +47635,7 @@ Animator:
   m_GameObject: {fileID: 846854966}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 62a0bedead988344ca0b52b690d46a74, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0624b93b22fb3764595358f1ab66bc52, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -71589,6 +71589,10 @@ PrefabInstance:
     - target: {fileID: 1659659196659410831, guid: 296c648769f642b4694ba729e02d31bc, type: 3}
       propertyPath: m_Name
       value: Charactor_04_Art_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659659196659410831, guid: 296c648769f642b4694ba729e02d31bc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 296c648769f642b4694ba729e02d31bc, type: 3}
