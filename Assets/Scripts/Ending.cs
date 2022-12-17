@@ -1,15 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Ending : MonoBehaviour
 {
+    [SerializeField] Image image;
+    public float fadeTime = 5f;
+    private float startTime;
+    // Start is called before the first frame update
+    void Start()
+    {
+        startTime = Time.time;
+    }
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKey)
+        image.color = Color.Lerp(Color.black, Color.white, (Time.time - startTime) / fadeTime);
+        if ((Time.time - startTime) >= fadeTime && Input.anyKeyDown)
         {
-            Debug.Log("A key or mouse click has been detected");
+            Debug.Log("END!");
+            Application.Quit();
         }
     }
 }
