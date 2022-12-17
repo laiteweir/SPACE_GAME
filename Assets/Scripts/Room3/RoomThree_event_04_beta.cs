@@ -6,6 +6,9 @@ public class RoomThree_event_04_beta : Keyitem
 {
     [SerializeField] TextAsset file;
     [SerializeField] GameObject door;
+    [SerializeField] GameObject finaldoor1;
+    [SerializeField] GameObject finaldoor2;
+    [SerializeField] GameObject finaldoor3;
     [SerializeField] GameObject room3_light;
     [SerializeField] GameObject room4_light;
     private string[] dialog;
@@ -29,10 +32,15 @@ public class RoomThree_event_04_beta : Keyitem
             Manager.Instance.room3.room3_event2_4.SetActive(true);
             Manager.Instance.room3.room3_event2_5.SetActive(true);
             Manager.Instance.room3.room3_event2_5.SetActive(true);
-            Manager.Instance.room3.room3_event4.SetActive(false);
+            
             room3_light.SetActive(true);
             room4_light.SetActive(true);
             door.GetComponent<Door>().locked = false;
+            finaldoor1.GetComponent<Door>().locked = false;
+            finaldoor2.GetComponent<Door>().locked = false;
+            finaldoor3.GetComponent<Door>().locked = false;
+            Destroy(this);
+            Manager.Instance.room3.room3_event4.SetActive(false);
         }
     }
 

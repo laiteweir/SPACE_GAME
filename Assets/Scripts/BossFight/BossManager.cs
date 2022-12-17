@@ -31,6 +31,7 @@ public class BossManager : MonoBehaviour
     void Update()
     {
         if(Boss.GetComponent<BossSmile>().bossHealth ==0){
+            Manager.Instance.iswin = true;
             backScene();
         }
         else if(Player.GetComponent<BreakController>().health ==0){
