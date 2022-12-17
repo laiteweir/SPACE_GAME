@@ -22,5 +22,6 @@ public class Room13_event_1 : Keyitem
 
     public override void EndKeyitemEvent(){
         Manager.Instance.CloseScene("BossFight");
+        Manager.Instance.room13.EndGame.SetActive(true);
     }
 }

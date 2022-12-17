@@ -9,6 +9,7 @@ public class Room1_event_Slime : Keyitem
     //private TextAsset dialog01;
     private string[] dialog;
     public GameObject Slime;
+    public bool destroy = false;
 
     void Start()
     {
@@ -22,12 +23,13 @@ public class Room1_event_Slime : Keyitem
     {
 
         if( col.gameObject.name == "Player"){
-            Manager.Instance.ui.SetActive(true);
-            Manager.Instance.dialogBox.TextIsOn = true;
-            Manager.Instance.dialogBox.StartTalk(dialog);
+            // Manager.Instance.ui.SetActive(true);
+            // Manager.Instance.dialogBox.TextIsOn = true;
+            // Manager.Instance.dialogBox.StartTalk(dialog);
             //this.first_trigger = false;
             Slime.GetComponent<Room1_event_SlimeMove>().is_move = true;
             StartCoroutine(PlayAudio());
+            Manager.Instance.actionMapPlayer.Disable();
             //Destroy(gameObject);
         }
         // Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
@@ -40,6 +42,9 @@ public class Room1_event_Slime : Keyitem
         audio.Play();
         Debug.Log("play audio");
         yield return new WaitForSeconds(audio.clip.length);
+        Manager.Instance.ui.SetActive(true);
+        Manager.Instance.dialogBox.TextIsOn = true;
+        Manager.Instance.dialogBox.StartTalk(dialog);
         Destroy(gameObject);
         // audio.clip = otherClip;
         // audio.Play();
