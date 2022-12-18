@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: keycard2
   m_EditorClassIdentifier: 
   itemName: 
-  itemImage: {fileID: 0}
+  itemImage: {fileID: 21300000, guid: ba6d6db28e9e14fec8f88dd8ce9cdcce, type: 3}
   itemHeld: 0
-  itemInfo: 
+  itemInfo: "\u4FDD\u96AA\u7BB1\u88E1\u7684\u9470\u5319\u5361"
   equip: 0
