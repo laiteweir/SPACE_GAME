@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shield
   m_EditorClassIdentifier: 
   itemName: shield
-  itemImage: {fileID: 21300000, guid: 57a24a8daf7a14dbfbda5b2d9f4f02df, type: 3}
-  itemHeld: 0
+  itemImage: {fileID: 21300000, guid: a63d2781f4810544596659d360e7321e, type: 3}
+  itemHeld: 1
   itemInfo: "\u5E36\u8457\u4F3C\u4E4E\u53EF\u4EE5\u6E1B\u5C11\u50B7\u5BB3"
   equip: 0
