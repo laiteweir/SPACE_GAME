@@ -46692,7 +46692,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textFile: {fileID: 4900000, guid: 5682366233e1ef24cb49b3a9790359f8, type: 3}
   Room9_PC_light_1: {fileID: 1995022200}
-  Room9_door_light_1: {fileID: 0}
 --- !u!50 &748616481
 Rigidbody2D:
   serializedVersion: 4
@@ -68763,6 +68762,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   file: {fileID: 4900000, guid: 525709103f4fb5348a8e780a94910a27, type: 3}
+  mybag: {fileID: 11400000, guid: 94670a4f4e1ee4a048cab7beac8bd67e, type: 2}
+  keycard: {fileID: 11400000, guid: 10570bd9a946b417285d012ab403474b, type: 2}
 --- !u!1 &2089362494
 GameObject:
   m_ObjectHideFlags: 0
