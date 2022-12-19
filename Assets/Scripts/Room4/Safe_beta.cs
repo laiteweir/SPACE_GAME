@@ -5,6 +5,8 @@ using UnityEngine;
 public class Safe_beta : Keyitem
 {
     [SerializeField] TextAsset file;
+    [SerializeField] Inventory mybag;
+    [SerializeField] Item keycard;
     private string[] dialog;
     private bool is_triggered = false;
     // Start is called before the first frame update
@@ -21,6 +23,9 @@ public class Safe_beta : Keyitem
             Manager.Instance.room3.room3_event4.SetActive(true);
             Manager.Instance.room4.safe.SetActive(false);
             Manager.Instance.room3.room3_event3.SetActive(false);
+            keycard.itemHeld =1;
+            mybag.itemList.Add(keycard);
+            Destroy(this);
         }
 
     }
