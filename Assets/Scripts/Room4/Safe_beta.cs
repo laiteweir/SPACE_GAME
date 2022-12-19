@@ -25,6 +25,7 @@ public class Safe_beta : Keyitem
             Manager.Instance.room3.room3_event3.SetActive(false);
             keycard.itemHeld =1;
             mybag.itemList.Add(keycard);
+            Destroy(this);
         }
 
     }
