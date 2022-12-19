@@ -5,6 +5,7 @@ using UnityEngine;
 public class Room13_event_1 : Keyitem
 {
     // Start is called before the first frame update
+    [SerializeField] GameObject Boss;
     void Start()
     {
         
@@ -21,7 +22,12 @@ public class Room13_event_1 : Keyitem
     }
 
     public override void EndKeyitemEvent(){
+        Debug.Log(Manager.Instance.iswin);
         Manager.Instance.CloseScene("BossFight");
-        Manager.Instance.room13.EndGame.SetActive(true);
+        if(Manager.Instance.iswin){
+            Manager.Instance.room13.EndGame.SetActive(true);
+            Boss.SetActive(false);
+        }
+
     }
 }

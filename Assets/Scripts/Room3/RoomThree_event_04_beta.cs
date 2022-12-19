@@ -32,7 +32,6 @@ public class RoomThree_event_04_beta : Keyitem
             Manager.Instance.room3.room3_event2_4.SetActive(true);
             Manager.Instance.room3.room3_event2_5.SetActive(true);
             Manager.Instance.room3.room3_event2_5.SetActive(true);
-            
             room3_light.SetActive(true);
             room4_light.SetActive(true);
             door.GetComponent<Door>().locked = false;

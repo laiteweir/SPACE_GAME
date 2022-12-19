@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39037610a6b4342c88ddf947b5e6c1c2, type: 3}
-  m_Name: Shield
+  m_Name: keycard2
   m_EditorClassIdentifier: 
-  itemName: shield
-  itemImage: {fileID: 21300000, guid: a63d2781f4810544596659d360e7321e, type: 3}
-  itemHeld: 1
-  itemInfo: "\u5E36\u8457\u4F3C\u4E4E\u53EF\u4EE5\u6E1B\u5C11\u50B7\u5BB3"
+  itemName: 
+  itemImage: {fileID: 21300000, guid: ba6d6db28e9e14fec8f88dd8ce9cdcce, type: 3}
+  itemHeld: 0
+  itemInfo: "\u4FDD\u96AA\u7BB1\u88E1\u7684\u9470\u5319\u5361"
   equip: 0

@@ -32,6 +32,7 @@ public class Manager : MonoBehaviour
     public RoomThirteen room13;
     public GameObject Startmenu;
     public WalkingSound walkingSound;
+    public bool iswin = false;
     [HideInInspector] public InputActionMap actionMapPlayer;
     [HideInInspector] public Pause pause;
     [HideInInspector] public DialogBox dialogBox;
