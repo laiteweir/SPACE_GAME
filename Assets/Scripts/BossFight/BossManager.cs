@@ -10,16 +10,18 @@ public class BossManager : MonoBehaviour
     [SerializeField] GameObject Player;
     [SerializeField] Inventory mybag;
     [SerializeField] GameObject slider;
+    [SerializeField] GameObject shield;
     public bool win = false;
     private int playerhealth = 5;
     public string keyword;
     Slider slide;
     void Start()
     {
-        Boss.GetComponent<BossSmile>().bossHealth =3;
+        Boss.GetComponent<BossSmile>().bossHealth =4;
         for(int i=0; i<mybag.itemList.Count ;i++){
             if(mybag.itemList[i].itemName == keyword){
                     playerhealth = 10;
+                    shield.SetActive(true);
             }
         }
         Player.GetComponent<BreakController>().health = playerhealth;
