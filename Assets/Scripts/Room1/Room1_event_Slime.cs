@@ -42,7 +42,7 @@ public class Room1_event_Slime : Keyitem
         audio.Play();
         Debug.Log("play audio");
         yield return new WaitForSeconds(audio.clip.length);
-        Manager.Instance.ui.SetActive(true);
+        Manager.Instance.dialogBoxUI.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;
         Manager.Instance.dialogBox.StartTalk(dialog);
         Destroy(gameObject);

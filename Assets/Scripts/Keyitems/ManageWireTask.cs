@@ -16,7 +16,7 @@ public class ManageWireTask : Keyitem
     }
     public override void KeyitemEvent()
     {
-        Manager.Instance.ui.SetActive(true);
+        Manager.Instance.dialogBoxUI.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;
         Manager.Instance.dialogBox.StartTalkAndOpenScene(dialogStart, "Wire_Task", this);
         // Manager.Instance.OpenScene("Wire_Task", this);
@@ -27,7 +27,7 @@ public class ManageWireTask : Keyitem
         Manager.Instance.CloseScene("Wire_Task");
         // Debug.Log("You have fixed Engine1!");
         Manager.Instance.room10.engine1_hint.SetActive(false);
-        Manager.Instance.ui.SetActive(true);
+        Manager.Instance.dialogBoxUI.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;
         Manager.Instance.dialogBox.StartTalk(dialogSuccess);
         Manager.Instance.room10.isEngine1Fixed = true;

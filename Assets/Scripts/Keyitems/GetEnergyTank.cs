@@ -38,7 +38,7 @@ public class GetEnergyTank : Keyitem
         {
             ++energyTank.itemHeld;
         }
-        Manager.Instance.ui.SetActive(true);
+        Manager.Instance.dialogBoxUI.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;
         switch (energyTank.itemHeld)
         {

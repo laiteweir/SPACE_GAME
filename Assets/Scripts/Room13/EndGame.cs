@@ -34,7 +34,7 @@ public class EndGame : Keyitem
     {
         startFadeOut = true;
         startTime = Time.time;
-        Manager.Instance.ui.SetActive(true);
+        Manager.Instance.dialogBoxUI.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;
         Manager.Instance.dialogBox.StartTalkAndOpenScene(dialogFirst, "Ending", this);
     }

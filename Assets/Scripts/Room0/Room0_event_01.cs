@@ -36,7 +36,7 @@ public class Room0_event_01 : Keyitem
     {
         computer_light.GetComponent<Light2D>().enabled = false;
         // Debug.Log("touch robot 01 in room 0");
-        Manager.Instance.ui.SetActive(true);
+        Manager.Instance.dialogBoxUI.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;
         Manager.Instance.dialogBox.StartTalk(dialog);
         // make sure is not first trigger

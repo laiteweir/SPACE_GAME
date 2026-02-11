@@ -50,7 +50,7 @@ public class RobotRoom2 : Keyitem
             }
             Manager.Instance.myBag.itemList.Add(hintMap);
         }
-        Manager.Instance.ui.SetActive(true);
+        Manager.Instance.dialogBoxUI.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;
 
         // First time meet

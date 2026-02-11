@@ -15,7 +15,7 @@ public class Room7_robot_07 : Keyitem
     public override void KeyitemEvent()
     {
         //enable next process
-        Manager.Instance.ui.SetActive(true);
+        Manager.Instance.dialogBoxUI.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;
         Manager.Instance.dialogBox.StartTalk(dialog);
         //Debug.Log(Manager.Instance.dialogBox.TextIsOn);

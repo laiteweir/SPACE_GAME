@@ -25,7 +25,7 @@ public class Room10_event_02 : MonoBehaviour
             Manager.Instance.room2.room2_bigLight.enabled = true;
             hintMap.itemHeld = 0;
             nextDoor.locked = false;
-            Manager.Instance.ui.SetActive(true);
+            Manager.Instance.dialogBoxUI.SetActive(true);
             Manager.Instance.dialogBox.TextIsOn = true;
             Manager.Instance.dialogBox.StartTalk(dialog);
             Manager.Instance.room10.room10_event_02.SetActive(false);

@@ -37,7 +37,7 @@ public class Room6_event_1 : Keyitem
         if(!exist && !found){
             Debug.Log("there is nothing to cook");
             dialog = textFile0.text.Split('\n');
-            Manager.Instance.ui.SetActive(true);
+            Manager.Instance.dialogBoxUI.SetActive(true);
             Manager.Instance.dialogBox.TextIsOn = true;
             Manager.Instance.dialogBox.StartTalk(dialog);
         }
@@ -54,7 +54,7 @@ public class Room6_event_1 : Keyitem
             exist = true;
             mybag.itemList[n].itemName = keyword + "cooked";
             dialog = textFile1.text.Split('\n');
-            Manager.Instance.ui.SetActive(true);
+            Manager.Instance.dialogBoxUI.SetActive(true);
             Manager.Instance.dialogBox.TextIsOn = true;
             Manager.Instance.dialogBox.StartTalk(dialog);
         }
@@ -63,7 +63,7 @@ public class Room6_event_1 : Keyitem
             mybag.itemList.RemoveAt(n);
             //previous.SetActive(true);
             dialog = textFile2.text.Split('\n');
-            Manager.Instance.ui.SetActive(true);
+            Manager.Instance.dialogBoxUI.SetActive(true);
             Manager.Instance.dialogBox.TextIsOn = true;
             Manager.Instance.dialogBox.StartTalk(dialog);
             //gameObject.SetActive(false);
@@ -72,7 +72,7 @@ public class Room6_event_1 : Keyitem
         else if(CookData.situation==3){
             
             dialog = textFile3.text.Split('\n');
-            Manager.Instance.ui.SetActive(true);
+            Manager.Instance.dialogBoxUI.SetActive(true);
             Manager.Instance.dialogBox.TextIsOn = true;
             Manager.Instance.dialogBox.StartTalk(dialog);
         }

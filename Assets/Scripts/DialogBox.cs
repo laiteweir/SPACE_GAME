@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DialogBox : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class DialogBox : MonoBehaviour
     private bool endDialog = false;
     private int count;
     private string[] str;
-    public Text dialog;
+    public TMP_Text dialog;
     public bool TextIsOn = false; 
 
     // Update is called once per frame

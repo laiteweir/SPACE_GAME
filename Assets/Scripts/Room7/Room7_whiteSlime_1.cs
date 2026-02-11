@@ -24,14 +24,14 @@ public class Room7_whiteSlime_1 : Keyitem
     // Update is called once per frame
     void Update()
     {
-        if(this.rb.velocity.x == 0 || this.rb.velocity.y == 0){
-            this.rb.velocity = new Vector2(Random.Range(-1f, 1f),Random.Range(-1f, 1f));
+        if(this.rb.linearVelocity.x == 0 || this.rb.linearVelocity.y == 0){
+            this.rb.linearVelocity = new Vector2(Random.Range(-1f, 1f),Random.Range(-1f, 1f));
         }   
     }
     public override void KeyitemEvent()
     {
         //enable next process
-        this.rb.velocity = new Vector2(Random.Range(-5f, 5f),Random.Range(-5f, 5f));
+        this.rb.linearVelocity = new Vector2(Random.Range(-5f, 5f),Random.Range(-5f, 5f));
         //Debug.Log(Manager.Instance.dialogBox.TextIsOn);
     }
 }

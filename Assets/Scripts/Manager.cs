@@ -15,7 +15,7 @@ public class Manager : MonoBehaviour
     public GameObject player;
     public PlayerController playerController;
     public GameObject PauseMenu;
-    public GameObject ui;
+    public GameObject dialogBoxUI;
     public GameObject codePanel;
     public Inventory myBag;
     public RoomZero room0;
@@ -43,7 +43,7 @@ public class Manager : MonoBehaviour
         Instance = this;
         actionMapPlayer = player.GetComponent<PlayerInput>().actions.FindActionMap("Player");
         pause = PauseMenu.GetComponent<Pause>();
-        dialogBox = ui.GetComponent<DialogBox>();
+        dialogBox = dialogBoxUI.GetComponent<DialogBox>();
 
         
         

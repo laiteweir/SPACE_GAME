@@ -21,9 +21,7 @@ public class Interact : MonoBehaviour
     {
         if (other.CompareTag("Keyitem"))
         {
-            Keyitem ki = other.GetComponent<Keyitem>();
-
-            if (ki != null)
+            if (other.TryGetComponent<Keyitem>(out var ki))
             {
                 ki.KeyitemEvent();
             }

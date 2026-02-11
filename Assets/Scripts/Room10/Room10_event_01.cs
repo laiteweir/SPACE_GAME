@@ -18,7 +18,7 @@ public class Room10_event_01 : MonoBehaviour
             // Manager.Instance.room10.engine0_Light.enabled = true;
             // Manager.Instance.room10.engine1_Light.enabled = true;
             // Manager.Instance.room10.refillStation_Light.enabled = true;
-            Manager.Instance.ui.SetActive(true);
+            Manager.Instance.dialogBoxUI.SetActive(true);
             Manager.Instance.dialogBox.TextIsOn = true;
             Manager.Instance.dialogBox.StartTalk(dialog);
             Manager.Instance.room10.room10_event_01.SetActive(false);

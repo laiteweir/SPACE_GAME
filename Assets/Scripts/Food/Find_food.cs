@@ -24,7 +24,7 @@ public class Find_food : Keyitem
             Debug.Log("find some food");
             is_find = true;
             dialog = textFile.text.Split('\n');
-            Manager.Instance.ui.SetActive(true);
+            Manager.Instance.dialogBoxUI.SetActive(true);
             Manager.Instance.dialogBox.TextIsOn = true;
             Manager.Instance.dialogBox.StartTalk(dialog);
             gameObject.SetActive(false);

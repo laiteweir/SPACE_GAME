@@ -26,7 +26,7 @@ public class eat : Keyitem
                 Debug.Log("start eat!");
                 mybag.itemList[i].itemName = keyword;
                 mybag.itemList.Remove(mybag.itemList[i]);
-                Manager.Instance.ui.SetActive(true);
+                Manager.Instance.dialogBoxUI.SetActive(true);
                 Manager.Instance.dialogBox.TextIsOn = true;
                 Manager.Instance.dialogBox.StartTalk(dialog);
                 mybag.itemList.Add(shield);

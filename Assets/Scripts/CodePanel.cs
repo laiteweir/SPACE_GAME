@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CodePanel : MonoBehaviour
 {
     [SerializeField] string passward = "0000";
-    [SerializeField] Text Codecontext;
+    [SerializeField] TMP_Text codeContext;
     private string codevalue = "";
     private bool door_open = false;
 
@@ -23,11 +24,11 @@ public class CodePanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Codecontext.text = codevalue;
-        if(codevalue.Length >= 5)
+        if (codevalue.Length >= 5)
         {
             Delete();
         }
+        codeContext.text = codevalue;
     }
     public void AddValue(string digit)
     {

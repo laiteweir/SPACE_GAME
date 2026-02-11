@@ -30,13 +30,13 @@ public class FillEnergyTank : Keyitem
         if (isFirst)
         {
             isFirst = false;
-            Manager.Instance.ui.SetActive(true);
+            Manager.Instance.dialogBoxUI.SetActive(true);
             Manager.Instance.dialogBox.TextIsOn = true;
             Manager.Instance.dialogBox.StartTalk(dialogFirst);
         }
         else if (energyTank.itemHeld == 0)
         {
-            Manager.Instance.ui.SetActive(true);
+            Manager.Instance.dialogBoxUI.SetActive(true);
             Manager.Instance.dialogBox.TextIsOn = true;
             Manager.Instance.dialogBox.StartTalk(dialogFail);
         }

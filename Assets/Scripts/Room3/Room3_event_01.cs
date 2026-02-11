@@ -26,7 +26,7 @@ public class Room3_event_01 : Keyitem
     }
     public override void KeyitemEvent()
     {
-        Manager.Instance.ui.SetActive(true);
+        Manager.Instance.dialogBoxUI.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;
         Manager.Instance.dialogBox.StartTalk(dialog);
         door.GetComponent<Door>().locked = false;

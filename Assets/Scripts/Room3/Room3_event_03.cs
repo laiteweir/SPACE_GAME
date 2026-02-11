@@ -41,7 +41,7 @@ public class Room3_event_03 : Keyitem
 
         if (is_trigger == true)
         {
-            Manager.Instance.ui.SetActive(true);
+            Manager.Instance.dialogBoxUI.SetActive(true);
             Manager.Instance.dialogBox.TextIsOn = true;
             Manager.Instance.dialogBox.StartTalk(dialog3);
         }
@@ -53,14 +53,14 @@ public class Room3_event_03 : Keyitem
                 {
                     if (Manager.Instance.myBag.itemList[i].itemName == keycardName)
                     {
-                        Manager.Instance.ui.SetActive(true);
+                        Manager.Instance.dialogBoxUI.SetActive(true);
                         Manager.Instance.dialogBox.TextIsOn = true;
                         Manager.Instance.dialogBox.StartTalk(dialog1);
                         is_trigger = true;
                     }
                     else
                     {
-                        Manager.Instance.ui.SetActive(true);
+                        Manager.Instance.dialogBoxUI.SetActive(true);
                         Manager.Instance.dialogBox.TextIsOn = true;
                         Manager.Instance.dialogBox.StartTalk(dialog2);
                     }
@@ -71,14 +71,14 @@ public class Room3_event_03 : Keyitem
             {
                 if (GameObject.Find("Safe").GetComponent<Safe>().trigger() == true) 
                 {
-                    Manager.Instance.ui.SetActive(true);
+                    Manager.Instance.dialogBoxUI.SetActive(true);
                     Manager.Instance.dialogBox.TextIsOn = true;
                     Manager.Instance.dialogBox.StartTalk(dialog1);
                     is_trigger = true;
                 }
                 else 
                 {
-                    Manager.Instance.ui.SetActive(true);
+                    Manager.Instance.dialogBoxUI.SetActive(true);
                     Manager.Instance.dialogBox.TextIsOn = true;
                     Manager.Instance.dialogBox.StartTalk(dialog2);
                 }

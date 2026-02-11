@@ -69,7 +69,7 @@ public class BreakController : MonoBehaviour
         }
     }
     void FixedUpdate(){
-        _myRD.velocity = _direction*speed;
+        _myRD.linearVelocity = _direction*speed;
     }
     void OnCollisionEnter2D(Collision2D target){
         if(target.gameObject.tag == "slime1"){

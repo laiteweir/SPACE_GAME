@@ -21,7 +21,7 @@ public class RoomFour_event1_2 : Keyitem
 
     public override void KeyitemEvent()
     {
-        Manager.Instance.ui.SetActive(true);
+        Manager.Instance.dialogBoxUI.SetActive(true);
         Manager.Instance.dialogBox.TextIsOn = true;
         Manager.Instance.dialogBox.StartTalk(dialog);
         Manager.Instance.room4.event2 = true;

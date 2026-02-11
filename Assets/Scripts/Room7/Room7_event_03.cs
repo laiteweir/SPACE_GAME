@@ -47,7 +47,7 @@ public class Room7_event_03 : MonoBehaviour
             door_1_2.GetComponent<Door>().locked = false;
             Room7_event_03_light.SetActive(false);
             Room7_bigLight.SetActive(true);
-            Manager.Instance.ui.SetActive(true);
+            Manager.Instance.dialogBoxUI.SetActive(true);
             Manager.Instance.dialogBox.TextIsOn = true;
             Manager.Instance.dialogBox.StartTalk(dialog);
             this.enabled = false;

@@ -79,7 +79,7 @@ public class BossSmile : MonoBehaviour
             //speed *= Random.Range(0.9f,1.1f);
             //Debug.Log(transform.position.x);
         }
-        _myRD.velocity = _direction*speed;
+        _myRD.linearVelocity = _direction*speed;
         //speed = Random.Range(290f,310f);
     }
 }

@@ -21,7 +21,7 @@ public class Room13_event_Key : MonoBehaviour
     {
 
         if( col.gameObject.name == "Player"){
-            Manager.Instance.ui.SetActive(true);
+            Manager.Instance.dialogBoxUI.SetActive(true);
             Manager.Instance.dialogBox.TextIsOn = true;
             Manager.Instance.dialogBox.StartTalk(dialog);
             trigger_first = false;
