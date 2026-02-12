@@ -208,4 +208,10 @@ public class PlayerController : MonoBehaviour
         walkSpeed *= sp;
         runSpeed *= sp;
     }
+
+    public void OnPause()
+    {
+        // Debug.Log("Turn on Pause menu");
+        Manager.Instance.pause.PerformPause();
+    }
 }

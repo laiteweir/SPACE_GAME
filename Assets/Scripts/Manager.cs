@@ -13,8 +13,9 @@ public class Manager : MonoBehaviour
     public GameObject globalLight;
 
     public GameObject player;
-    public PlayerController playerController;
-    public GameObject PauseMenu;
+    // public PlayerController playerController;
+    private PlayerInput playerInput;
+    public GameObject pauseMenu;
     public GameObject dialogBoxUI;
     public GameObject codePanel;
     public Inventory myBag;
@@ -30,7 +31,7 @@ public class Manager : MonoBehaviour
     public RoomNine room9;
     public RoomTen room10;
     public RoomThirteen room13;
-    public GameObject Startmenu;
+    public GameObject startMenu;
     public WalkingSound walkingSound;
     public bool iswin = false;
     [HideInInspector] public InputActionMap actionMapPlayer;
@@ -40,39 +41,64 @@ public class Manager : MonoBehaviour
 
     void Awake()
     {
-        Instance = this;
-        actionMapPlayer = player.GetComponent<PlayerInput>().actions.FindActionMap("Player");
-        pause = PauseMenu.GetComponent<Pause>();
+        if (Instance != null)
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+            Instance = this;
+        }
+        playerInput = player.GetComponent<PlayerInput>();
+        actionMapPlayer = playerInput.actions.FindActionMap("Player");
+        pause = pauseMenu.GetComponent<Pause>();
         dialogBox = dialogBoxUI.GetComponent<DialogBox>();
 
-        
-        
     }
 
-    
+    // ち传 UI 家Α
+    public void SwitchToUI()
+    {
+        playerInput.SwitchCurrentActionMap("UI");
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    // ち传笴栏家Α
+    public void SwitchToPlayer()
+    {
+        playerInput.SwitchCurrentActionMap("Player");
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            //Debug.Log("Turn on Pause menu");
-            actionMapPlayer.Disable();
-            PauseMenu.SetActive(true);
-            pause.PMOn = true;
-        }
+
     }
 
     public void OpenScene(string name, Keyitem keyitem)
     {
         returnKeyitem = keyitem;
-        actionMapPlayer.Disable();
         SceneManager.LoadScene(name, LoadSceneMode.Additive);
     }
-
+    public void OpenSceneUI(string name, Keyitem keyitem)
+    {
+        returnKeyitem = keyitem;
+        SwitchToUI();
+        SceneManager.LoadScene(name, LoadSceneMode.Additive);
+    }
     public void CloseScene(string name)
     {
         SceneManager.UnloadSceneAsync(name);
-        actionMapPlayer.Enable();
+    }
+    public void CloseSceneUI(string name)
+    {
+        SceneManager.UnloadSceneAsync(name);
+        SwitchToPlayer();
     }
 
     public void SetDebugMode(bool global_light_on, float x, float y)

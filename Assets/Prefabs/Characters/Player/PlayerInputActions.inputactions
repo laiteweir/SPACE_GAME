@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "PlayerInputActions",
     "maps": [
         {
@@ -27,7 +28,7 @@
                     "name": "Fire",
                     "type": "Button",
                     "id": "690c2837-f2ae-4370-8ae8-deded0528e1d",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -36,7 +37,16 @@
                     "name": "Run",
                     "type": "Button",
                     "id": "b30d9757-71fb-449a-aebe-5a3ef4b40626",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "5bdeaf22-f833-4d1a-bdba-b8cb46736552",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -276,12 +286,34 @@
                 },
                 {
                     "name": "",
+                    "id": "7ac96719-b192-4c52-bce6-b75f0bbf2d6c",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "09e8cca2-9775-417c-b66c-da77bc6efda7",
                     "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5e78fd61-10fe-4a82-a2a9-51a51c974de9",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -304,7 +336,7 @@
                     "name": "Submit",
                     "type": "Button",
                     "id": "5cd08bca-da6f-4c01-a91c-4e7dcf1e35b6",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -313,7 +345,7 @@
                     "name": "Cancel",
                     "type": "Button",
                     "id": "81b3dd74-8879-4251-a496-a79bc7c09566",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -660,11 +692,44 @@
                 },
                 {
                     "name": "",
+                    "id": "a3e6a7f8-93b0-4fbc-826e-3f24953f27ff",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0e066d84-26db-4e83-a3a4-2a0cb528622e",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "82627dcc-3b13-4ba9-841d-e4b746d6553e",
                     "path": "*/{Cancel}",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse;Gamepad;Touch;Joystick;XR",
+                    "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1da81c4a-022b-48c8-8b98-120a52fca5d1",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false
