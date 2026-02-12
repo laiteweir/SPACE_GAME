@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private float moveSpeed;
     private InputAction move;
     private InputAction run;
+    private InputAction pauseAction;
 
     enum Condition
     {
@@ -40,14 +41,23 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         spotLight.intensity = 1f;
         moveSpeed = walkSpeed;
-        move = Manager.Instance.actionMapPlayer.FindAction("Move");
-        move.started += context => PlayWalkingSound();
-        move.canceled += context => StopWalkingSound();
-        run = Manager.Instance.actionMapPlayer.FindAction("Run");
-        run.started += context => StartRun();
-        run.canceled += context => EndRun();
+        move = Manager.Instance.playerInput.actions["Player/Move"];
+        move.started += PlayWalkingSound;
+        move.canceled += StopWalkingSound;
+        run = Manager.Instance.playerInput.actions["Player/Run"];
+        run.started += StartRun;
+        run.canceled += EndRun;
+        pauseAction = Manager.Instance.playerInput.actions["Player/Pause"];
+        pauseAction.performed += Manager.Instance.pauseMenu.OnPausePerformed;
     }
-
+    void OnDestroy()
+    {
+        move.started -= PlayWalkingSound;
+        move.canceled -= StopWalkingSound;
+        run.started -= StartRun;
+        run.canceled -= EndRun;
+        pauseAction.performed -= Manager.Instance.pauseMenu.OnPausePerformed;
+    }
     void FixedUpdate() 
     {
         if (canMove && movementInput != Vector2.zero)
@@ -102,24 +112,24 @@ public class PlayerController : MonoBehaviour
         //Debug.Log(animator.GetBool("isWalking"));
     }
 
-    private void PlayWalkingSound()
+    private void PlayWalkingSound(InputAction.CallbackContext context)
     {
         Manager.Instance.walkingSound.m_Play = true;
         Manager.Instance.walkingSound.m_ToggleChange = true;
     }
 
-    private void StopWalkingSound()
+    private void StopWalkingSound(InputAction.CallbackContext context)
     {
         Manager.Instance.walkingSound.m_Play = false;
         Manager.Instance.walkingSound.m_ToggleChange = true;
     }
 
-    private void StartRun()
+    private void StartRun(InputAction.CallbackContext context)
     {
         moveSpeed = runSpeed;
     }
 
-    private void EndRun()
+    private void EndRun(InputAction.CallbackContext context)
     {
         moveSpeed = walkSpeed;
     }
@@ -207,11 +217,5 @@ public class PlayerController : MonoBehaviour
     {
         walkSpeed *= sp;
         runSpeed *= sp;
-    }
-
-    public void OnPause()
-    {
-        // Debug.Log("Turn on Pause menu");
-        Manager.Instance.pause.PerformPause();
     }
 }

@@ -13,9 +13,9 @@ public class Manager : MonoBehaviour
     public GameObject globalLight;
 
     public GameObject player;
-    // public PlayerController playerController;
-    private PlayerInput playerInput;
-    public GameObject pauseMenu;
+    public PlayerInput playerInput;
+    public GameObject startMenuObject;
+    public PauseMenu pauseMenu;
     public GameObject dialogBoxUI;
     public GameObject codePanel;
     public Inventory myBag;
@@ -31,11 +31,10 @@ public class Manager : MonoBehaviour
     public RoomNine room9;
     public RoomTen room10;
     public RoomThirteen room13;
-    public GameObject startMenu;
+    public Stack<GameObject> uiStack = new Stack<GameObject>();
     public WalkingSound walkingSound;
     public bool iswin = false;
     [HideInInspector] public InputActionMap actionMapPlayer;
-    [HideInInspector] public Pause pause;
     [HideInInspector] public DialogBox dialogBox;
     [HideInInspector] public Keyitem returnKeyitem;
 
@@ -51,11 +50,10 @@ public class Manager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             Instance = this;
         }
-        playerInput = player.GetComponent<PlayerInput>();
+        // playerInput = player.GetComponent<PlayerInput>();
         actionMapPlayer = playerInput.actions.FindActionMap("Player");
-        pause = pauseMenu.GetComponent<Pause>();
         dialogBox = dialogBoxUI.GetComponent<DialogBox>();
-
+        uiStack.Push(startMenuObject);
     }
 
     // ¤Á´«¨ì UI ¼Ò¦¡
@@ -73,13 +71,6 @@ public class Manager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void OpenScene(string name, Keyitem keyitem)
     {
         returnKeyitem = keyitem;

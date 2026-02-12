@@ -757,8 +757,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 335775665}
-        m_TargetAssemblyTypeName: Pause, Assembly-CSharp
-        m_MethodName: TutorialBack
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: OnBack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2163,8 +2163,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 335775665}
-        m_TargetAssemblyTypeName: Pause, Assembly-CSharp
+      - m_Target: {fileID: 1685211875}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
         m_MethodName: Tutorial
         m_Mode: 1
         m_Arguments:
@@ -2394,7 +2394,7 @@ GameObject:
   - component: {fileID: 335775665}
   m_Layer: 5
   m_Name: Pause Menu
-  m_TagString: Untagged
+  m_TagString: PauseMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2433,10 +2433,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorial: {fileID: 1446050808}
   setting: {fileID: 637225853}
-  startMenuFirstButton: {fileID: 631229269}
-  pauseMenuFirstButton: {fileID: 1914521933}
   tutorialFirstButton: {fileID: 121778859}
   settingFirstButton: {fileID: 858959475}
+  pauseMenuFirstButton: {fileID: 1914521933}
 --- !u!222 &335775667
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27946,6 +27945,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a026f04f1dc99f04aadfb7f5795ec14b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &470768498 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8248827550448602065, guid: ac7369e9b0d3110418955999238f7ffe, type: 3}
+  m_PrefabInstance: {fileID: 2033448406}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470768490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &487962057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29968,7 +29978,7 @@ GameObject:
   - component: {fileID: 637225854}
   m_Layer: 5
   m_Name: Setting
-  m_TagString: Untagged
+  m_TagString: Setting
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46999,8 +47009,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 335775665}
-        m_TargetAssemblyTypeName: Pause, Assembly-CSharp
-        m_MethodName: SettingBack
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: OnBack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -59826,7 +59836,7 @@ GameObject:
   - component: {fileID: 1446050810}
   m_Layer: 5
   m_Name: Tutorial
-  m_TagString: Untagged
+  m_TagString: Tutorial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61661,7 +61671,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   globalLight: {fileID: 148765717}
   player: {fileID: 470768490}
-  pauseMenu: {fileID: 335775663}
+  playerInput: {fileID: 470768498}
+  startMenuObject: {fileID: 1685211871}
+  pauseMenu: {fileID: 335775665}
   dialogBoxUI: {fileID: 1138363962}
   codePanel: {fileID: 1618890263}
   myBag: {fileID: 11400000, guid: 94670a4f4e1ee4a048cab7beac8bd67e, type: 2}
@@ -61677,7 +61689,6 @@ MonoBehaviour:
   room9: {fileID: 946006746}
   room10: {fileID: 1493656126}
   room13: {fileID: 246393213}
-  startMenu: {fileID: 1685211871}
   walkingSound: {fileID: 1641387889}
   iswin: 0
   actionMapPlayer:
@@ -61686,7 +61697,6 @@ MonoBehaviour:
     m_Asset: {fileID: 0}
     m_Actions: []
     m_Bindings: []
-  pause: {fileID: 0}
   dialogBox: {fileID: 0}
   returnKeyitem: {fileID: 0}
 --- !u!4 &1610217337
@@ -62604,7 +62614,7 @@ GameObject:
   - component: {fileID: 1685211875}
   m_Layer: 5
   m_Name: Start Menu
-  m_TagString: Untagged
+  m_TagString: StartMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62649,6 +62659,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644d954bec5cadf4da28fea19956a666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorial: {fileID: 1446050808}
+  setting: {fileID: 637225853}
+  tutorialFirstButton: {fileID: 121778859}
+  settingFirstButton: {fileID: 858959475}
 --- !u!1 &1689450807
 GameObject:
   m_ObjectHideFlags: 0
@@ -66395,8 +66409,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 335775665}
-        m_TargetAssemblyTypeName: Pause, Assembly-CSharp
+      - m_Target: {fileID: 1685211875}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
         m_MethodName: Setting
         m_Mode: 1
         m_Arguments:

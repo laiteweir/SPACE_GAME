@@ -10,6 +10,10 @@ TagManager:
   - Breaker
   - slime1
   - slime2
+  - StartMenu
+  - PauseMenu
+  - Tutorial
+  - Setting
   layers:
   - Default
   - TransparentFX
