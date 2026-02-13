@@ -11,9 +11,9 @@ public class Manager : MonoBehaviour
     public static Manager Instance;
 
     public GameObject globalLight;
-
     public GameObject player;
     public PlayerInput playerInput;
+    public UIManager uiManager;
     public GameObject startMenuObject;
     public PauseMenu pauseMenu;
     public GameObject dialogBoxUI;
@@ -38,7 +38,7 @@ public class Manager : MonoBehaviour
     [HideInInspector] public DialogBox dialogBox;
     [HideInInspector] public Keyitem returnKeyitem;
 
-    void Awake()
+    private void Awake()
     {
         if (Instance != null)
         {
@@ -60,16 +60,16 @@ public class Manager : MonoBehaviour
     public void SwitchToUI()
     {
         playerInput.SwitchCurrentActionMap("UI");
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        // Cursor.lockState = CursorLockMode.None;
+        // Cursor.visible = true;
     }
 
     // ¤Á´«¦^¹CÀ¸¼Ò¦¡
     public void SwitchToPlayer()
     {
         playerInput.SwitchCurrentActionMap("Player");
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        // Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.visible = false;
     }
     public void OpenScene(string name, Keyitem keyitem)
     {

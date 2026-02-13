@@ -756,8 +756,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 335775665}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+      - m_Target: {fileID: 198942650}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: OnBack
         m_Mode: 1
         m_Arguments:
@@ -1516,6 +1516,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a6db5333b2f1ce429d38e140bfb3409, type: 3}
+--- !u!1 &198942647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 198942649}
+  - component: {fileID: 198942650}
+  m_Layer: 5
+  m_Name: UI Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &198942649
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198942647}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &198942650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198942647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5439e7f85cfff7840a2573ee0da9d637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &206631035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29822,7 +29866,6 @@ GameObject:
   - component: {fileID: 631229273}
   - component: {fileID: 631229272}
   - component: {fileID: 631229271}
-  - component: {fileID: 631229274}
   m_Layer: 5
   m_Name: Start Button
   m_TagString: Untagged
@@ -29943,28 +29986,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631229269}
   m_CullTransparentMesh: 1
---- !u!95 &631229274
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 631229269}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b5d1c3e4440ba284fbfd2c854cbd06a9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &637225853
 GameObject:
   m_ObjectHideFlags: 0
@@ -47008,8 +47029,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 335775665}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+      - m_Target: {fileID: 198942650}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: OnBack
         m_Mode: 1
         m_Arguments:
@@ -61672,6 +61693,7 @@ MonoBehaviour:
   globalLight: {fileID: 148765717}
   player: {fileID: 470768490}
   playerInput: {fileID: 470768498}
+  uiManager: {fileID: 198942650}
   startMenuObject: {fileID: 1685211871}
   pauseMenu: {fileID: 335775665}
   dialogBoxUI: {fileID: 1138363962}
@@ -71386,11 +71408,12 @@ SceneRoots:
   m_Roots:
   - {fileID: 1610217337}
   - {fileID: 2033448406}
-  - {fileID: 1978385194}
   - {fileID: 1793407516}
   - {fileID: 1275535340}
   - {fileID: 541625150}
   - {fileID: 1641387891}
+  - {fileID: 1978385194}
+  - {fileID: 198942649}
   - {fileID: 1090134229}
   - {fileID: 148765720}
   - {fileID: 1039252033}

@@ -1,54 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEditor.Timeline.Actions;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class DialogBox : MonoBehaviour
 {
-    //public string Objectname;
+    private InputAction nextDialogAction;
     private bool moveNext = false;
     private bool endDialog = false;
     private int count;
     private string[] str;
     public TMP_Text dialog;
-    public bool TextIsOn = false; 
+    public bool TextIsOn = false;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && TextIsOn == true)
-        {
-            // Debug.Log("get dialog length: "+str.GetLength(0).ToString());
-            if (count < str.GetLength(0))
-            {
-            //string lines = str[count];
-            //Text nextline.text = lines;
-                moveNext = true;
-            }
-            else
-            {
-                endDialog = true;
-            }
-        }
+        nextDialogAction = Manager.Instance.playerInput.actions["UI/Submit"];
+    }
+    private void OnEnable()
+    {
+        nextDialogAction.performed += OnNextDialog;
+    }
+    private void OnDisable()
+    {
+        nextDialogAction.performed -= OnNextDialog;
     }
 
-    /*public bool setDialog(string input){
-        this.dialog_text = input;
-        str = this.dialog_text.Split('\n');
-        return true;
-    }*/
+    private void OnNextDialog(InputAction.CallbackContext context)
+    {
+        // Debug.Log("get dialog length: "+str.GetLength(0).ToString());
+        if (count < str.GetLength(0))
+        {
+            //string lines = str[count];
+            //Text nextline.text = lines;
+            moveNext = true;
+        }
+        else
+        {
+            endDialog = true;
+        }
+    }
 
     public void StartTalk(string[] inputTxt)
     {
         str = inputTxt;
         StartCoroutine(Talk());
-
     }
-
     private IEnumerator Talk()
     {
-        Manager.Instance.actionMapPlayer.Disable();
+        Manager.Instance.SwitchToUI();
         dialog.text = str[count];
         ++count;
         while (true)
@@ -64,12 +67,11 @@ public class DialogBox : MonoBehaviour
             {
                 endDialog = false;
                 gameObject.SetActive(false);
-                TextIsOn = false;
                 count = 0;
                 dialog.text = "";
                 
                 //is_trigger = true;
-                Manager.Instance.actionMapPlayer.Enable();
+                Manager.Instance.SwitchToPlayer();
                 yield break;
             }
             else
@@ -84,10 +86,9 @@ public class DialogBox : MonoBehaviour
         str = inputTxt;
         StartCoroutine(TalkAndOpenScene(sceneName, keyitem));
     }
-
     private IEnumerator TalkAndOpenScene(string sceneName, Keyitem keyitem)
     {
-        Manager.Instance.actionMapPlayer.Disable();
+        Manager.Instance.SwitchToUI();
         dialog.text = str[count];
         ++count;
         while (true)
@@ -103,10 +104,45 @@ public class DialogBox : MonoBehaviour
             {
                 endDialog = false;
                 gameObject.SetActive(false);
-                TextIsOn = false;
                 count = 0;
                 dialog.text = "";
-                Manager.Instance.actionMapPlayer.Enable();
+                Manager.Instance.SwitchToPlayer();
+                Manager.Instance.OpenScene(sceneName, keyitem);
+                yield break;
+            }
+            else
+            {
+                yield return null;
+            }
+        }
+    }
+
+    public void StartTalkAndOpenSceneUI(string[] inputTxt, string sceneName, Keyitem keyitem)
+    {
+        str = inputTxt;
+        StartCoroutine(TalkAndOpenSceneUI(sceneName, keyitem));
+    }
+    private IEnumerator TalkAndOpenSceneUI(string sceneName, Keyitem keyitem)
+    {
+        Manager.Instance.SwitchToUI();
+        dialog.text = str[count];
+        ++count;
+        while (true)
+        {
+            if (moveNext)
+            {
+                moveNext = false;
+                dialog.text = str[count];
+                ++count;
+                yield return null;
+            }
+            else if (endDialog)
+            {
+                endDialog = false;
+                gameObject.SetActive(false);
+                count = 0;
+                dialog.text = "";
+                // Manager.Instance.SwitchToPlayer();
                 Manager.Instance.OpenScene(sceneName, keyitem);
                 yield break;
             }
