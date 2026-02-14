@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Door : Keyitem
 {
@@ -12,30 +13,14 @@ public class Door : Keyitem
 
     new Collider2D collider;
     Animator animator;
-    private bool isTryingOpen = false;
-    private bool keepTrying = true;
     private string[] dialog;
-    
-    //public AudioClip otherClip;
-    // public AudioClip clip;
+
     // Start is called before the first frame update
     void Start()
     {
         collider = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
         dialog = textFile.text.Split('\n');
-        //source = GetComponent<AudioSource>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.X) && isTryingOpen)
-        {
-            //Debug.Log("I give up!");
-            keepTrying = false;
-            Manager.Instance.codePanel.GetComponent<CodePanel>().Clear();
-        }
     }
 
     public override void KeyitemEvent()
@@ -71,27 +56,20 @@ public class Door : Keyitem
 
     private IEnumerator TryUnlockWithPassword()
     {
-        isTryingOpen = true;
-        Manager.Instance.actionMapPlayer.Disable();
-        Manager.Instance.codePanel.SetActive(true);
+        Manager.Instance.codePanel.GetComponent<CodePanel>().OpenCodePanel();
         while (true)
         {
-            if (!keepTrying)
+            if (!Manager.Instance.codePanel.activeSelf)
             {
-                keepTrying = true;
-                Manager.Instance.codePanel.SetActive(false);
-                Manager.Instance.actionMapPlayer.Enable();
-                isTryingOpen = false;
+                Manager.Instance.codePanel.GetComponent<CodePanel>().Clear();
                 yield break;
             }
             else if (Manager.Instance.codePanel.GetComponent<CodePanel>().GetDoorOpen())
             {
-                Manager.Instance.codePanel.SetActive(false);
-                Manager.Instance.actionMapPlayer.Enable();
+                Manager.Instance.uiManager.Back();
                 collider.enabled = false;
                 animator.SetTrigger("doorIsOpened");
                 StartCoroutine(PlayAudio());
-                isTryingOpen = false;
                 yield break;
             }
             else
@@ -122,7 +100,5 @@ public class Door : Keyitem
 
         audio.Play();
         yield return new WaitForSeconds(audio.clip.length);
-        // audio.clip = otherClip;
-        // audio.Play();
     }
 }

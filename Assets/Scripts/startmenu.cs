@@ -21,7 +21,7 @@ public class StartMenu : BaseMenu
     public void StartGame()
     {
         // Debug.Log("Start Game");
-        Manager.Instance.uiManager.OnBack();
+        Manager.Instance.uiManager.Back();
     }
     // public void Exit()
     // {

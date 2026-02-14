@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isWalking", false);
         }
 
-        //Debug.Log(animator.GetBool("isWalking"));
+        // Debug.Log(animator.GetBool("isWalking"));
     }
 
     private void PlayWalkingSound(InputAction.CallbackContext context)
@@ -143,7 +143,7 @@ public class PlayerController : MonoBehaviour
                     movementFilter,
                     castCollisions,
                     moveSpeed * Time.fixedDeltaTime + collisionOffset);
-            //Debug.Log(count);
+            // Debug.Log(count);
             if (count == 0)
             {
                 rb.MovePosition(rb.position + moveSpeed * Time.fixedDeltaTime * direction);
@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnFire()
     {
-        //Debug.Log("Fire Pressed!");
+        // Debug.Log("Fire Pressed!");
         animator.SetTrigger("keyitemInteract");
     }
 

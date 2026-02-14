@@ -31,11 +31,11 @@ public class DialogBox : MonoBehaviour
 
     private void OnNextDialog(InputAction.CallbackContext context)
     {
-        // Debug.Log("get dialog length: "+str.GetLength(0).ToString());
+        // Debug.Log("get dialog length: " + str.GetLength(0).ToString());
         if (count < str.GetLength(0))
         {
-            //string lines = str[count];
-            //Text nextline.text = lines;
+            // string lines = str[count];
+            // Text nextline.text = lines;
             moveNext = true;
         }
         else

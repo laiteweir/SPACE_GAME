@@ -7,11 +7,12 @@ public class UIManager : MonoBehaviour
 {
     public void OpenUI(GameObject ui, GameObject uiFirstButton)
     {
+        Manager.Instance.SwitchToUI();
         ui.SetActive(true);
         Manager.Instance.uiStack.Push(ui);
         SetFocus(uiFirstButton);
     }
-    public void OnBack()
+    public void Back()
     {
         if (Manager.Instance.uiStack.Count == 0)
         {
@@ -35,13 +36,13 @@ public class UIManager : MonoBehaviour
     }
     public void OnBack(InputAction.CallbackContext context)
     {
-        OnBack();
+        Back();
     }
     public void OnBackStopBottom(InputAction.CallbackContext context)
     {
         if (Manager.Instance.uiStack.Count > 1)
         {
-            OnBack();
+            Back();
         }
     }
     private void SetFocus(GameObject button)

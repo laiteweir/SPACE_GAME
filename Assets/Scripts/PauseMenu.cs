@@ -22,13 +22,12 @@ public class PauseMenu : BaseMenu
     public void OnPausePerformed(InputAction.CallbackContext context)
     {
         // Debug.Log("Turn on pause menu");
-        Manager.Instance.SwitchToUI();
         Manager.Instance.uiManager.OpenUI(gameObject, pauseMenuFirstButton);
     }
     public void Resume()
     {
         // Debug.Log("Resume");
-        Manager.Instance.uiManager.OnBack();
+        Manager.Instance.uiManager.Back();
     }
     public void Exit()
     {
