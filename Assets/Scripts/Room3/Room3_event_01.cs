@@ -17,7 +17,7 @@ public class Room3_event_01 : Keyitem
     // Update is called once per frame
     void Update()
     {
-        if (Manager.Instance.dialogBox.TextIsOn == false && is_trigger == true)
+        if (Manager.Instance.DialogBox.TextIsOn == false && is_trigger == true)
         {
             Manager.Instance.room3.room3_event3.SetActive(true);
             Manager.Instance.room4.safe.SetActive(false);
@@ -26,9 +26,9 @@ public class Room3_event_01 : Keyitem
     }
     public override void KeyitemEvent()
     {
-        Manager.Instance.dialogBoxUI.SetActive(true);
-        Manager.Instance.dialogBox.TextIsOn = true;
-        Manager.Instance.dialogBox.StartTalk(dialog);
+        Manager.Instance.DialogBoxUI.SetActive(true);
+        Manager.Instance.DialogBox.TextIsOn = true;
+        Manager.Instance.DialogBox.StartTalk(dialog);
         door.GetComponent<Door>().locked = false;
         is_trigger = true;
 

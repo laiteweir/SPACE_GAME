@@ -21,9 +21,9 @@ public class Safe : Keyitem
     }
     public override void KeyitemEvent()
     {
-        Manager.Instance.dialogBoxUI.SetActive(true);
-        Manager.Instance.dialogBox.TextIsOn = true;
-        Manager.Instance.dialogBox.StartTalk(dialog1);
+        Manager.Instance.DialogBoxUI.SetActive(true);
+        Manager.Instance.DialogBox.TextIsOn = true;
+        Manager.Instance.DialogBox.StartTalk(dialog1);
         Ison = true;
 
     }
@@ -40,21 +40,21 @@ public class Safe : Keyitem
     private IEnumerator TryUnlockWithPassword()
     {
         Manager.Instance.actionMapPlayer.Disable();
-        Manager.Instance.codePanel.SetActive(true);
+        Manager.Instance.CodePanel.SetActive(true);
         while (true)
         {
             if (!keepTrying)
             {
                 keepTrying = true;
-                Manager.Instance.codePanel.SetActive(false);
+                Manager.Instance.CodePanel.SetActive(false);
                 Manager.Instance.actionMapPlayer.Enable();
                 yield break;
             }
-            else if (Manager.Instance.codePanel.GetComponent<CodePanel>().GetDoorOpen())
+            else if (Manager.Instance.CodePanel.GetComponent<CodePanel>().GetDoorOpen())
             {
-                Manager.Instance.codePanel.SetActive(false);
+                Manager.Instance.CodePanel.SetActive(false);
                 Manager.Instance.actionMapPlayer.Enable();
-                Manager.Instance.dialogBox.StartTalk(dialog1);
+                Manager.Instance.DialogBox.StartTalk(dialog1);
                 yield break;
             }
             else

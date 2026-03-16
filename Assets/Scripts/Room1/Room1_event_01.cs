@@ -25,7 +25,7 @@ public class Room1_event_01 :  Keyitem
     // Update is called once per frame
     void Update()
     {
-        if (Manager.Instance.dialogBox.TextIsOn == false && trigger_first == false){
+        if (Manager.Instance.DialogBox.TextIsOn == false && trigger_first == false){
             Manager.Instance.room1.room1_event3.SetActive(true);
             // Manager.Instance.room0.room0_event2.SetActive(true);
             Destroy(this);
@@ -35,9 +35,9 @@ public class Room1_event_01 :  Keyitem
     {
         //computer_light.GetComponent<UnityEngine.Rendering.Universal.Light2D>().color = Color.green;
         // Debug.Log("touch robot 01 in room 0");
-        Manager.Instance.dialogBoxUI.SetActive(true);
-        Manager.Instance.dialogBox.TextIsOn = true;
-        Manager.Instance.dialogBox.StartTalk(dialog);
+        Manager.Instance.DialogBoxUI.SetActive(true);
+        Manager.Instance.DialogBox.TextIsOn = true;
+        Manager.Instance.DialogBox.StartTalk(dialog);
         // make sure is not first trigger
         trigger_first = false;
     

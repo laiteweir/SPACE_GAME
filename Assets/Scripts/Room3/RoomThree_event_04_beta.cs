@@ -23,7 +23,7 @@ public class RoomThree_event_04_beta : Keyitem
     // Update is called once per frame
     void Update()
     {
-        if (Manager.Instance.dialogBox.TextIsOn == false && is_trigger == true)
+        if (Manager.Instance.DialogBox.TextIsOn == false && is_trigger == true)
         {
             
             Manager.Instance.room3.room3_event2_1.SetActive(true);
@@ -45,9 +45,9 @@ public class RoomThree_event_04_beta : Keyitem
 
     public override void KeyitemEvent()
     {
-        Manager.Instance.dialogBoxUI.SetActive(true);
-        Manager.Instance.dialogBox.TextIsOn = true;
-        Manager.Instance.dialogBox.StartTalk(dialog);
+        Manager.Instance.DialogBoxUI.SetActive(true);
+        Manager.Instance.DialogBox.TextIsOn = true;
+        Manager.Instance.DialogBox.StartTalk(dialog);
         is_trigger = true;
 
 

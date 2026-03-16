@@ -9,21 +9,21 @@ public class UIManager : MonoBehaviour
     {
         Manager.Instance.SwitchToUI();
         ui.SetActive(true);
-        Manager.Instance.uiStack.Push(ui);
+        Manager.Instance.UIStack.Push(ui);
         SetFocus(uiFirstButton);
     }
     public void Back()
     {
-        if (Manager.Instance.uiStack.Count == 0)
+        if (Manager.Instance.UIStack.Count == 0)
         {
             return;
         }
 
-        GameObject topUI = Manager.Instance.uiStack.Pop();
+        GameObject topUI = Manager.Instance.UIStack.Pop();
         topUI.SetActive(false);
-        if (Manager.Instance.uiStack.Count > 0)
+        if (Manager.Instance.UIStack.Count > 0)
         {
-            Button button = Manager.Instance.uiStack.Peek().GetComponentInChildren<Button>();
+            Button button = Manager.Instance.UIStack.Peek().GetComponentInChildren<Button>();
             if (button != null) 
             {
                 SetFocus(button.gameObject);
@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
     }
     public void OnBackStopBottom(InputAction.CallbackContext context)
     {
-        if (Manager.Instance.uiStack.Count > 1)
+        if (Manager.Instance.UIStack.Count > 1)
         {
             Back();
         }

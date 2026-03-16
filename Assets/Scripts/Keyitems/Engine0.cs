@@ -20,9 +20,9 @@ public class Engine0 : Keyitem
         if (Manager.Instance.myBag.itemList.Contains(filledEnergyTank) && filledEnergyTank.itemHeld >= 3)
         {
             // Debug.Log("You have fixed Engine0!");
-            Manager.Instance.dialogBoxUI.SetActive(true);
-            Manager.Instance.dialogBox.TextIsOn = true;
-            Manager.Instance.dialogBox.StartTalk(dialogSuccess);
+            Manager.Instance.DialogBoxUI.SetActive(true);
+            Manager.Instance.DialogBox.TextIsOn = true;
+            Manager.Instance.DialogBox.StartTalk(dialogSuccess);
             Manager.Instance.room10.isEngine0Fixed = true;
             filledEnergyTank.itemHeld = 0;
             Manager.Instance.myBag.itemList.Remove(filledEnergyTank);
@@ -31,9 +31,9 @@ public class Engine0 : Keyitem
         }
         else
         {
-            Manager.Instance.dialogBoxUI.SetActive(true);
-            Manager.Instance.dialogBox.TextIsOn = true;
-            Manager.Instance.dialogBox.StartTalk(dialogFail);
+            Manager.Instance.DialogBoxUI.SetActive(true);
+            Manager.Instance.DialogBox.TextIsOn = true;
+            Manager.Instance.DialogBox.StartTalk(dialogFail);
         }
     }
 

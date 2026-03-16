@@ -30,9 +30,9 @@ public class Room7_event_02 : MonoBehaviour
     {
 
         if(this.first_trigger && col.gameObject.name == "Player"){
-            Manager.Instance.dialogBoxUI.SetActive(true);
-            Manager.Instance.dialogBox.TextIsOn = true;
-            Manager.Instance.dialogBox.StartTalk(dialog);
+            Manager.Instance.DialogBoxUI.SetActive(true);
+            Manager.Instance.DialogBox.TextIsOn = true;
+            Manager.Instance.DialogBox.StartTalk(dialog);
             this.first_trigger = false;
             Manager.Instance.room7.room7_event_01.SetActive(false);
             this.stop_aliens();

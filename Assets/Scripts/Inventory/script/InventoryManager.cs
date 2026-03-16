@@ -1,93 +1,115 @@
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class InventoryManager : MonoBehaviour
 {
-    
-    public static InventoryManager instance;
-    public Inventory maybag;
-    public GameObject slotgrid;
-    public Slot slotprefab;
-    public Text description;
-    public static int itemno;
-    public GameObject Slot;
-    public static Slot newitem;
-    public GameObject MG;
-    public GameObject Txt;
-    public Text Held;
-    public bool isopen = false;
-    bool unlock = false;
-    bool is_empty = true;
-        void Awake(){
-        if(instance!= null){
-            Destroy(this);
-        }
-        instance = this;
-    }
-    void Start(){
-        for(int i =0 ;i<maybag.itemList.Count;i++)
-            maybag.itemList[i].itemHeld=0;
-        maybag.itemList.Clear();
-        itemno=0;
-        newitem = Slot.GetComponent<Slot>();
-    }
-    void Update(){
-        Change_item();
-        Close_Bag();
-        //Debug.Log(itemno);
-        if(itemno!=0 && is_empty){
-            display_item(0);
-            is_empty = false;
-        }   
-    }
-    public static void CreateNewItem(Item item){
-        if(itemno==0){
-            // newitem = Instantiate(instance.slotprefab, instance.slotgrid.transform.position, Quaternion.identity);
-            // Debug.Log("create item");
-            // newitem.gameObject.transform.SetParent(instance.slotgrid.transform); 
-            newitem.slotItem = item;
-            newitem.slotImage.sprite = item.itemImage;
-            item.itemHeld++;
-            itemno++;
-            // unlock = true;
-        }
-    }
-    private void Change_item(){
-        if(Input.GetKeyDown(KeyCode.Q)&& isopen){
-            Debug.Log(itemno);
-            itemno--;
-            if(itemno < 0)
-                itemno =0;
-            itemno %= maybag.itemList.Count;
-            display_item(itemno);
-        }
-        else if(Input.GetKeyDown(KeyCode.E)&& isopen){
-            Debug.Log(itemno);
-            itemno++;
-            itemno %= maybag.itemList.Count;
-            display_item(itemno);
-        }
-    }
-    public void display_item(int number){
-        Debug.Log("display "+number);
-        newitem.slotItem = maybag.itemList[number];
-        newitem.slotImage.sprite = maybag.itemList[number].itemImage;
-        description.text = maybag.itemList[number].itemInfo;
-        Held.text = (maybag.itemList[number].itemHeld).ToString();
-        Debug.Log("display item");
-    }
+    public Image inventoryImage;
+    public TMP_Text inventoryInformation;
+    public GameObject slotPrefab;
+    public Transform inventoryGrid;
+    public int inventoryCapacity = 20;
+    // public int itemNumber;
 
-    public void Close_Bag(){
-        if(Input.GetKeyDown(KeyCode.O) && !is_empty ){
-            isopen = !isopen;
-            MG.SetActive(isopen);
-            Txt.SetActive(isopen);
-            Debug.Log(itemno);
-            if(itemno !=0 ){
-                display_item(0);
+    public List<Item> items = new List<Item>();
+    private List<InventorySlot> slots = new List<InventorySlot>();
+
+    private void Start()
+    {
+        InitializeInventory(inventoryCapacity);
+        // items.Add(null);
+        // items.Add(null);
+        RefreshInventoryGrid();
+    }
+    private void InitializeInventory(int count)
+    {
+        for (int i = 0; i < count; ++i)
+        {
+            CreateNewSlot();
+        }
+    }
+    private void CreateNewSlot()
+    {
+        GameObject newSlot = Instantiate(slotPrefab, inventoryGrid);
+        // 確保新物件的本地縮放和位置正確 (Grid Layout Group 會自動處理位置，但重置一下更安全)
+        // newSlot.transform.localPosition = Vector3.zero;
+        // newSlot.transform.localScale = Vector3.one;
+
+        InventorySlot slotScript = newSlot.GetComponent<InventorySlot>();
+        slotScript.Clear();
+        slots.Add(slotScript);
+    }
+    public Item InstantiateItem(ItemData itemData)
+    {
+        Item newItem = new Item();
+        newItem.Assign(itemData);
+        return newItem;
+    }
+    public void AddItem(Item newItem)
+    {
+        Item targetItem = items.Find(item => item.itemName == newItem.itemName);
+        if (targetItem != null)
+        {
+            targetItem.itemQuantity += newItem.itemQuantity;
+            RefreshInventoryGrid();
+        }
+        else
+        {
+            if (items.Count < slots.Count)
+            {
+                items.Add(newItem);
+                RefreshInventoryGrid();
+            }
+            // else
+            // {
+            //     Debug.Log("背包已滿");
+            // }
+        }
+    }
+    public int FindIndexOfItem(Item targetItem)
+    {
+        return items.FindIndex(item => item.itemName == targetItem.itemName);
+    }
+    public void RemoveItem(int index, int quantity)
+    {
+        if (index >= 0 && index < items.Count && items[index].itemQuantity >= quantity)
+        {
+            items[index].itemQuantity -= quantity;
+            if (items[index].itemQuantity == 0)
+            {
+                items.RemoveAt(index);
+            }
+            RefreshInventoryGrid();
+        }
+        // else
+        // {
+        //     Debug.Log("物品數量不足");
+        // }
+    }
+    public void RefreshInventoryGrid()
+    {
+        // 如果物品數量超過當前背包大小，動態擴充
+        // if (items.Count > slots.Count)
+        // {
+        //     int needed = items.Count - slots.Count;
+        //     InitializeInventory(needed);
+        // }
+
+        for (int i = 0; i < slots.Count; ++i)
+        {
+
+            if (i < items.Count && items[i] != null)
+            {
+                slots[i].gameObject.SetActive(true);
+                slots[i].SetInventorySlot(items[i]);
+            }
+            else
+            {
+                slots[i].Clear();
             }
         }
     }

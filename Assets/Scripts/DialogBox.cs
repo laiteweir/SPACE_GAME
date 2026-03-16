@@ -13,12 +13,12 @@ public class DialogBox : MonoBehaviour
     private bool endDialog = false;
     private int count;
     private string[] str;
-    public TMP_Text dialog;
+    [SerializeField] private TMP_Text dialog;
     public bool TextIsOn = false;
 
     private void Awake()
     {
-        nextDialogAction = Manager.Instance.playerInput.actions["UI/Submit"];
+        nextDialogAction = Manager.Instance.PlayerInput.actions["UI/Submit"];
     }
     private void OnEnable()
     {

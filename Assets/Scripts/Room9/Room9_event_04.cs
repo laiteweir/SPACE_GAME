@@ -24,9 +24,9 @@ public class Room9_event_04 : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D col)
     {
-        Manager.Instance.dialogBoxUI.SetActive(true);
-        Manager.Instance.dialogBox.TextIsOn = true;
-        Manager.Instance.dialogBox.StartTalk(dialog);
+        Manager.Instance.DialogBoxUI.SetActive(true);
+        Manager.Instance.DialogBox.TextIsOn = true;
+        Manager.Instance.DialogBox.StartTalk(dialog);
         Room9_event_03.SetActive(false);
         Room9_event_02.SetActive(false);
         Room9_event_01.SetActive(false);

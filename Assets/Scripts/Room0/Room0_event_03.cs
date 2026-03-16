@@ -20,9 +20,9 @@ public class Room0_event_03 : Keyitem
     public override void KeyitemEvent()
     {
         //enable next process
-        Manager.Instance.dialogBoxUI.SetActive(true);
-        Manager.Instance.dialogBox.TextIsOn = true;
-        Manager.Instance.dialogBox.StartTalk(dialog);
+        Manager.Instance.DialogBoxUI.SetActive(true);
+        Manager.Instance.DialogBox.TextIsOn = true;
+        Manager.Instance.DialogBox.StartTalk(dialog);
         //Debug.Log(Manager.Instance.dialogBox.TextIsOn);
     }
     public override void EndKeyitemEvent()

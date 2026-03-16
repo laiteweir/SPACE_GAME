@@ -40,9 +40,9 @@ public class Room5_event_0 : Keyitem
     {
 
         if(this.first_trigger && col.gameObject.name == "Player"){
-            Manager.Instance.dialogBoxUI.SetActive(true);
-            Manager.Instance.dialogBox.TextIsOn = true;
-            Manager.Instance.dialogBox.StartTalk(dialog);
+            Manager.Instance.DialogBoxUI.SetActive(true);
+            Manager.Instance.DialogBox.TextIsOn = true;
+            Manager.Instance.DialogBox.StartTalk(dialog);
             this.first_trigger = false;
         }
         // Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);

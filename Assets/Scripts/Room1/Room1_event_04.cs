@@ -28,9 +28,9 @@ public class Room1_event_04 : Keyitem
     {
         //computer_light.GetComponent<UnityEngine.Rendering.Universal.Light2D>().color = Color.green;
         // Debug.Log("touch robot 01 in room 0");
-        Manager.Instance.dialogBoxUI.SetActive(true);
-        Manager.Instance.dialogBox.TextIsOn = true;
-        Manager.Instance.dialogBox.StartTalk(dialog);
+        Manager.Instance.DialogBoxUI.SetActive(true);
+        Manager.Instance.DialogBox.TextIsOn = true;
+        Manager.Instance.DialogBox.StartTalk(dialog);
         // make sure is not first trigger
         next.GetComponent<Door>().locked = false;
         Destroy(this);

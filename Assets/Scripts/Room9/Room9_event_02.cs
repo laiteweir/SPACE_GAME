@@ -17,9 +17,9 @@ public class Room9_event_02 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-            Manager.Instance.dialogBoxUI.SetActive(true);
-            Manager.Instance.dialogBox.TextIsOn = true;
-            Manager.Instance.dialogBox.StartTalk(dialog);
+            Manager.Instance.DialogBoxUI.SetActive(true);
+            Manager.Instance.DialogBox.TextIsOn = true;
+            Manager.Instance.DialogBox.StartTalk(dialog);
             Room9_PC_light_1.GetComponent<Light2D>().enabled = false;
             // Room9_desk_light_1.GetComponent<Light2D>().enabled = true;
         // Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);

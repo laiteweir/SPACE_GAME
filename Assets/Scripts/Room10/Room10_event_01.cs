@@ -13,14 +13,14 @@ public class Room10_event_01 : MonoBehaviour
 
     void Update()
     {
-        if (Manager.Instance.player.transform.position.y < -14f)
+        if (Manager.Instance.Player.transform.position.y < -14f)
         {
             // Manager.Instance.room10.engine0_Light.enabled = true;
             // Manager.Instance.room10.engine1_Light.enabled = true;
             // Manager.Instance.room10.refillStation_Light.enabled = true;
-            Manager.Instance.dialogBoxUI.SetActive(true);
-            Manager.Instance.dialogBox.TextIsOn = true;
-            Manager.Instance.dialogBox.StartTalk(dialog);
+            Manager.Instance.DialogBoxUI.SetActive(true);
+            Manager.Instance.DialogBox.TextIsOn = true;
+            Manager.Instance.DialogBox.StartTalk(dialog);
             Manager.Instance.room10.room10_event_01.SetActive(false);
             Manager.Instance.room10.room10_event_02.SetActive(true);
             Destroy(this);

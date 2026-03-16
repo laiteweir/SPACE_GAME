@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Room1_event_Slime : Keyitem
+public class Room1_event_Slime : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] TextAsset textFile;
@@ -42,9 +42,9 @@ public class Room1_event_Slime : Keyitem
         audio.Play();
         Debug.Log("play audio");
         yield return new WaitForSeconds(audio.clip.length);
-        Manager.Instance.dialogBoxUI.SetActive(true);
-        Manager.Instance.dialogBox.TextIsOn = true;
-        Manager.Instance.dialogBox.StartTalk(dialog);
+        Manager.Instance.DialogBoxUI.SetActive(true);
+        Manager.Instance.DialogBox.TextIsOn = true;
+        Manager.Instance.DialogBox.StartTalk(dialog);
         Destroy(gameObject);
         // audio.clip = otherClip;
         // audio.Play();

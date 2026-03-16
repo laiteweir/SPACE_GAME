@@ -21,9 +21,9 @@ public class Room5_event_01 : Keyitem
        room_6_light.SetActive(true);
        next.SetActive(true);
        dialog = textFile.text.Split('\n');
-        Manager.Instance.dialogBoxUI.SetActive(true);
-        Manager.Instance.dialogBox.TextIsOn = true;
-        Manager.Instance.dialogBox.StartTalk(dialog);
+        Manager.Instance.DialogBoxUI.SetActive(true);
+        Manager.Instance.DialogBox.TextIsOn = true;
+        Manager.Instance.DialogBox.StartTalk(dialog);
     }
 
     public override void EndKeyitemEvent()

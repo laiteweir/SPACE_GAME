@@ -6,10 +6,10 @@ using UnityEngine.InputSystem;
 public class Door : Keyitem
 {
     public bool locked = false;
-    [SerializeField] bool lockedByPassword = false;
-    [SerializeField] bool lockedByKeycard = false;
-    [SerializeField] string keycardName;
-    [SerializeField] TextAsset textFile;
+    [SerializeField] private bool lockedByPassword = false;
+    [SerializeField] private bool lockedByKeycard = false;
+    [SerializeField] private string keycardName;
+    [SerializeField] private TextAsset textFile;
 
     new Collider2D collider;
     Animator animator;
@@ -27,9 +27,9 @@ public class Door : Keyitem
     {
         if (locked)
         {
-            Manager.Instance.dialogBoxUI.SetActive(true);
-            Manager.Instance.dialogBox.TextIsOn = true;
-            Manager.Instance.dialogBox.StartTalk(dialog);
+            Manager.Instance.DialogBoxUI.SetActive(true);
+            Manager.Instance.DialogBox.TextIsOn = true;
+            Manager.Instance.DialogBox.StartTalk(dialog);
         }
         else if (lockedByPassword)
         {
@@ -56,17 +56,17 @@ public class Door : Keyitem
 
     private IEnumerator TryUnlockWithPassword()
     {
-        Manager.Instance.codePanel.GetComponent<CodePanel>().OpenCodePanel();
+        Manager.Instance.CodePanel.GetComponent<CodePanel>().OpenCodePanel();
         while (true)
         {
-            if (!Manager.Instance.codePanel.activeSelf)
+            if (!Manager.Instance.CodePanel.activeSelf)
             {
-                Manager.Instance.codePanel.GetComponent<CodePanel>().Clear();
+                Manager.Instance.CodePanel.GetComponent<CodePanel>().Clear();
                 yield break;
             }
-            else if (Manager.Instance.codePanel.GetComponent<CodePanel>().GetDoorOpen())
+            else if (Manager.Instance.CodePanel.GetComponent<CodePanel>().GetDoorOpen())
             {
-                Manager.Instance.uiManager.Back();
+                Manager.Instance.UIManager.Back();
                 collider.enabled = false;
                 animator.SetTrigger("doorIsOpened");
                 StartCoroutine(PlayAudio());

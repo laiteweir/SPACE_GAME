@@ -10,14 +10,18 @@ public class Manager : MonoBehaviour
 {
     public static Manager Instance;
 
-    public GameObject globalLight;
-    public GameObject player;
-    public PlayerInput playerInput;
-    public UIManager uiManager;
-    public GameObject startMenuObject;
-    public PauseMenu pauseMenu;
-    public GameObject dialogBoxUI;
-    public GameObject codePanel;
+    [SerializeField] private GameObject globalLight;
+    [SerializeField] private WalkingSound walkingSound;
+    [SerializeField] private GameObject player;
+    [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private UIManager uiManager;
+    private Stack<GameObject> uiStack = new Stack<GameObject>();
+    [SerializeField] private InventoryManager inventoryManager;
+    [SerializeField] private GameObject startMenuObject;
+    [SerializeField] private PauseMenu pauseMenu;
+    [SerializeField] private GameObject dialogBoxUI;
+    private DialogBox dialogBox;
+    [SerializeField] private GameObject codePanel;
     public Inventory myBag;
     public RoomZero room0;
     public RoomOne room1;
@@ -31,12 +35,22 @@ public class Manager : MonoBehaviour
     public RoomNine room9;
     public RoomTen room10;
     public RoomThirteen room13;
-    public Stack<GameObject> uiStack = new Stack<GameObject>();
-    public WalkingSound walkingSound;
+    
     public bool iswin = false;
     [HideInInspector] public InputActionMap actionMapPlayer;
-    [HideInInspector] public DialogBox dialogBox;
+
     [HideInInspector] public Keyitem returnKeyitem;
+
+    public GameObject Player { get => player; }
+    public PlayerInput PlayerInput { get => playerInput; }
+    public UIManager UIManager { get => uiManager; }
+    public Stack<GameObject> UIStack { get => uiStack; }
+    public InventoryManager InventoryManager { get => inventoryManager; }
+    public PauseMenu PauseMenu { get => pauseMenu; }
+    public GameObject DialogBoxUI { get => dialogBoxUI; }
+    public DialogBox DialogBox { get; private set; }
+    public GameObject CodePanel { get => codePanel; }
+    public WalkingSound WalkingSound { get => walkingSound; }
 
     private void Awake()
     {
@@ -51,15 +65,15 @@ public class Manager : MonoBehaviour
             Instance = this;
         }
         // playerInput = player.GetComponent<PlayerInput>();
-        actionMapPlayer = playerInput.actions.FindActionMap("Player");
-        dialogBox = dialogBoxUI.GetComponent<DialogBox>();
-        uiStack.Push(startMenuObject);
+        actionMapPlayer = PlayerInput.actions.FindActionMap("Player");
+        DialogBox = DialogBoxUI.GetComponent<DialogBox>();
+        UIStack.Push(startMenuObject);
     }
 
     // ち传 UI 家Α
     public void SwitchToUI()
     {
-        playerInput.SwitchCurrentActionMap("UI");
+        PlayerInput.SwitchCurrentActionMap("UI");
         // Cursor.lockState = CursorLockMode.None;
         // Cursor.visible = true;
     }
@@ -67,7 +81,7 @@ public class Manager : MonoBehaviour
     // ち传笴栏家Α
     public void SwitchToPlayer()
     {
-        playerInput.SwitchCurrentActionMap("Player");
+        PlayerInput.SwitchCurrentActionMap("Player");
         // Cursor.lockState = CursorLockMode.Locked;
         // Cursor.visible = false;
     }
@@ -95,7 +109,7 @@ public class Manager : MonoBehaviour
     public void SetDebugMode(bool global_light_on, float x, float y)
     {
         Vector2 location = new(x, y);
-        player.GetComponent<Transform>().position = location;
+        Player.GetComponent<Transform>().position = location;
         if (global_light_on)
         {
             globalLight.GetComponent<Light2D>().enabled = true;

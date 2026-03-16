@@ -27,7 +27,7 @@ public class Room3_event_03 : Keyitem
     // Update is called once per frame
     void Update()
     {
-        if (Manager.Instance.dialogBox.TextIsOn == false && is_trigger == true)
+        if (Manager.Instance.DialogBox.TextIsOn == false && is_trigger == true)
         {
             Manager.Instance.room3.room3_event2_1.SetActive(true);
             Manager.Instance.room3.room3_event2_2.SetActive(true);
@@ -41,9 +41,9 @@ public class Room3_event_03 : Keyitem
 
         if (is_trigger == true)
         {
-            Manager.Instance.dialogBoxUI.SetActive(true);
-            Manager.Instance.dialogBox.TextIsOn = true;
-            Manager.Instance.dialogBox.StartTalk(dialog3);
+            Manager.Instance.DialogBoxUI.SetActive(true);
+            Manager.Instance.DialogBox.TextIsOn = true;
+            Manager.Instance.DialogBox.StartTalk(dialog3);
         }
         else 
         {
@@ -53,16 +53,16 @@ public class Room3_event_03 : Keyitem
                 {
                     if (Manager.Instance.myBag.itemList[i].itemName == keycardName)
                     {
-                        Manager.Instance.dialogBoxUI.SetActive(true);
-                        Manager.Instance.dialogBox.TextIsOn = true;
-                        Manager.Instance.dialogBox.StartTalk(dialog1);
+                        Manager.Instance.DialogBoxUI.SetActive(true);
+                        Manager.Instance.DialogBox.TextIsOn = true;
+                        Manager.Instance.DialogBox.StartTalk(dialog1);
                         is_trigger = true;
                     }
                     else
                     {
-                        Manager.Instance.dialogBoxUI.SetActive(true);
-                        Manager.Instance.dialogBox.TextIsOn = true;
-                        Manager.Instance.dialogBox.StartTalk(dialog2);
+                        Manager.Instance.DialogBoxUI.SetActive(true);
+                        Manager.Instance.DialogBox.TextIsOn = true;
+                        Manager.Instance.DialogBox.StartTalk(dialog2);
                     }
 
                 }
@@ -71,16 +71,16 @@ public class Room3_event_03 : Keyitem
             {
                 if (GameObject.Find("Safe").GetComponent<Safe>().trigger() == true) 
                 {
-                    Manager.Instance.dialogBoxUI.SetActive(true);
-                    Manager.Instance.dialogBox.TextIsOn = true;
-                    Manager.Instance.dialogBox.StartTalk(dialog1);
+                    Manager.Instance.DialogBoxUI.SetActive(true);
+                    Manager.Instance.DialogBox.TextIsOn = true;
+                    Manager.Instance.DialogBox.StartTalk(dialog1);
                     is_trigger = true;
                 }
                 else 
                 {
-                    Manager.Instance.dialogBoxUI.SetActive(true);
-                    Manager.Instance.dialogBox.TextIsOn = true;
-                    Manager.Instance.dialogBox.StartTalk(dialog2);
+                    Manager.Instance.DialogBoxUI.SetActive(true);
+                    Manager.Instance.DialogBox.TextIsOn = true;
+                    Manager.Instance.DialogBox.StartTalk(dialog2);
                 }
             }
         }

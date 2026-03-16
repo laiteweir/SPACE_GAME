@@ -42,7 +42,7 @@ public class RobotRoom2 : Keyitem
         {
             if (Manager.Instance.myBag.itemList.Count == 0)
             {
-                InventoryManager.CreateNewItem(hintMap);
+                Manager.Instance.InventoryManager.AddItem(hintMap);
             }
             else
             {
@@ -50,38 +50,38 @@ public class RobotRoom2 : Keyitem
             }
             Manager.Instance.myBag.itemList.Add(hintMap);
         }
-        Manager.Instance.dialogBoxUI.SetActive(true);
-        Manager.Instance.dialogBox.TextIsOn = true;
+        Manager.Instance.DialogBoxUI.SetActive(true);
+        Manager.Instance.DialogBox.TextIsOn = true;
 
         // First time meet
         if (firstMeet)
         {
             firstMeet = false;
-            Manager.Instance.dialogBox.StartTalk(dialogFirst);
+            Manager.Instance.DialogBox.StartTalk(dialogFirst);
         }
         // Player hasn't found all energy tanks
         else if (energyTank.itemHeld < 3 && filledEnergyTank.itemHeld == 0 && !Manager.Instance.room10.isEngine0Fixed)
         {
-            Manager.Instance.dialogBox.StartTalk(dialogSecond);
+            Manager.Instance.DialogBox.StartTalk(dialogSecond);
         }
         // Player hasn't filled all energy tanks
         else if (filledEnergyTank.itemHeld < 3 && !Manager.Instance.room10.isEngine0Fixed)
         {
-            Manager.Instance.dialogBox.StartTalk(dialogThird);
+            Manager.Instance.DialogBox.StartTalk(dialogThird);
         }
         // Player hasn't fixed engine0
         else if (!Manager.Instance.room10.isEngine0Fixed)
         {
-            Manager.Instance.dialogBox.StartTalk(dialogFourth);
+            Manager.Instance.DialogBox.StartTalk(dialogFourth);
         }
         // Player hasn't fixed engine1
         else if (!Manager.Instance.room10.isEngine1Fixed)
         {
-            Manager.Instance.dialogBox.StartTalk(dialogFifth);
+            Manager.Instance.DialogBox.StartTalk(dialogFifth);
         }
         else
         {
-            Manager.Instance.dialogBox.StartTalk(dialogSixth);
+            Manager.Instance.DialogBox.StartTalk(dialogSixth);
         }
     }
 

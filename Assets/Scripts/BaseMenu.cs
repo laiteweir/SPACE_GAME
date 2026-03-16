@@ -9,10 +9,10 @@ public class BaseMenu : MonoBehaviour
 
     public void Tutorial()
     {
-        Manager.Instance.uiManager.OpenUI(tutorial, tutorialFirstButton);
+        Manager.Instance.UIManager.OpenUI(tutorial, tutorialFirstButton);
     }
     public void Setting()
     {
-        Manager.Instance.uiManager.OpenUI(setting, settingFirstButton);
+        Manager.Instance.UIManager.OpenUI(setting, settingFirstButton);
     }
 }

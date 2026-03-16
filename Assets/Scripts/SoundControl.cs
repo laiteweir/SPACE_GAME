@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class SoundControl : MonoBehaviour
 {
-    [SerializeField] AudioSource bgm;
-    [SerializeField] Slider slider;
+    [SerializeField] private AudioSource bgm;
+    [SerializeField] private Slider slider;
     // Start is called before the first frame update
     void Start()
     {

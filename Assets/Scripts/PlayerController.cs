@@ -6,12 +6,12 @@ using UnityEngine.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float walkSpeed = 3f;
-    [SerializeField] float runSpeed = 5f;
-    [SerializeField] float collisionOffset = 0f;
-    [SerializeField] ContactFilter2D movementFilter;
-    [SerializeField] Interact interact;
-    [SerializeField] Light2D spotLight;
+    [SerializeField] private float walkSpeed = 3f;
+    [SerializeField] private float runSpeed = 5f;
+    [SerializeField] private float collisionOffset = 0f;
+    [SerializeField] private ContactFilter2D movementFilter;
+    [SerializeField] private Interact interact;
+    [SerializeField] private Light2D spotLight;
 
     private float moveSpeed;
     private InputAction move;
@@ -41,14 +41,14 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         spotLight.intensity = 1f;
         moveSpeed = walkSpeed;
-        move = Manager.Instance.playerInput.actions["Player/Move"];
+        move = Manager.Instance.PlayerInput.actions["Player/Move"];
         move.started += PlayWalkingSound;
         move.canceled += StopWalkingSound;
-        run = Manager.Instance.playerInput.actions["Player/Run"];
+        run = Manager.Instance.PlayerInput.actions["Player/Run"];
         run.started += StartRun;
         run.canceled += EndRun;
-        pauseAction = Manager.Instance.playerInput.actions["Player/Pause"];
-        pauseAction.performed += Manager.Instance.pauseMenu.OnPausePerformed;
+        pauseAction = Manager.Instance.PlayerInput.actions["Player/Pause"];
+        pauseAction.performed += Manager.Instance.PauseMenu.OnPausePerformed;
     }
     void OnDestroy()
     {
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
         move.canceled -= StopWalkingSound;
         run.started -= StartRun;
         run.canceled -= EndRun;
-        pauseAction.performed -= Manager.Instance.pauseMenu.OnPausePerformed;
+        pauseAction.performed -= Manager.Instance.PauseMenu.OnPausePerformed;
     }
     void FixedUpdate() 
     {
@@ -114,14 +114,14 @@ public class PlayerController : MonoBehaviour
 
     private void PlayWalkingSound(InputAction.CallbackContext context)
     {
-        Manager.Instance.walkingSound.m_Play = true;
-        Manager.Instance.walkingSound.m_ToggleChange = true;
+        Manager.Instance.WalkingSound.walkingSoundPlay = true;
+        Manager.Instance.WalkingSound.walkingSoundToggleChange = true;
     }
 
     private void StopWalkingSound(InputAction.CallbackContext context)
     {
-        Manager.Instance.walkingSound.m_Play = false;
-        Manager.Instance.walkingSound.m_ToggleChange = true;
+        Manager.Instance.WalkingSound.walkingSoundPlay = false;
+        Manager.Instance.WalkingSound.walkingSoundToggleChange = true;
     }
 
     private void StartRun(InputAction.CallbackContext context)

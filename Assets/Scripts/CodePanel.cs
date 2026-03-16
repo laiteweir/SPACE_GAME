@@ -6,10 +6,10 @@ using UnityEngine.InputSystem;
 
 public class CodePanel : BaseUI
 {
-    [SerializeField] string passward = "0000";
-    [SerializeField] TMP_Text codeContext;
+    [SerializeField] private string passward = "0000";
+    [SerializeField] private TMP_Text codeContext;
     
-    [SerializeField] GameObject codePanelFirstButton;
+    [SerializeField] private GameObject codePanelFirstButton;
     private InputAction backspaceAction;
     private InputAction digit0Action;
     private InputAction digit1Action;
@@ -38,17 +38,17 @@ public class CodePanel : BaseUI
     protected override void Awake()
     {
         base.Awake();
-        backspaceAction = Manager.Instance.playerInput.actions["UI/Backspace"];
-        digit0Action = Manager.Instance.playerInput.actions["UI/Digit0"];
-        digit1Action = Manager.Instance.playerInput.actions["UI/Digit1"];
-        digit2Action = Manager.Instance.playerInput.actions["UI/Digit2"];
-        digit3Action = Manager.Instance.playerInput.actions["UI/Digit3"];
-        digit4Action = Manager.Instance.playerInput.actions["UI/Digit4"];
-        digit5Action = Manager.Instance.playerInput.actions["UI/Digit5"];
-        digit6Action = Manager.Instance.playerInput.actions["UI/Digit6"];
-        digit7Action = Manager.Instance.playerInput.actions["UI/Digit7"];
-        digit8Action = Manager.Instance.playerInput.actions["UI/Digit8"];
-        digit9Action = Manager.Instance.playerInput.actions["UI/Digit9"];
+        backspaceAction = Manager.Instance.PlayerInput.actions["UI/Backspace"];
+        digit0Action = Manager.Instance.PlayerInput.actions["UI/Digit0"];
+        digit1Action = Manager.Instance.PlayerInput.actions["UI/Digit1"];
+        digit2Action = Manager.Instance.PlayerInput.actions["UI/Digit2"];
+        digit3Action = Manager.Instance.PlayerInput.actions["UI/Digit3"];
+        digit4Action = Manager.Instance.PlayerInput.actions["UI/Digit4"];
+        digit5Action = Manager.Instance.PlayerInput.actions["UI/Digit5"];
+        digit6Action = Manager.Instance.PlayerInput.actions["UI/Digit6"];
+        digit7Action = Manager.Instance.PlayerInput.actions["UI/Digit7"];
+        digit8Action = Manager.Instance.PlayerInput.actions["UI/Digit8"];
+        digit9Action = Manager.Instance.PlayerInput.actions["UI/Digit9"];
     }
     protected override void OnEnable()
     {
@@ -84,7 +84,7 @@ public class CodePanel : BaseUI
     public void OpenCodePanel()
     {
         // Debug.Log("Turn on pause menu");
-        Manager.Instance.uiManager.OpenUI(gameObject, codePanelFirstButton);
+        Manager.Instance.UIManager.OpenUI(gameObject, codePanelFirstButton);
     }
     // Update is called once per frame
     void Update()
@@ -94,7 +94,7 @@ public class CodePanel : BaseUI
 
     public void AddDigit(string digit)
     {
-        Debug.Log(digit);
+        // Debug.Log(digit);
         if (codeValue.Length < 4)
         {
             codeValue += digit;

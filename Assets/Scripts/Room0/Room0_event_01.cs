@@ -26,7 +26,7 @@ public class Room0_event_01 : Keyitem
     void Update()
     {
         //enable next process
-        if (Manager.Instance.dialogBox.TextIsOn == false && trigger_first == false){
+        if (Manager.Instance.DialogBox.TextIsOn == false && trigger_first == false){
             Manager.Instance.room0.room0_event1.SetActive(false);
             Manager.Instance.room0.room0_event2.SetActive(true);
             Manager.Instance.room0.Room0_turn_off_lights_with_red_light();
@@ -36,9 +36,9 @@ public class Room0_event_01 : Keyitem
     {
         computer_light.GetComponent<Light2D>().enabled = false;
         // Debug.Log("touch robot 01 in room 0");
-        Manager.Instance.dialogBoxUI.SetActive(true);
-        Manager.Instance.dialogBox.TextIsOn = true;
-        Manager.Instance.dialogBox.StartTalk(dialog);
+        Manager.Instance.DialogBoxUI.SetActive(true);
+        Manager.Instance.DialogBox.TextIsOn = true;
+        Manager.Instance.DialogBox.StartTalk(dialog);
         // make sure is not first trigger
         trigger_first = false;
 

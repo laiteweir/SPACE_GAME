@@ -19,27 +19,26 @@ public class Room6_event_1 : Keyitem
 
     private string[] dialog;
     private bool found ;
-    public override void KeyitemEvent(){
-        if(!exist)
-            Check();
+    public override void KeyitemEvent()
+    {
+        if (!exist) { Check(); }
     }
-    void Check(){
-        found = false;
-        for(int i=0; i<mybag.itemList.Count ;i++){
-            if(mybag.itemList[i].itemName == keyword){
-                found = true;
-                Debug.Log("start to cook!");
-                n = i;
-                StartCook();
-                //mybag.itemList[i].itemName = keyword + "cooked";
-            }
+    void Check()
+    {
+        int index = Manager.Instance.InventoryManager.items.FindIndex(item => item.itemName == keyword);
+        if (index != -1)
+        {
+            // Debug.Log("start to cook!");
+            n = index;
+            StartCook();
         }
-        if(!exist && !found){
-            Debug.Log("there is nothing to cook");
+        else
+        {
+            // Debug.Log("there is nothing to cook");
             dialog = textFile0.text.Split('\n');
-            Manager.Instance.dialogBoxUI.SetActive(true);
-            Manager.Instance.dialogBox.TextIsOn = true;
-            Manager.Instance.dialogBox.StartTalk(dialog);
+            Manager.Instance.DialogBoxUI.SetActive(true);
+            Manager.Instance.DialogBox.TextIsOn = true;
+            Manager.Instance.DialogBox.StartTalk(dialog);
         }
     }
 
@@ -54,27 +53,27 @@ public class Room6_event_1 : Keyitem
             exist = true;
             mybag.itemList[n].itemName = keyword + "cooked";
             dialog = textFile1.text.Split('\n');
-            Manager.Instance.dialogBoxUI.SetActive(true);
-            Manager.Instance.dialogBox.TextIsOn = true;
-            Manager.Instance.dialogBox.StartTalk(dialog);
+            Manager.Instance.DialogBoxUI.SetActive(true);
+            Manager.Instance.DialogBox.TextIsOn = true;
+            Manager.Instance.DialogBox.StartTalk(dialog);
         }
         else if(CookData.situation==2){
             mybag.itemList[n].itemHeld =0;
             mybag.itemList.RemoveAt(n);
             //previous.SetActive(true);
             dialog = textFile2.text.Split('\n');
-            Manager.Instance.dialogBoxUI.SetActive(true);
-            Manager.Instance.dialogBox.TextIsOn = true;
-            Manager.Instance.dialogBox.StartTalk(dialog);
+            Manager.Instance.DialogBoxUI.SetActive(true);
+            Manager.Instance.DialogBox.TextIsOn = true;
+            Manager.Instance.DialogBox.StartTalk(dialog);
             //gameObject.SetActive(false);
            
         }
         else if(CookData.situation==3){
             
             dialog = textFile3.text.Split('\n');
-            Manager.Instance.dialogBoxUI.SetActive(true);
-            Manager.Instance.dialogBox.TextIsOn = true;
-            Manager.Instance.dialogBox.StartTalk(dialog);
+            Manager.Instance.DialogBoxUI.SetActive(true);
+            Manager.Instance.DialogBox.TextIsOn = true;
+            Manager.Instance.DialogBox.StartTalk(dialog);
         }
     }
 }

@@ -4,25 +4,19 @@ using UnityEngine;
 
 public class ItemOnWorld : MonoBehaviour
 {
+    [SerializeField] private ItemData thisItemData;
+    private Item thisItem;
     // Start is called before the first frame update
-    public Item thisItem;
-    public Inventory playerInventory;
-    
-    private void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.CompareTag("Player")){
-            AddNewItem();
-            Destroy(gameObject);
-        }
+    private void Start()
+    {
+        thisItem = Manager.Instance.InventoryManager.InstantiateItem(thisItemData);
     }
-    private void AddNewItem(){
-        if(!playerInventory.itemList.Contains(thisItem)){
-            if(playerInventory.itemList.Count==0)
-                InventoryManager.CreateNewItem(thisItem);
-            playerInventory.itemList.Add(thisItem);
-            //InventoryManager.itemno++;
-        }
-        else{
-            thisItem.itemHeld +=1 ;
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Manager.Instance.InventoryManager.AddItem(thisItem);
+            Destroy(gameObject);
         }
     }
 }

@@ -1,15 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/New Item")]
-public class Item : ScriptableObject
+
+[System.Serializable]
+public class Item
 {
     public string itemName;
     public Sprite itemImage;
-    public int itemHeld;
-    [TextArea]
     public string itemInfo;
+    public int itemQuantity;
 
-    public bool equip;
-
+    public void Assign(ItemData data)
+    {
+        itemName = data.itemName;
+        itemImage = data.itemImage;
+        itemInfo = data.itemInfo;
+        itemQuantity = data.itemQuantity;
+    }
 }

@@ -4,30 +4,30 @@ using UnityEngine.InputSystem;
 public class PauseMenu : BaseMenu
 {
     private InputAction backAction;
-    [SerializeField] GameObject pauseMenuFirstButton;
+    [SerializeField] private GameObject pauseMenuFirstButton;
 
     private void Awake()
     {
-        backAction = Manager.Instance.playerInput.actions["UI/Cancel"];
+        backAction = Manager.Instance.PlayerInput.actions["UI/Cancel"];
     }
     private void OnEnable()
     {
-        backAction.performed += Manager.Instance.uiManager.OnBack;
+        backAction.performed += Manager.Instance.UIManager.OnBack;
     }
     private void OnDisable()
     {
-        backAction.performed -= Manager.Instance.uiManager.OnBack;
+        backAction.performed -= Manager.Instance.UIManager.OnBack;
     }
 
     public void OnPausePerformed(InputAction.CallbackContext context)
     {
         // Debug.Log("Turn on pause menu");
-        Manager.Instance.uiManager.OpenUI(gameObject, pauseMenuFirstButton);
+        Manager.Instance.UIManager.OpenUI(gameObject, pauseMenuFirstButton);
     }
     public void Resume()
     {
         // Debug.Log("Resume");
-        Manager.Instance.uiManager.Back();
+        Manager.Instance.UIManager.Back();
     }
     public void Exit()
     {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,41 +7,38 @@ public class FETTManager : MonoBehaviour
 {
     public static FETTManager Instance;
 
-    [SerializeField] Item energyTank;
-    [SerializeField] Item filledEnergyTank;
+    [SerializeField] private ItemData energyTankData;
+    [SerializeField] private ItemData filledEnergyTankData;
+    private Item energyTank;
+    private Item filledEnergyTank;
 
-    // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
-        Instance = this;
-    }
-
-    public void Done()
-    {
-        --energyTank.itemHeld;
-        if (!Manager.Instance.myBag.itemList.Contains(filledEnergyTank))
+        if (Instance != null)
         {
-            if (Manager.Instance.myBag.itemList.Count == 0)
-            {
-                InventoryManager.CreateNewItem(filledEnergyTank);
-            }
-            else
-            {
-                ++filledEnergyTank.itemHeld;
-            }
-            Manager.Instance.myBag.itemList.Add(filledEnergyTank);
+            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
         else
         {
-            ++filledEnergyTank.itemHeld;
+            DontDestroyOnLoad(gameObject);
+            Instance = this;
         }
-        if (energyTank.itemHeld == 0)
+        energyTank = Manager.Instance.InventoryManager.InstantiateItem(energyTankData);
+        filledEnergyTank = Manager.Instance.InventoryManager.InstantiateItem(filledEnergyTankData);
+    }
+    public void Done()
+    {
+        int energyTankIndex = Manager.Instance.InventoryManager.FindIndexOfItem(energyTank);
+        int energyTankQuantity = Manager.Instance.InventoryManager.items[energyTankIndex].itemQuantity;
+        Manager.Instance.InventoryManager.RemoveItem(energyTankIndex, 1);
+        Manager.Instance.InventoryManager.AddItem(filledEnergyTank);
+        if (energyTankQuantity == 1)
         {
-            Manager.Instance.myBag.itemList.Remove(energyTank);
+            // Manager.Instance.InventoryManager.items.Remove(energyTank);
             Manager.Instance.returnKeyitem.EndKeyitemEvent();
         }
     }
-
     public void QuitTask()
     {
         Manager.Instance.returnKeyitem.EndKeyitemEvent();

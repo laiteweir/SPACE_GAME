@@ -34,9 +34,9 @@ public class EndGame : Keyitem
     {
         startFadeOut = true;
         startTime = Time.time;
-        Manager.Instance.dialogBoxUI.SetActive(true);
-        Manager.Instance.dialogBox.TextIsOn = true;
-        Manager.Instance.dialogBox.StartTalkAndOpenScene(dialogFirst, "Ending", this);
+        Manager.Instance.DialogBoxUI.SetActive(true);
+        Manager.Instance.DialogBox.TextIsOn = true;
+        Manager.Instance.DialogBox.StartTalkAndOpenScene(dialogFirst, "Ending", this);
     }
 
     public override void EndKeyitemEvent()

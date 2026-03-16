@@ -21,9 +21,9 @@ public class Room13_event_Key : MonoBehaviour
     {
 
         if( col.gameObject.name == "Player"){
-            Manager.Instance.dialogBoxUI.SetActive(true);
-            Manager.Instance.dialogBox.TextIsOn = true;
-            Manager.Instance.dialogBox.StartTalk(dialog);
+            Manager.Instance.DialogBoxUI.SetActive(true);
+            Manager.Instance.DialogBox.TextIsOn = true;
+            Manager.Instance.DialogBox.StartTalk(dialog);
             trigger_first = false;
         }
         // Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
@@ -31,7 +31,7 @@ public class Room13_event_Key : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Manager.Instance.dialogBox.TextIsOn == false && trigger_first == false){
+        if (Manager.Instance.DialogBox.TextIsOn == false && trigger_first == false){
             slime.GetComponent<Slime_boss_move>().is_move = true;
             slime.SetActive(true);
             Destroy(Captain.gameObject);

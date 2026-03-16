@@ -7,21 +7,21 @@ public class StartMenu : BaseMenu
 
     private void Awake()
     {
-        backAction = Manager.Instance.playerInput.actions["UI/Cancel"];
+        backAction = Manager.Instance.PlayerInput.actions["UI/Cancel"];
     }
     private void OnEnable()
     {
-        backAction.performed += Manager.Instance.uiManager.OnBackStopBottom;
+        backAction.performed += Manager.Instance.UIManager.OnBackStopBottom;
     }
     private void OnDisable()
     {
-        backAction.performed -= Manager.Instance.uiManager.OnBackStopBottom;
+        backAction.performed -= Manager.Instance.UIManager.OnBackStopBottom;
     }
 
     public void StartGame()
     {
         // Debug.Log("Start Game");
-        Manager.Instance.uiManager.Back();
+        Manager.Instance.UIManager.Back();
     }
     // public void Exit()
     // {

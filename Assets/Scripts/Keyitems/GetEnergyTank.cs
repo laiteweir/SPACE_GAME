@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GetEnergyTank : Keyitem
 {
-    [SerializeField] Item energyTank;
+    [SerializeField] private ItemData energyTankData;
+    private Item energyTank;
     private TextAsset first;
     private TextAsset second;
     private TextAsset third;
@@ -13,6 +14,7 @@ public class GetEnergyTank : Keyitem
     private string[] dialogThird;
     private void Start()
     {
+        energyTank = Manager.Instance.InventoryManager.InstantiateItem(energyTankData);
         first = Resources.Load<TextAsset>("Room2/EnergyTank_first");
         second = Resources.Load<TextAsset>("Room2/EnergyTank_second");
         third = Resources.Load<TextAsset>("Room2/EnergyTank_third");
@@ -22,34 +24,21 @@ public class GetEnergyTank : Keyitem
     }
     public override void KeyitemEvent()
     {
-        if (!Manager.Instance.myBag.itemList.Contains(energyTank))
-        {
-            if (Manager.Instance.myBag.itemList.Count == 0)
-            {
-                InventoryManager.CreateNewItem(energyTank);
-            }
-            else
-            {
-                ++energyTank.itemHeld;
-            }
-            Manager.Instance.myBag.itemList.Add(energyTank);
-        }
-        else
-        {
-            ++energyTank.itemHeld;
-        }
-        Manager.Instance.dialogBoxUI.SetActive(true);
-        Manager.Instance.dialogBox.TextIsOn = true;
-        switch (energyTank.itemHeld)
+        Manager.Instance.InventoryManager.AddItem(energyTank);
+        Manager.Instance.DialogBoxUI.SetActive(true);
+        Manager.Instance.DialogBox.TextIsOn = true;
+        int energyTankIndex = Manager.Instance.InventoryManager.FindIndexOfItem(energyTank);
+        int energyTankQuantity = Manager.Instance.InventoryManager.items[energyTankIndex].itemQuantity;
+        switch (energyTankQuantity)
         {
             case 1:
-                Manager.Instance.dialogBox.StartTalk(dialogFirst);
+                Manager.Instance.DialogBox.StartTalk(dialogFirst);
                 break;
             case 2:
-                Manager.Instance.dialogBox.StartTalk(dialogSecond);
+                Manager.Instance.DialogBox.StartTalk(dialogSecond);
                 break;
             case 3:
-                Manager.Instance.dialogBox.StartTalk(dialogThird);
+                Manager.Instance.DialogBox.StartTalk(dialogThird);
                 break;
         }
         EndKeyitemEvent();

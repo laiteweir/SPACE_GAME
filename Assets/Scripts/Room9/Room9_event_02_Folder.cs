@@ -14,9 +14,9 @@ public class Room9_event_02_Folder : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D col)
     {
-        Manager.Instance.dialogBoxUI.SetActive(true);
-        Manager.Instance.dialogBox.TextIsOn = true;
-        Manager.Instance.dialogBox.StartTalk(dialog);
+        Manager.Instance.DialogBoxUI.SetActive(true);
+        Manager.Instance.DialogBox.TextIsOn = true;
+        Manager.Instance.DialogBox.StartTalk(dialog);
         bool result = Manager.Instance.room9.setItem("Folder");
         Debug.Log(result);
         this.gameObject.SetActive(false);
