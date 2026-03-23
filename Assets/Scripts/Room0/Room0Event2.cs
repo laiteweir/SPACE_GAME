@@ -3,32 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class Room0_event_02 : Keyitem
+public class Room0Event2 : Keyitem
 {
-    [SerializeField] TextAsset textFile;
+    [SerializeField] private GameObject next;
+    [SerializeField] private TextAsset textFile;
     private string[] dialog;
     // Start is called before the first frame update
     void Start()
     {
         dialog = textFile.text.Split('\n');
-
     }
-
     // Update is called once per frame
     void Update()
     {
-        if (TrueForAll(Manager.Instance.room0.room0_lights)){
-            Manager.Instance.room0.Room0_turn_on_bigLight();
-            Manager.Instance.room0.room0_event2.SetActive(false);
-            Manager.Instance.room0.room0_event3.SetActive(true);
-
+        if (TrueForAll(Manager.Instance.room0.room0Lights))
+        {
+            Manager.Instance.room0.Room0TurnOnBigLight();
+            next.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
 
-    private bool TrueForAll(bool[] all_lights){
-        for (int i = 0; i < all_lights.Length; ++i)
+    private bool TrueForAll(bool[] allLights)
+    {
+        for (int i = 0; i < allLights.Length; ++i)
         {
-            if (all_lights[i] == false){
+            if (allLights[i] == false)
+            {
                 return false;
             }
         }
@@ -38,9 +39,8 @@ public class Room0_event_02 : Keyitem
     {
         //enable next process
         Manager.Instance.DialogBoxUI.SetActive(true);
-        Manager.Instance.DialogBox.TextIsOn = true;
         Manager.Instance.DialogBox.StartTalk(dialog);
-        //Debug.Log(Manager.Instance.dialogBox.TextIsOn);
+        //Debug.Log(Manager.Instance.DialogBoxUI.activeSelf);
     }
     public override void EndKeyitemEvent()
     {

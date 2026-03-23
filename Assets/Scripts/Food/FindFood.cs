@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class Find_food : Keyitem
+public class FindFood : Keyitem
 {
     [SerializeField] private ItemData foodData;
     private Item food;
     [SerializeField] private TextAsset textFile;
-    [SerializeField] private GameObject other;
+    [SerializeField] private GameObject next;
 
     private void Start()
     {
@@ -20,10 +20,9 @@ public class Find_food : Keyitem
 
             string[] dialog = textFile.text.Split('\n');
             Manager.Instance.DialogBoxUI.SetActive(true);
-            Manager.Instance.DialogBox.TextIsOn = true;
             Manager.Instance.DialogBox.StartTalk(dialog);
+            next.SetActive(true);
             gameObject.SetActive(false);
-            other.SetActive(true);
         }
     }
 }

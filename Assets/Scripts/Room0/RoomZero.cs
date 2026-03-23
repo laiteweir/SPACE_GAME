@@ -5,13 +5,13 @@ using UnityEngine.Rendering.Universal;
 
 public class RoomZero : MonoBehaviour
 {    
-    public GameObject room0_event1;
-    public GameObject room0_event2;
-    public GameObject room0_event3;
-    public List<Light2D> room0_event2_light;
-    public Light2D room0_bigLight_1;
+    public GameObject room0Event1;
+    public GameObject room0Event2;
+    public GameObject room0Event3;
+    public List<Light2D> room0Event2Light;
+    public Light2D room0BigLight;
     // private bool goDebug = false;
-    [HideInInspector] public bool[] room0_lights = { false, false, false, false };
+    [HideInInspector] public bool[] room0Lights = { false, false, false, false };
     
     //public bool createKeyCard = false;
     [SerializeField] GameObject keycard;
@@ -24,42 +24,35 @@ public class RoomZero : MonoBehaviour
         // }
         
     }
-
-    // Update is called once per frame
-    void Update()
+    public bool Room0TurnOffLightsWithRedLight()
     {
-        
-    }
-
-    public bool Room0_turn_off_lights_with_red_light()
-    {
-        foreach (Light2D light in room0_event2_light)
+        foreach (Light2D light in room0Event2Light)
         {
             light.enabled = true;
             light.color = Color.red;
         }
         return true;
     }
-    public bool Room0_turn_on_bigLight()
+    public bool Room0TurnOnBigLight()
     {
-        foreach (Light2D light in room0_event2_light)
+        foreach (Light2D light in room0Event2Light)
         {
             light.enabled = false;
         }
 
-        room0_bigLight_1.enabled = true;
+        room0BigLight.enabled = true;
         Instantiate(keycard);
         return true;
     }
-    public bool Room0_event2_verify_light_sort(int sortNum)
+    public bool Room0Event2VerifyLightSort(int sortNum)
     {
         // sort num mapping [light1,light2,light3,light4]
         bool result = true;
         for (int i = 0; i < sortNum; ++i)
         {
-            if (room0_lights[i] != true){
+            if (room0Lights[i] != true){
                 result = false;
-                Room0_turn_off_lights_with_red_light();
+                Room0TurnOffLightsWithRedLight();
             }
         }
         return result;

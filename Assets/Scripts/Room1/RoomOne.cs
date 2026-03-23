@@ -4,30 +4,28 @@ using UnityEngine;
 
 public class RoomOne : MonoBehaviour
 {
+    public bool turnOnLight = false;
+    [SerializeField] private GameObject room1Light;
+    public GameObject room1Event1;
+    public GameObject room1Event2;
+    public GameObject room1Event3;
+    public GameObject room1Event4;
     // Start is called before the first frame update
-    bool isopen = true;
-    [SerializeField] GameObject room_1_light;
-    public GameObject room1_event1;
-    public GameObject room1_event2;
-    public GameObject room1_event3;
-    public GameObject room1_event4;
     void Start(){
-        Room_1Data.turn_on_light = false;
+        //Manager.Instance.room1.turnOnLight = false;
         //Manager.Instance.SetDebugMode(true,7.00f,0.0f);  
     }
- 
+    // Update is called once per frame
     void Update()
     {
         //Debug.Log(Room_1Data.turn_on_light);
-        if(Room_1Data.turn_on_light && isopen){
-            isopen = false;
-            Turn_on_light();
+        if(Manager.Instance.room1.turnOnLight)
+        {
+            TurnOnLight();
         }
     }
-
-    // Update is called once per frame
-    
-    public void Turn_on_light(){
-        room_1_light.SetActive(true);
+    public void TurnOnLight()
+    {
+        room1Light.SetActive(true);
     }
 }

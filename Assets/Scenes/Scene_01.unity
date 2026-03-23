@@ -365,10 +365,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1421998420}
-  - {fileID: 983749408}
   - {fileID: 1649071125}
   - {fileID: 393767092}
+  - {fileID: 983749408}
+  - {fileID: 1421998420}
   - {fileID: 507579625}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 63435823}
   - component: {fileID: 63435824}
   m_Layer: 0
-  m_Name: Room7_path_light_3 (1)
+  m_Name: Room12 Path Light 3
   m_TagString: Room0Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1049,7 +1049,7 @@ GameObject:
   - component: {fileID: 152214193}
   - component: {fileID: 152214192}
   m_Layer: 3
-  m_Name: Room0_event_01
+  m_Name: Room0 Event 1
   m_TagString: Keyitem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2268,7 +2268,7 @@ GameObject:
   - component: {fileID: 296554462}
   - component: {fileID: 296554463}
   m_Layer: 0
-  m_Name: Room6_bigLight
+  m_Name: Room6 Big Light
   m_TagString: Room0Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2501,7 +2501,7 @@ GameObject:
   - component: {fileID: 347694489}
   - component: {fileID: 347694488}
   m_Layer: 0
-  m_Name: Room0_light_notice
+  m_Name: Room0 Light Notice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3130,7 +3130,7 @@ GameObject:
   - component: {fileID: 393767094}
   - component: {fileID: 393767093}
   m_Layer: 3
-  m_Name: Room5_event_0
+  m_Name: Room5 Event 0
   m_TagString: Keyitem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3549,7 +3549,7 @@ GameObject:
   - component: {fileID: 417762638}
   - component: {fileID: 417762639}
   m_Layer: 0
-  m_Name: Room7_path_light_5 (1)
+  m_Name: Room12 Path Light 5
   m_TagString: Room0Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28054,7 +28054,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3480955862406728478, guid: 54ef9405147537e49ad2c7d6fe6d090e, type: 3}
       propertyPath: m_Name
-      value: door_01_0
+      value: Door 0_11
       objectReference: {fileID: 0}
     - target: {fileID: 5043137649107091305, guid: 54ef9405147537e49ad2c7d6fe6d090e, type: 3}
       propertyPath: locked
@@ -28175,7 +28175,7 @@ GameObject:
   - component: {fileID: 507579627}
   - component: {fileID: 507579626}
   m_Layer: 3
-  m_Name: Room5_event_3
+  m_Name: Room5 Event 3
   m_TagString: Keyitem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30094,6 +30094,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 982155685}
   - {fileID: 152214196}
   - {fileID: 1875358815}
   - {fileID: 1464666984}
@@ -30148,7 +30149,7 @@ GameObject:
   - component: {fileID: 643710537}
   - component: {fileID: 643710539}
   m_Layer: 3
-  m_Name: Room1_event_Slime
+  m_Name: Room1 Event Slime
   m_TagString: Keyitem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30518,7 +30519,7 @@ GameObject:
   - component: {fileID: 665111200}
   - component: {fileID: 665111199}
   m_Layer: 0
-  m_Name: Room5_notice
+  m_Name: Room1 Light Notice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30665,7 +30666,7 @@ GameObject:
   - component: {fileID: 666334991}
   - component: {fileID: 666334990}
   m_Layer: 0
-  m_Name: Room0_light_notice
+  m_Name: Room0 Light Notice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30872,7 +30873,7 @@ GameObject:
   - component: {fileID: 690914966}
   - component: {fileID: 690914969}
   m_Layer: 0
-  m_Name: Room0_light_2
+  m_Name: Room0 Light 2
   m_TagString: Keyitem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45691,7 +45692,7 @@ GameObject:
   - component: {fileID: 734241618}
   - component: {fileID: 734241617}
   m_Layer: 0
-  m_Name: Room5_notice (1)
+  m_Name: Robot 2 Notice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46207,7 +46208,7 @@ GameObject:
   - component: {fileID: 782298412}
   - component: {fileID: 782298411}
   m_Layer: 0
-  m_Name: Robot_01_notice
+  m_Name: Robot 1 Notice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47089,7 +47090,7 @@ GameObject:
   m_Component:
   - component: {fileID: 863913845}
   m_Layer: 5
-  m_Name: Look
+  m_Name: View Wire Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47201,7 +47202,7 @@ GameObject:
   - component: {fileID: 876951378}
   - component: {fileID: 876951380}
   m_Layer: 3
-  m_Name: Room6_event_1
+  m_Name: Room6 Event 1
   m_TagString: Keyitem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48851,7 +48852,7 @@ GameObject:
   - component: {fileID: 983749409}
   - component: {fileID: 983749410}
   m_Layer: 3
-  m_Name: Room5_event_1
+  m_Name: Room5 Event 1
   m_TagString: Keyitem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49334,7 +49335,7 @@ GameObject:
   - component: {fileID: 1045730470}
   - component: {fileID: 1045730469}
   m_Layer: 0
-  m_Name: Room5_notice
+  m_Name: Room5 Notice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49689,7 +49690,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 642570356}
     m_Modifications:
     - target: {fileID: 918631247, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
       propertyPath: m_Name
@@ -49715,6 +49716,10 @@ PrefabInstance:
       propertyPath: Source
       value: 
       objectReference: {fileID: 1138363962}
+    - target: {fileID: 1738092902, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
+      propertyPath: m_Name
+      value: Robot 1 Light
+      objectReference: {fileID: 0}
     - target: {fileID: 1738092904, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
       propertyPath: m_Color.g
       value: 1
@@ -49729,11 +49734,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1738346185067852120, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.73
+      value: -3.0961552
       objectReference: {fileID: 0}
     - target: {fileID: 1738346185067852120, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.21
+      value: -2.1995597
       objectReference: {fileID: 0}
     - target: {fileID: 1738346185067852120, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -49745,15 +49750,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1738346185067852120, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1738346185067852120, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1738346185067852120, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1738346185067852120, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -49769,7 +49774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5204603756542191492, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
       propertyPath: m_Name
-      value: Robot_01
+      value: Robot 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 918631249, guid: 961eccaec32143c498f4a8999e2eae5b, type: 3}
@@ -49881,7 +49886,7 @@ GameObject:
   - component: {fileID: 1086762496}
   - component: {fileID: 1086762497}
   m_Layer: 0
-  m_Name: Room7_path_light_4 (1)
+  m_Name: Room12 Path Light 4
   m_TagString: Room0Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50076,7 +50081,7 @@ GameObject:
   - component: {fileID: 1092822435}
   - component: {fileID: 1092822436}
   m_Layer: 0
-  m_Name: Room7_path_light_2 (1)
+  m_Name: Room12 Path Light 2
   m_TagString: Room0Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50265,7 +50270,7 @@ GameObject:
   - component: {fileID: 1124110732}
   - component: {fileID: 1124110731}
   m_Layer: 0
-  m_Name: Room5_notice
+  m_Name: Room1 Light Notice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53648,7 +53653,7 @@ GameObject:
   - component: {fileID: 1307872370}
   - component: {fileID: 1307872369}
   m_Layer: 0
-  m_Name: Room0_light_notice
+  m_Name: Room0 Light Notice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59428,7 +59433,7 @@ GameObject:
   - component: {fileID: 1369887872}
   - component: {fileID: 1369887873}
   m_Layer: 0
-  m_Name: Room0_light_1
+  m_Name: Room0 Light 1
   m_TagString: Keyitem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59574,7 +59579,7 @@ GameObject:
   - component: {fileID: 1381815798}
   - component: {fileID: 1381815797}
   m_Layer: 0
-  m_Name: Room0_light_notice
+  m_Name: Room0 Light Notice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59866,7 +59871,7 @@ GameObject:
   - component: {fileID: 1397816160}
   - component: {fileID: 1397816159}
   m_Layer: 0
-  m_Name: Room5_notice
+  m_Name: Room5 Notice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60086,7 +60091,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5460190782760990802, guid: 7223d31b8a83cbb43b9100fdb5e0b416, type: 3}
       propertyPath: m_Name
-      value: door_6_7
+      value: Door 6_7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -60204,7 +60209,7 @@ GameObject:
   - component: {fileID: 1421998422}
   - component: {fileID: 1421998421}
   m_Layer: 3
-  m_Name: Room5_event_2
+  m_Name: Room5 Event 2
   m_TagString: Keyitem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60663,7 +60668,7 @@ GameObject:
   - component: {fileID: 1464666981}
   - component: {fileID: 1464666980}
   m_Layer: 3
-  m_Name: Room0_event_03
+  m_Name: Room0 Event 3
   m_TagString: Keyitem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61024,7 +61029,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5460190782760990802, guid: 7223d31b8a83cbb43b9100fdb5e0b416, type: 3}
       propertyPath: m_Name
-      value: door_02_0
+      value: Door 0_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -61735,7 +61740,7 @@ GameObject:
   - component: {fileID: 1544350665}
   - component: {fileID: 1544350664}
   m_Layer: 0
-  m_Name: Room5_notice
+  m_Name: Room5 Notice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62582,7 +62587,7 @@ GameObject:
   - component: {fileID: 1630375536}
   - component: {fileID: 1630375537}
   m_Layer: 0
-  m_Name: Room0_bigLight_1
+  m_Name: Room0 Big Light
   m_TagString: Room0Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62820,7 +62825,7 @@ GameObject:
   - component: {fileID: 1649071125}
   - component: {fileID: 1649071126}
   m_Layer: 0
-  m_Name: Room5_bigLight
+  m_Name: Room5 Big Light
   m_TagString: Room0Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63262,7 +63267,7 @@ GameObject:
   - component: {fileID: 1689450809}
   - component: {fileID: 1689450812}
   m_Layer: 0
-  m_Name: Room0_light_4
+  m_Name: Room0 Light 4
   m_TagString: Keyitem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64580,7 +64585,7 @@ GameObject:
   - component: {fileID: 1767984260}
   - component: {fileID: 1767984263}
   m_Layer: 0
-  m_Name: Room0_light_3
+  m_Name: Room0 Light 3
   m_TagString: Keyitem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65060,7 +65065,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.885
+  orthographic size: 1.83
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -65393,7 +65398,7 @@ GameObject:
   - component: {fileID: 1828934703}
   - component: {fileID: 1828934704}
   m_Layer: 0
-  m_Name: Room7_path_light_1 (1)
+  m_Name: Room12 Path Light 1
   m_TagString: Room0Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66094,7 +66099,7 @@ GameObject:
   - component: {fileID: 1875358812}
   - component: {fileID: 1875358811}
   m_Layer: 3
-  m_Name: Room0_event_02
+  m_Name: Room0 Event 2
   m_TagString: Keyitem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66269,7 +66274,7 @@ GameObject:
   - component: {fileID: 1877966655}
   - component: {fileID: 1877966654}
   m_Layer: 0
-  m_Name: Room5_notice
+  m_Name: Room5 Notice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69424,6 +69429,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 261033973, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
+      propertyPath: m_Name
+      value: Room1 Event 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016336827, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
+      propertyPath: m_Name
+      value: Wire Panel
+      objectReference: {fileID: 0}
     - target: {fileID: 1016336828, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.197
@@ -69436,6 +69449,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 7c0666fd3ee9f9642bf3ac907b55ca51, type: 3}
+    - target: {fileID: 1114970127, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
+      propertyPath: m_Name
+      value: Watch Wire Panel
+      objectReference: {fileID: 0}
     - target: {fileID: 1114970128, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
       propertyPath: slotgrid
       value: 
@@ -69447,6 +69464,14 @@ PrefabInstance:
     - target: {fileID: 1114970130, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 1163589953, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
+      propertyPath: m_Name
+      value: Room1 Event 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179273524924052310, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
+      propertyPath: m_Name
+      value: Room1 Event 1
       objectReference: {fileID: 0}
     - target: {fileID: 2179273525075744132, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
       propertyPath: m_RootOrder
@@ -69496,9 +69521,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room1
       objectReference: {fileID: 0}
+    - target: {fileID: 2179273525406186705, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
+      propertyPath: m_Name
+      value: Robot 2 Light
+      objectReference: {fileID: 0}
     - target: {fileID: 2179273525406186719, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
       propertyPath: m_Intensity
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179273526376933904, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
+      propertyPath: m_Name
+      value: Room1 Big Light
       objectReference: {fileID: 0}
     - target: {fileID: 2179273526376933910, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
       propertyPath: m_Intensity
@@ -71604,6 +71637,18 @@ PrefabInstance:
       propertyPath: m_Vertices.Array.data[91].position.y
       value: -2.8263
       objectReference: {fileID: 0}
+    - target: {fileID: 2179273526717012184, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
+      propertyPath: m_Name
+      value: Room1 Event 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6194748770664583290, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
+      propertyPath: m_Name
+      value: Door 1_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198116591234378291, guid: ef8891a08ab0247e2be986b246bb8834, type: 3}
+      propertyPath: m_Name
+      value: Robot 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -71923,7 +71968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1751406968923015996, guid: e52da526b92bfcd4a8fec91c7989608d, type: 3}
       propertyPath: m_Name
-      value: WhiteSlime
+      value: White Slime
       objectReference: {fileID: 0}
     - target: {fileID: 4165283214884968831, guid: e52da526b92bfcd4a8fec91c7989608d, type: 3}
       propertyPath: m_RootOrder
@@ -72131,7 +72176,6 @@ SceneRoots:
   - {fileID: 148765720}
   - {fileID: 1039252033}
   - {fileID: 642570356}
-  - {fileID: 1077348582}
   - {fileID: 2179273526764211235}
   - {fileID: 775016565}
   - {fileID: 1227936211}

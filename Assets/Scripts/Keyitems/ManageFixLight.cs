@@ -6,19 +6,20 @@ public class ManageFixLight : Keyitem
 {
     // Start is called before the first frame update
     [SerializeField] GameObject next;
-    [SerializeField] GameObject next_event;
+    [SerializeField] GameObject nextEvent;
     public override void KeyitemEvent()
     {
-        Manager.Instance.OpenScene("Fix_Light", this);
+        Manager.Instance.OpenSceneUI("Fix Light", this);
     }
 
     public override void EndKeyitemEvent()
     {
-        Manager.Instance.CloseScene("Fix_Light");
-        if(Room_1Data.turn_on_light){
+        Manager.Instance.CloseSceneUI("Fix Light");
+        if(Manager.Instance.room1.turnOnLight)
+        {
             // next.GetComponent<Door>().enabled = true;
             next.SetActive(false);
-            next_event.SetActive(true);
+            nextEvent.SetActive(true);
             Destroy(this);
         }
     }

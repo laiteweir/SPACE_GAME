@@ -1,85 +1,109 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class SlideControl : MonoBehaviour
 {
-    Slider slide;
+    private Slider slider;
     public float points = 0;
-    public bool is_done = false;
-    float time = 0; 
-    public int count = 30; 
-    bool start_timer = true;
-    public bool flip = false;
-    public int t =1;
-    [SerializeField] GameObject fireup;
-    [SerializeField] GameObject firedown;
-    private float speed =0;
-    [SerializeField] List<Sprite> mode;
-    [SerializeField] Image target;
-    //private readonly Random _random = new Random();  
-      // Start is called before the first frame update
-    void Start()
+    public bool isDone = false;
+    private int count = 30;
+    private bool timerStarted;
+    private bool flip = true;
+    private int t = 0;
+    [SerializeField] private GameObject fireup;
+    [SerializeField] private GameObject firedown;
+    private float speed = 0;
+    [SerializeField] private List<Sprite> mode;
+    [SerializeField] private Image target;
+
+    private InputAction flipAction;
+
+    private void Awake()
     {
-        slide = GetComponent<Slider>();
-        slide.value = 0;
+        flipAction = Manager.Instance.PlayerInput.actions["UI/Submit"];
+    }
+    private void Start()
+    {
+        slider = GetComponent<Slider>();
+        slider.value = 0;
         fireup.SetActive(flip);
         firedown.SetActive(!flip);
-        speed =  Random.Range(0.1f, 0.3f); 
+        speed = Random.Range(0.05f, 0.1f);
+        timerStarted = true;
+    }
+
+    private void OnEnable()
+    {
+        flipAction.performed += OnFlip;
+    }
+    private void OnDisable()
+    {
+        flipAction.performed -= OnFlip;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        time +=Time.deltaTime;
- 
-        // if(time > 1){
+        // time += Time.deltaTime;
+        // if (time > 1)
+        // {
         //     time = 0;
         //     slide.value += 1;
         // }
 
-        if(Input.GetKeyDown(KeyCode.Space)){
-            speed =  Random.Range(0.08f, 0.15f); 
-            //slide.value =0;
-            flip = !flip;
-            fireup.SetActive(flip);
-            firedown.SetActive(!flip);
-            // Sprite image = mode[t];
-            // target.sprite = image;
-            if(t==0 && slide.value >= 8)
-                points+=1;
-            else if (t==2 && slide.value >=5.5 && slide.value <=7.5 )
-                points+=1;
-            else if(t==1 && slide.value >=3 && slide.value <=6 )
-                points+=1;
-            t = Random.Range(0, 10); 
-            t%=3;
-            Sprite image = mode[t];
-            target.sprite = image;
-            slide.value =0;
-        }
-        if(start_timer){
-            StartCoroutine("count_down");
-            start_timer = false;
-            Debug.Log(count);
-            if(count==0){
-                points += slide.value;
-                slide.value =0;
-                is_done = true;
-                Debug.Log(points);
-                //Destroy(this);
+        if (timerStarted)
+        {
+            StartCoroutine("CountDown");
+            timerStarted = false;
+            // Debug.Log(count);
+            if (count == 0)
+            {
+                // points += slider.value;
+                slider.value = 0;
+                isDone = true;
+                // Debug.Log(points);
+                // Destroy(this);
             }
         }
     }
-
-    IEnumerator count_down(){
-        yield return new WaitForSeconds(1);
-        count--;
-        start_timer = true;
+    private void FixedUpdate()
+    {
+        slider.value += speed;
     }
 
-    void FixedUpdate(){
-        slide.value += speed;
+    private IEnumerator CountDown()
+    {
+        yield return new WaitForSeconds(1);
+        --count;
+        timerStarted = true;
+    }
+
+    private void OnFlip(InputAction.CallbackContext context)
+    {
+        speed = Random.Range(0.05f, 0.1f);
+        //slide.value = 0;
+        flip = !flip;
+        fireup.SetActive(flip);
+        firedown.SetActive(!flip);
+        if (t == 0 && slider.value >= 8)
+        {
+            points += 1;
+        }
+        else if (t == 2 && slider.value >= 5.5 && slider.value <= 7.5)
+        {
+            points += 1;
+        }
+        else if (t == 1 && slider.value >= 3 && slider.value <= 6)
+        {
+            points += 1;
+        }
+        t = Random.Range(0, 9);
+        t %= 3;
+        Sprite image = mode[t];
+        target.sprite = image;
+        slider.value = 0;
     }
 }

@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class Switch : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject up;
     public GameObject down;
-    public bool is_on = false;
+    public bool isOn = false;
+    // Start is called before the first frame update
     void Start()
     {
-         up.SetActive(!is_on);
-         down.SetActive(is_on);
+         up.SetActive(!isOn);
+         down.SetActive(isOn);
     }
-
-    // Update is called once per frame
     private void OnMouseUp(){
-        up.SetActive(is_on);
-        down.SetActive(!is_on);
-        is_on = !is_on;
+        up.SetActive(isOn);
+        down.SetActive(!isOn);
+        isOn = !isOn;
     }
 }

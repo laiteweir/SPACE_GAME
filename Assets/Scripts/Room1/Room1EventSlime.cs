@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Room1_event_Slime : MonoBehaviour
+public class Room1EventSlime : MonoBehaviour
 {
-    // Start is called before the first frame update
-    [SerializeField] TextAsset textFile;
-    //private TextAsset dialog01;
-    private string[] dialog;
-    public GameObject Slime;
-    public bool destroy = false;
 
+    [SerializeField] private TextAsset textFile;
+    private string[] dialog;
+    [SerializeField] private GameObject slime;
+    // public bool destroy = false;
+
+    // Start is called before the first frame update
     void Start()
     {
         //collider = GetComponent<Collider2D>();
@@ -21,15 +21,13 @@ public class Room1_event_Slime : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-
-        if( col.gameObject.name == "Player"){
+        if (col.gameObject.CompareTag("Player"))
+        {
             // Manager.Instance.ui.SetActive(true);
-            // Manager.Instance.dialogBox.TextIsOn = true;
             // Manager.Instance.dialogBox.StartTalk(dialog);
             //this.first_trigger = false;
-            Slime.GetComponent<Room1_event_SlimeMove>().is_move = true;
+            slime.GetComponent<Room1EventSlimeMove>().isMoving = true;
             StartCoroutine(PlayAudio());
-            Manager.Instance.actionMapPlayer.Disable();
             //Destroy(gameObject);
         }
         // Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
@@ -37,13 +35,13 @@ public class Room1_event_Slime : MonoBehaviour
 
     private IEnumerator PlayAudio()
     {
+        Manager.Instance.SwitchToUI();
         AudioSource audio = GetComponent<AudioSource>();
-
         audio.Play();
-        Debug.Log("play audio");
+        // Debug.Log("play audio");
         yield return new WaitForSeconds(audio.clip.length);
+
         Manager.Instance.DialogBoxUI.SetActive(true);
-        Manager.Instance.DialogBox.TextIsOn = true;
         Manager.Instance.DialogBox.StartTalk(dialog);
         Destroy(gameObject);
         // audio.clip = otherClip;
