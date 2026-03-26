@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class CookManager : BaseScene
 {
     public static CookManager Instance;
-    public int situation;
     [SerializeField] private GameObject slide;
     [SerializeField] private float limitPoint;
     [SerializeField] private GameObject food;
@@ -26,20 +25,20 @@ public class CookManager : BaseScene
         {
             if (slide.GetComponent<SlideControl>().points >= limitPoint)
             {
-                situation = 1;
+                Manager.Instance.room6.situation = 1;
                 // win = true;
                 SceneExit();
             }
             else
             {
-                situation = 3;
+                Manager.Instance.room6.situation = 3;
                 SceneExit();
             }
         }
         if (slide.GetComponent<Slider>().value == 10)
         {
             // overcooked = true;
-            situation = 2;
+            Manager.Instance.room6.situation = 2;
             SceneExit();
         }
 

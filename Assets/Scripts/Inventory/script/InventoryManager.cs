@@ -70,6 +70,10 @@ public class InventoryManager : MonoBehaviour
             // }
         }
     }
+    public int FindIndexOfItem(ItemData targetItemData)
+    {
+        return items.FindIndex(item => item.itemName == targetItemData.itemName);
+    }
     public int FindIndexOfItem(Item targetItem)
     {
         return items.FindIndex(item => item.itemName == targetItem.itemName);

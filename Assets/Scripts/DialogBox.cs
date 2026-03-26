@@ -47,6 +47,7 @@ public class DialogBox : MonoBehaviour
     public void StartTalk(string[] inputTxt)
     {
         str = inputTxt;
+        gameObject.SetActive(true);
         StartCoroutine(Talk());
     }
     private IEnumerator Talk()
@@ -84,6 +85,7 @@ public class DialogBox : MonoBehaviour
     public void StartTalkAndOpenScene(string[] inputTxt, string sceneName, Keyitem keyitem)
     {
         str = inputTxt;
+        gameObject.SetActive(true);
         StartCoroutine(TalkAndOpenScene(sceneName, keyitem));
     }
     private IEnumerator TalkAndOpenScene(string sceneName, Keyitem keyitem)
@@ -120,6 +122,7 @@ public class DialogBox : MonoBehaviour
     public void StartTalkAndOpenSceneUI(string[] inputTxt, string sceneName, Keyitem keyitem)
     {
         str = inputTxt;
+        gameObject.SetActive(true);
         StartCoroutine(TalkAndOpenSceneUI(sceneName, keyitem));
     }
     private IEnumerator TalkAndOpenSceneUI(string sceneName, Keyitem keyitem)

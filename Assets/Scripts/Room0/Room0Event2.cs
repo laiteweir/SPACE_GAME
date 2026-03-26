@@ -9,18 +9,18 @@ public class Room0Event2 : Keyitem
     [SerializeField] private TextAsset textFile;
     private string[] dialog;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         dialog = textFile.text.Split('\n');
     }
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (TrueForAll(Manager.Instance.room0.room0Lights))
         {
             Manager.Instance.room0.Room0TurnOnBigLight();
-            next.SetActive(true);
             gameObject.SetActive(false);
+            next.SetActive(true);
         }
     }
 
@@ -38,7 +38,6 @@ public class Room0Event2 : Keyitem
     public override void KeyitemEvent()
     {
         //enable next process
-        Manager.Instance.DialogBoxUI.SetActive(true);
         Manager.Instance.DialogBox.StartTalk(dialog);
         //Debug.Log(Manager.Instance.DialogBoxUI.activeSelf);
     }

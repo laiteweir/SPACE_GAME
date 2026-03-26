@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class FillEnergyTank : Keyitem
 {
-    [SerializeField] TextAsset first;
-    [SerializeField] TextAsset fail;
+    [SerializeField] private TextAsset first;
+    [SerializeField] private TextAsset fail;
     private string[] dialogFirst;
     private string[] dialogFail;
-    [SerializeField] Item energyTank;
-    [SerializeField] Item filledEnergyTank;
+    [SerializeField] private ItemData energyTankData;
+    [SerializeField] private ItemData filledEnergyTankData;
     private bool isFirst = true;
 
     void Start()
@@ -20,38 +21,34 @@ public class FillEnergyTank : Keyitem
     }
     private void Update()
     {
-        if (filledEnergyTank.itemHeld >= 3)
+        int filledEnergyTankIndex = Manager.Instance.InventoryManager.FindIndexOfItem(filledEnergyTankData);
+        if (filledEnergyTankIndex != -1 && Manager.Instance.InventoryManager.items[filledEnergyTankIndex].itemQuantity >= 3)
         {
-            Manager.Instance.room10.refillStation_hint.SetActive(false);
+            Manager.Instance.room10.refillStationHint.SetActive(false);
         }
     }
     public override void KeyitemEvent()
     {
+        int energyTankIndex = Manager.Instance.InventoryManager.FindIndexOfItem(energyTankData);
         if (isFirst)
         {
             isFirst = false;
             Manager.Instance.DialogBoxUI.SetActive(true);
-            Manager.Instance.DialogBox.TextIsOn = true;
             Manager.Instance.DialogBox.StartTalk(dialogFirst);
         }
-        else if (energyTank.itemHeld == 0)
+        else if (energyTankIndex != -1 && Manager.Instance.InventoryManager.items[energyTankIndex].itemQuantity == 0)
         {
             Manager.Instance.DialogBoxUI.SetActive(true);
-            Manager.Instance.DialogBox.TextIsOn = true;
             Manager.Instance.DialogBox.StartTalk(dialogFail);
         }
         else
         {
-            Manager.Instance.OpenScene("Fill_Energy_Tank_Task", this);
+            Manager.Instance.OpenSceneUI("Fill Energy Tank Task", this);
         }
     }
 
     public override void EndKeyitemEvent()
     {
-        Manager.Instance.CloseScene("Fill_Energy_Tank_Task");
-        if (energyTank.itemHeld == 0 && filledEnergyTank.itemHeld == 3)
-        {
-            Manager.Instance.myBag.itemList.Remove(energyTank);
-        }
+        Manager.Instance.CloseSceneUI("Fill Energy Tank Task");
     }
 }

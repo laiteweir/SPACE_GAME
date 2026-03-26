@@ -16,7 +16,7 @@ public class Room0Event1 : Keyitem
     private bool triggerFirst = true;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         //collider = GetComponent<Collider2D>();
         dialog = textFile.text.Split('\n');
@@ -24,21 +24,20 @@ public class Room0Event1 : Keyitem
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         //enable next process
         if (Manager.Instance.DialogBoxUI.activeSelf == false && triggerFirst == false)
         {
             Manager.Instance.room0.Room0TurnOffLightsWithRedLight();
-            next.SetActive(true);
             gameObject.SetActive(false);
+            next.SetActive(true);
         }
     }
     public override void KeyitemEvent()
     {
         computerLight.GetComponent<Light2D>().enabled = false;
         // Debug.Log("touch robot 01 in room 0");
-        Manager.Instance.DialogBoxUI.SetActive(true);
         Manager.Instance.DialogBox.StartTalk(dialog);
         // make sure is not first trigger
         triggerFirst = false;

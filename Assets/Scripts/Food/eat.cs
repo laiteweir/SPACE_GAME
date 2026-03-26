@@ -1,40 +1,38 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class eat : Keyitem
 {
-    // Start is called before the first frame update
-    public string keyword;
-    public bool exist = false;
-    [SerializeField] Inventory mybag;
-    [SerializeField] TextAsset textFile;
+    [SerializeField] private TextAsset textFile;
     //private TextAsset dialog01;
     private string[] dialog;
-    public Item shield;
-    void Start(){
+    [SerializeField] private ItemData cookedFoodData;
+    [SerializeField] private ItemData shieldData;
+    private Item shield;
+    // Start is called before the first frame update
+    private void Start()
+    {
         dialog = textFile.text.Split('\n');
+        shield = Manager.Instance.InventoryManager.InstantiateItem(shieldData);
     }
-    public override void KeyitemEvent(){
-        if(!exist)
-            Check();
-    }
-    void Check(){
-        for(int i=0; i<mybag.itemList.Count ;i++){
-            if(mybag.itemList[i].itemName == keyword + "cooked"){
-                exist = true;
-                Debug.Log("start eat!");
-                mybag.itemList[i].itemName = keyword;
-                mybag.itemList.Remove(mybag.itemList[i]);
-                Manager.Instance.DialogBoxUI.SetActive(true);
-                Manager.Instance.DialogBox.TextIsOn = true;
-                Manager.Instance.DialogBox.StartTalk(dialog);
-                mybag.itemList.Add(shield);
-                shield.itemHeld = 1;
-            }
-            if(!exist)
-                if(mybag.itemList[i].itemName == keyword )
-                    Debug.Log("it is cold");
+    public override void KeyitemEvent()
+    {
+        int cookedFoodIndex = Manager.Instance.InventoryManager.FindIndexOfItem(cookedFoodData);
+        if (cookedFoodIndex != -1)
+        {
+            // Debug.Log("start eating!");
+            Manager.Instance.InventoryManager.RemoveItem(cookedFoodIndex, Manager.Instance.InventoryManager.items[cookedFoodIndex].itemQuantity);
+            Manager.Instance.DialogBoxUI.SetActive(true);
+            Manager.Instance.DialogBox.StartTalk(dialog);
+            Manager.Instance.InventoryManager.AddItem(shield);
+            EndKeyitemEvent();
         }
+    }
+    public override void EndKeyitemEvent()
+    {
+        Destroy(this);
     }
 }

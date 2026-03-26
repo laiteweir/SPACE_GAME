@@ -5,5 +5,5 @@ using UnityEngine.Rendering.Universal;
 
 public class RoomTwo : MonoBehaviour
 {
-    public Light2D room2_bigLight;
+    public Light2D room2BigLight;
 }

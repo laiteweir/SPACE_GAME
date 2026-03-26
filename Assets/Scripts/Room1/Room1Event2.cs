@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Room1Event3 : Keyitem
+public class Room1Event2 : Keyitem
 {
+    [SerializeField] private GameObject next;
     [SerializeField] private TextAsset textFile;
     //private TextAsset dialog01;
     private string[] dialog;
-    private bool triggerFirst = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,17 +15,9 @@ public class Room1Event3 : Keyitem
         dialog = textFile.text.Split('\n');
         // this_event = GameObject.Find("Robot_01_event_01");
     }
-    void Update()
-    {
-        if (Manager.Instance.DialogBoxUI.activeSelf == false && triggerFirst == false)
-        {
-            gameObject.SetActive(false);
-        }
-    }
     public override void KeyitemEvent()
     {
         Manager.Instance.DialogBox.StartTalk(dialog);
-        triggerFirst = false;
     }
     public override void EndKeyitemEvent()
     {

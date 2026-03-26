@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
-public class Room5Event1 : MonoBehaviour
+public class Room5Event2 : Keyitem
 {
-    //new Collider2D collider;
-    [SerializeField] private GameObject next;
+    [SerializeField] private GameObject room5BigLight;
+    [SerializeField] private GameObject room6BigLight;
 
+    [SerializeField] private GameObject food1;
+    [SerializeField] private GameObject food2;
     [SerializeField] private TextAsset textFile;
+
     private string[] dialog;
     private bool triggerFirst = true;
 
@@ -18,6 +20,7 @@ public class Room5Event1 : MonoBehaviour
         //collider = GetComponent<Collider2D>();
         dialog = textFile.text.Split('\n');
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -25,17 +28,22 @@ public class Room5Event1 : MonoBehaviour
         if (Manager.Instance.DialogBoxUI.activeSelf == false && triggerFirst == false)
         {
             gameObject.SetActive(false);
-            next.SetActive(true);
+            food1.SetActive(true);
+            food2.SetActive(true);
         }
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    public override void KeyitemEvent()
     {
-        if (triggerFirst && col.gameObject.CompareTag("Player"))
-        {
-            Manager.Instance.DialogBox.StartTalk(dialog);
-            triggerFirst = false;
-        }
-        // Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
+        room5BigLight.SetActive(true);
+        room6BigLight.SetActive(true);
+        Manager.Instance.DialogBox.StartTalk(dialog);
+        triggerFirst = false;
+    }
+
+    public override void EndKeyitemEvent()
+    {
+        //this.first_trigger = false;
+        Destroy(this);
     }
 }

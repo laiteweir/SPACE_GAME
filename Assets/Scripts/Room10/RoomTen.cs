@@ -5,24 +5,18 @@ using UnityEngine.Rendering.Universal;
 
 public class RoomTen : MonoBehaviour
 {
-    public GameObject room10_event_01;
-    public GameObject room10_event_02;
-    public Light2D room10_bigLight;
-    public GameObject engine0_hint;
-    public GameObject engine1_hint;
-    public GameObject refillStation_hint;
+    public GameObject room10Event1;
+    public GameObject room10Event2;
+    public Light2D room10BigLight;
+    public GameObject engine0Hint;
+    public GameObject engine1Hint;
+    public GameObject refillStationHint;
+    [SerializeField] private Door nextDoor;
     [HideInInspector] public bool isEngine0Fixed = false;
     [HideInInspector] public bool isEngine1Fixed = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
-    void Update()
+    public void UnlockDoor()
     {
-
+        nextDoor.locked = false;
     }
 }

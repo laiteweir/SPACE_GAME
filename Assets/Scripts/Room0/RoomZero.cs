@@ -5,16 +5,14 @@ using UnityEngine.Rendering.Universal;
 
 public class RoomZero : MonoBehaviour
 {    
-    public GameObject room0Event1;
-    public GameObject room0Event2;
-    public GameObject room0Event3;
+    public Door nextDoor;
     public List<Light2D> room0Event2Light;
-    public Light2D room0BigLight;
+    [SerializeField] private Light2D room0BigLight;
     // private bool goDebug = false;
     [HideInInspector] public bool[] room0Lights = { false, false, false, false };
     
     //public bool createKeyCard = false;
-    [SerializeField] GameObject keycard;
+    [SerializeField] private GameObject keycard;
 
     // Start is called before the first frame update
     void Start()

@@ -1,15 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class RoomOne : MonoBehaviour
 {
     public bool turnOnLight = false;
-    [SerializeField] private GameObject room1Light;
-    public GameObject room1Event1;
-    public GameObject room1Event2;
-    public GameObject room1Event3;
-    public GameObject room1Event4;
+    [SerializeField] private Light2D room1BigLight;
+    [SerializeField] private Door nextDoor;
     // Start is called before the first frame update
     void Start(){
         //Manager.Instance.room1.turnOnLight = false;
@@ -26,6 +24,7 @@ public class RoomOne : MonoBehaviour
     }
     public void TurnOnLight()
     {
-        room1Light.SetActive(true);
+        room1BigLight.enabled = true;
+        nextDoor.locked = false;
     }
 }

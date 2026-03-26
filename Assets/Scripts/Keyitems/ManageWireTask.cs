@@ -5,8 +5,8 @@ using UnityEngine.Rendering.Universal;
 
 public class ManageWireTask : Keyitem
 {
-    [SerializeField] TextAsset start;
-    [SerializeField] TextAsset success;
+    [SerializeField] private TextAsset start;
+    [SerializeField] private TextAsset success;
     private string[] dialogStart;
     private string[] dialogSuccess;
     void Start()
@@ -17,18 +17,16 @@ public class ManageWireTask : Keyitem
     public override void KeyitemEvent()
     {
         Manager.Instance.DialogBoxUI.SetActive(true);
-        Manager.Instance.DialogBox.TextIsOn = true;
-        Manager.Instance.DialogBox.StartTalkAndOpenScene(dialogStart, "Wire_Task", this);
+        Manager.Instance.DialogBox.StartTalkAndOpenSceneUI(dialogStart, "Wire Task", this);
         // Manager.Instance.OpenScene("Wire_Task", this);
     }
 
     public override void EndKeyitemEvent()
     {
-        Manager.Instance.CloseScene("Wire_Task");
+        Manager.Instance.CloseSceneUI("Wire Task");
         // Debug.Log("You have fixed Engine1!");
-        Manager.Instance.room10.engine1_hint.SetActive(false);
+        Manager.Instance.room10.engine1Hint.SetActive(false);
         Manager.Instance.DialogBoxUI.SetActive(true);
-        Manager.Instance.DialogBox.TextIsOn = true;
         Manager.Instance.DialogBox.StartTalk(dialogSuccess);
         Manager.Instance.room10.isEngine1Fixed = true;
         Destroy(this);

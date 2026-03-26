@@ -25,8 +25,6 @@ public class GetEnergyTank : Keyitem
     public override void KeyitemEvent()
     {
         Manager.Instance.InventoryManager.AddItem(energyTank);
-        Manager.Instance.DialogBoxUI.SetActive(true);
-        Manager.Instance.DialogBox.TextIsOn = true;
         int energyTankIndex = Manager.Instance.InventoryManager.FindIndexOfItem(energyTank);
         int energyTankQuantity = Manager.Instance.InventoryManager.items[energyTankIndex].itemQuantity;
         switch (energyTankQuantity)
@@ -41,7 +39,7 @@ public class GetEnergyTank : Keyitem
                 Manager.Instance.DialogBox.StartTalk(dialogThird);
                 break;
         }
-        EndKeyitemEvent();
+        gameObject.SetActive(false);
     }
 
     public override void EndKeyitemEvent()

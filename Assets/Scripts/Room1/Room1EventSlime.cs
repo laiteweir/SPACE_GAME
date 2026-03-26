@@ -41,7 +41,6 @@ public class Room1EventSlime : MonoBehaviour
         // Debug.Log("play audio");
         yield return new WaitForSeconds(audio.clip.length);
 
-        Manager.Instance.DialogBoxUI.SetActive(true);
         Manager.Instance.DialogBox.StartTalk(dialog);
         Destroy(gameObject);
         // audio.clip = otherClip;

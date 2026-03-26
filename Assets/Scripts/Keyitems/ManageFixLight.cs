@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class ManageFixLight : Keyitem
 {
-    // Start is called before the first frame update
-    [SerializeField] GameObject next;
-    [SerializeField] GameObject nextEvent;
+    [SerializeField] private GameObject currentEvent;
+    [SerializeField] private GameObject next;
     public override void KeyitemEvent()
     {
         Manager.Instance.OpenSceneUI("Fix Light", this);
@@ -15,12 +14,12 @@ public class ManageFixLight : Keyitem
     public override void EndKeyitemEvent()
     {
         Manager.Instance.CloseSceneUI("Fix Light");
-        if(Manager.Instance.room1.turnOnLight)
+        if (Manager.Instance.room1.turnOnLight)
         {
             // next.GetComponent<Door>().enabled = true;
-            next.SetActive(false);
-            nextEvent.SetActive(true);
-            Destroy(this);
+            gameObject.SetActive(false);
+            currentEvent.SetActive(false);
+            next.SetActive(true);
         }
     }
 }

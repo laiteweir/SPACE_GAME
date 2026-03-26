@@ -23,16 +23,14 @@ public class Room1Event1 :  Keyitem
     {
         if (Manager.Instance.DialogBoxUI.activeSelf == false && triggerFirst == false)
         {
+            gameObject.SetActive(false);
             next.SetActive(true);
-            // Manager.Instance.room0.room0_event2.SetActive(true);
-            Destroy(this);
         }
     }
     public override void KeyitemEvent()
     {
         //computer_light.GetComponent<UnityEngine.Rendering.Universal.Light2D>().color = Color.green;
         // Debug.Log("touch robot 01 in room 0");
-        Manager.Instance.DialogBoxUI.SetActive(true);
         Manager.Instance.DialogBox.StartTalk(dialog);
         // make sure is not first trigger
         triggerFirst = false;
