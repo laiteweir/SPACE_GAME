@@ -37,7 +37,7 @@ public class Door : Keyitem
         }
         else if (lockedByKeycard)
         {
-            TryUnlockWithKeycard(Manager.Instance.myBag);
+            TryUnlockWithKeycard(Manager.Instance.InventoryManager);
         }
         else
         {
@@ -64,7 +64,7 @@ public class Door : Keyitem
                 Manager.Instance.CodePanel.GetComponent<CodePanel>().Clear();
                 yield break;
             }
-            else if (Manager.Instance.CodePanel.GetComponent<CodePanel>().GetDoorOpen())
+            else if (Manager.Instance.CodePanel.GetComponent<CodePanel>().DoorOpen)
             {
                 Manager.Instance.UIManager.Back();
                 collider.enabled = false;
@@ -79,11 +79,11 @@ public class Door : Keyitem
         }
     }
 
-    private void TryUnlockWithKeycard(Inventory bag)
+    private void TryUnlockWithKeycard(InventoryManager inventoryManager)
     {
-        for (int i = 0; i < bag.itemList.Count; ++i)
+        for (int i = 0; i < inventoryManager.items.Count; ++i)
         {
-            if (bag.itemList[i].itemName == keycardName)
+            if (inventoryManager.items[i].itemName == keycardName)
             {
                 collider.enabled = false;
                 animator.SetTrigger("doorIsOpened");

@@ -8,7 +8,7 @@ public class BossManager : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] GameObject Boss;
     [SerializeField] GameObject Player;
-    [SerializeField] Inventory mybag;
+
     [SerializeField] GameObject slider;
     [SerializeField] GameObject shield;
     public bool win = false;
@@ -18,8 +18,8 @@ public class BossManager : MonoBehaviour
     void Start()
     {
         Boss.GetComponent<BossSmile>().bossHealth =4;
-        for(int i=0; i<mybag.itemList.Count ;i++){
-            if(mybag.itemList[i].itemName == keyword){
+        for(int i=0; i< Manager.Instance.InventoryManager.items.Count ;i++){
+            if(Manager.Instance.InventoryManager.items[i].itemName == keyword){
                     playerhealth = 10;
                     shield.SetActive(true);
             }

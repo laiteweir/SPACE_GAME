@@ -1,8 +1,6 @@
-using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,18 +11,16 @@ public class InventoryManager : MonoBehaviour
     public GameObject slotPrefab;
     public Transform inventoryGrid;
     public int inventoryCapacity = 20;
-    // public int itemNumber;
 
-    public List<Item> items = new List<Item>();
+    [HideInInspector] public List<Item> items = new List<Item>();
     private List<InventorySlot> slots = new List<InventorySlot>();
 
-    private void Start()
+    private void Awake()
     {
         InitializeInventory(inventoryCapacity);
-        // items.Add(null);
-        // items.Add(null);
         RefreshInventoryGrid();
     }
+
     private void InitializeInventory(int count)
     {
         for (int i = 0; i < count; ++i)
@@ -38,9 +34,13 @@ public class InventoryManager : MonoBehaviour
         // 確保新物件的本地縮放和位置正確 (Grid Layout Group 會自動處理位置，但重置一下更安全)
         // newSlot.transform.localPosition = Vector3.zero;
         // newSlot.transform.localScale = Vector3.one;
-
         InventorySlot slotScript = newSlot.GetComponent<InventorySlot>();
         slotScript.Clear();
+
+        if (slots.Count == 0)
+        {
+            Manager.Instance.Inventory.inventoryFirstItem = newSlot;
+        }
         slots.Add(slotScript);
     }
     public Item InstantiateItem(ItemData itemData)
@@ -115,6 +115,21 @@ public class InventoryManager : MonoBehaviour
             {
                 slots[i].Clear();
             }
+        }
+    }
+    public void DisplayItemDetails(InventorySlot slot)
+    {
+        bool isEmpty = slot == null || slot.slotImage == null;
+        inventoryImage.canvasRenderer.SetAlpha(isEmpty ? 0f : 1f);
+
+        if (!isEmpty)
+        {
+            inventoryImage.sprite = slot.slotImage;
+            inventoryInformation.text = slot.slotInfo;
+        }
+        else
+        {
+            inventoryInformation.text = string.Empty;
         }
     }
 }

@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public void OpenUI(GameObject ui)
+    {
+        Manager.Instance.SwitchToUI();
+        ui.SetActive(true);
+        Manager.Instance.UIStack.Push(ui);
+    }
     public void OpenUI(GameObject ui, GameObject uiFirstButton)
     {
         Manager.Instance.SwitchToUI();

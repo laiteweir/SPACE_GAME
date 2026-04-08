@@ -19,10 +19,10 @@ public class Manager : MonoBehaviour
     [SerializeField] private InventoryManager inventoryManager;
     [SerializeField] private GameObject startMenuObject;
     [SerializeField] private PauseMenu pauseMenu;
+    [SerializeField] private Inventory inventory;
     [SerializeField] private GameObject dialogBoxUI;
     private DialogBox dialogBox;
     [SerializeField] private GameObject codePanel;
-    public Inventory myBag;
     public RoomZero room0;
     public RoomOne room1;
     public RoomTwo room2;
@@ -47,6 +47,7 @@ public class Manager : MonoBehaviour
     public Stack<GameObject> UIStack { get => uiStack; }
     public InventoryManager InventoryManager { get => inventoryManager; }
     public PauseMenu PauseMenu { get => pauseMenu; }
+    public Inventory Inventory { get => inventory; }
     public GameObject DialogBoxUI { get => dialogBoxUI; }
     public DialogBox DialogBox { get; private set; }
     public GameObject CodePanel { get => codePanel; }
@@ -54,15 +55,15 @@ public class Manager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null)
+        if (Instance != null && Instance != this)
         {
-            gameObject.SetActive(false);
             Destroy(gameObject);
+            return;
         }
-        else
+        Instance = this;
+        if (transform.parent == null)
         {
             DontDestroyOnLoad(gameObject);
-            Instance = this;
         }
         // playerInput = player.GetComponent<PlayerInput>();
         actionMapPlayer = PlayerInput.actions.FindActionMap("Player");
@@ -94,6 +95,7 @@ public class Manager : MonoBehaviour
     {
         returnKeyitem = keyitem;
         SwitchToUI();
+        // Debug.Log("OpenSceneUI!");
         SceneManager.LoadScene(name, LoadSceneMode.Additive);
     }
     public void CloseScene(string name)

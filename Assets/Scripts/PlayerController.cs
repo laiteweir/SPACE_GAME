@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private InputAction move;
     private InputAction run;
     private InputAction pauseAction;
+    private InputAction inventoryAction;
 
     enum Condition
     {
@@ -34,7 +35,7 @@ public class PlayerController : MonoBehaviour
     readonly List<RaycastHit2D> castCollisions = new();
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -49,16 +50,19 @@ public class PlayerController : MonoBehaviour
         run.canceled += EndRun;
         pauseAction = Manager.Instance.PlayerInput.actions["Player/Pause"];
         pauseAction.performed += Manager.Instance.PauseMenu.OnPausePerformed;
+        inventoryAction = Manager.Instance.PlayerInput.actions["Player/Inventory"];
+        inventoryAction.performed += Manager.Instance.Inventory.OnInventoryPerformed;
     }
-    void OnDestroy()
+    private void OnDestroy()
     {
         move.started -= PlayWalkingSound;
         move.canceled -= StopWalkingSound;
         run.started -= StartRun;
         run.canceled -= EndRun;
         pauseAction.performed -= Manager.Instance.PauseMenu.OnPausePerformed;
+        inventoryAction.performed -= Manager.Instance.Inventory.OnInventoryPerformed;
     }
-    void FixedUpdate() 
+    private void FixedUpdate() 
     {
         if (canMove && movementInput != Vector2.zero)
         {

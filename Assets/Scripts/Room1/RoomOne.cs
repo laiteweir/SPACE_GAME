@@ -8,6 +8,7 @@ public class RoomOne : MonoBehaviour
     public bool turnOnLight = false;
     [SerializeField] private Light2D room1BigLight;
     [SerializeField] private Door nextDoor;
+    public WirePanel wirePanel;
     // Start is called before the first frame update
     void Start(){
         //Manager.Instance.room1.turnOnLight = false;

@@ -69,7 +69,7 @@ public class DialogBox : MonoBehaviour
                 endDialog = false;
                 gameObject.SetActive(false);
                 count = 0;
-                dialog.text = "";
+                dialog.text = string.Empty;
                 
                 //is_trigger = true;
                 Manager.Instance.SwitchToPlayer();
@@ -107,7 +107,7 @@ public class DialogBox : MonoBehaviour
                 endDialog = false;
                 gameObject.SetActive(false);
                 count = 0;
-                dialog.text = "";
+                dialog.text = string.Empty;
                 Manager.Instance.SwitchToPlayer();
                 Manager.Instance.OpenScene(sceneName, keyitem);
                 yield break;
@@ -144,7 +144,7 @@ public class DialogBox : MonoBehaviour
                 endDialog = false;
                 gameObject.SetActive(false);
                 count = 0;
-                dialog.text = "";
+                dialog.text = string.Empty;
                 // Manager.Instance.SwitchToPlayer();
                 Manager.Instance.OpenScene(sceneName, keyitem);
                 yield break;

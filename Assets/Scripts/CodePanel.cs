@@ -21,19 +21,8 @@ public class CodePanel : BaseUI
     private InputAction digit7Action;
     private InputAction digit8Action;
     private InputAction digit9Action;
-    private string codeValue = "";
-    private bool doorOpen = false;
-
-    // door_open Getter
-    public bool GetDoorOpen()
-    {
-        return doorOpen;
-    }
-    // door_open Setter
-    public void SetDoorOpen(bool input)
-    {
-        doorOpen = input;
-    }
+    private string codeValue = string.Empty;
+    public bool DoorOpen { get; private set; } = false;
 
     protected override void Awake()
     {
@@ -103,14 +92,14 @@ public class CodePanel : BaseUI
     }
     public void Clear()
     {
-        codeValue = "";
+        codeValue = string.Empty;
         // Debug.Log("Clear input!");
     }
     public void Confirm()
     {
         if (codeValue == passward)
         {
-            SetDoorOpen(true);
+            DoorOpen = true;
             // Debug.Log("The door is opened");
         }
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemOnWorld : MonoBehaviour
+public class ItemInWorld : MonoBehaviour
 {
     [SerializeField] private ItemData thisItemData;
     private Item thisItem;

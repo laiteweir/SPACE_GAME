@@ -12,7 +12,7 @@ public class RoomZero : MonoBehaviour
     [HideInInspector] public bool[] room0Lights = { false, false, false, false };
     
     //public bool createKeyCard = false;
-    [SerializeField] private GameObject keycard;
+    [SerializeField] private GameObject keyCard;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +39,7 @@ public class RoomZero : MonoBehaviour
         }
 
         room0BigLight.enabled = true;
-        Instantiate(keycard);
+        Instantiate(keyCard);
         return true;
     }
     public bool Room0Event2VerifyLightSort(int sortNum)
