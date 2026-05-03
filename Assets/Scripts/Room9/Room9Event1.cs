@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Room1Event1 :  Keyitem
+public class Room9Event1 : MonoBehaviour
 {
     [SerializeField] private GameObject next;
     [SerializeField] private TextAsset textFile;
@@ -11,17 +11,15 @@ public class Room1Event1 :  Keyitem
     {
         dialog = textFile.text.Split('\n');
     }
-
-    public override void KeyitemEvent()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Manager.Instance.DialogBox.StartTalk(dialog, EndKeyitemEvent);
+        Manager.Instance.DialogBox.StartTalk(dialog, EndDialog);
     }
-    public override void EndKeyitemEvent()
+    private void EndDialog()
     {
-        // Enable next event
+        Manager.Instance.room9.Room9PCLight.enabled = true;
+        Manager.Instance.room9.Room9PCLight.color = Color.yellow;
         gameObject.SetActive(false);
         next.SetActive(true);
-        Manager.Instance.room1.Room1Computer.SetActive(true);
-        Manager.Instance.room1.Room1WirePanel.SetActive(true);
     }
 }

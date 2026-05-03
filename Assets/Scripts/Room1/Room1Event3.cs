@@ -1,34 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Room1Event3 : Keyitem
 {
     [SerializeField] private TextAsset textFile;
-    //private TextAsset dialog01;
     private string[] dialog;
-    private bool triggerFirst = true;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        //collider = GetComponent<Collider2D>();
         dialog = textFile.text.Split('\n');
-        // this_event = GameObject.Find("Robot_01_event_01");
     }
-    void Update()
-    {
-        if (Manager.Instance.DialogBoxUI.activeSelf == false && triggerFirst == false)
-        {
-            gameObject.SetActive(false);
-        }
-    }
+
     public override void KeyitemEvent()
     {
-        Manager.Instance.DialogBox.StartTalk(dialog);
-        triggerFirst = false;
+        Manager.Instance.DialogBox.StartTalk(dialog, EndKeyitemEvent);
     }
     public override void EndKeyitemEvent()
     {
-        // Debug.Log("test fire");
+        gameObject.SetActive(false);
+        Manager.Instance.room1.Robot2Notice.gameObject.SetActive(false);
     }
 }

@@ -1,37 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Room7_whiteSlime_1 : Keyitem
+public class Room7_whiteSlime_1 : MonoBehaviour
 {
-
-
-    private Rigidbody2D rb;
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        
-        rb = GetComponent<Rigidbody2D>();
-    }
-
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        // door_7_1.GetComponent<Door>().locked = false;
-        // door_1_2.GetComponent<Door>().locked = false;
-        // Debug.Log("try to open door 7_1");
-        // Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
-    }   
-    // Update is called once per frame
-    void Update()
-    {
-        if(this.rb.linearVelocity.x == 0 || this.rb.linearVelocity.y == 0){
-            this.rb.linearVelocity = new Vector2(Random.Range(-1f, 1f),Random.Range(-1f, 1f));
-        }   
-    }
-    public override void KeyitemEvent()
-    {
-        //enable next process
-        this.rb.linearVelocity = new Vector2(Random.Range(-5f, 5f),Random.Range(-5f, 5f));
-        //Debug.Log(Manager.Instance.dialogBox.TextIsOn);
+        GameObject other = col.gameObject;
+        if (other.CompareTag("GlowingContainer"))
+        {
+            gameObject.SetActive(false);
+            if (other.TryGetComponent<Room8Event1>(out var container))
+            {
+                container.FillContainer();
+            }
+        }
     }
 }

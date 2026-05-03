@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 public class GlobalLightController : MonoBehaviour
 {
-    void Awake()
+    private void Awake()
     {
         gameObject.GetComponent<Light2D>().enabled = false;
     }

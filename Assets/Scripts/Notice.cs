@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class LightNotice : MonoBehaviour
+public class Notice : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
@@ -10,11 +8,11 @@ public class LightNotice : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D other)
     {
         spriteRenderer.enabled = true;
     }  
-    void OnTriggerExit2D(Collider2D col)
+    void OnTriggerExit2D(Collider2D other)
     {
         spriteRenderer.enabled = false;
     }

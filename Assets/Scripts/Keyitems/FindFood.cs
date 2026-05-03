@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class FindFood : Keyitem
@@ -5,21 +6,17 @@ public class FindFood : Keyitem
     [SerializeField] private ItemData foodData;
     private Item food;
     [SerializeField] private TextAsset textFile;
+    private string[] dialog;
 
     private void Start()
     {
         food = Manager.Instance.InventoryManager.InstantiateItem(foodData);
+        dialog = textFile.text.Split('\n');
     }
     public override void KeyitemEvent()
     {
-        if (Manager.Instance.InventoryManager.FindIndexOfItem(food) == -1)
-        {
-            Manager.Instance.InventoryManager.AddItem(food);
-            // Debug.Log("find some food");
-
-            string[] dialog = textFile.text.Split('\n');
-            Manager.Instance.DialogBox.StartTalk(dialog);
-            gameObject.SetActive(false);
-        }
+        Manager.Instance.InventoryManager.AddItem(food);
+        Manager.Instance.DialogBox.StartTalk(dialog);
+        // Manager.Instance.DialogBox.StartTalk(dialog, () => gameObject.SetActive(false));
     }
 }

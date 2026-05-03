@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -44,51 +45,7 @@ public class DialogBox : MonoBehaviour
         }
     }
 
-    public void StartTalk(string[] inputTxt)
-    {
-        str = inputTxt;
-        gameObject.SetActive(true);
-        StartCoroutine(Talk());
-    }
-    private IEnumerator Talk()
-    {
-        Manager.Instance.SwitchToUI();
-        dialog.text = str[count];
-        ++count;
-        while (true)
-        {
-            if (moveNext)
-            {
-                moveNext = false;
-                dialog.text = str[count];
-                ++count;
-                yield return null;
-            }
-            else if (endDialog)
-            {
-                endDialog = false;
-                gameObject.SetActive(false);
-                count = 0;
-                dialog.text = string.Empty;
-                
-                //is_trigger = true;
-                Manager.Instance.SwitchToPlayer();
-                yield break;
-            }
-            else
-            {
-                yield return null;
-            }
-        }
-    }
-
-    public void StartTalkAndOpenScene(string[] inputTxt, string sceneName, Keyitem keyitem)
-    {
-        str = inputTxt;
-        gameObject.SetActive(true);
-        StartCoroutine(TalkAndOpenScene(sceneName, keyitem));
-    }
-    private IEnumerator TalkAndOpenScene(string sceneName, Keyitem keyitem)
+    private IEnumerator Talk(Action OnEndDialog = null)
     {
         Manager.Instance.SwitchToUI();
         dialog.text = str[count];
@@ -109,7 +66,7 @@ public class DialogBox : MonoBehaviour
                 count = 0;
                 dialog.text = string.Empty;
                 Manager.Instance.SwitchToPlayer();
-                Manager.Instance.OpenScene(sceneName, keyitem);
+                OnEndDialog?.Invoke();
                 yield break;
             }
             else
@@ -118,41 +75,44 @@ public class DialogBox : MonoBehaviour
             }
         }
     }
+    private IEnumerator OpenSceneRoutine(string sceneName, Keyitem keyitem)
+    {
+        Manager.Instance.OpenScene(sceneName, keyitem);
+        yield break;
+    }
+    private IEnumerator OpenSceneUIRoutine(string sceneName, Keyitem keyitem)
+    {
+        Manager.Instance.OpenSceneUI(sceneName, keyitem);
+        yield break;
+    }
 
-    public void StartTalkAndOpenSceneUI(string[] inputTxt, string sceneName, Keyitem keyitem)
+    private IEnumerator TalkAndOpenScene(string sceneName, Keyitem keyitem, Action OnEndDialog = null)
+    {
+        yield return StartCoroutine(Talk(OnEndDialog));
+        yield return StartCoroutine(OpenSceneRoutine(sceneName, keyitem));
+    }
+    private IEnumerator TalkAndOpenSceneUI(string sceneName, Keyitem keyitem, Action OnEndDialog = null)
+    {
+        yield return StartCoroutine(Talk(OnEndDialog));
+        yield return StartCoroutine(OpenSceneUIRoutine(sceneName, keyitem));
+    }
+
+    public void StartTalk(string[] inputTxt, Action OnEndDialog = null)
     {
         str = inputTxt;
         gameObject.SetActive(true);
-        StartCoroutine(TalkAndOpenSceneUI(sceneName, keyitem));
+        StartCoroutine(Talk(OnEndDialog));
     }
-    private IEnumerator TalkAndOpenSceneUI(string sceneName, Keyitem keyitem)
+    public void StartTalkAndOpenScene(string[] inputTxt, string sceneName, Keyitem keyitem, Action OnEndDialog = null)
     {
-        Manager.Instance.SwitchToUI();
-        dialog.text = str[count];
-        ++count;
-        while (true)
-        {
-            if (moveNext)
-            {
-                moveNext = false;
-                dialog.text = str[count];
-                ++count;
-                yield return null;
-            }
-            else if (endDialog)
-            {
-                endDialog = false;
-                gameObject.SetActive(false);
-                count = 0;
-                dialog.text = string.Empty;
-                // Manager.Instance.SwitchToPlayer();
-                Manager.Instance.OpenScene(sceneName, keyitem);
-                yield break;
-            }
-            else
-            {
-                yield return null;
-            }
-        }
+        str = inputTxt;
+        gameObject.SetActive(true);
+        StartCoroutine(TalkAndOpenScene(sceneName, keyitem, OnEndDialog));
+    }
+    public void StartTalkAndOpenSceneUI(string[] inputTxt, string sceneName, Keyitem keyitem, Action OnEndDialog = null)
+    {
+        str = inputTxt;
+        gameObject.SetActive(true);
+        StartCoroutine(TalkAndOpenSceneUI(sceneName, keyitem, OnEndDialog));
     }
 }

@@ -1,29 +1,27 @@
 using UnityEngine;
 
-public class Room5Event1 : MonoBehaviour
+public class Room7Event2 : MonoBehaviour
 {
-    [SerializeField] private GameObject next;
-
-    [SerializeField] private TextAsset textFile;
+    [SerializeField] TextAsset textFile;
     private string[] dialog;
 
     // Start is called before the first frame update
-    private void Start()
+    void Start()
     {
         dialog = textFile.text.Split('\n');
-    }
-
-    private void EndDialog()
-    {
-        gameObject.SetActive(false);
-        next.SetActive(true);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Manager.Instance.room7.DeactiveAliens();
             Manager.Instance.DialogBox.StartTalk(dialog, EndDialog);
         }
+    }
+
+    private void EndDialog()
+    {
+        gameObject.SetActive(false);
     }
 }

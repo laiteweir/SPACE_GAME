@@ -11,7 +11,7 @@ public class Room1EventSlimeMove : MonoBehaviour
         if (isMoving)
         {
             ++count;
-            transform.Translate(Vector2.up * Time.deltaTime);//位移方法
+            transform.Translate(Vector2.up * Time.deltaTime); // 位移方法
         }
         if (count > 100) { Destroy(gameObject); }
     }

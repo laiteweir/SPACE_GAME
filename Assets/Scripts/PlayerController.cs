@@ -8,31 +8,31 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float walkSpeed = 3f;
     [SerializeField] private float runSpeed = 5f;
-    [SerializeField] private float collisionOffset = 0f;
+    [SerializeField] private float collisionForce = 2f;
+    [SerializeField] private float collisionOffset = 0.01f;
     [SerializeField] private ContactFilter2D movementFilter;
     [SerializeField] private Interact interact;
     [SerializeField] private Light2D spotLight;
 
     private float moveSpeed;
-    private InputAction move;
     private InputAction run;
     private InputAction pauseAction;
     private InputAction inventoryAction;
 
-    enum Condition
+    private enum Condition
     {
         Success,
         Blocked,
         InputZero
     }
-    bool canMove = true;
-    bool isVertical = false;
-    bool flipy = false;
-    Vector2 movementInput;
-    Rigidbody2D rb;
-    SpriteRenderer spriteRenderer;
-    Animator animator;
-    readonly List<RaycastHit2D> castCollisions = new();
+    private bool canMove = true;
+    private bool isVertical = false;
+    private bool flipy = false;
+    private Vector2 movementInput;
+    private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
+    private Animator animator;
+    private readonly List<RaycastHit2D> castCollisions = new();
 
     // Start is called before the first frame update
     private void Start()
@@ -42,9 +42,6 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         spotLight.intensity = 1f;
         moveSpeed = walkSpeed;
-        move = Manager.Instance.PlayerInput.actions["Player/Move"];
-        move.started += PlayWalkingSound;
-        move.canceled += StopWalkingSound;
         run = Manager.Instance.PlayerInput.actions["Player/Run"];
         run.started += StartRun;
         run.canceled += EndRun;
@@ -55,8 +52,6 @@ public class PlayerController : MonoBehaviour
     }
     private void OnDestroy()
     {
-        move.started -= PlayWalkingSound;
-        move.canceled -= StopWalkingSound;
         run.started -= StartRun;
         run.canceled -= EndRun;
         pauseAction.performed -= Manager.Instance.PauseMenu.OnPausePerformed;
@@ -87,90 +82,89 @@ public class PlayerController : MonoBehaviour
                 flipy = true;
             }
 
-            Condition condition = TryMove(movementInput);
-            
-            if (condition == Condition.Blocked)
+            bool isMoving1 = false;
+            bool isMoving2 = false;
+            bool isMoving3 = false;
+            Condition condition;
+
+            isMoving1 = TryMove(movementInput);
+            if (!isMoving1)
             {
-                condition = TryMove(new Vector2(movementInput.x, 0)); 
+                isMoving2 = TryMove(new Vector2(movementInput.x, 0)); 
+            }
+            if (!isMoving1)
+            {
+                isMoving3 = TryMove(new Vector2(0, movementInput.y));
             }
 
-            if (condition == Condition.Blocked)
+            if (isMoving1 || isMoving2 || isMoving3)
             {
-                condition = TryMove(new Vector2(0, movementInput.y));
+                condition = Condition.Success;
+            }
+            else
+            {
+                condition = Condition.Blocked;
             }
 
             if (condition == Condition.Success)
             {
                 animator.SetBool("isWalking", true);
+                Manager.Instance.WalkingSound.PlayWalkingSound();
             }
             else
             {
+                Manager.Instance.WalkingSound.StopWalkingSound();
                 animator.SetBool("isWalking", false);
             }
         }
         else
         {
+            Manager.Instance.WalkingSound.StopWalkingSound();
             animator.SetBool("isWalking", false);
         }
-
-        // Debug.Log(animator.GetBool("isWalking"));
-    }
-
-    private void PlayWalkingSound(InputAction.CallbackContext context)
-    {
-        Manager.Instance.WalkingSound.walkingSoundPlay = true;
-        Manager.Instance.WalkingSound.walkingSoundToggleChange = true;
-    }
-
-    private void StopWalkingSound(InputAction.CallbackContext context)
-    {
-        Manager.Instance.WalkingSound.walkingSoundPlay = false;
-        Manager.Instance.WalkingSound.walkingSoundToggleChange = true;
     }
 
     private void StartRun(InputAction.CallbackContext context)
     {
         moveSpeed = runSpeed;
     }
-
     private void EndRun(InputAction.CallbackContext context)
     {
         moveSpeed = walkSpeed;
     }
 
-    private Condition TryMove(Vector2 direction)
+    private bool TryMove(Vector2 direction)
     {
-        if (direction != Vector2.zero)
+        if (direction == Vector2.zero) 
         {
-            int count = rb.Cast(
-                    direction,
-                    movementFilter,
-                    castCollisions,
-                    moveSpeed * Time.fixedDeltaTime + collisionOffset);
-            // Debug.Log(count);
-            if (count == 0)
-            {
-                rb.MovePosition(rb.position + moveSpeed * Time.fixedDeltaTime * direction);
-                return Condition.Success;
-            }
-            else
-            {
-                return Condition.Blocked;
-            }
+            return false;
+        }
+        int count = rb.Cast(
+            direction,
+            movementFilter,
+            castCollisions,
+            moveSpeed * Time.fixedDeltaTime + collisionOffset);
+        if (count == 0)
+        {
+            rb.MovePosition(rb.position + moveSpeed * Time.fixedDeltaTime * direction);
+            return true;
         }
         else
         {
-            return Condition.InputZero;
+            RaycastHit2D col = castCollisions[0];
+            if (col.rigidbody != null && col.rigidbody.bodyType == RigidbodyType2D.Dynamic)
+            {
+                col.rigidbody.AddForce(direction * collisionForce, ForceMode2D.Impulse);
+            }
+            return false;
         }
     }
 
     public void OnMove(InputValue movementValue){
         movementInput = movementValue.Get<Vector2>();
     }
-
     public void OnFire()
     {
-        // Debug.Log("Fire Pressed!");
         animator.SetTrigger("keyitemInteract");
     }
 
@@ -178,7 +172,6 @@ public class PlayerController : MonoBehaviour
     {
         canMove = false;
     }
-
     public void UnlockMovement()
     {
         canMove = true;
@@ -210,7 +203,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
     public void EndKeyitemInteract()
     {
         UnlockMovement();

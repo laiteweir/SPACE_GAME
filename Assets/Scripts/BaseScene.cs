@@ -17,7 +17,7 @@ public abstract class BaseScene : MonoBehaviour
     {
         exitAction.performed -= OnSceneExit;
     }
-    protected virtual void SceneExit()
+    public virtual void SceneExit()
     {
         Manager.Instance.returnKeyitem.EndKeyitemEvent();
     }

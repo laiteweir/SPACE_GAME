@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DebugMode : MonoBehaviour
 {
-    private bool global_light_on = false;
-    private float x = 0f;
-    private float y = 17f;
-    void Start()
+    public bool globalLightOn = false;
+    public float x = 0f;
+    public float y = 0f;
+    private void Start()
     {
-        Manager.Instance.SetDebugMode(global_light_on, x, y);
+        Manager.Instance.SetDebugMode(globalLightOn, x, y);
     }
 }

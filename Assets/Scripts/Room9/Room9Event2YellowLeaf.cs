@@ -1,27 +1,25 @@
 using UnityEngine;
 
-public class Room5Event2 : Keyitem
+public class Room9Event2YellowLeaf : Keyitem
 {
+    private Item yellowLeaf;
     [SerializeField] private TextAsset textFile;
     private string[] dialog;
 
     // Start is called before the first frame update
     private void Start()
     {
+        yellowLeaf = Manager.Instance.InventoryManager.InstantiateItem(Manager.Instance.room9.YellowLeafData);
         dialog = textFile.text.Split('\n');
     }
 
     public override void KeyitemEvent()
     {
-        Manager.Instance.room5.Room5BigLight.enabled = true;
-        Manager.Instance.room6.Room6BigLight.enabled = true;
+        Manager.Instance.InventoryManager.AddItem(yellowLeaf);
         Manager.Instance.DialogBox.StartTalk(dialog, EndKeyitemEvent);
     }
-
     public override void EndKeyitemEvent()
     {
         gameObject.SetActive(false);
-        Manager.Instance.room5.Food1.SetActive(true);
-        Manager.Instance.room5.Food2.SetActive(true);
     }
 }

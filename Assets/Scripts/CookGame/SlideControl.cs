@@ -7,17 +7,22 @@ using UnityEngine.UI;
 public class SlideControl : MonoBehaviour
 {
     private Slider slider;
-    public float points = 0;
-    public bool isDone = false;
-    private int count = 30;
-    private bool timerStarted;
-    private bool flip = true;
-    private int t = 0;
-    [SerializeField] private GameObject fireup;
-    [SerializeField] private GameObject firedown;
-    private float speed = 0;
+    private float speed = 0f;
+    private int point = 0;
+    [SerializeField] private int successPoint = 5;
+    private int count = 0;
+    [SerializeField] private int limitCount = 10;
+    [SerializeField] private bool flip = false;
+    private Condition condition = Condition.Second;
     [SerializeField] private List<Sprite> mode;
     [SerializeField] private Image target;
+
+    private enum Condition
+    {
+        First,
+        Second,
+        Third
+    }
 
     private InputAction flipAction;
 
@@ -25,16 +30,6 @@ public class SlideControl : MonoBehaviour
     {
         flipAction = Manager.Instance.PlayerInput.actions["UI/Submit"];
     }
-    private void Start()
-    {
-        slider = GetComponent<Slider>();
-        slider.value = 0;
-        fireup.SetActive(flip);
-        firedown.SetActive(!flip);
-        speed = Random.Range(0.05f, 0.1f);
-        timerStarted = true;
-    }
-
     private void OnEnable()
     {
         flipAction.performed += OnFlip;
@@ -43,30 +38,19 @@ public class SlideControl : MonoBehaviour
     {
         flipAction.performed -= OnFlip;
     }
-
+    private void Start()
+    {
+        slider = GetComponent<Slider>();
+        slider.value = 0f;
+        speed = Random.Range(0.05f, 0.1f);
+    }
     // Update is called once per frame
     private void Update()
     {
-        // time += Time.deltaTime;
-        // if (time > 1)
-        // {
-        //     time = 0;
-        //     slide.value += 1;
-        // }
-
-        if (timerStarted)
+        if (slider.value == 10f)
         {
-            StartCoroutine("CountDown");
-            timerStarted = false;
-            // Debug.Log(count);
-            if (count == 0)
-            {
-                // points += slider.value;
-                slider.value = 0;
-                isDone = true;
-                // Debug.Log(points);
-                // Destroy(this);
-            }
+            CookManager.Instance.Burnt = true;
+            CookManager.Instance.SceneExit();
         }
     }
     private void FixedUpdate()
@@ -74,36 +58,55 @@ public class SlideControl : MonoBehaviour
         slider.value += speed;
     }
 
-    private IEnumerator CountDown()
-    {
-        yield return new WaitForSeconds(1);
-        --count;
-        timerStarted = true;
-    }
-
     private void OnFlip(InputAction.CallbackContext context)
     {
-        speed = Random.Range(0.05f, 0.1f);
-        //slide.value = 0;
+        ++count;
+        if (condition == Condition.First && slider.value >= 8)
+        {
+            ++point;
+        }
+        else if (condition == Condition.Second && slider.value >= 3 && slider.value <= 6)
+        {
+            ++point;
+        }
+        else if (condition == Condition.Third && slider.value >= 5.5 && slider.value <= 7.5)
+        {
+            ++point;
+        }
+
+        if (count >= limitCount)
+        {
+            CookManager.Instance.Undercooked = true;
+            CookManager.Instance.SceneExit();
+        }
+
         flip = !flip;
-        fireup.SetActive(flip);
-        firedown.SetActive(!flip);
-        if (t == 0 && slider.value >= 8)
+        CookManager.Instance.UpwardFire.SetActive(!flip);
+        CookManager.Instance.DownwardFire.SetActive(flip);
+        if (point >= successPoint)
         {
-            points += 1;
+            CookManager.Instance.Cooked = true;
+            CookManager.Instance.Food.SetActive(false);
+            CookManager.Instance.CookedFood.SetActive(true);
         }
-        else if (t == 2 && slider.value >= 5.5 && slider.value <= 7.5)
+
+        slider.value = 0f;
+        speed = Random.Range(0.05f, 0.1f);
+
+        int c = Random.Range(0, 9);
+        c %= 3;
+        target.sprite = mode[c];
+        if (c == 0)
         {
-            points += 1;
+            condition = Condition.First;
         }
-        else if (t == 1 && slider.value >= 3 && slider.value <= 6)
+        else if (c == 1)
         {
-            points += 1;
+            condition = Condition.Second;
         }
-        t = Random.Range(0, 9);
-        t %= 3;
-        Sprite image = mode[t];
-        target.sprite = image;
-        slider.value = 0;
+        else if (c == 2)
+        {
+            condition = Condition.Third;
+        }
     }
 }

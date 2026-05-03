@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ManageCook : Keyitem
@@ -12,8 +10,15 @@ public class ManageCook : Keyitem
     [SerializeField] private ItemData foodData;
     [SerializeField] private ItemData cookedFoodData;
     private Item cookedFood;
-
     private string[] dialog;
+
+    private enum Condition
+    {
+        Cooked,
+        Burnt,
+        Undercooked
+    }
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -25,7 +30,7 @@ public class ManageCook : Keyitem
         int index = Manager.Instance.InventoryManager.FindIndexOfItem(foodData);
         if (index != -1)
         {
-            // Debug.Log("start to cook!");
+            // Debug.Log("start cooking!");
             n = index;
             StartCook();
         }
@@ -41,15 +46,32 @@ public class ManageCook : Keyitem
     }
     public override void EndKeyitemEvent()
     {
+        Condition situation = Condition.Undercooked;
+        if (CookManager.Instance.Burnt == true)
+        {
+            situation = Condition.Burnt;
+        }
+        else if (CookManager.Instance.Cooked == true)
+        {
+            situation = Condition.Cooked;
+        }
+        else if (CookManager.Instance.Undercooked == true)
+        {
+            situation = Condition.Undercooked;
+        }
+
         Manager.Instance.CloseSceneUI("Cook Game");
-        if (Manager.Instance.room6.situation == 1)
+
+        if (situation == Condition.Cooked)
         {
             Manager.Instance.InventoryManager.RemoveItem(n, 1);
             Manager.Instance.InventoryManager.AddItem(cookedFood);
+            Manager.Instance.room5.Food1.SetActive(false);
+            Manager.Instance.room5.Food2.SetActive(false);
             dialog = textFile1.text.Split('\n');
             Manager.Instance.DialogBox.StartTalk(dialog);
         }
-        else if (Manager.Instance.room6.situation == 2)
+        else if (situation == Condition.Burnt)
         {
             Manager.Instance.InventoryManager.RemoveItem(n, 1);
             dialog = textFile2.text.Split('\n');
@@ -57,7 +79,7 @@ public class ManageCook : Keyitem
             // gameObject.SetActive(false);
            
         }
-        else if (Manager.Instance.room6.situation == 3)
+        else if (situation == Condition.Undercooked)
         {
             dialog = textFile3.text.Split('\n');
             Manager.Instance.DialogBox.StartTalk(dialog);

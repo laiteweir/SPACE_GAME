@@ -1,42 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WalkingSound : MonoBehaviour
 {
     private AudioSource sound;
 
-    //Play the music
-    [HideInInspector] public bool walkingSoundPlay;
-    //Detect when you use the toggle, ensures music isn¡¦t played multiple times
-    [HideInInspector] public bool walkingSoundToggleChange;
-
-    void Start()
+    // Start is called before the first frame update
+    private void Start()
     {
-        //Fetch the AudioSource from the GameObject
+        // Fetch the AudioSource from the GameObject
         sound = GetComponent<AudioSource>();
-        //Ensure the toggle is set to true for the music to play at start-up
-        walkingSoundPlay = false;
-        walkingSoundToggleChange = false;
     }
 
-    void Update()
+    public void PlayWalkingSound()
     {
-        //Check to see if you just set the toggle to positive
-        if (walkingSoundPlay == true && walkingSoundToggleChange == true)
+        if (!sound.isPlaying)
         {
-            //Play the audio you attach to the AudioSource component
+            // Play the audio you attach to the AudioSource component
             sound.Play();
-            //Ensure audio doesn¡¦t play more than once
-            walkingSoundToggleChange = false;
         }
-        //Check if you just set the toggle to false
-        if (walkingSoundPlay == false && walkingSoundToggleChange == true)
+    }
+    public void StopWalkingSound()
+    {
+        if (sound.isPlaying)
         {
-            //Stop the audio
+            // Stop the audio
             sound.Stop();
-            //Ensure audio doesn¡¦t play more than once
-            walkingSoundToggleChange = false;
         }
     }
 }

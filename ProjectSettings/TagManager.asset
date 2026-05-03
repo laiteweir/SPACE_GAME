@@ -5,15 +5,15 @@ TagManager:
   serializedVersion: 3
   tags:
   - Keyitem
-  - Room1Door
   - Room0Light
   - Breaker
-  - slime1
-  - slime2
   - StartMenu
   - PauseMenu
   - Tutorial
   - Setting
+  - GlowingContainer
+  - slime2
+  - slime1
   layers:
   - Default
   - TransparentFX

@@ -4,25 +4,23 @@ using UnityEngine;
 
 public class RoomSeven : MonoBehaviour
 {
-    public GameObject room7_event_01;
-    public GameObject room7_event_02;
+    [SerializeField] private List<GameObject> aliens;
 
-    public bool isTouch = false;
+    public List<GameObject> Aliens { get => aliens; }
 
-    // Start is called before the first frame update
-    void Start()
+    public void ActiveAliens()
     {
-
-
-        // if(goDebug){
-        //     Manager.Instance.SetDebugMode(goDebug,false,16.56f,13.56f);        
-        // }
+        foreach (GameObject alien in Aliens)
+        {
+            alien.SetActive(true);
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    public void DeactiveAliens()
     {
-            
+        foreach (GameObject alien in Aliens)
+        {
+            alien.SetActive(false);
+        }
     }
 
 }

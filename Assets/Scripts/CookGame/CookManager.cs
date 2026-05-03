@@ -1,51 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class CookManager : BaseScene
 {
     public static CookManager Instance;
-    [SerializeField] private GameObject slide;
-    [SerializeField] private float limitPoint;
+    private bool cooked = false;
+    private bool burnt = false;
+    private bool undercooked = false;
     [SerializeField] private GameObject food;
     [SerializeField] private GameObject cookedFood;
+    [SerializeField] private GameObject upwardFire;
+    [SerializeField] private GameObject downwardFire;
+
+    public bool Cooked { get => cooked; set => cooked = value; }
+    public bool Burnt { get => burnt; set => burnt = value; }
+    public bool Undercooked { get => undercooked; set => undercooked = value; }
+    public GameObject Food { get => food; }
+    public GameObject CookedFood { get => cookedFood; }
+    public GameObject UpwardFire { get => upwardFire; }
+    public GameObject DownwardFire { get => downwardFire; }
 
     protected override void Awake()
     {
         base.Awake();
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        if (slide.GetComponent<SlideControl>().isDone)
-        {
-            if (slide.GetComponent<SlideControl>().points >= limitPoint)
-            {
-                Manager.Instance.room6.situation = 1;
-                // win = true;
-                SceneExit();
-            }
-            else
-            {
-                Manager.Instance.room6.situation = 3;
-                SceneExit();
-            }
-        }
-        if (slide.GetComponent<Slider>().value == 10)
-        {
-            // overcooked = true;
-            Manager.Instance.room6.situation = 2;
-            SceneExit();
-        }
-
-        if (slide.GetComponent<SlideControl>().points >= limitPoint)
-        {
-            food.SetActive(false);
-            cookedFood.SetActive(true);
-        } 
+        // Debug.Log(Cooked);
+        // Debug.Log(Burnt);
+        // Debug.Log(Undercooked);
     }
 }

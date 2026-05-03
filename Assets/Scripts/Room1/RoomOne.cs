@@ -1,31 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 public class RoomOne : MonoBehaviour
 {
-    public bool turnOnLight = false;
     [SerializeField] private Light2D room1BigLight;
+    [SerializeField] private GameObject room1Computer;
+    [SerializeField] private GameObject room1WirePanel;
+    [SerializeField] private WirePanel room1WirePanelUI;
+    [SerializeField] private Notice robot2Notice;
     [SerializeField] private Door nextDoor;
-    public WirePanel wirePanel;
-    // Start is called before the first frame update
-    void Start(){
-        //Manager.Instance.room1.turnOnLight = false;
-        //Manager.Instance.SetDebugMode(true,7.00f,0.0f);  
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        //Debug.Log(Room_1Data.turn_on_light);
-        if(Manager.Instance.room1.turnOnLight)
-        {
-            TurnOnLight();
-        }
-    }
+
+    public Light2D Room1BigLight { get => room1BigLight; }
+    public GameObject Room1Computer { get => room1Computer; }
+    public GameObject Room1WirePanel { get => room1WirePanel; }
+    public WirePanel Room1WirePanelUI { get => room1WirePanelUI; }
+    public Notice Robot2Notice { get => robot2Notice; }
+
     public void TurnOnLight()
     {
+        Room1Computer.SetActive(false);
+        Room1WirePanel.SetActive(false);
         room1BigLight.enabled = true;
+        Room1Computer.GetComponent<ManageFixLight>().currentEvent.SetActive(false);
+        Room1Computer.GetComponent<ManageFixLight>().next.SetActive(true);
         nextDoor.locked = false;
     }
 }

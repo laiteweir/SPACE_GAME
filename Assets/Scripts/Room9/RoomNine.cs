@@ -1,55 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class RoomNine : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public Dictionary<string, bool> items = new Dictionary<string, bool>();
-    void Start()
-    {
-        items.Add("RedFlower",false);
-        items.Add("YellowLeaf",false);
-        items.Add("Hair",false);
-        items.Add("WhiteJar",false);
-        items.Add("Folder",false);
-    }
+    [SerializeField] private Light2D room9BigLight;
+    [SerializeField] private Light2D room9PCLight;
+    [SerializeField] private GameObject redFlowerEvent;
+    [SerializeField] private GameObject yellowLeafEvent;
+    [SerializeField] private GameObject hairEvent;
+    [SerializeField] private GameObject whiteJarEvent;
+    [SerializeField] private GameObject folderEvent;
+    [SerializeField] private ItemData redFlowerData;
+    [SerializeField] private ItemData yellowLeafData;
+    [SerializeField] private ItemData hairData;
+    [SerializeField] private ItemData whiteJarData;
+    [SerializeField] private ItemData folderData;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public bool setItem(string itemName){
-        bool result = false;
-        int dirCount = items.Count;
-        int trueCount = 0;
-        if(items.ContainsKey(itemName)){
-            items[itemName] = true;
-        }
-        foreach(KeyValuePair<string, bool> kvp in items ){
-            if (kvp.Value == true){
-                trueCount = trueCount +1;
-            }
-        }
-        if(trueCount == dirCount){
-            result = true;
-        }
-        
-        return result;
-    }
-    public bool itemsAreDone(){
-        bool result = false;
-        int dirCount = items.Count;
-        int trueCount = 0;
-        foreach(KeyValuePair<string, bool> kvp in items ){
-            if (kvp.Value == true){
-                trueCount = trueCount +1;
-            }
-        }
-        if(trueCount == dirCount){
-            result = true;
-        }
-        return result;
-    }
+    public Light2D Room9BigLight { get => room9BigLight; }
+    public Light2D Room9PCLight { get => room9PCLight; }
+    public GameObject RedFlowerEvent { get => redFlowerEvent; }
+    public GameObject YellowLeafEvent { get => yellowLeafEvent; }
+    public GameObject HairEvent { get => hairEvent; }
+    public GameObject WhiteJarEvent { get => whiteJarEvent; }
+    public GameObject FolderEvent { get => folderEvent; }
+    public ItemData RedFlowerData { get => redFlowerData; }
+    public ItemData YellowLeafData { get => yellowLeafData; }
+    public ItemData HairData { get => hairData; }
+    public ItemData WhiteJarData { get => whiteJarData; }
+    public ItemData FolderData { get => folderData; }
 }

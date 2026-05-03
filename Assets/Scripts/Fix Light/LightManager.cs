@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class LightManager : BaseScene
 {
-    [SerializeField] List<GameObject> lights;
+    public static LightManager Instance;
+    [SerializeField] private List<GameObject> lights;
     public List<bool> answers;
-    private bool isCorrect = false;
-    // [SerializeField] GameObject result;
 
-    // Update is called once per frame
-    void Update()
+    protected override void Awake()
     {
-        if (!isCorrect)
+        base.Awake();
+        if (Instance != null && Instance != this)
         {
-            Check();
+            Destroy(gameObject);
+            return;
         }
+        Instance = this;
     }
 
-    private void Check()
+    public void Check()
     {
         int correct = 0;
         for (int i = 0; i < lights.Count; ++i)
@@ -30,9 +31,7 @@ public class LightManager : BaseScene
         }
         if (correct == lights.Count)
         {
-            isCorrect = true;
-            // correct = 0;
-            Manager.Instance.room1.turnOnLight = true;
+            Manager.Instance.room1.TurnOnLight();
             SceneExit();
         }
     }

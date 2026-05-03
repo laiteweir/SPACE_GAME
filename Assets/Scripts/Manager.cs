@@ -10,7 +10,7 @@ public class Manager : MonoBehaviour
 {
     public static Manager Instance;
 
-    [SerializeField] private GameObject globalLight;
+    [SerializeField] private Light2D globalLight;
     [SerializeField] private WalkingSound walkingSound;
     [SerializeField] private GameObject player;
     [SerializeField] private PlayerInput playerInput;
@@ -49,7 +49,7 @@ public class Manager : MonoBehaviour
     public PauseMenu PauseMenu { get => pauseMenu; }
     public Inventory Inventory { get => inventory; }
     public GameObject DialogBoxUI { get => dialogBoxUI; }
-    public DialogBox DialogBox { get; private set; }
+    public DialogBox DialogBox { get => dialogBox; private set => dialogBox = value; }
     public GameObject CodePanel { get => codePanel; }
     public WalkingSound WalkingSound { get => walkingSound; }
 
@@ -108,17 +108,17 @@ public class Manager : MonoBehaviour
         SwitchToPlayer();
     }
 
-    public void SetDebugMode(bool global_light_on, float x, float y)
+    public void SetDebugMode(bool globalLightOn, float x, float y)
     {
         Vector2 location = new(x, y);
-        Player.GetComponent<Transform>().position = location;
-        if (global_light_on)
+        Player.transform.position = location;
+        if (globalLightOn)
         {
-            globalLight.GetComponent<Light2D>().enabled = true;
+            globalLight.enabled = true;
         }
         else
         {
-            globalLight.GetComponent<Light2D>().enabled = false;
+            globalLight.enabled = false;
         }
     }
 
