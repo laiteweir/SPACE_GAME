@@ -1,27 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Room10Event1 : MonoBehaviour
 {
+    [SerializeField] private GameObject next;
+
     [SerializeField] private TextAsset textFile;
     private string[] dialog;
-    void Start()
+
+    private void Start()
     {
         dialog = textFile.text.Split('\n');
     }
 
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (Manager.Instance.Player.transform.position.y < -14f)
+        if (other.CompareTag("Player"))
         {
-            // Manager.Instance.room10.engine0_Light.enabled = true;
-            // Manager.Instance.room10.engine1_Light.enabled = true;
-            // Manager.Instance.room10.refillStation_Light.enabled = true;
-            Manager.Instance.DialogBox.StartTalk(dialog);
-            Manager.Instance.room10.room10Event1.SetActive(false);
-            Manager.Instance.room10.room10Event2.SetActive(true);
-            Destroy(this);
+            Manager.Instance.DialogBox.StartTalk(dialog, EndDialog);
         }
+    }
+
+    private void EndDialog()
+    {
+        Manager.Instance.room10.Engine1.SetActive(true);
+        Manager.Instance.room10.Engine2.SetActive(true);
+        Manager.Instance.room10.Room10Event2.SetActive(true);
+        gameObject.SetActive(false);
+        next.SetActive(true);
     }
 }

@@ -1,29 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class RoomThree : MonoBehaviour
 {
-    public GameObject room3_event1;
-    public GameObject room3_event2_1;
-    public GameObject room3_event2_2;
-    public GameObject room3_event2_3;
-    public GameObject room3_event2_4;
-    public GameObject room3_event2_5;
-    public GameObject room3_event3;
-    public GameObject room3_event4;
-    public GameObject room3_event5;
-    public UnityEngine.Rendering.Universal.Light2D biglight;
-    public UnityEngine.Rendering.Universal.Light2D biglight1;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Light2D room3BigLight;
+    [SerializeField] private Light2D consoleLight;
+    [SerializeField] private GameObject consoleMarker;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private GameObject file1;
+    [SerializeField] private GameObject file2;
+    [SerializeField] private GameObject file3;
+    [SerializeField] private GameObject file4;
+    [SerializeField] private GameObject file5;
+    [SerializeField] private GameObject room3Event2;
+    [SerializeField] private GameObject room3Event3;
+    [SerializeField] private Door finalDoor1;
+    [SerializeField] private Door finalDoor2;
+    [SerializeField] private Door finalDoor3;
+
+    public Light2D Room3BigLight { get => room3BigLight; }
+    public Light2D ConsoleLight { get => consoleLight; }
+    public GameObject ConsoleMarker { get => consoleMarker; }
+    public GameObject File1 { get => file1; }
+    public GameObject File2 { get => file2; }
+    public GameObject File3 { get => file3; }
+    public GameObject File4 { get => file4; }
+    public GameObject File5 { get => file5; }
+    public GameObject Event2 { get => room3Event2; }
+    public GameObject Event3 { get => room3Event3; }
+
+    public void UnlockDoor()
     {
-        
+        // Manager.Instance.room4.NextDoor.locked = false;
+        // finalDoor1.locked = false;
+        // finalDoor2.locked = false;
+        // finalDoor3.locked = false;
     }
 }

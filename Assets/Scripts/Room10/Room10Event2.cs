@@ -1,37 +1,91 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.UI;
 
-public class Room10Event2 : MonoBehaviour
+public class Room10Event2 : Keyitem
 {
     [SerializeField] private ItemData hintMapData;
-    [SerializeField] private TextAsset textFile;
-    private string[] dialog;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private ItemData energyTankData;
+    [SerializeField] private ItemData filledEnergyTankData;
+
+    private TextAsset first;
+    private TextAsset second;
+    private TextAsset third;
+    private TextAsset fourth;
+    private TextAsset fifth;
+    private TextAsset sixth;
+    private string[] dialogFirst;
+    private string[] dialogSecond;
+    private string[] dialogThird;
+    private string[] dialogFourth;
+    private string[] dialogFifth;
+    private string[] dialogSixth;
+
+    private bool firstMeet = true;
+
+    private void Start()
     {
-        dialog = textFile.text.Split('\n');
+        first = Resources.Load<TextAsset>("Room2/Robot_first");
+        second = Resources.Load<TextAsset>("Room2/Robot_second");
+        third = Resources.Load<TextAsset>("Room2/Robot_third");
+        fourth = Resources.Load<TextAsset>("Room2/Robot_fourth");
+        fifth = Resources.Load<TextAsset>("Room2/Robot_fifth");
+        sixth = Resources.Load<TextAsset>("Room2/Robot_sixth");
+        dialogFirst = first.text.Split('\n');
+        dialogSecond = second.text.Split('\n');
+        dialogThird = third.text.Split('\n');
+        dialogFourth = fourth.text.Split('\n');
+        dialogFifth = fifth.text.Split('\n');
+        dialogSixth = sixth.text.Split('\n');
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Manager.Instance.room10.isEngine0Fixed && Manager.Instance.room10.isEngine1Fixed && !Manager.Instance.DialogBoxUI.activeSelf)
+    public override void KeyitemEvent()
+    {        
+        // First time meet
+        if (firstMeet)
         {
-            // Debug.Log("You have fixed both engines!");
-            Manager.Instance.room10.room10BigLight.enabled = true;
-            Manager.Instance.room2.room2BigLight.enabled = true;
-            int index = Manager.Instance.InventoryManager.FindIndexOfItem(hintMapData);
-            if (index != -1)
-            {
-                Manager.Instance.InventoryManager.RemoveItem(index, 1);
-                Manager.Instance.DialogBox.StartTalk(dialog);
-                Manager.Instance.room10.UnlockDoor();
-                Manager.Instance.room10.room10Event2.SetActive(false);
-                Destroy(this);
-            }
+            firstMeet = false;
+            Manager.Instance.DialogBox.StartTalk(dialogFirst, EndFirstDialog);
+            return;
         }
+
+        if (Manager.Instance.room10.isEngine1Fixed)
+        {
+            if (!Manager.Instance.room10.isEngine2Fixed)
+            {
+                Manager.Instance.DialogBox.StartTalk(dialogFifth);
+            }
+            else
+            {
+                Manager.Instance.DialogBox.StartTalk(dialogSixth, EndKeyitemEvent);
+            }
+            return;
+        }
+
+        int energyTankIndex = Manager.Instance.InventoryManager.FindIndexOfItem(energyTankData);
+        int filledEnergyTankIndex = Manager.Instance.InventoryManager.FindIndexOfItem(filledEnergyTankData);
+        int emptyCount = (energyTankIndex == -1) ? 0 : Manager.Instance.InventoryManager.items[energyTankIndex].itemQuantity;
+        int filledCount = (filledEnergyTankIndex == -1) ? 0 : Manager.Instance.InventoryManager.items[filledEnergyTankIndex].itemQuantity;
+        int totalCount = emptyCount + filledCount;
+
+        if (filledCount >= 3)
+        {
+            Manager.Instance.DialogBox.StartTalk(dialogFourth);
+        }
+        else if (totalCount >= 3)
+        {
+            Manager.Instance.DialogBox.StartTalk(dialogThird);
+        }
+        else
+        {
+            Manager.Instance.DialogBox.StartTalk(dialogSecond);
+        }
+    }
+    public override void EndKeyitemEvent()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void EndFirstDialog()
+    {
+        Manager.Instance.InventoryManager.AddItem(hintMapData);
     }
 }

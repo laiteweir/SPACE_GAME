@@ -75,26 +75,16 @@ public class DialogBox : MonoBehaviour
             }
         }
     }
-    private IEnumerator OpenSceneRoutine(string sceneName, Keyitem keyitem)
-    {
-        Manager.Instance.OpenScene(sceneName, keyitem);
-        yield break;
-    }
-    private IEnumerator OpenSceneUIRoutine(string sceneName, Keyitem keyitem)
-    {
-        Manager.Instance.OpenSceneUI(sceneName, keyitem);
-        yield break;
-    }
 
     private IEnumerator TalkAndOpenScene(string sceneName, Keyitem keyitem, Action OnEndDialog = null)
     {
         yield return StartCoroutine(Talk(OnEndDialog));
-        yield return StartCoroutine(OpenSceneRoutine(sceneName, keyitem));
+        yield return Manager.Instance.StartCoroutine(Manager.Instance.OpenSceneRoutine(sceneName, keyitem));
     }
     private IEnumerator TalkAndOpenSceneUI(string sceneName, Keyitem keyitem, Action OnEndDialog = null)
     {
         yield return StartCoroutine(Talk(OnEndDialog));
-        yield return StartCoroutine(OpenSceneUIRoutine(sceneName, keyitem));
+        yield return Manager.Instance.StartCoroutine(Manager.Instance.OpenSceneUIRoutine(sceneName, keyitem));
     }
 
     public void StartTalk(string[] inputTxt, Action OnEndDialog = null)
@@ -107,12 +97,12 @@ public class DialogBox : MonoBehaviour
     {
         str = inputTxt;
         gameObject.SetActive(true);
-        StartCoroutine(TalkAndOpenScene(sceneName, keyitem, OnEndDialog));
+        Manager.Instance.StartCoroutine(TalkAndOpenScene(sceneName, keyitem, OnEndDialog));
     }
     public void StartTalkAndOpenSceneUI(string[] inputTxt, string sceneName, Keyitem keyitem, Action OnEndDialog = null)
     {
         str = inputTxt;
         gameObject.SetActive(true);
-        StartCoroutine(TalkAndOpenSceneUI(sceneName, keyitem, OnEndDialog));
+        Manager.Instance.StartCoroutine(TalkAndOpenSceneUI(sceneName, keyitem, OnEndDialog));
     }
 }

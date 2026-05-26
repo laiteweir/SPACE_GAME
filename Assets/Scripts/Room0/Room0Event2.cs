@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 public class Room0Event2 : Keyitem
 {
@@ -36,9 +33,9 @@ public class Room0Event2 : Keyitem
         }
         return true;
     }
+
     public override void KeyitemEvent()
     {
         Manager.Instance.DialogBox.StartTalk(dialog);
-        // Debug.Log(Manager.Instance.DialogBoxUI.activeSelf);
     }
 }

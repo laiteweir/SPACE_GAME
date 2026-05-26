@@ -31,9 +31,6 @@ public class InventoryManager : MonoBehaviour
     private void CreateNewSlot()
     {
         GameObject newSlot = Instantiate(slotPrefab, inventoryGrid);
-        // 確保新物件的本地縮放和位置正確 (Grid Layout Group 會自動處理位置，但重置一下更安全)
-        // newSlot.transform.localPosition = Vector3.zero;
-        // newSlot.transform.localScale = Vector3.one;
         InventorySlot slotScript = newSlot.GetComponent<InventorySlot>();
         slotScript.Clear();
 
@@ -49,18 +46,42 @@ public class InventoryManager : MonoBehaviour
         newItem.Assign(itemData);
         return newItem;
     }
-    public void AddItem(Item newItem)
+    public void AddItem(ItemData newItemData)
     {
-        Item targetItem = items.Find(item => item.itemName == newItem.itemName);
+        Item targetItem = items.Find(item => item.itemName == newItemData.itemName);
         if (targetItem != null)
         {
-            targetItem.itemQuantity += newItem.itemQuantity;
+            targetItem.itemQuantity += newItemData.itemQuantity;
             RefreshInventoryGrid();
         }
         else
         {
             if (items.Count < slots.Count)
             {
+                Item newItem = InstantiateItem(newItemData);
+                items.Add(newItem);
+                RefreshInventoryGrid();
+            }
+            // else
+            // {
+            //     Debug.Log("背包已滿");
+            // }
+        }
+    }
+    public void AddItem(ItemData newItemData, int itemQuantity)
+    {
+        Item targetItem = items.Find(item => item.itemName == newItemData.itemName);
+        if (targetItem != null)
+        {
+            targetItem.itemQuantity += itemQuantity;
+            RefreshInventoryGrid();
+        }
+        else
+        {
+            if (items.Count < slots.Count)
+            {
+                Item newItem = InstantiateItem(newItemData);
+                newItem.itemQuantity = itemQuantity;
                 items.Add(newItem);
                 RefreshInventoryGrid();
             }

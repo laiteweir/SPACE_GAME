@@ -1,25 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Wire : MonoBehaviour
 {
-    [SerializeField] SpriteRenderer wireEnd;
-    [SerializeField] GameObject lightOn;
-    Vector3 rootPosition;
-    Vector3 startPosition;
+    [SerializeField] private SpriteRenderer wireEnd;
+    [SerializeField] private SpriteRenderer lightOn;
+    private Vector3 rootPosition;
+    private Vector3 startPosition;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         rootPosition = transform.parent.position;
         startPosition = transform.position;
     }
 
-    // Update is called once per frame
     private void OnMouseDrag()
     {
-        Vector3 newPosition = WireTaskManager.Instance.wireTaskCamera.ScreenToWorldPoint(Input.mousePosition);
-        newPosition.z = 0f;
+        Vector2 mousePosition = WireTaskManager.Instance.pointAction.ReadValue<Vector2>();
+        Vector3 newPosition = WireTaskManager.Instance.wireTaskCamera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, -WireTaskManager.Instance.wireTaskCamera.transform.position.z));
+
         // Snap this wire to a connection and check if the colors match when the hitboxes are close enough
         Collider2D[] colliders = Physics2D.OverlapCircleAll(newPosition, 0.2f);
         foreach (Collider2D collider in colliders)
@@ -29,11 +28,14 @@ public class Wire : MonoBehaviour
             {
                 UpdateWire(collider.transform.position);
                 // If the colors of the two wires match
-                if (transform.parent.name.Equals(collider.transform.parent.name))
+                if (transform.parent.CompareTag(collider.transform.parent.tag))
                 {
-                    WireTaskManager.Instance.AddPoints(1);
-                    collider.GetComponent<Wire>().Done();
+                    WireTaskManager.Instance.AddPoint();
                     Done();
+                    if (collider.TryGetComponent<Wire>(out var wire))
+                    {
+                        wire.Done();
+                    }
                 }
                 return;
             }
@@ -62,7 +64,7 @@ public class Wire : MonoBehaviour
 
     private void Done()
     {
-        lightOn.SetActive(true);
+        lightOn.enabled = true;
         Destroy(this);
     }
 }

@@ -14,6 +14,10 @@ TagManager:
   - GlowingContainer
   - slime2
   - slime1
+  - Blue Wire
+  - Green Wire
+  - Pink Wire
+  - Yellow Wire
   layers:
   - Default
   - TransparentFX

@@ -1,25 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 public class Room0Event1 : Keyitem
 {
     [SerializeField] private GameObject next;
-    // new Collider2D collider;
     [SerializeField] private Light2D computerLight;
-    // GameObject this_event;
 
     [SerializeField] private TextAsset textFile;
-    // private TextAsset dialog01;
     private string[] dialog;
 
     // Start is called before the first frame update
     private void Start()
     {
-        // collider = GetComponent<Collider2D>();
         dialog = textFile.text.Split('\n');
-        // this_event = GameObject.Find("Robot_01_event_01");
     }
 
     public override void KeyitemEvent()

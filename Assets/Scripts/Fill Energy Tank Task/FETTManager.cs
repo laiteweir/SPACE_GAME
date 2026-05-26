@@ -1,46 +1,32 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class FETTManager : MonoBehaviour
+public class FETTManager : BaseScene
 {
     public static FETTManager Instance;
 
     [SerializeField] private ItemData energyTankData;
     [SerializeField] private ItemData filledEnergyTankData;
-    private Item energyTank;
-    private Item filledEnergyTank;
 
-    private void Awake()
+    protected override void Awake()
     {
-        if (Instance != null)
+        base.Awake();
+        if (Instance != null && Instance != this)
         {
-            gameObject.SetActive(false);
             Destroy(gameObject);
+            return;
         }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-            Instance = this;
-        }
-        energyTank = Manager.Instance.InventoryManager.InstantiateItem(energyTankData);
-        filledEnergyTank = Manager.Instance.InventoryManager.InstantiateItem(filledEnergyTankData);
+        Instance = this;
     }
-    public void Done()
+
+    public void CompleteFilling()
     {
-        int energyTankIndex = Manager.Instance.InventoryManager.FindIndexOfItem(energyTank);
+        int energyTankIndex = Manager.Instance.InventoryManager.FindIndexOfItem(energyTankData);
         int energyTankQuantity = Manager.Instance.InventoryManager.items[energyTankIndex].itemQuantity;
         Manager.Instance.InventoryManager.RemoveItem(energyTankIndex, 1);
-        Manager.Instance.InventoryManager.AddItem(filledEnergyTank);
+        Manager.Instance.InventoryManager.AddItem(filledEnergyTankData);
         if (energyTankQuantity == 1)
         {
-            // Manager.Instance.InventoryManager.items.Remove(energyTank);
-            Manager.Instance.returnKeyitem.EndKeyitemEvent();
+            SceneExit();
         }
-    }
-    public void QuitTask()
-    {
-        Manager.Instance.returnKeyitem.EndKeyitemEvent();
     }
 }

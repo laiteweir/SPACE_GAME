@@ -11,12 +11,11 @@ public class eat : Keyitem
     private string[] dialog;
     [SerializeField] private ItemData cookedFoodData;
     [SerializeField] private ItemData shieldData;
-    private Item shield;
+
     // Start is called before the first frame update
     private void Start()
     {
         dialog = textFile.text.Split('\n');
-        shield = Manager.Instance.InventoryManager.InstantiateItem(shieldData);
     }
     public override void KeyitemEvent()
     {
@@ -27,7 +26,7 @@ public class eat : Keyitem
             Manager.Instance.InventoryManager.RemoveItem(cookedFoodIndex, Manager.Instance.InventoryManager.items[cookedFoodIndex].itemQuantity);
             Manager.Instance.DialogBoxUI.SetActive(true);
             Manager.Instance.DialogBox.StartTalk(dialog);
-            Manager.Instance.InventoryManager.AddItem(shield);
+            Manager.Instance.InventoryManager.AddItem(shieldData);
             EndKeyitemEvent();
         }
     }

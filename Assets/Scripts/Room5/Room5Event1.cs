@@ -13,17 +13,17 @@ public class Room5Event1 : MonoBehaviour
         dialog = textFile.text.Split('\n');
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Manager.Instance.DialogBox.StartTalk(dialog, EndDialog);
+        }
+    }
+
     private void EndDialog()
     {
         gameObject.SetActive(false);
         next.SetActive(true);
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Manager.Instance.DialogBox.StartTalk(dialog, EndDialog);
-        }
     }
 }

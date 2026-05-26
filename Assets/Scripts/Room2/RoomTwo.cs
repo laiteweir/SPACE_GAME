@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 public class RoomTwo : MonoBehaviour
 {
-    public Light2D room2BigLight;
+    [SerializeField] private Light2D room2BigLight;
+
+    public Light2D Room2BigLight { get => room2BigLight; }
 }

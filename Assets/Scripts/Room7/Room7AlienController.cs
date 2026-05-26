@@ -56,7 +56,7 @@ public class Room7AlienController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!isTouch && other.gameObject.CompareTag("Player"))
+        if (!isTouch && other.CompareTag("Player"))
         {
             // Debug.Log(other.gameObject.name + " : " + gameObject.name + " : " + Time.time);
             isTouch = true;

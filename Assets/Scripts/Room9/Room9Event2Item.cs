@@ -1,7 +1,9 @@
 using UnityEngine;
 
-public class Room0Event3 : Keyitem
+public class Room9Event2Item : Keyitem
 {
+    [SerializeField] private ItemData itemData;
+
     [SerializeField] private TextAsset textFile;
     private string[] dialog;
 
@@ -13,11 +15,11 @@ public class Room0Event3 : Keyitem
 
     public override void KeyitemEvent()
     {
+        Manager.Instance.InventoryManager.AddItem(itemData);
         Manager.Instance.DialogBox.StartTalk(dialog, EndKeyitemEvent);
     }
     public override void EndKeyitemEvent()
     {
         gameObject.SetActive(false);
-        Manager.Instance.room0.Robot1Notice.gameObject.SetActive(false);
     }
 }

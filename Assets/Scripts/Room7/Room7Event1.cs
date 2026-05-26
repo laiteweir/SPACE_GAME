@@ -8,14 +8,14 @@ public class Room7Event1 : MonoBehaviour
     private string[] dialog;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         dialog = textFile.text.Split('\n');
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             Manager.Instance.DialogBox.StartTalk(dialog, EndDialog);
         }

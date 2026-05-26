@@ -33,7 +33,7 @@ public class Room9Event4 : Keyitem
         // Enable next event
         gameObject.SetActive(false);
         next.SetActive(true);
-        Manager.Instance.room8.Robot3.SetActive(true);
+        Manager.Instance.room8.Room8Event2.SetActive(true);
         Manager.Instance.room8.Room8WhiteSlime1.SetActive(true);
         Manager.Instance.room8.Room8WhiteSlime2.SetActive(true);
         Manager.Instance.room8.Room8WhiteSlime3.SetActive(true);

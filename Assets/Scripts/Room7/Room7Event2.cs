@@ -13,7 +13,7 @@ public class Room7Event2 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             Manager.Instance.room7.DeactiveAliens();
             Manager.Instance.DialogBox.StartTalk(dialog, EndDialog);

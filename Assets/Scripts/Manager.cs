@@ -78,7 +78,6 @@ public class Manager : MonoBehaviour
         // Cursor.lockState = CursorLockMode.None;
         // Cursor.visible = true;
     }
-
     // ¤Á´«¦^¹CÀ¸¼Ò¦¡
     public void SwitchToPlayer()
     {
@@ -86,6 +85,7 @@ public class Manager : MonoBehaviour
         // Cursor.lockState = CursorLockMode.Locked;
         // Cursor.visible = false;
     }
+
     public void OpenScene(string name, Keyitem keyitem)
     {
         returnKeyitem = keyitem;
@@ -106,6 +106,16 @@ public class Manager : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync(name);
         SwitchToPlayer();
+    }
+    public IEnumerator OpenSceneRoutine(string sceneName, Keyitem keyitem)
+    {
+        OpenScene(sceneName, keyitem);
+        yield break;
+    }
+    public IEnumerator OpenSceneUIRoutine(string sceneName, Keyitem keyitem)
+    {
+        OpenSceneUI(sceneName, keyitem);
+        yield break;
     }
 
     public void SetDebugMode(bool globalLightOn, float x, float y)

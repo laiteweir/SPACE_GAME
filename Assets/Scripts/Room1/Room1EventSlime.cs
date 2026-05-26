@@ -4,31 +4,22 @@ using UnityEngine;
 
 public class Room1EventSlime : MonoBehaviour
 {
-
     [SerializeField] private TextAsset textFile;
     private string[] dialog;
     [SerializeField] private GameObject slime;
-    // public bool destroy = false;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        //collider = GetComponent<Collider2D>();
         dialog = textFile.text.Split('\n');
-        // this_event = GameObject.Find("Robot_01_event_01");
     }
 
-
-    void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (col.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            // Manager.Instance.ui.SetActive(true);
-            // Manager.Instance.dialogBox.StartTalk(dialog);
-            //this.first_trigger = false;
             slime.GetComponent<Room1EventSlimeMove>().isMoving = true;
             StartCoroutine(PlayAudio());
-            //Destroy(gameObject);
         }
         // Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
     }    
@@ -43,7 +34,5 @@ public class Room1EventSlime : MonoBehaviour
 
         Manager.Instance.DialogBox.StartTalk(dialog);
         Destroy(gameObject);
-        // audio.clip = otherClip;
-        // audio.Play();
     }
 }

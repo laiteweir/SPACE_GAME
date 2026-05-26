@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Room1EventSlimeMove : MonoBehaviour
 {
     public bool isMoving = false;
     private int count = 0;
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (isMoving)
         {

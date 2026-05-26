@@ -10,7 +10,6 @@ public class RoomOne : MonoBehaviour
     [SerializeField] private Notice robot2Notice;
     [SerializeField] private Door nextDoor;
 
-    public Light2D Room1BigLight { get => room1BigLight; }
     public GameObject Room1Computer { get => room1Computer; }
     public GameObject Room1WirePanel { get => room1WirePanel; }
     public WirePanel Room1WirePanelUI { get => room1WirePanelUI; }
