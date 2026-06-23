@@ -1,13 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class eat : Keyitem
 {
     [SerializeField] private TextAsset textFile;
-    //private TextAsset dialog01;
     private string[] dialog;
     [SerializeField] private ItemData cookedFoodData;
     [SerializeField] private ItemData shieldData;
@@ -17,6 +12,7 @@ public class eat : Keyitem
     {
         dialog = textFile.text.Split('\n');
     }
+
     public override void KeyitemEvent()
     {
         int cookedFoodIndex = Manager.Instance.InventoryManager.FindIndexOfItem(cookedFoodData);
@@ -24,14 +20,12 @@ public class eat : Keyitem
         {
             // Debug.Log("start eating!");
             Manager.Instance.InventoryManager.RemoveItem(cookedFoodIndex, Manager.Instance.InventoryManager.items[cookedFoodIndex].itemQuantity);
-            Manager.Instance.DialogBoxUI.SetActive(true);
-            Manager.Instance.DialogBox.StartTalk(dialog);
-            Manager.Instance.InventoryManager.AddItem(shieldData);
-            EndKeyitemEvent();
+            Manager.Instance.DialogBox.StartTalk(dialog, EndKeyitemEvent);
         }
     }
     public override void EndKeyitemEvent()
     {
+        Manager.Instance.InventoryManager.AddItem(shieldData);
         Destroy(this);
     }
 }

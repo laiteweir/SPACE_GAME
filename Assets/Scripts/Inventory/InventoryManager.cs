@@ -68,12 +68,12 @@ public class InventoryManager : MonoBehaviour
             // }
         }
     }
-    public void AddItem(ItemData newItemData, int itemQuantity)
+    public void AddItem(ItemData newItemData, int quantity)
     {
         Item targetItem = items.Find(item => item.itemName == newItemData.itemName);
         if (targetItem != null)
         {
-            targetItem.itemQuantity += itemQuantity;
+            targetItem.itemQuantity += quantity;
             RefreshInventoryGrid();
         }
         else
@@ -81,7 +81,7 @@ public class InventoryManager : MonoBehaviour
             if (items.Count < slots.Count)
             {
                 Item newItem = InstantiateItem(newItemData);
-                newItem.itemQuantity = itemQuantity;
+                newItem.itemQuantity = quantity;
                 items.Add(newItem);
                 RefreshInventoryGrid();
             }

@@ -6,20 +6,22 @@ using UnityEngine.UI;
 public class BossManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] GameObject Boss;
-    [SerializeField] GameObject Player;
+    [SerializeField] private GameObject Boss;
+    [SerializeField] private GameObject Player;
 
-    [SerializeField] GameObject slider;
-    [SerializeField] GameObject shield;
+    [SerializeField] private GameObject slider;
+    [SerializeField] private GameObject shield;
     public bool win = false;
     private int playerhealth = 5;
     public string keyword;
-    Slider slide;
-    void Start()
+    private Slider slide;
+    private void Start()
     {
-        Boss.GetComponent<BossSmile>().bossHealth =4;
-        for(int i=0; i< Manager.Instance.InventoryManager.items.Count ;i++){
-            if(Manager.Instance.InventoryManager.items[i].itemName == keyword){
+        Boss.GetComponent<BossSmile>().bossHealth = 4;
+        for (int i = 0; i < Manager.Instance.InventoryManager.items.Count; ++i)
+        {
+            if (Manager.Instance.InventoryManager.items[i].itemName == keyword)
+            {
                     playerhealth = 10;
                     shield.SetActive(true);
             }
@@ -30,18 +32,20 @@ public class BossManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if(Boss.GetComponent<BossSmile>().bossHealth ==0){
+        if (Boss.GetComponent<BossSmile>().bossHealth == 0)
+        {
             Manager.Instance.iswin = true;
             backScene();
         }
-        else if(Player.GetComponent<BreakController>().health ==0){
+        else if (Player.GetComponent<BreakController>().health == 0)
+        {
             backScene();
         }
     }
 
-    void backScene(){
+    private void backScene(){
         Manager.Instance.returnKeyitem.EndKeyitemEvent();
     }
 }
