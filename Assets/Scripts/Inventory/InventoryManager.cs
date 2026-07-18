@@ -12,8 +12,8 @@ public class InventoryManager : MonoBehaviour
     public Transform inventoryGrid;
     public int inventoryCapacity = 20;
 
-    [HideInInspector] public List<Item> items = new List<Item>();
-    private List<InventorySlot> slots = new List<InventorySlot>();
+    [HideInInspector] public List<Item> items = new();
+    private readonly List<InventorySlot> slots = new();
 
     private void Awake()
     {

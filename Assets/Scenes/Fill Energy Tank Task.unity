@@ -550,7 +550,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2039189303}
         m_TargetAssemblyTypeName: FETTManager, Assembly-CSharp
-        m_MethodName: SceneExit
+        m_MethodName: ExitScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

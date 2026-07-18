@@ -19,7 +19,7 @@ public class PauseMenu : BaseMenu
         backAction.performed -= Manager.Instance.UIManager.OnBack;
     }
 
-    public void OnPausePerformed(InputAction.CallbackContext context)
+    public void OnPause(InputAction.CallbackContext context)
     {
         // Debug.Log("Turn on pause menu");
         Manager.Instance.UIManager.OpenUI(gameObject, pauseMenuFirstButton);

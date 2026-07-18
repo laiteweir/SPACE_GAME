@@ -4,7 +4,7 @@ using UnityEngine.Rendering.Universal;
 public class RoomFour : MonoBehaviour
 {
     [SerializeField] private Light2D room4BigLight;
-    [SerializeField] private Door nextDoor;
+    // [SerializeField] private Door nextDoor;
     [SerializeField] private GameObject room4Strongbox;
     [SerializeField] private GameObject room4Event1;
     [SerializeField] private GameObject room4Event2;

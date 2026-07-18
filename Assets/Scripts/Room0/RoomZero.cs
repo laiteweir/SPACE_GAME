@@ -9,6 +9,7 @@ public class RoomZero : MonoBehaviour
     private readonly bool[] room0Lights = { false, false, false, false };
     [SerializeField] private List<Light2D> room0Event2Light;
     [SerializeField] private Light2D room0BigLight;
+    [SerializeField] private Door room11Door;
     [SerializeField] private GameObject keyCard;
 
     public Notice Robot1Notice { get => robot1Notice; }
@@ -19,7 +20,6 @@ public class RoomZero : MonoBehaviour
     {
         foreach (Light2D light in Room0Event2Light)
         {
-            // light.enabled = true;
             light.color = Color.red;
             if (!light.gameObject.activeSelf)
             {
@@ -50,5 +50,10 @@ public class RoomZero : MonoBehaviour
             }
         }
         return result;
+    }
+
+    public void UnlockRoom11Door()
+    {
+        room11Door.UnlockDoor();
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Room3Event1 : Keyitem
 {
-    [SerializeField] private Door door;
+    // [SerializeField] private Door door;
 
     [SerializeField] private TextAsset textFile;
     private string[] dialog;
@@ -20,7 +20,7 @@ public class Room3Event1 : Keyitem
     public override void EndKeyitemEvent()
     {
         gameObject.SetActive(false);
-        door.locked = false;
+        // door.UnlockDoor();
         Manager.Instance.room3.Event2.SetActive(true);
         Manager.Instance.room4.Room4Strongbox.SetActive(true);
         Manager.Instance.room4.Event1.SetActive(true);

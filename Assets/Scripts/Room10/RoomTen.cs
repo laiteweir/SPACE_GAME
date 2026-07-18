@@ -20,9 +20,9 @@ public class RoomTen : MonoBehaviour
     public GameObject Engine2 { get => engine2; }
     public GameObject Room10Event2 { get => room10Event2; }
 
-    public void UnlockDoor()
+    public void UnlockRoom3Door()
     {
-        nextDoor.locked = false;
+        nextDoor.UnlockDoor();
         Manager.Instance.room3.ConsoleLight.enabled = true;
         Manager.Instance.room3.ConsoleMarker.SetActive(true);
     }

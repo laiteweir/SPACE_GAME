@@ -32,7 +32,7 @@ public class WireTaskManager : BaseScene
             // Debug.Log("You win!");
             count = 0;
             Manager.Instance.room10.isEngine2Fixed = true;
-            SceneExit();
+            ExitScene();
         }
     }
 }

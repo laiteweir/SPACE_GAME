@@ -26,7 +26,7 @@ public class FETTManager : BaseScene
         Manager.Instance.InventoryManager.AddItem(filledEnergyTankData);
         if (energyTankQuantity == 1)
         {
-            SceneExit();
+            ExitScene();
         }
     }
 }

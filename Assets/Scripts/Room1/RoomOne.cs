@@ -22,6 +22,6 @@ public class RoomOne : MonoBehaviour
         room1BigLight.enabled = true;
         Room1Computer.GetComponent<ManageFixLight>().currentEvent.SetActive(false);
         Room1Computer.GetComponent<ManageFixLight>().next.SetActive(true);
-        nextDoor.locked = false;
+        nextDoor.UnlockDoor();
     }
 }

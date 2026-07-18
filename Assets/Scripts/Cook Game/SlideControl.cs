@@ -50,7 +50,7 @@ public class SlideControl : MonoBehaviour
         if (slider.value == 10f)
         {
             CookManager.Instance.Burnt = true;
-            CookManager.Instance.SceneExit();
+            CookManager.Instance.ExitScene();
         }
     }
     private void FixedUpdate()
@@ -77,7 +77,7 @@ public class SlideControl : MonoBehaviour
         if (count >= limitCount)
         {
             CookManager.Instance.Undercooked = true;
-            CookManager.Instance.SceneExit();
+            CookManager.Instance.ExitScene();
         }
 
         flip = !flip;

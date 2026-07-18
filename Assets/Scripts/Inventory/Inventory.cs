@@ -5,7 +5,7 @@ public class Inventory : BaseUI
 {
     [HideInInspector] public GameObject inventoryFirstItem;
 
-    public void OnInventoryPerformed(InputAction.CallbackContext context)
+    public void OnOpenInventory(InputAction.CallbackContext context)
     {
         Manager.Instance.UIManager.OpenUI(gameObject, inventoryFirstItem);
     }

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.UI;
 
 public class Manager : MonoBehaviour
 {
@@ -36,9 +36,6 @@ public class Manager : MonoBehaviour
     public RoomTen room10;
     public RoomThirteen room13;
     
-    public bool iswin = false;
-    [HideInInspector] public InputActionMap actionMapPlayer;
-
     [HideInInspector] public Keyitem returnKeyitem;
 
     public GameObject Player { get => player; }
@@ -65,8 +62,6 @@ public class Manager : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
-        // playerInput = player.GetComponent<PlayerInput>();
-        actionMapPlayer = PlayerInput.actions.FindActionMap("Player");
         DialogBox = DialogBoxUI.GetComponent<DialogBox>();
         UIStack.Push(startMenuObject);
     }
@@ -85,6 +80,12 @@ public class Manager : MonoBehaviour
         // Cursor.lockState = CursorLockMode.Locked;
         // Cursor.visible = false;
     }
+    private void SwitchToBossFight()
+    {
+        PlayerInput.SwitchCurrentActionMap("BossFight");
+        // Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.visible = false;
+    }
 
     public void OpenScene(string name, Keyitem keyitem)
     {
@@ -98,6 +99,15 @@ public class Manager : MonoBehaviour
         // Debug.Log("OpenSceneUI!");
         SceneManager.LoadScene(name, LoadSceneMode.Additive);
     }
+    public void OpenSceneBossFight(string name, Keyitem keyitem)
+    {
+        returnKeyitem = keyitem;
+        SwitchToBossFight();
+        Player.GetComponent<PlayerController>().enabled = false;
+        Player.GetComponent<PaddleController>().enabled = true;
+        SceneManager.LoadScene(name, LoadSceneMode.Additive);
+        Player.transform.position = new Vector3(99f, -1.5f, 0f);
+    }
     public void CloseScene(string name)
     {
         SceneManager.UnloadSceneAsync(name);
@@ -106,6 +116,14 @@ public class Manager : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync(name);
         SwitchToPlayer();
+    }
+    public void CloseSceneBossFight(string name)
+    {
+        SceneManager.UnloadSceneAsync(name);
+        SwitchToPlayer();
+        Player.GetComponent<PlayerController>().enabled = true;
+        Player.GetComponent<PaddleController>().enabled = false;
+        Player.transform.position = new Vector3(0f, 20f, 0f);
     }
     public IEnumerator OpenSceneRoutine(string sceneName, Keyitem keyitem)
     {
@@ -132,4 +150,13 @@ public class Manager : MonoBehaviour
         }
     }
 
+    private void OnExit(InputControl control)
+    {
+        // Debug.Log($"玩家按下了 {control.displayName}，正在關閉遊戲...");
+        Application.Quit();
+    }
+    public void Ending()
+    {
+        InputSystem.onAnyButtonPress.CallOnce(OnExit);
+    }
 }

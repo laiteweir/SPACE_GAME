@@ -16,7 +16,7 @@ public class Room8Event1 : MonoBehaviour
     {
         ++times;
         Manager.Instance.room8.Room8Event1Light.intensity = light_intensity_base * times;
-        if (times == 3)
+        if (times >= 4)
         {
             Manager.Instance.room8.Room8Event1Light.enabled = false;
             Manager.Instance.room8.Room8BigLight.enabled = true;
@@ -27,7 +27,7 @@ public class Room8Event1 : MonoBehaviour
     {
         gameObject.SetActive(false);
         Manager.Instance.room8.Room8Event2.SetActive(false);
-        Manager.Instance.room8.Door8_1.locked = false;
-        Manager.Instance.room8.Door1_2.locked = false;
+        Manager.Instance.room8.Door8_1.UnlockDoor();
+        Manager.Instance.room8.Door1_2.UnlockDoor();
     }
 }

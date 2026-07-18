@@ -2,10 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class DialogBox : MonoBehaviour
 {
@@ -15,7 +13,6 @@ public class DialogBox : MonoBehaviour
     private int count;
     private string[] str;
     [SerializeField] private TMP_Text dialog;
-    public bool TextIsOn = false;
 
     private void Awake()
     {
@@ -35,8 +32,6 @@ public class DialogBox : MonoBehaviour
         // Debug.Log("get dialog length: " + str.GetLength(0).ToString());
         if (count < str.GetLength(0))
         {
-            // string lines = str[count];
-            // Text nextline.text = lines;
             moveNext = true;
         }
         else

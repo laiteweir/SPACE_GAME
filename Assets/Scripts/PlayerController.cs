@@ -15,7 +15,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Light2D spotLight;
 
     private float moveSpeed;
-    private InputAction run;
+    private InputAction moveAction;
+    private InputAction runAction;
+    private InputAction fireAction;
     private InputAction pauseAction;
     private InputAction inventoryAction;
 
@@ -34,6 +36,14 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private readonly List<RaycastHit2D> castCollisions = new();
 
+    private void Awake()
+    {
+        moveAction = Manager.Instance.PlayerInput.actions["Player/Move"];
+        runAction = Manager.Instance.PlayerInput.actions["Player/Run"];
+        fireAction = Manager.Instance.PlayerInput.actions["Player/Fire"];
+        pauseAction = Manager.Instance.PlayerInput.actions["Player/Pause"];
+        inventoryAction = Manager.Instance.PlayerInput.actions["Player/Inventory"];
+    }
     // Start is called before the first frame update
     private void Start()
     {
@@ -42,20 +52,26 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         spotLight.intensity = 1f;
         moveSpeed = walkSpeed;
-        run = Manager.Instance.PlayerInput.actions["Player/Run"];
-        run.started += StartRun;
-        run.canceled += EndRun;
-        pauseAction = Manager.Instance.PlayerInput.actions["Player/Pause"];
-        pauseAction.performed += Manager.Instance.PauseMenu.OnPausePerformed;
-        inventoryAction = Manager.Instance.PlayerInput.actions["Player/Inventory"];
-        inventoryAction.performed += Manager.Instance.Inventory.OnInventoryPerformed;
     }
-    private void OnDestroy()
+    private void OnEnable()
     {
-        run.started -= StartRun;
-        run.canceled -= EndRun;
-        pauseAction.performed -= Manager.Instance.PauseMenu.OnPausePerformed;
-        inventoryAction.performed -= Manager.Instance.Inventory.OnInventoryPerformed;
+        moveAction.performed += OnMove;
+        moveAction.canceled += OnMove;
+        runAction.started += StartRun;
+        runAction.canceled += EndRun;
+        fireAction.performed += OnFire;
+        pauseAction.performed += Manager.Instance.PauseMenu.OnPause;
+        inventoryAction.performed += Manager.Instance.Inventory.OnOpenInventory;
+    }
+    private void OnDisable()
+    {
+        moveAction.performed -= OnMove;
+        moveAction.canceled -= OnMove;
+        runAction.started -= StartRun;
+        runAction.canceled -= EndRun;
+        fireAction.performed -= OnFire;
+        pauseAction.performed -= Manager.Instance.PauseMenu.OnPause;
+        inventoryAction.performed -= Manager.Instance.Inventory.OnOpenInventory;
     }
     private void FixedUpdate() 
     {
@@ -124,15 +140,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void StartRun(InputAction.CallbackContext context)
-    {
-        moveSpeed = runSpeed;
-    }
-    private void EndRun(InputAction.CallbackContext context)
-    {
-        moveSpeed = walkSpeed;
-    }
-
     private bool TryMove(Vector2 direction)
     {
         if (direction == Vector2.zero) 
@@ -160,10 +167,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnMove(InputValue movementValue){
-        movementInput = movementValue.Get<Vector2>();
+    private void OnMove(InputAction.CallbackContext context)
+    {
+        movementInput = context.ReadValue<Vector2>();
     }
-    public void OnFire()
+    private void StartRun(InputAction.CallbackContext context)
+    {
+        moveSpeed = runSpeed;
+    }
+    private void EndRun(InputAction.CallbackContext context)
+    {
+        moveSpeed = walkSpeed;
+    }
+    private void OnFire(InputAction.CallbackContext context)
     {
         animator.SetTrigger("keyitemInteract");
     }

@@ -4,6 +4,7 @@ public class Room3Event3 : Keyitem
 {
     [SerializeField] private TextAsset textFile;
     private string[] dialog;
+    [SerializeField] private ItemData keyCardData;
 
     // Start is called before the first frame update
     private void Start()
@@ -13,7 +14,11 @@ public class Room3Event3 : Keyitem
 
     public override void KeyitemEvent()
     {
-        Manager.Instance.DialogBox.StartTalk(dialog, EndKeyitemEvent);
+        int keyCardIndex = Manager.Instance.InventoryManager.FindIndexOfItem(keyCardData);
+        if (keyCardIndex != -1)
+        {
+            Manager.Instance.DialogBox.StartTalk(dialog, EndKeyitemEvent);
+        }
     }
     public override void EndKeyitemEvent()
     {
@@ -21,7 +26,7 @@ public class Room3Event3 : Keyitem
         Manager.Instance.room3.ConsoleMarker.SetActive(false);
         Manager.Instance.room3.Room3BigLight.enabled = true;
         Manager.Instance.room4.Room4BigLight.enabled = true;
-        Manager.Instance.room3.UnlockDoor();
+        // Manager.Instance.room3.UnlockRoom4Door();
         gameObject.SetActive(false);
         Manager.Instance.room3.File1.SetActive(true);
         Manager.Instance.room3.File2.SetActive(true);

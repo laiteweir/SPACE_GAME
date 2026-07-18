@@ -4,7 +4,7 @@ using UnityEngine.Rendering.Universal;
 public class Room0Event1 : Keyitem
 {
     [SerializeField] private GameObject next;
-    [SerializeField] private Light2D computerLight;
+    // [SerializeField] private Light2D computerLight;
 
     [SerializeField] private TextAsset textFile;
     private string[] dialog;
@@ -17,7 +17,7 @@ public class Room0Event1 : Keyitem
 
     public override void KeyitemEvent()
     {
-        computerLight.enabled = false;
+        // computerLight.enabled = false;
         Manager.Instance.DialogBox.StartTalk(dialog, EndKeyitemEvent);
     }
     public override void EndKeyitemEvent()

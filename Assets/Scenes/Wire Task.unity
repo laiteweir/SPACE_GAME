@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8904740946575534865, guid: 442add5bc8d7c4546aae0b07c7148b7b, type: 3}
       propertyPath: m_TagString
-      value: Pink Wire
+      value: PinkWire
       objectReference: {fileID: 0}
     - target: {fileID: 9190764428894401837, guid: 442add5bc8d7c4546aae0b07c7148b7b, type: 3}
       propertyPath: m_RootOrder
@@ -219,7 +219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8904740946575534865, guid: 442add5bc8d7c4546aae0b07c7148b7b, type: 3}
       propertyPath: m_TagString
-      value: Green Wire
+      value: GreenWire
       objectReference: {fileID: 0}
     - target: {fileID: 9190764428894401837, guid: 442add5bc8d7c4546aae0b07c7148b7b, type: 3}
       propertyPath: m_RootOrder
@@ -349,7 +349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8904740946575534865, guid: 442add5bc8d7c4546aae0b07c7148b7b, type: 3}
       propertyPath: m_TagString
-      value: Pink Wire
+      value: PinkWire
       objectReference: {fileID: 0}
     - target: {fileID: 9190764428894401837, guid: 442add5bc8d7c4546aae0b07c7148b7b, type: 3}
       propertyPath: m_RootOrder
@@ -555,7 +555,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8904740946575534865, guid: 442add5bc8d7c4546aae0b07c7148b7b, type: 3}
       propertyPath: m_TagString
-      value: Yellow Wire
+      value: YellowWire
       objectReference: {fileID: 0}
     - target: {fileID: 9190764428894401837, guid: 442add5bc8d7c4546aae0b07c7148b7b, type: 3}
       propertyPath: m_RootOrder
@@ -629,7 +629,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8904740946575534865, guid: 442add5bc8d7c4546aae0b07c7148b7b, type: 3}
       propertyPath: m_TagString
-      value: Blue Wire
+      value: BlueWire
       objectReference: {fileID: 0}
     - target: {fileID: 9190764428894401837, guid: 442add5bc8d7c4546aae0b07c7148b7b, type: 3}
       propertyPath: m_RootOrder
@@ -846,7 +846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8904740946575534865, guid: 442add5bc8d7c4546aae0b07c7148b7b, type: 3}
       propertyPath: m_TagString
-      value: Green Wire
+      value: GreenWire
       objectReference: {fileID: 0}
     - target: {fileID: 9190764428894401837, guid: 442add5bc8d7c4546aae0b07c7148b7b, type: 3}
       propertyPath: m_RootOrder
@@ -928,7 +928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8904740946575534865, guid: 442add5bc8d7c4546aae0b07c7148b7b, type: 3}
       propertyPath: m_TagString
-      value: Yellow Wire
+      value: YellowWire
       objectReference: {fileID: 0}
     - target: {fileID: 9190764428894401837, guid: 442add5bc8d7c4546aae0b07c7148b7b, type: 3}
       propertyPath: m_RootOrder
@@ -1092,7 +1092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8904740946575534865, guid: 442add5bc8d7c4546aae0b07c7148b7b, type: 3}
       propertyPath: m_TagString
-      value: Blue Wire
+      value: BlueWire
       objectReference: {fileID: 0}
     - target: {fileID: 9190764428894401837, guid: 442add5bc8d7c4546aae0b07c7148b7b, type: 3}
       propertyPath: m_RootOrder

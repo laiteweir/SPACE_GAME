@@ -29,11 +29,11 @@ public class RoomThree : MonoBehaviour
     public GameObject Event2 { get => room3Event2; }
     public GameObject Event3 { get => room3Event3; }
 
-    public void UnlockDoor()
-    {
-        // Manager.Instance.room4.NextDoor.locked = false;
-        // finalDoor1.locked = false;
-        // finalDoor2.locked = false;
-        // finalDoor3.locked = false;
-    }
+    // public void UnlockRoom4Door()
+    // {
+    //     Manager.Instance.room4.NextDoor.UnlockDoor();
+    //     finalDoor1.UnlockDoor();
+    //     finalDoor2.UnlockDoor();
+    //     finalDoor3.UnlockDoor();
+    // }
 }

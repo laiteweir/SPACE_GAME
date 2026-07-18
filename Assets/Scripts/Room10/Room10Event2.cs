@@ -82,6 +82,7 @@ public class Room10Event2 : Keyitem
     public override void EndKeyitemEvent()
     {
         gameObject.SetActive(false);
+        Manager.Instance.room0.UnlockRoom11Door();
     }
 
     private void EndFirstDialog()

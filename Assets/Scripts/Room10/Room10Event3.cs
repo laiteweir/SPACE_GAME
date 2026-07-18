@@ -35,6 +35,6 @@ public class Room10Event3 : MonoBehaviour
     private void EndDialog()
     {
         gameObject.SetActive(false);
-        Manager.Instance.room10.UnlockDoor();
+        Manager.Instance.room10.UnlockRoom3Door();
     }
 }

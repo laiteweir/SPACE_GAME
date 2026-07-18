@@ -32,7 +32,7 @@ public class LightManager : BaseScene
         if (correct == lights.Count)
         {
             Manager.Instance.room1.TurnOnLight();
-            SceneExit();
+            ExitScene();
         }
     }
 }

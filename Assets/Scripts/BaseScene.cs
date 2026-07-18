@@ -11,18 +11,18 @@ public abstract class BaseScene : MonoBehaviour
     }
     protected virtual void OnEnable()
     {
-        exitAction.performed += OnSceneExit;
+        exitAction.performed += OnExitScene;
     }
     protected virtual void OnDisable()
     {
-        exitAction.performed -= OnSceneExit;
+        exitAction.performed -= OnExitScene;
     }
-    public virtual void SceneExit()
+    public virtual void ExitScene()
     {
         Manager.Instance.returnKeyitem.EndKeyitemEvent();
     }
-    protected virtual void OnSceneExit(InputAction.CallbackContext context)
+    protected virtual void OnExitScene(InputAction.CallbackContext context)
     {
-        SceneExit();
+        ExitScene();
     }
 }
